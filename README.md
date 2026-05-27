@@ -22,9 +22,11 @@
 
 <div align="center">
 
-> *" Security is not a product, it's a process. "*
->
-> **Think.** `Break.` **Build.** `Repeat.`
+*"Security is not a product, it's a process."*
+
+<br>
+
+**Think.** `Break.` **Build.** `Repeat.`
 
 </div>
 
@@ -216,13 +218,13 @@ $ status
 
 <div align="center">
 
-> *"The quieter you become, the more you are able to hear."*
+*"The quieter you become, the more you are able to hear."*
 
 <br>
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/)
 
-<br>
+<br><br>
 
 ![Visitor Count](https://komarev.com/ghpvc/?username=dRafaleD&color=00FF41&style=flat-square&label=profile+views)
 
@@ -238,6 +240,6 @@ $ status
 
 <br><br>
 
-> ── `λ sector clear` ── `access granted` ── `black mesa protocol active` ──
+<sub>λ sector clear · access granted · black mesa protocol active</sub>
 
 </div>
