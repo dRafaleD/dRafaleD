@@ -201,19 +201,15 @@ $ status
 
 ---
 
-## 📊 GITHUB STATS
+## 🐍 CONTRIBUTION SNAKE
 
 <div align="center">
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=dRafaleD&show_icons=true&hide_border=true&bg_color=0d1117&title_color=00FF41&icon_color=00FF41&text_color=ffffff" />
-
-&nbsp;&nbsp;
-
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dRafaleD&layout=compact&hide_border=true&bg_color=0d1117&title_color=00FF41&text_color=ffffff" />
-
-<br><br>
-
-<img src="https://streak-stats.demolab.com?user=dRafaleD&hide_border=true&background=0D1117&ring=00FF41&fire=00FF41&currStreakLabel=00FF41&dates=9e9e9e&sideLabels=9e9e9e&sideNums=ffffff&currStreakNum=ffffff" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake.svg" />
+  <img alt="contribution snake animation" src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" />
+</picture>
 
 </div>
 
