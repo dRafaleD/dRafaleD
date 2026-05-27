@@ -202,7 +202,7 @@ $ status
 
 ---
 
-## 🐍 λ CONTRIBUTION SNAKE
+##  λ CONTRIBUTION ICHTHYOSAUR
 
 <div align="center">
 
