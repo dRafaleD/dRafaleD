@@ -244,6 +244,10 @@ $ status
 
 <div align="center">
 
+<br>
+
+<div align="center">
+
 <img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=17&duration=2800&pause=700&color=FF9900&center=true&vCenter=true&width=520&lines=%CE%BB+anomaly+detected...;crowbar+loaded...;resonance+cascade+contained.;wake+up+and+smell+the+ashes." alt="Half-Life animated typing" />
 
 <br>
@@ -254,9 +258,6 @@ $ status
 
 <br><br>
 
-<sub>
-  <code>λ sector clear</code> · <code>access granted</code> · <code>black mesa protocol active</code>
-</sub>
+> ── `λ sector clear` ── `access granted` ── `black mesa protocol active` ──
 
 </div>
-
