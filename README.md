@@ -236,3 +236,27 @@ $ status
 ![Visitor Count](https://komarev.com/ghpvc/?username=dRafaleD&color=00FF41&style=flat-square&label=profile+views)
 
 </div>
+
+<!-- Half-Life themed animated easter egg for GitHub README -->
+<!-- Paste this block under your Visitor Count section -->
+
+<br>
+
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=17&duration=2800&pause=700&color=FF9900&center=true&vCenter=true&width=520&lines=%CE%BB+anomaly+detected...;crowbar+loaded...;resonance+cascade+contained.;wake+up+and+smell+the+ashes." alt="Half-Life animated typing" />
+
+<br>
+
+<img src="https://img.shields.io/badge/%CE%BB-Lambda_Complex-FF9900?style=for-the-badge&labelColor=0d1117" />
+<img src="https://img.shields.io/badge/Crowbar-Ready-FF6600?style=for-the-badge&labelColor=0d1117" />
+<img src="https://img.shields.io/badge/HEV-Suit_Online-00FF41?style=for-the-badge&labelColor=0d1117" />
+
+<br><br>
+
+<sub>
+  <code>λ sector clear</code> · <code>access granted</code> · <code>black mesa protocol active</code>
+</sub>
+
+</div>
+
