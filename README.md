@@ -202,14 +202,17 @@ $ status
 
 ---
 
-## 🐍 CONTRIBUTION SNAKE
+## 🐍 λ CONTRIBUTION SNAKE
 
 <div align="center">
 
 <img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" alt="snake animation" />
 
-</div>
+<br><br>
 
+<sub>λ resonance trail active · crowbar ready · black mesa protocol online</sub>
+
+</div>
 
 ---
 
