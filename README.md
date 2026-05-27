@@ -206,18 +206,26 @@ $ status
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=dRafaleD&show_icons=true&theme=chartreuse-dark&bg_color=0d1117&border_color=00FF41&icon_color=00FF41&title_color=00FF41&text_color=9e9e9e&ring_color=00FF41)
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=dRafaleD&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=00FF41&icon_color=00FF41&text_color=ffffff"/>
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=dRafaleD&layout=compact&theme=chartreuse-dark&bg_color=0d1117&border_color=00FF41&title_color=00FF41&text_color=9e9e9e)
+<br><br>
 
-![GitHub Streak](https://streak-stats.demolab.com?user=dRafaleD&theme=dark&background=0d1117&border=00FF41&stroke=00FF41&ring=00FF41&fire=FF4444&currStreakNum=ffffff&sideNums=ffffff&currStreakLabel=00FF41&sideLabels=9e9e9e&dates=9e9e9e)
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dRafaleD&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=00FF41&text_color=ffffff"/>
+
+<br><br>
+
+<img src="https://streak-stats.demolab.com?user=dRafaleD&theme=github-dark-blue&hide_border=true&background=0D1117&ring=00FF41&fire=00FF41&currStreakLabel=00FF41"/>
 
 </div>
 
 <div align="center">
 
-| <img src="https://img.shields.io/badge/∞-Commits-00FF41?style=for-the-badge&logo=git&logoColor=00FF41&labelColor=0d1117" /> | <img src="https://img.shields.io/badge/CTF-Competitions-9B59B6?style=for-the-badge&logo=hackthebox&logoColor=9B59B6&labelColor=0d1117" /> | <img src="https://img.shields.io/badge/0day-Mentality-FF4444?style=for-the-badge&logo=firefoxbrowser&logoColor=FF4444&labelColor=0d1117" /> |
+| <img src="https://img.shields.io/badge/∞-Commits-00FF41?style=for-the-badge&logo=git&labelColor=0d1117" /> | <img src="https://img.shields.io/badge/CTF-Competitions-9B59B6?style=for-the-badge&labelColor=0d1117" /> | <img src="https://img.shields.io/badge/Security-Mindset-FF4444?style=for-the-badge&labelColor=0d1117" /> |
 |:---:|:---:|:---:|
+
+</div>
+
+---:|:---:|:---:|
 
 </div>
 
@@ -239,10 +247,6 @@ $ status
 
 <!-- Half-Life themed animated easter egg for GitHub README -->
 <!-- Paste this block under your Visitor Count section -->
-
-<br>
-
-<div align="center">
 
 <br>
 
