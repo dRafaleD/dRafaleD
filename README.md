@@ -206,26 +206,18 @@ $ status
 
 <div align="center">
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=dRafaleD&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=00FF41&icon_color=00FF41&text_color=ffffff"/>
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=dRafaleD&show_icons=true&theme=chartreuse-dark&bg_color=0d1117&border_color=00FF41&icon_color=00FF41&title_color=00FF41&text_color=9e9e9e&ring_color=00FF41)
 
-<br><br>
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=dRafaleD&layout=compact&theme=chartreuse-dark&bg_color=0d1117&border_color=00FF41&title_color=00FF41&text_color=9e9e9e)
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dRafaleD&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=00FF41&text_color=ffffff"/>
-
-<br><br>
-
-<img src="https://streak-stats.demolab.com?user=dRafaleD&theme=github-dark-blue&hide_border=true&background=0D1117&ring=00FF41&fire=00FF41&currStreakLabel=00FF41"/>
+![GitHub Streak](https://streak-stats.demolab.com?user=dRafaleD&theme=dark&background=0d1117&border=00FF41&stroke=00FF41&ring=00FF41&fire=FF4444&currStreakNum=ffffff&sideNums=ffffff&currStreakLabel=00FF41&sideLabels=9e9e9e&dates=9e9e9e)
 
 </div>
 
 <div align="center">
 
-| <img src="https://img.shields.io/badge/∞-Commits-00FF41?style=for-the-badge&logo=git&labelColor=0d1117" /> | <img src="https://img.shields.io/badge/CTF-Competitions-9B59B6?style=for-the-badge&labelColor=0d1117" /> | <img src="https://img.shields.io/badge/Security-Mindset-FF4444?style=for-the-badge&labelColor=0d1117" /> |
+| <img src="https://img.shields.io/badge/∞-Commits-00FF41?style=for-the-badge&logo=git&logoColor=00FF41&labelColor=0d1117" /> | <img src="https://img.shields.io/badge/CTF-Competitions-9B59B6?style=for-the-badge&logo=hackthebox&logoColor=9B59B6&labelColor=0d1117" /> | <img src="https://img.shields.io/badge/0day-Mentality-FF4444?style=for-the-badge&logo=firefoxbrowser&logoColor=FF4444&labelColor=0d1117" /> |
 |:---:|:---:|:---:|
-
-</div>
-
----:|:---:|:---:|
 
 </div>
 
@@ -239,29 +231,22 @@ $ status
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/)
 
-<br>
+<br><br>
 
 ![Visitor Count](https://komarev.com/ghpvc/?username=dRafaleD&color=00FF41&style=flat-square&label=profile+views)
 
-</div>
+<br><br>
 
-<!-- Half-Life themed animated easter egg for GitHub README -->
-<!-- Paste this block under your Visitor Count section -->
-
-<br>
-
-<div align="center">
-
-<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=17&duration=2800&pause=700&color=FF9900&center=true&vCenter=true&width=520&lines=%CE%BB+anomaly+detected...;crowbar+loaded...;resonance+cascade+contained.;wake+up+and+smell+the+ashes." alt="Half-Life animated typing" />
+<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=17&duration=2800&pause=700&color=00FF41&center=true&vCenter=true&width=520&lines=%CE%BB+anomaly+detected...;crowbar+loaded...;resonance+cascade+contained.;wake+up+and+smell+the+ashes." alt="Half-Life animated typing" />
 
 <br>
 
-<img src="https://img.shields.io/badge/%CE%BB-Lambda_Complex-FF9900?style=for-the-badge&labelColor=0d1117" />
-<img src="https://img.shields.io/badge/Crowbar-Ready-FF6600?style=for-the-badge&labelColor=0d1117" />
+<img src="https://img.shields.io/badge/%CE%BB-Lambda_Complex-00FF41?style=for-the-badge&labelColor=0d1117" />
+<img src="https://img.shields.io/badge/Crowbar-Ready-00AA66?style=for-the-badge&labelColor=0d1117" />
 <img src="https://img.shields.io/badge/HEV-Suit_Online-00FF41?style=for-the-badge&labelColor=0d1117" />
 
 <br><br>
 
-> ── `λ sector clear` ── `access granted` ── `black mesa protocol active` ──
+<sub>λ sector clear · access granted · black mesa protocol active</sub>
 
 </div>
