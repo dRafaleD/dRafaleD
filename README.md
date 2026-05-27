@@ -3,15 +3,9 @@
 
 <div align="center">
 
-```
-$ whoami
-```
+<img src="assets/terminal_rafaled_lambda_animated.svg" alt="dRafaleD animated terminal" width="100%" />
 
-# `[ dRafaleD ]`
-
-```
->> cybersecurity & full stack engineer
-```
+</div>
 
 ![Typing SVG](https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=16&pause=1000&color=00FF41&center=true&vCenter=true&width=600&lines=Red+Team+%7C+Pentester+%7C+Developer+%7C+CTF+Player;Security+is+not+a+product%2C+it%27s+a+process.;Think.+Break.+Build.+Repeat.)
 
