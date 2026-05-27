@@ -202,25 +202,14 @@ $ status
 
 ---
 
-## 📊 GITHUB STATS
+## 🐍 CONTRIBUTION SNAKE
 
 <div align="center">
 
-<table>
-<tr>
-<td align="center">
-<img src="https://img.shields.io/badge/∞-Commits-00FF41?style=for-the-badge&logo=git&labelColor=0d1117" />
-</td>
-<td align="center">
-<img src="https://img.shields.io/badge/CTF-Competitions-9B59B6?style=for-the-badge&labelColor=0d1117" />
-</td>
-<td align="center">
-<img src="https://img.shields.io/badge/Security-Mindset-FF4444?style=for-the-badge&labelColor=0d1117" />
-</td>
-</tr>
-</table>
+<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" alt="snake animation" />
 
 </div>
+
 
 ---
 
@@ -232,22 +221,29 @@ $ status
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/)
 
-<br><br>
+<br>
 
 ![Visitor Count](https://komarev.com/ghpvc/?username=dRafaleD&color=00FF41&style=flat-square&label=profile+views)
 
-<br><br>
+</div>
 
-<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=17&duration=2800&pause=700&color=00FF41&center=true&vCenter=true&width=520&lines=%CE%BB+anomaly+detected...;crowbar+loaded...;resonance+cascade+contained.;wake+up+and+smell+the+ashes." alt="Half-Life animated typing" />
+<!-- Half-Life themed animated easter egg for GitHub README -->
+<!-- Paste this block under your Visitor Count section -->
 
 <br>
 
-<img src="https://img.shields.io/badge/%CE%BB-Lambda_Complex-00FF41?style=for-the-badge&labelColor=0d1117" />
-<img src="https://img.shields.io/badge/Crowbar-Ready-00AA66?style=for-the-badge&labelColor=0d1117" />
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=17&duration=2800&pause=700&color=FF9900&center=true&vCenter=true&width=520&lines=%CE%BB+anomaly+detected...;crowbar+loaded...;resonance+cascade+contained.;wake+up+and+smell+the+ashes." alt="Half-Life animated typing" />
+
+<br>
+
+<img src="https://img.shields.io/badge/%CE%BB-Lambda_Complex-FF9900?style=for-the-badge&labelColor=0d1117" />
+<img src="https://img.shields.io/badge/Crowbar-Ready-FF6600?style=for-the-badge&labelColor=0d1117" />
 <img src="https://img.shields.io/badge/HEV-Suit_Online-00FF41?style=for-the-badge&labelColor=0d1117" />
 
 <br><br>
 
-<sub>λ sector clear · access granted · black mesa protocol active</sub>
+> ── `λ sector clear` ── `access granted` ── `black mesa protocol active` ──
 
 </div>
