@@ -1,4 +1,5 @@
 <!-- dRafaleD GitHub Profile README -->
+<!-- Inspired by terminal/hacker aesthetic -->
 
 <div align="center">
 
@@ -166,9 +167,9 @@ $ whoami
 
 ## ⊕ CORE SKILLS
 
-![Penetration Testing](https://img.shields.io/badge/Penetration_Testing-0d4f3c?style=flat-square&logoColor=00FF41)
-![Web Security](https://img.shields.io/badge/Web_Security-1a3a5c?style=flat-square&logoColor=4DAFFF)
-![Red Teaming](https://img.shields.io/badge/Red_Teaming-5c1a1a?style=flat-square&logoColor=FF4444)
+![Penetration Testing](https://img.shields.io/badge/Penetration_Testing-0d1117?style=flat-square&color=0d4f3c&labelColor=0d4f3c&logo=kalilinux&logoColor=00FF41)
+![Web Security](https://img.shields.io/badge/Web_Security-0d1117?style=flat-square&color=1a3a5c&labelColor=1a3a5c&logo=owasp&logoColor=4DAFFF)
+![Red Teaming](https://img.shields.io/badge/Red_Teaming-0d1117?style=flat-square&color=5c1a1a&labelColor=5c1a1a&logo=hackthebox&logoColor=FF4444)
 ![Vulnerability Assessment](https://img.shields.io/badge/Vulnerability_Assessment-0d4f3c?style=flat-square&logoColor=00FF41)
 ![CTF](https://img.shields.io/badge/CTF-1a3a5c?style=flat-square&logoColor=4DAFFF)
 ![Bug Bounty](https://img.shields.io/badge/Bug_Bounty-5c1a1a?style=flat-square&logoColor=FF4444)
@@ -201,15 +202,30 @@ $ status
 
 ---
 
-## 🐍 CONTRIBUTION SNAKE
+## 📊 GITHUB STATS
 
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake.svg" />
-  <img alt="contribution snake animation" src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" />
-</picture>
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=dRafaleD&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=00FF41&icon_color=00FF41&text_color=ffffff"/>
+
+<br><br>
+
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dRafaleD&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=00FF41&text_color=ffffff"/>
+
+<br><br>
+
+<img src="https://streak-stats.demolab.com?user=dRafaleD&theme=github-dark-blue&hide_border=true&background=0D1117&ring=00FF41&fire=00FF41&currStreakLabel=00FF41"/>
+
+</div>
+
+<div align="center">
+
+| <img src="https://img.shields.io/badge/∞-Commits-00FF41?style=for-the-badge&logo=git&labelColor=0d1117" /> | <img src="https://img.shields.io/badge/CTF-Competitions-9B59B6?style=for-the-badge&labelColor=0d1117" /> | <img src="https://img.shields.io/badge/Security-Mindset-FF4444?style=for-the-badge&labelColor=0d1117" /> |
+|:---:|:---:|:---:|
+
+</div>
+
+---:|:---:|:---:|
 
 </div>
 
@@ -222,16 +238,21 @@ $ status
 <br>
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/)
-[![HackTheBox](https://img.shields.io/badge/HackTheBox-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black)](https://app.hackthebox.com/profile/dRafaleD)
-[![TryHackMe](https://img.shields.io/badge/TryHackMe-212C42?style=for-the-badge&logo=tryhackme&logoColor=white)](https://tryhackme.com/p/dRafaleD)
 
 <br>
 
 ![Visitor Count](https://komarev.com/ghpvc/?username=dRafaleD&color=00FF41&style=flat-square&label=profile+views)
 
+</div>
+
+<!-- Half-Life themed animated easter egg for GitHub README -->
+<!-- Paste this block under your Visitor Count section -->
+
 <br>
 
-<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=17&duration=2800&pause=700&color=FF9900&center=true&vCenter=true&width=520&lines=%CE%BB+anomaly+detected...;crowbar+loaded...;resonance+cascade+contained.;wake+up+and+smell+the+ashes." alt="Half-Life easter egg" />
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=17&duration=2800&pause=700&color=FF9900&center=true&vCenter=true&width=520&lines=%CE%BB+anomaly+detected...;crowbar+loaded...;resonance+cascade+contained.;wake+up+and+smell+the+ashes." alt="Half-Life animated typing" />
 
 <br>
 
