@@ -1,0 +1,116 @@
+<svg width="850" height="260" viewBox="0 0 850 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg { fill: #070b0f; }
+    .border { stroke: #00ff41; stroke-width: 1.2; opacity: .55; }
+    .bar { fill: #0d1117; }
+    .dot-red { fill: #ff5f56; }
+    .dot-yellow { fill: #ffbd2e; }
+    .dot-green { fill: #27c93f; }
+    .text { font-family: "Share Tech Mono", "Fira Code", "Consolas", monospace; fill: #d7ffe4; }
+    .green { fill: #00ff41; }
+    .dim { fill: #7d8b83; }
+    .orange { fill: #ff9900; }
+    .lambda { fill: #00ff41; font-family: "Share Tech Mono", "Consolas", monospace; font-size: 44px; font-weight: 700; opacity: .9; }
+    .scanline { opacity: .13; }
+    .cursor { fill: #00ff41; animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .type1 { animation: show1 12s infinite; }
+    .type2 { animation: show2 12s infinite; }
+    .type3 { animation: show3 12s infinite; }
+    .type4 { animation: show4 12s infinite; }
+    .type5 { animation: show5 12s infinite; }
+
+    @keyframes show1 {
+      0%, 12% { opacity: 1; }
+      13%, 100% { opacity: 0; }
+    }
+    @keyframes show2 {
+      0%, 14% { opacity: 0; }
+      15%, 30% { opacity: 1; }
+      31%, 100% { opacity: 0; }
+    }
+    @keyframes show3 {
+      0%, 32% { opacity: 0; }
+      33%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+    @keyframes show4 {
+      0%, 52% { opacity: 0; }
+      53%, 72% { opacity: 1; }
+      73%, 100% { opacity: 0; }
+    }
+    @keyframes show5 {
+      0%, 74% { opacity: 0; }
+      75%, 100% { opacity: 1; }
+    }
+  </style>
+
+  <rect class="bg" x="1" y="1" width="848" height="258" rx="16"/>
+  <rect class="border" x="1" y="1" width="848" height="258" rx="16"/>
+
+  <rect class="bar" x="1" y="1" width="848" height="38" rx="16"/>
+  <circle class="dot-red" cx="25" cy="20" r="6"/>
+  <circle class="dot-yellow" cx="45" cy="20" r="6"/>
+  <circle class="dot-green" cx="65" cy="20" r="6"/>
+  <text class="text dim" x="92" y="25" font-size="14">dRafaleD@blackmesa: ~/profile</text>
+
+  <g class="scanline">
+    <path d="M0 70H850 M0 110H850 M0 150H850 M0 190H850 M0 230H850" stroke="#00ff41" stroke-width="1"/>
+  </g>
+
+  <text class="text green" x="42" y="78" font-size="20">┌─[</text>
+  <text class="text" x="90" y="78" font-size="20">dRafaleD</text>
+  <text class="text green" x="185" y="78" font-size="20">@</text>
+  <text class="text orange" x="205" y="78" font-size="20">blackmesa</text>
+  <text class="text green" x="318" y="78" font-size="20">]─[</text>
+  <text class="text" x="370" y="78" font-size="20">~/cyber-lab</text>
+  <text class="text green" x="505" y="78" font-size="20">]</text>
+
+  <text class="text green" x="42" y="108" font-size="20">└──╼ $</text>
+
+  <g class="type1">
+    <text class="text" x="135" y="108" font-size="20">./rafaled --init</text>
+    <rect class="cursor" x="326" y="90" width="10" height="22"/>
+  </g>
+
+  <g class="type2">
+    <text class="text" x="135" y="108" font-size="20">loading profile...</text>
+    <text class="text green" x="42" y="146" font-size="18">[ OK ]</text>
+    <text class="text" x="112" y="146" font-size="18">cybersecurity &amp; full stack engineer</text>
+    <rect class="cursor" x="335" y="90" width="10" height="22"/>
+  </g>
+
+  <g class="type3">
+    <text class="text" x="135" y="108" font-size="20">cat identity.log</text>
+    <text class="text green" x="42" y="146" font-size="18">user:</text>
+    <text class="text" x="100" y="146" font-size="18">dRafaleD</text>
+    <text class="text green" x="42" y="176" font-size="18">role:</text>
+    <text class="text" x="100" y="176" font-size="18">pentester · developer · CTF player</text>
+    <rect class="cursor" x="314" y="90" width="10" height="22"/>
+  </g>
+
+  <g class="type4">
+    <text class="text" x="135" y="108" font-size="20">grep -i focus arsenal.txt</text>
+    <text class="text green" x="42" y="146" font-size="18">&gt;</text>
+    <text class="text" x="70" y="146" font-size="18">web security | reverse engineering | Linux</text>
+    <text class="text green" x="42" y="176" font-size="18">&gt;</text>
+    <text class="text" x="70" y="176" font-size="18">think. break. build. repeat.</text>
+    <rect class="cursor" x="412" y="90" width="10" height="22"/>
+  </g>
+
+  <g class="type5">
+    <text class="text" x="135" y="108" font-size="20">status --black-mesa</text>
+    <text class="text green" x="42" y="146" font-size="18">λ</text>
+    <text class="text" x="70" y="146" font-size="18">resonance cascade contained</text>
+    <text class="text green" x="42" y="176" font-size="18">λ</text>
+    <text class="text" x="70" y="176" font-size="18">access granted · sector clear</text>
+    <rect class="cursor" x="378" y="90" width="10" height="22"/>
+  </g>
+
+  <text class="lambda" x="780" y="228">λ</text>
+  <text class="text dim" x="630" y="228" font-size="13">BLACK MESA PROTOCOL</text>
+
+  <path d="M615 215H760" stroke="#00ff41" stroke-width="1" opacity=".35"/>
+  <path d="M42 218H245" stroke="#00ff41" stroke-width="1" opacity=".22"/>
+</svg>
