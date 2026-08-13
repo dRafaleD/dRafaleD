@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="195" viewBox="0 0 700 195">
+  <defs>
+    <style>text{font-family:'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace;}</style>
+  </defs>
+  
+  <rect x="0" y="0" width="700" height="195" rx="14" fill="#010409" stroke="#1f2937" stroke-width="1.5"/>
+  <rect x="0" y="0" width="700" height="36" rx="14" fill="#0d1117"/>
+  <rect x="0" y="22" width="700" height="14" fill="#0d1117"/>
+  <circle cx="22" cy="18" r="6" fill="#FF5F56"/>
+  <circle cx="42" cy="18" r="6" fill="#FFBD2E"/>
+  <circle cx="62" cy="18" r="6" fill="#27C93F"/>
+  <text x="350.0" y="23" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="12.5" fill="#6E7681" text-anchor="middle">dRafaleD@black-mesa: ~/current-focus</text>
+  <line x1="0" y1="36" x2="700" y2="36" stroke="#1f2937" stroke-width="1"/>
+
+  <text x="28" y="44" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#C9D1D9">$ cat focus.log</text><text x="28" y="70" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#4DAFFF">&gt;</text><text x="48" y="70" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#00FF41">academic</text><text x="150" y="70" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#6E7681">:</text><text x="168" y="70" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#C9D1D9">Software Dev. → Cybersecurity Eng. (DGS)</text><text x="28" y="94" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#4DAFFF">&gt;</text><text x="48" y="94" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#00FF41">certs</text><text x="150" y="94" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#6E7681">:</text><text x="168" y="94" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#C9D1D9">OSCP · eJPT · CEH · PNPT</text><text x="28" y="118" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#4DAFFF">&gt;</text><text x="48" y="118" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#00FF41">ctf</text><text x="150" y="118" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#6E7681">:</text><text x="168" y="118" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#C9D1D9">Siber Vatan — finals qualified</text><text x="28" y="142" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#4DAFFF">&gt;</text><text x="48" y="142" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#00FF41">research</text><text x="150" y="142" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#6E7681">:</text><text x="168" y="142" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="14" fill="#C9D1D9">OSINT &amp; recon workflows</text><text x="350.0" y="181" font-family="'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace" font-size="13.5" fill="#FF9900" text-anchor="middle">next up: DGS prep · cert grind · CTF finals</text>
+  <rect x="165" y="33" width="8" height="14" fill="#00FF41">
+    <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.5;0.5;1;1" dur="1.1s" repeatCount="indefinite"/>
+  </rect>
+
+</svg>
