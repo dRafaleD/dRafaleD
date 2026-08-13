@@ -64,23 +64,61 @@
 
 <div align="center">
 
-![Penetration Testing](https://img.shields.io/badge/Penetration_Testing-0d4f3c?style=flat-square&logoColor=00FF41)
-![Web Security](https://img.shields.io/badge/Web_Security-1a3a5c?style=flat-square&logoColor=4DAFFF)
-![Red Teaming](https://img.shields.io/badge/Red_Teaming-5c1a1a?style=flat-square&logoColor=FF4444)
-![Vulnerability Assessment](https://img.shields.io/badge/Vulnerability_Assessment-0d4f3c?style=flat-square&logoColor=00FF41)
-![Bug Bounty](https://img.shields.io/badge/Bug_Bounty-5c1a1a?style=flat-square&logoColor=FF4444)
-![Exploit Development](https://img.shields.io/badge/Exploit_Development-3d1a5c?style=flat-square&logoColor=B44DFF)
-![Threat Hunting](https://img.shields.io/badge/Threat_Hunting-5c3a00?style=flat-square&logoColor=F39C12)
-![OSINT](https://img.shields.io/badge/OSINT-1a2a5c?style=flat-square&logoColor=9B59B6)
-![Reverse Engineering](https://img.shields.io/badge/Reverse_Engineering-0d4f3c?style=flat-square&logoColor=00FF41)
-![Binary Analysis](https://img.shields.io/badge/Binary_Analysis-1a3a5c?style=flat-square&logoColor=4DAFFF)
-![Malware Analysis](https://img.shields.io/badge/Malware_Analysis-5c1a1a?style=flat-square&logoColor=FF4444)
-![Network Security](https://img.shields.io/badge/Network_Security-0d4f3c?style=flat-square&logoColor=00FF41)
-![Cryptography](https://img.shields.io/badge/Cryptography-1a3a5c?style=flat-square&logoColor=4DAFFF)
-![Secure Coding](https://img.shields.io/badge/Secure_Coding-3d1a5c?style=flat-square&logoColor=B44DFF)
-![Linux Administration](https://img.shields.io/badge/Linux_Administration-3d2a00?style=flat-square&logoColor=F39C12)
-![Automation](https://img.shields.io/badge/Automation-0d4f3c?style=flat-square&logoColor=00FF41)
-![Problem Solving](https://img.shields.io/badge/Problem_Solving-5c1a1a?style=flat-square&logoColor=FF4444)
+<sub>grouped signals / offensive / analysis / engineering</sub>
+
+</div>
+
+<table>
+<tr>
+<td valign="top" width="33%">
+
+**OFFENSIVE**
+
+```txt
+Penetration Testing
+Web Security
+Red Teaming
+Vulnerability Assessment
+Bug Bounty
+Exploit Development
+```
+
+</td>
+<td valign="top" width="33%">
+
+**ANALYSIS**
+
+```txt
+Threat Hunting
+OSINT
+Reverse Engineering
+Binary Analysis
+Malware Analysis
+Cryptography
+```
+
+</td>
+<td valign="top" width="33%">
+
+**ENGINEERING**
+
+```txt
+Network Security
+Secure Coding
+Linux Administration
+Automation
+Problem Solving
+```
+
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+![Offensive](https://img.shields.io/badge/OFFENSIVE-5c1a1a?style=for-the-badge&labelColor=0d1117)
+![Analysis](https://img.shields.io/badge/ANALYSIS-1a3a5c?style=for-the-badge&labelColor=0d1117)
+![Engineering](https://img.shields.io/badge/ENGINEERING-0d4f3c?style=for-the-badge&labelColor=0d1117)
 
 </div>
 
