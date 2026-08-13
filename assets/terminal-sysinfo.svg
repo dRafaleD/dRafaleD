@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="248" viewBox="0 0 920 248" role="img" aria-label="Cybersecurity profile terminal">
+  <defs>
+    <linearGradient id="sys-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#090d12"/><stop offset="1" stop-color="#010409"/></linearGradient>
+    <clipPath id="sys-body"><rect x="14" y="37" width="892" height="197"/></clipPath>
+    <style>text{font-family:'Cascadia Code','Fira Code',Consolas,Menlo,Monaco,'Courier New',monospace}.dim{fill:#768390}.key{fill:#00e676;font-weight:700}.value{fill:#d0d7de}.prompt{fill:#58a6ff}.accent{fill:#ffb000}</style>
+  </defs>
+  <rect width="920" height="248" rx="15" fill="url(#sys-bg)" stroke="#30363d" stroke-width="1.5"/>
+  <path d="M15 0h890a15 15 0 0 1 15 15v22H0V15A15 15 0 0 1 15 0z" fill="#161b22"/>
+  <circle cx="25" cy="18.5" r="6.5" fill="#ff5f57"/><circle cx="47" cy="18.5" r="6.5" fill="#febc2e"/><circle cx="69" cy="18.5" r="6.5" fill="#28c840"/>
+  <text x="460" y="24" font-size="13" class="dim" text-anchor="middle">dRafaleD@black-mesa: ~/main-sector</text><path d="M0 37h920" stroke="#30363d"/>
+  <g clip-path="url(#sys-body)">
+    <g opacity="0"><animate attributeName="opacity" values="0;1;1" keyTimes="0;.06;1" dur="9s" repeatCount="indefinite"/><text x="32" y="62" font-size="15" class="key">dRafaleD@black-mesa</text><text x="208" y="62" font-size="15" class="dim">:</text><text x="225" y="62" font-size="15" class="prompt">~/main-sector</text><text x="345" y="62" font-size="15" class="value">$ profile --status</text></g>
+    <g opacity="0"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;.09;.13;1" dur="9s" repeatCount="indefinite"/><text x="32" y="94" font-size="14.5" class="accent">|-</text><text x="69" y="94" font-size="14.5" class="key">field</text><text x="174" y="94" font-size="14.5" class="dim">:</text><text x="201" y="94" font-size="14.5" class="value">Cybersecurity | Software Development</text></g>
+    <g opacity="0"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;.16;.20;1" dur="9s" repeatCount="indefinite"/><text x="32" y="124" font-size="14.5" class="accent">|-</text><text x="69" y="124" font-size="14.5" class="key">systems</text><text x="174" y="124" font-size="14.5" class="dim">:</text><text x="201" y="124" font-size="14.5" class="value">Arch-based Linux | Kali Linux | Windows</text></g>
+    <g opacity="0"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;.23;.27;1" dur="9s" repeatCount="indefinite"/><text x="32" y="154" font-size="14.5" class="accent">|-</text><text x="69" y="154" font-size="14.5" class="key">focus</text><text x="174" y="154" font-size="14.5" class="dim">:</text><text x="201" y="154" font-size="14.5" class="value">Web Security | OSINT | Reverse Engineering</text></g>
+    <g opacity="0"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;.30;.34;1" dur="9s" repeatCount="indefinite"/><text x="32" y="184" font-size="14.5" class="accent">|-</text><text x="69" y="184" font-size="14.5" class="key">status</text><text x="174" y="184" font-size="14.5" class="dim">:</text><circle cx="209" cy="179" r="5" fill="#00e676"><animate attributeName="opacity" values="1;.35;1" dur="1.6s" repeatCount="indefinite"/></circle><text x="224" y="184" font-size="14.5" class="value">online - learning in public</text></g>
+    <g opacity="0"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;.37;.41;1" dur="9s" repeatCount="indefinite"/><text x="32" y="215" font-size="14.5" class="accent">`-</text><text x="69" y="215" font-size="14.5" class="key">shell</text><text x="174" y="215" font-size="14.5" class="dim">:</text><text x="201" y="215" font-size="14.5" class="value">zsh</text></g>
+    <rect x="496" y="49" width="8" height="15" fill="#00e676"><animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;.45;.46;.9;1" dur="1.1s" repeatCount="indefinite"/></rect>
+  </g>
+</svg>
