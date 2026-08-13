@@ -1,20 +1,19 @@
 <!-- dRafaleD GitHub Profile README -->
-<!-- Inspired by terminal/hacker aesthetic -->
 
 <div align="center">
 
-<img src="assets/terminal_rafaled_lambda_animated.svg" alt="dRafaleD animated terminal" width="100%" />
-
-</div>
-
-![Typing SVG](https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=16&pause=1000&color=00FF41&center=true&vCenter=true&width=600&lines=Red+Team+%7C+Pentester+%7C+Developer+%7C+CTF+Player;Security+is+not+a+product%2C+it%27s+a+process.;Think.+Break.+Build.+Repeat.)
+<img src="assets/terminal_rafaled_lambda_animated.svg" alt="dRafaleD terminal profile banner" width="100%" />
 
 <br>
 
-![Red Team](https://img.shields.io/badge/🗡️_Red_Team-FF4444?style=for-the-badge&logoColor=white)
-![Pentester](https://img.shields.io/badge/🛡️_Pentester-00D4AA?style=for-the-badge&logoColor=black)
-![Developer](https://img.shields.io/badge/💻_Developer-9B59B6?style=for-the-badge&logoColor=white)
-![CTF Player](https://img.shields.io/badge/🏆_CTF_Player-F39C12?style=for-the-badge&logoColor=black)
+<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=17&duration=2800&pause=900&color=00FF41&center=true&vCenter=true&width=760&lines=Red+Team+%7C+Pentester+%7C+Developer+%7C+CTF+Player;Think.+Break.+Build.+Secure.+Repeat.;Security+is+not+a+product%2C+it+is+a+process." alt="Typing terminal intro" />
+
+<br><br>
+
+<img src="https://img.shields.io/badge/Red%20Team-0d1117?style=for-the-badge&labelColor=0d1117&color=ff4d2d" alt="Red Team" />
+<img src="https://img.shields.io/badge/Pentesting-0d1117?style=for-the-badge&labelColor=0d1117&color=00ff41" alt="Pentesting" />
+<img src="https://img.shields.io/badge/Malware%20Analysis-0d1117?style=for-the-badge&labelColor=0d1117&color=ff9900" alt="Malware Analysis" />
+<img src="https://img.shields.io/badge/CTF-0d1117?style=for-the-badge&labelColor=0d1117&color=4dafff" alt="CTF" />
 
 </div>
 
@@ -22,195 +21,201 @@
 
 <div align="center">
 
-*"Security is not a product, it's a process."*
+```txt
+                  dRafaleD
+        security research / offensive tooling
+              terminal-first, detail-driven
+```
 
-<br>
-
-**Think.** `Break.` **Build.** `Repeat.`
+`learn` -> `break` -> `build` -> `automate` -> `secure`
 
 </div>
 
 ---
 
-## ⊕ TECH ARSENAL
+## Access Profile
+
+```bash
+$ whoami
+> dRafaleD
+
+$ focus --current
+> penetration testing
+> malware analysis
+> reverse engineering
+> secure desktop tooling
+> CTF practice
+
+$ protocol --ethics
+> authorized targets only
+> responsible disclosure mindset
+> no shortcuts around consent
+```
+
+## Arsenal
 
 <table>
 <tr>
-<td valign="top" width="20%">
+<td valign="top" width="33%">
 
-**🐧 OS & Platforms**
-```
-► Kali Linux
-► Parrot OS
-► BlackArch Linux
-► CachyOS / Arch
-► Debian / Ubuntu
-► Windows
-```
+**Offensive Security**
 
-</td>
-<td valign="top" width="20%">
-
-**🔴 Pentesting**
-```
-► Nmap
-► Burp Suite
-► Metasploit
-► SQLMap
-► Wireshark
+```txt
+Nmap
+Burp Suite
+OWASP ZAP
+Metasploit
+SQLMap
+Wireshark
+Nikto
+Dirsearch
 ```
 
 </td>
-<td valign="top" width="20%">
+<td valign="top" width="33%">
 
-**🌐 Web Security**
-```
-► OWASP ZAP
-► Nikto
-► Dirsearch
-► OpenSSL
-► Wafw00f
-```
+**Reverse / Malware**
 
-</td>
-<td valign="top" width="20%">
-
-**⚡ Exploitation**
-```
-► MSF
-► Payloads
-► Privilege Esc.
-► Buffer Overflow
-► Shellcoding
+```txt
+Ghidra
+IDA Free
+Radare2
+x64dbg
+GDB
+YARA
+PE analysis
+Entropy checks
 ```
 
 </td>
-<td valign="top" width="20%">
+<td valign="top" width="33%">
 
-**🔧 Reverse Engineering**
-```
-► Ghidra
-► IDA Pro (Free)
-► Radare2
-► x64dbg / GDB
-► Binary Ninja (Free)
+**Systems**
+
+```txt
+Kali Linux
+Parrot OS
+BlackArch
+Arch / CachyOS
+Debian / Ubuntu
+Windows
+Docker
 ```
 
 </td>
 </tr>
 </table>
 
----
-
-## </> DEVELOPMENT STACK
+## Development Stack
 
 <table>
 <tr>
 <td valign="top" width="25%">
 
-**🟠 Frontend**
-```
-• HTML5
-• CSS3 / SCSS
-• JavaScript (ES6+)
-• TypeScript
-• React
+**Frontend**
+
+```txt
+HTML
+CSS / SCSS
+JavaScript
+TypeScript
+React
 ```
 
 </td>
 <td valign="top" width="25%">
 
-**🟣 Backend**
-```
-• Python
-• Node.js
-• PHP
-• Express.js
-• Django / Flask
-• .NET Core / C#
+**Backend**
+
+```txt
+Python
+Node.js
+Express
+PHP
+C#
+.NET
 ```
 
 </td>
 <td valign="top" width="25%">
 
-**🟡 Databases**
-```
-• MySQL
-• PostgreSQL
-• MSSQL
-• MongoDB
-• SQLite
-• Redis
+**Data**
+
+```txt
+PostgreSQL
+MySQL
+MSSQL
+MongoDB
+SQLite
+Redis
 ```
 
 </td>
 <td valign="top" width="25%">
 
-**⚙️ Other**
-```
-• REST API
-• GraphQL
-• JWT / OAuth
-• Socket.io
-• Docker
+**Protocols**
+
+```txt
+REST APIs
+GraphQL
+JWT / OAuth
+WebSockets
+CLI tools
+Automation
 ```
 
 </td>
 </tr>
 </table>
 
----
+## Core Signals
 
-## ⊕ CORE SKILLS
+<p align="center">
+  <img src="https://img.shields.io/badge/Penetration%20Testing-0d1117?style=flat-square&labelColor=0d1117&color=00ff41" alt="Penetration Testing" />
+  <img src="https://img.shields.io/badge/Web%20Security-0d1117?style=flat-square&labelColor=0d1117&color=4dafff" alt="Web Security" />
+  <img src="https://img.shields.io/badge/Red%20Teaming-0d1117?style=flat-square&labelColor=0d1117&color=ff4d2d" alt="Red Teaming" />
+  <img src="https://img.shields.io/badge/Reverse%20Engineering-0d1117?style=flat-square&labelColor=0d1117&color=ff9900" alt="Reverse Engineering" />
+  <img src="https://img.shields.io/badge/Malware%20Analysis-0d1117?style=flat-square&labelColor=0d1117&color=ff9900" alt="Malware Analysis" />
+  <img src="https://img.shields.io/badge/YARA-0d1117?style=flat-square&labelColor=0d1117&color=00ff41" alt="YARA" />
+  <img src="https://img.shields.io/badge/OSINT-0d1117?style=flat-square&labelColor=0d1117&color=4dafff" alt="OSINT" />
+  <img src="https://img.shields.io/badge/Secure%20Coding-0d1117?style=flat-square&labelColor=0d1117&color=00ff41" alt="Secure Coding" />
+</p>
 
-![Penetration Testing](https://img.shields.io/badge/Penetration_Testing-0d1117?style=flat-square&color=0d4f3c&labelColor=0d4f3c&logo=kalilinux&logoColor=00FF41)
-![Web Security](https://img.shields.io/badge/Web_Security-0d1117?style=flat-square&color=1a3a5c&labelColor=1a3a5c&logo=owasp&logoColor=4DAFFF)
-![Red Teaming](https://img.shields.io/badge/Red_Teaming-0d1117?style=flat-square&color=5c1a1a&labelColor=5c1a1a&logo=hackthebox&logoColor=FF4444)
-![Vulnerability Assessment](https://img.shields.io/badge/Vulnerability_Assessment-0d4f3c?style=flat-square&logoColor=00FF41)
-![CTF](https://img.shields.io/badge/CTF-1a3a5c?style=flat-square&logoColor=4DAFFF)
-![Bug Bounty](https://img.shields.io/badge/Bug_Bounty-5c1a1a?style=flat-square&logoColor=FF4444)
-![Exploit Development](https://img.shields.io/badge/Exploit_Development-3d1a5c?style=flat-square&logoColor=B44DFF)
-![Threat Hunting](https://img.shields.io/badge/Threat_Hunting-5c3a00?style=flat-square&logoColor=F39C12)
-![OSINT](https://img.shields.io/badge/OSINT-1a2a5c?style=flat-square&logoColor=9B59B6)
-![Reverse Engineering](https://img.shields.io/badge/Reverse_Engineering-0d4f3c?style=flat-square&logoColor=00FF41)
-![Binary Analysis](https://img.shields.io/badge/Binary_Analysis-1a3a5c?style=flat-square&logoColor=4DAFFF)
-![Malware Analysis](https://img.shields.io/badge/Malware_Analysis-5c1a1a?style=flat-square&logoColor=FF4444)
-![Network Security](https://img.shields.io/badge/Network_Security-0d4f3c?style=flat-square&logoColor=00FF41)
-![Cryptography](https://img.shields.io/badge/Cryptography-1a3a5c?style=flat-square&logoColor=4DAFFF)
-![Secure Coding](https://img.shields.io/badge/Secure_Coding-3d1a5c?style=flat-square&logoColor=B44DFF)
-![Linux Administration](https://img.shields.io/badge/Linux_Administration-3d2a00?style=flat-square&logoColor=F39C12)
-![Automation](https://img.shields.io/badge/Automation-0d4f3c?style=flat-square&logoColor=00FF41)
-![Problem Solving](https://img.shields.io/badge/Problem_Solving-5c1a1a?style=flat-square&logoColor=FF4444)
+## Current Loop
 
----
-
-## ⊕ CURRENT FOCUS
-
-```
-$ status
-> learning  : always
-> hacking   : daily
-> building  : constantly
-> breaking  : ethically
+```txt
+[+] sharpening web exploitation fundamentals
+[+] building local-first security tooling
+[+] practicing CTF and reverse engineering
+[+] studying malware behavior without executing samples
+[+] documenting what breaks and why
 ```
 
-**Learn** `──` **Hack** `──` **Build** `──` **Automate** `──` **Secure** `──` **Repeat**
-
 ---
-
-## λ CONTRIBUTION ICHTHYOSAUR
 
 <div align="center">
+
+### &lambda; Black Mesa Terminal
+
+<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=16&duration=2600&pause=850&color=FF9900&center=true&vCenter=true&width=720&lines=%CE%BB+anomaly+detected;HEV+signal+online;resonance+cascade+contained;sector+clear%2C+access+granted" alt="Half-Life terminal line" />
+
+<br><br>
+
+<img src="https://img.shields.io/badge/%CE%BB-Lambda%20Complex-0d1117?style=for-the-badge&labelColor=0d1117&color=ff9900" alt="Lambda Complex" />
+<img src="https://img.shields.io/badge/HEV-Suit%20Online-0d1117?style=for-the-badge&labelColor=0d1117&color=00ff41" alt="HEV Suit Online" />
+<img src="https://img.shields.io/badge/Crowbar-Ready-0d1117?style=for-the-badge&labelColor=0d1117&color=ff6600" alt="Crowbar Ready" />
+
+<br><br>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake.svg" />
-  <img alt="snake animation" src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" />
+  <img alt="GitHub contribution animation" src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" />
 </picture>
 
 <br><br>
 
-<sub>λ resonance trail active · crowbar ready · black mesa protocol online</sub>
+<sub>&lambda; sector clear · profile terminal active · authorized research only</sub>
 
 </div>
 
@@ -218,28 +223,18 @@ $ status
 
 <div align="center">
 
-*"The quieter you become, the more you are able to hear."*
-
-<br>
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/)
+<a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/">
+  <img src="https://img.shields.io/badge/LinkedIn-0d1117?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0d1117&color=0a66c2" alt="LinkedIn" />
+</a>
 
 <br><br>
 
-![Visitor Count](https://komarev.com/ghpvc/?username=dRafaleD&color=00FF41&style=flat-square&label=profile+views)
-
-<br>
-
-<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=17&duration=2800&pause=700&color=FF9900&center=true&vCenter=true&width=520&lines=%CE%BB+anomaly+detected...;crowbar+loaded...;resonance+cascade+contained.;wake+up+and+smell+the+ashes." alt="Half-Life animated typing" />
-
-<br>
-
-<img src="https://img.shields.io/badge/%CE%BB-Lambda_Complex-FF9900?style=for-the-badge&labelColor=0d1117" />
-<img src="https://img.shields.io/badge/Crowbar-Ready-FF6600?style=for-the-badge&labelColor=0d1117" />
-<img src="https://img.shields.io/badge/HEV-Suit_Online-00FF41?style=for-the-badge&labelColor=0d1117" />
+<img src="https://komarev.com/ghpvc/?username=dRafaleD&color=00ff41&style=flat-square&label=profile+views" alt="Profile views" />
 
 <br><br>
 
-<sub>λ sector clear · access granted · black mesa protocol active</sub>
+```txt
+Security is quiet work: observe carefully, test ethically, document clearly.
+```
 
 </div>
