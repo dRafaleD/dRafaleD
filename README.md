@@ -1,5 +1,5 @@
 <!-- dRafaleD GitHub Profile README -->
-<!-- Terminal / Half-Life (Black Mesa) temalı -->
+<!-- Terminal / Black Mesa themed -->
 
 <div align="center">
 
@@ -7,14 +7,14 @@
 
 <br>
 
-<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=18&pause=1200&color=00FF41&center=true&vCenter=true&width=650&lines=%CE%BB+Initializing+dRafaleD.exe...;Red+Team+%7C+Pentester+%7C+Developer;Security+is+not+a+product%2C+it%27s+a+process.;Think.+Break.+Build.+Repeat." alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=18&pause=1200&color=00FF41&center=true&vCenter=true&width=720&lines=Initializing+dRafaleD.exe...;Red+Team+%7C+Pentester+%7C+Developer;Security+is+not+a+product%2C+it%27s+a+process.;Think.+Break.+Build.+Repeat." alt="Typing SVG" />
 
 <br><br>
 
-<img src="https://img.shields.io/badge/🗡️_Red_Team-FF4444?style=for-the-badge&logoColor=white" />
-<img src="https://img.shields.io/badge/🛡️_Pentester-00D4AA?style=for-the-badge&logoColor=black" />
-<img src="https://img.shields.io/badge/💻_Developer-9B59B6?style=for-the-badge&logoColor=white" />
-<img src="https://img.shields.io/badge/%CE%BB_HEV_Suit_Online-FF9900?style=for-the-badge&labelColor=0d1117" />
+<img src="https://img.shields.io/badge/Red_Team-FF4444?style=for-the-badge&labelColor=0d1117" alt="Red Team" />
+<img src="https://img.shields.io/badge/Pentester-00D4AA?style=for-the-badge&labelColor=0d1117&logoColor=black" alt="Pentester" />
+<img src="https://img.shields.io/badge/Developer-9B59B6?style=for-the-badge&labelColor=0d1117" alt="Developer" />
+<img src="https://img.shields.io/badge/Lambda_HEV_Suit_Online-FF9900?style=for-the-badge&labelColor=0d1117" alt="HEV Suit Online" />
 
 </div>
 
@@ -30,7 +30,7 @@
 
 ---
 
-## λ SYSTEM.INFO
+## LAMBDA SYSTEM.INFO
 
 <div align="center">
 
@@ -40,7 +40,7 @@
 
 ---
 
-## ⊕ TECH ARSENAL
+## TECH ARSENAL
 
 <div align="center">
 
@@ -50,23 +50,23 @@
 
 ---
 
-## </> DEVELOPMENT STACK
+## DEVELOPMENT STACK
 
 <div align="center">
 
-<img src="assets/terminal-stack.svg" alt="dev stack terminal" width="100%" />
+<img src="assets/terminal-stack.svg" alt="development stack terminal" width="100%" />
 
 </div>
 
 ---
 
-## ⊕ CORE SKILLS
+## CORE SKILLS
 
 <div align="center">
 
-![Penetration Testing](https://img.shields.io/badge/Penetration_Testing-0d4f3c?style=flat-square&logo=kalilinux&logoColor=00FF41)
-![Web Security](https://img.shields.io/badge/Web_Security-1a3a5c?style=flat-square&logo=owasp&logoColor=4DAFFF)
-![Red Teaming](https://img.shields.io/badge/Red_Teaming-5c1a1a?style=flat-square&logo=hackthebox&logoColor=FF4444)
+![Penetration Testing](https://img.shields.io/badge/Penetration_Testing-0d4f3c?style=flat-square&logoColor=00FF41)
+![Web Security](https://img.shields.io/badge/Web_Security-1a3a5c?style=flat-square&logoColor=4DAFFF)
+![Red Teaming](https://img.shields.io/badge/Red_Teaming-5c1a1a?style=flat-square&logoColor=FF4444)
 ![Vulnerability Assessment](https://img.shields.io/badge/Vulnerability_Assessment-0d4f3c?style=flat-square&logoColor=00FF41)
 ![Bug Bounty](https://img.shields.io/badge/Bug_Bounty-5c1a1a?style=flat-square&logoColor=FF4444)
 ![Exploit Development](https://img.shields.io/badge/Exploit_Development-3d1a5c?style=flat-square&logoColor=B44DFF)
@@ -86,17 +86,17 @@
 
 ---
 
-## ⊕ CURRENT FOCUS
+## CURRENT FOCUS
 
 <div align="center">
 
-<img src="assets/terminal-focus.svg" alt="current focus terminal" width="70%" />
+<img src="assets/terminal-focus.svg" alt="current focus terminal" width="100%" />
 
 </div>
 
 ---
 
-## λ CONTRIBUTION ICHTHYOSAUR
+## CONTRIBUTION ICHTHYOSAUR
 
 <div align="center">
 
@@ -106,7 +106,7 @@
   <img alt="snake animation" src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" />
 </picture>
 
-<sub>λ resonance trail active · crowbar ready · black mesa protocol online</sub>
+<sub>resonance trail active | crowbar ready | black mesa protocol online</sub>
 
 </div>
 
@@ -126,17 +126,17 @@
 
 <br><br>
 
-<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=17&duration=2800&pause=700&color=FF9900&center=true&vCenter=true&width=520&lines=%CE%BB+anomaly+detected...;crowbar+loaded...;resonance+cascade+contained.;wake+up+and+smell+the+ashes." alt="Half-Life animated typing" />
+<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=17&duration=2800&pause=700&color=FF9900&center=true&vCenter=true&width=560&lines=anomaly+detected...;crowbar+loaded...;resonance+cascade+contained.;wake+up+and+smell+the+ashes." alt="Half-Life animated typing" />
 
 <br><br>
 
-<img src="https://img.shields.io/badge/%CE%BB-Lambda_Complex-FF9900?style=for-the-badge&labelColor=0d1117" />
-<img src="https://img.shields.io/badge/Crowbar-Ready-FF6600?style=for-the-badge&labelColor=0d1117" />
-<img src="https://img.shields.io/badge/HEV-Suit_Online-00FF41?style=for-the-badge&labelColor=0d1117" />
-<img src="https://img.shields.io/badge/Xen-Sector_Cleared-B44DFF?style=for-the-badge&labelColor=0d1117" />
+<img src="https://img.shields.io/badge/Lambda_Complex-FF9900?style=for-the-badge&labelColor=0d1117" alt="Lambda Complex" />
+<img src="https://img.shields.io/badge/Crowbar-Ready-FF6600?style=for-the-badge&labelColor=0d1117" alt="Crowbar Ready" />
+<img src="https://img.shields.io/badge/HEV-Suit_Online-00FF41?style=for-the-badge&labelColor=0d1117" alt="HEV Suit Online" />
+<img src="https://img.shields.io/badge/Xen-Sector_Cleared-B44DFF?style=for-the-badge&labelColor=0d1117" alt="Xen Sector Cleared" />
 
 <br><br>
 
-<sub>λ sector clear · access granted · black mesa protocol active</sub>
+<sub>sector clear | access granted | black mesa protocol active</sub>
 
 </div>
