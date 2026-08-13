@@ -34,15 +34,7 @@
 
 <div align="center">
 
-```yaml
-┌─[ dRafaleD@black-mesa ]─[ ~/main-sector ]
-│
-├─ os        : CachyOS / Arch · Kali · Parrot OS
-├─ role      : Red Team · Pentester · Developer
-├─ focus     : Web Security · Reverse Engineering · Exploitation
-├─ status    : ● online — resonance cascade stable
-└─ shell     : λ zsh
-```
+<img src="assets/terminal-sysinfo.svg" alt="system info terminal" width="100%" />
 
 </div>
 
@@ -50,130 +42,21 @@
 
 ## ⊕ TECH ARSENAL
 
-<table width="100%">
-<tr>
-<td valign="top" width="20%">
+<div align="center">
 
-**🐧 OS & Platforms**
-```
-► Kali Linux
-► Parrot OS
-► BlackArch Linux
-► CachyOS / Arch
-► Debian / Ubuntu
-► Windows
-```
+<img src="assets/terminal-arsenal.svg" alt="tech arsenal terminal" width="100%" />
 
-</td>
-<td valign="top" width="20%">
-
-**🎯 Pentesting**
-```
-► Nmap
-► Burp Suite
-► Metasploit
-► SQLMap
-► Wireshark
-```
-
-</td>
-<td valign="top" width="20%">
-
-**🌐 Web Security**
-```
-► OWASP ZAP
-► Nikto
-► Dirsearch
-► OpenSSL
-► Wafw00f
-```
-
-</td>
-<td valign="top" width="20%">
-
-**⚡ Exploitation**
-```
-► MSF
-► Payloads
-► Privilege Esc.
-► Buffer Overflow
-► Shellcoding
-```
-
-</td>
-<td valign="top" width="20%">
-
-**🔧 Reverse Engineering**
-```
-► Ghidra
-► IDA Pro (Free)
-► Radare2
-► x64dbg / GDB
-► Binary Ninja (Free)
-```
-
-</td>
-</tr>
-</table>
+</div>
 
 ---
 
 ## </> DEVELOPMENT STACK
 
-<table width="100%">
-<tr>
-<td valign="top" width="25%">
+<div align="center">
 
-**🟠 Frontend**
-```
-• HTML5
-• CSS3 / SCSS
-• JavaScript (ES6+)
-• TypeScript
-• React
-```
+<img src="assets/terminal-stack.svg" alt="dev stack terminal" width="100%" />
 
-</td>
-<td valign="top" width="25%">
-
-**🟣 Backend**
-```
-• Python
-• Node.js
-• PHP
-• Express.js
-• Django / Flask
-• .NET Core / C#
-```
-
-</td>
-<td valign="top" width="25%">
-
-**🟡 Databases**
-```
-• MySQL
-• PostgreSQL
-• MSSQL
-• MongoDB
-• SQLite
-• Redis
-```
-
-</td>
-<td valign="top" width="25%">
-
-**⚙️ Other**
-```
-• REST API
-• GraphQL
-• JWT / OAuth
-• Socket.io
-• Docker
-```
-
-</td>
-</tr>
-</table>
+</div>
 
 ---
 
@@ -207,15 +90,7 @@
 
 <div align="center">
 
-```
-$ status --verbose
-> learning  : always
-> hacking   : daily
-> building  : constantly
-> breaking  : ethically
-```
-
-**Learn** `──` **Hack** `──` **Build** `──` **Automate** `──` **Secure** `──` **Repeat**
+<img src="assets/terminal-focus.svg" alt="current focus terminal" width="70%" />
 
 </div>
 
