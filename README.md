@@ -152,29 +152,26 @@ Problem Solving
 
 <div align="center">
 
-*"The quieter you become, the more you are able to hear."*
+```txt
+dRafaleD@black-mesa:~$ session --close
+quote   : "The quieter you become, the more you are able to hear."
+status  : sector clear
+access  : granted
+signal  : low noise / high awareness
+```
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/)
+<img src="https://komarev.com/ghpvc/?username=dRafaleD&color=00FF41&style=for-the-badge&label=profile+views" alt="Visitor Count" />
+
+<br><br>
+
+<img src="https://img.shields.io/badge/Lambda_Complex-FF9900?style=flat-square&labelColor=0d1117" alt="Lambda Complex" />
+<img src="https://img.shields.io/badge/Crowbar_Ready-FF6600?style=flat-square&labelColor=0d1117" alt="Crowbar Ready" />
+<img src="https://img.shields.io/badge/HEV_Online-00FF41?style=flat-square&labelColor=0d1117" alt="HEV Online" />
+<img src="https://img.shields.io/badge/Xen_Cleared-B44DFF?style=flat-square&labelColor=0d1117" alt="Xen Cleared" />
 
 <br>
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/)
-
-<br><br>
-
-<img src="https://komarev.com/ghpvc/?username=dRafaleD&color=00FF41&style=flat-square&label=profile+views" alt="Visitor Count" />
-
-<br><br>
-
-<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=17&duration=2800&pause=700&color=FF9900&center=true&vCenter=true&width=560&lines=anomaly+detected...;crowbar+loaded...;resonance+cascade+contained.;wake+up+and+smell+the+ashes." alt="Half-Life animated typing" />
-
-<br><br>
-
-<img src="https://img.shields.io/badge/Lambda_Complex-FF9900?style=for-the-badge&labelColor=0d1117" alt="Lambda Complex" />
-<img src="https://img.shields.io/badge/Crowbar-Ready-FF6600?style=for-the-badge&labelColor=0d1117" alt="Crowbar Ready" />
-<img src="https://img.shields.io/badge/HEV-Suit_Online-00FF41?style=for-the-badge&labelColor=0d1117" alt="HEV Suit Online" />
-<img src="https://img.shields.io/badge/Xen-Sector_Cleared-B44DFF?style=for-the-badge&labelColor=0d1117" alt="Xen Sector Cleared" />
-
-<br><br>
-
-<sub>sector clear | access granted | black mesa protocol active</sub>
+<sub>black mesa protocol active | terminal session sealed</sub>
 
 </div>
