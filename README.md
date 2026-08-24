@@ -1,5 +1,9 @@
 <div align="center">
   <img src="assets/profile-terminal.gif" alt="dRafaleD animated cybersecurity profile terminal" width="100%" />
+
+  <br /><br />
+
+  <img src="https://readme-typing-svg.demolab.com?font=Cascadia+Code&weight=600&size=18&duration=3600&pause=1800&color=39FF88&center=true&vCenter=true&width=720&lines=Security+is+not+a+product%2C+it%27s+a+process." alt="Security is not a product, it's a process." />
 </div>
 
 ## About
@@ -32,6 +36,19 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 ![MariaDB](https://img.shields.io/badge/MariaDB-070B09?style=flat-square&logo=mariadb&logoColor=39FF88)
 ![OSINT](https://img.shields.io/badge/OSINT-070B09?style=flat-square&logo=opensourceinitiative&logoColor=39FF88)
 ![Secure Coding](https://img.shields.io/badge/Secure_Coding-070B09?style=flat-square&logo=hackthebox&logoColor=39FF88)
+
+</div>
+
+<div align="center">
+
+<sub>Security Platforms & Tools</sub>
+
+<br /><br />
+
+![Kali Linux](https://img.shields.io/badge/Kali_Linux-070B09?style=for-the-badge&logo=kalilinux&logoColor=39FF88)
+![Debian](https://img.shields.io/badge/Debian-070B09?style=for-the-badge&logo=debian&logoColor=39FF88)
+![Arch Linux](https://img.shields.io/badge/Arch_Linux-070B09?style=for-the-badge&logo=archlinux&logoColor=39FF88)
+![Nmap](https://img.shields.io/badge/Nmap-070B09?style=for-the-badge&logo=nmap&logoColor=39FF88)
 
 </div>
 
