@@ -25,10 +25,7 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 </td>
 <td align="center" valign="top" width="50%">
 <strong>Databases</strong><br /><br />
-<img src="https://skillicons.dev/icons?i=postgres" alt="PostgreSQL" height="44" />
-<img src="https://skillicons.dev/icons?i=mongodb" alt="MongoDB" height="44" />
-<img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" height="44" />
-<img src="https://cdn.simpleicons.org/mariadb/39ff88" alt="MariaDB" height="44" />
+<nobr><img src="https://skillicons.dev/icons?i=postgres" alt="PostgreSQL" height="38" /><img src="https://skillicons.dev/icons?i=mongodb" alt="MongoDB" height="38" /><img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" height="38" /><img src="https://cdn.simpleicons.org/mariadb/39ff88" alt="MariaDB" height="38" /></nobr>
 </td>
 </tr>
 <tr>
