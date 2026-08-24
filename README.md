@@ -19,14 +19,14 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 </td>
 </tr>
 <tr>
-<td align="center" width="50%">
+<td align="center" valign="top" width="50%">
 <strong>Development</strong><br /><br />
-<img src="https://skillicons.dev/icons?i=nodejs,react,git,linux" alt="Node.js, React, Git and Linux" />
+<img src="https://skillicons.dev/icons?i=nodejs,react,git,linux" alt="Node.js, React, Git and Linux" height="44" />
 </td>
-<td align="center" width="50%">
+<td align="center" valign="top" width="50%">
 <strong>Databases</strong><br /><br />
-<img src="https://skillicons.dev/icons?i=postgres,mongodb,mysql" alt="PostgreSQL, MongoDB and MySQL" />
-<img src="https://cdn.simpleicons.org/mariadb/39ff88" alt="MariaDB" height="48" />
+<img src="https://skillicons.dev/icons?i=postgres,mongodb,mysql" alt="PostgreSQL, MongoDB and MySQL" height="44" />
+<img src="https://cdn.simpleicons.org/mariadb/39ff88" alt="MariaDB" height="44" />
 </td>
 </tr>
 <tr>
