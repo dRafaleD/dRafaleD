@@ -31,7 +31,7 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 <tr>
 <td align="center" colspan="2">
 <strong>Frameworks</strong><br /><br />
-<img src="https://img.shields.io/badge/ASP.NET_Core-070B09?style=for-the-badge&logo=dotnet&logoColor=39FF88" alt="ASP.NET Core" />
+<img src="https://skillicons.dev/icons?i=dotnet,django,flask,fastapi&perline=4" alt="ASP.NET Core, Django, Flask and FastAPI" height="48" />
 </td>
 </tr>
 <tr>
@@ -142,7 +142,7 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 <table align="center">
 <tr>
 <td align="center">
-<a href="https://drdogrulama.sanayi.gov.tr/tr/verify/07578340853062/"><img src="https://img.shields.io/badge/Siber_Vatan-123D25?style=for-the-badge&labelColor=070B09" alt="Siber Vatan Certificate" /></a><br />
+<a href="https://drdogrulama.sanayi.gov.tr/tr/verify/07578340853062/"><img src="assets/siber-vatan-logo.png" width="185" alt="Siber Vatan Certificate" /></a><br />
 <sub>Verified certificate</sub>
 </td>
 <td align="center">
