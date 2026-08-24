@@ -18,7 +18,12 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 
 <br /><br />
 
-<img src="https://skillicons.dev/icons?i=python,js,ts,c,cpp,cs,go,rust,lua,html,css&perline=6" alt="Python, JavaScript, TypeScript, C, C++, C#, Go, Rust, Lua, HTML and CSS" />
+<img src="https://skillicons.dev/icons?i=python,js,ts,c,cpp,cs&perline=6" alt="Python, JavaScript, TypeScript, C, C++ and C#" />
+
+<br /><br />
+
+<img src="https://skillicons.dev/icons?i=go,rust,lua,html,css&perline=6" alt="Go, Rust, Lua, HTML and CSS" />
+<img src="https://cdn.simpleicons.org/assemblyscript/39ff88" alt="Assembly" height="48" />
 
 <br /><br />
 
@@ -32,7 +37,6 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 
 <div align="center">
 
-![Assembly](https://img.shields.io/badge/Assembly-070B09?style=flat-square&logo=assemblyscript&logoColor=39FF88)
 ![MariaDB](https://img.shields.io/badge/MariaDB-070B09?style=flat-square&logo=mariadb&logoColor=39FF88)
 ![OSINT](https://img.shields.io/badge/OSINT-070B09?style=flat-square&logo=opensourceinitiative&logoColor=39FF88)
 ![Secure Coding](https://img.shields.io/badge/Secure_Coding-070B09?style=flat-square&logo=hackthebox&logoColor=39FF88)
