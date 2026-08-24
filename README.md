@@ -48,7 +48,31 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 ![Kali Linux](https://img.shields.io/badge/Kali_Linux-070B09?style=for-the-badge&logo=kalilinux&logoColor=39FF88)
 ![Debian](https://img.shields.io/badge/Debian-070B09?style=for-the-badge&logo=debian&logoColor=39FF88)
 ![Arch Linux](https://img.shields.io/badge/Arch_Linux-070B09?style=for-the-badge&logo=archlinux&logoColor=39FF88)
-![Nmap](https://img.shields.io/badge/Nmap-070B09?style=for-the-badge&logo=nmap&logoColor=39FF88)
+
+</div>
+
+<div align="center">
+
+<sub>Security Tooling</sub>
+
+<br /><br />
+
+<img src="https://cdn.simpleicons.org/nmap/39ff88" alt="Nmap" height="38" />
+<img src="https://cdn.simpleicons.org/wireshark/39ff88" alt="Wireshark" height="38" />
+<img src="https://cdn.simpleicons.org/burpsuite/39ff88" alt="Burp Suite" height="38" />
+<img src="https://cdn.simpleicons.org/metasploit/39ff88" alt="Metasploit" height="38" />
+<img src="https://cdn.simpleicons.org/owasp/39ff88" alt="OWASP" height="38" />
+<img src="https://cdn.simpleicons.org/snort/39ff88" alt="Snort" height="38" />
+<img src="https://cdn.simpleicons.org/splunk/39ff88" alt="Splunk" height="38" />
+
+<br /><br />
+
+<img src="https://cdn.simpleicons.org/elastic/39ff88" alt="Elastic" height="38" />
+<img src="https://cdn.simpleicons.org/snyk/39ff88" alt="Snyk" height="38" />
+<img src="https://cdn.simpleicons.org/fortinet/39ff88" alt="Fortinet" height="38" />
+<img src="https://cdn.simpleicons.org/torproject/39ff88" alt="Tor Project" height="38" />
+<img src="https://cdn.simpleicons.org/hackthebox/39ff88" alt="Hack The Box" height="38" />
+<img src="https://cdn.simpleicons.org/tryhackme/39ff88" alt="TryHackMe" height="38" />
 
 </div>
 
