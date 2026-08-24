@@ -53,26 +53,46 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 
 <div align="center">
 
-<sub>Security Tooling</sub>
+<sub>Recon & OSINT</sub>
 
 <br /><br />
 
-<img src="https://cdn.simpleicons.org/nmap/39ff88" alt="Nmap" height="38" />
-<img src="https://cdn.simpleicons.org/wireshark/39ff88" alt="Wireshark" height="38" />
-<img src="https://cdn.simpleicons.org/burpsuite/39ff88" alt="Burp Suite" height="38" />
-<img src="https://cdn.simpleicons.org/metasploit/39ff88" alt="Metasploit" height="38" />
-<img src="https://cdn.simpleicons.org/owasp/39ff88" alt="OWASP" height="38" />
-<img src="https://cdn.simpleicons.org/snort/39ff88" alt="Snort" height="38" />
-<img src="https://cdn.simpleicons.org/splunk/39ff88" alt="Splunk" height="38" />
+![Nmap](https://img.shields.io/badge/Nmap-123D25?style=for-the-badge&labelColor=070B09)
+![Shodan](https://img.shields.io/badge/Shodan-123D25?style=for-the-badge&labelColor=070B09)
+![theHarvester](https://img.shields.io/badge/theHarvester-123D25?style=for-the-badge&labelColor=070B09)
+![Tor](https://img.shields.io/badge/Tor-123D25?style=for-the-badge&logo=torproject&logoColor=39FF88&labelColor=070B09)
 
 <br /><br />
 
-<img src="https://cdn.simpleicons.org/elastic/39ff88" alt="Elastic" height="38" />
-<img src="https://cdn.simpleicons.org/snyk/39ff88" alt="Snyk" height="38" />
-<img src="https://cdn.simpleicons.org/fortinet/39ff88" alt="Fortinet" height="38" />
-<img src="https://cdn.simpleicons.org/torproject/39ff88" alt="Tor Project" height="38" />
-<img src="https://cdn.simpleicons.org/hackthebox/39ff88" alt="Hack The Box" height="38" />
-<img src="https://cdn.simpleicons.org/tryhackme/39ff88" alt="TryHackMe" height="38" />
+<sub>Web Security</sub>
+
+<br /><br />
+
+![Burp Suite](https://img.shields.io/badge/Burp_Suite-123D25?style=for-the-badge&logo=burpsuite&logoColor=39FF88&labelColor=070B09)
+![OWASP ZAP](https://img.shields.io/badge/OWASP_ZAP-123D25?style=for-the-badge&logo=owasp&logoColor=39FF88&labelColor=070B09)
+![Nikto](https://img.shields.io/badge/Nikto-123D25?style=for-the-badge&labelColor=070B09)
+![sqlmap](https://img.shields.io/badge/sqlmap-123D25?style=for-the-badge&labelColor=070B09)
+
+<br /><br />
+
+<sub>Offensive Security</sub>
+
+<br /><br />
+
+![Metasploit](https://img.shields.io/badge/Metasploit-123D25?style=for-the-badge&logo=metasploit&logoColor=39FF88&labelColor=070B09)
+![Hashcat](https://img.shields.io/badge/Hashcat-123D25?style=for-the-badge&logo=hashcat&logoColor=39FF88&labelColor=070B09)
+![Hydra](https://img.shields.io/badge/Hydra-123D25?style=for-the-badge&labelColor=070B09)
+
+<br /><br />
+
+<sub>Defensive & Analysis</sub>
+
+<br /><br />
+
+![Wireshark](https://img.shields.io/badge/Wireshark-123D25?style=for-the-badge&logo=wireshark&logoColor=39FF88&labelColor=070B09)
+![Snort](https://img.shields.io/badge/Snort-123D25?style=for-the-badge&logo=snort&logoColor=39FF88&labelColor=070B09)
+![VirusTotal](https://img.shields.io/badge/VirusTotal-123D25?style=for-the-badge&logo=virustotal&logoColor=39FF88&labelColor=070B09)
+![Splunk](https://img.shields.io/badge/Splunk-123D25?style=for-the-badge&logo=splunk&logoColor=39FF88&labelColor=070B09)
 
 </div>
 
