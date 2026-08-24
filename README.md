@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/profile-terminal.gif" alt="dRafaleD animated cybersecurity profile terminal" width="100%" />
+  <img src="assets/profile-terminal-v2.gif" alt="dRafaleD animated cybersecurity profile terminal" width="100%" />
   <img src="https://readme-typing-svg.demolab.com?font=Cascadia+Code&weight=600&size=18&duration=3600&pause=1800&color=39FF88&center=true&vCenter=true&width=720&lines=Security+is+not+a+product%2C+it%27s+a+process." alt="Security is not a product, it's a process." />
 </div>
 
