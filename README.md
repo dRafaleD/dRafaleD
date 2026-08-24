@@ -173,15 +173,13 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/WHITE_HAT_SECURITY-39FF88?style=for-the-badge&logo=hackthebox&logoColor=39FF88&labelColor=070B09" alt="White Hat Security" />
-
-<br /><br />
-
-<sub><strong>AUTHORIZED RESEARCH ONLY</strong> · Explore responsibly · Report ethically · Strengthen securely</sub>
+<img src="https://img.shields.io/badge/WHITE_HAT-SECURITY-39FF88?style=for-the-badge&logo=hackthebox&logoColor=39FF88&labelColor=070B09" alt="White Hat Security" />
+<img src="https://img.shields.io/badge/AUTHORIZED_RESEARCH-ONLY-123D25?style=for-the-badge&labelColor=070B09" alt="Authorized Research Only" />
 
 <br />
 
-<sub>All security research and testing is performed in authorized environments only.</sub>
+<strong>Explore responsibly · Report ethically · Strengthen securely</strong><br />
+All security research and testing is performed in authorized environments only.
 
 </div>
 
