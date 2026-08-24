@@ -14,7 +14,7 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 
 <br /><br />
 
-<img src="https://skillicons.dev/icons?i=python,js,ts,c,cpp,rust,html,css&perline=8" alt="Python, JavaScript, TypeScript, C, C++, Rust, HTML and CSS" />
+<img src="https://skillicons.dev/icons?i=python,js,ts,c,cpp,cs,go,rust,lua,html,css&perline=6" alt="Python, JavaScript, TypeScript, C, C++, C#, Go, Rust, Lua, HTML and CSS" />
 
 <br /><br />
 
