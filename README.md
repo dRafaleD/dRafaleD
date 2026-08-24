@@ -21,11 +21,11 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 <tr>
 <td align="center" valign="top" width="50%">
 <strong>Development</strong><br /><br />
-<img src="https://skillicons.dev/icons?i=nodejs,react,git,linux" alt="Node.js, React, Git and Linux" height="44" />
+<img src="https://skillicons.dev/icons?i=nodejs,react,git,linux" alt="Node.js, React, Git and Linux" height="40" />
 </td>
 <td align="center" valign="top" width="50%">
 <strong>Databases</strong><br /><br />
-<nobr><img src="https://skillicons.dev/icons?i=postgres" alt="PostgreSQL" height="44" />&nbsp;&nbsp;<img src="https://skillicons.dev/icons?i=mongodb" alt="MongoDB" height="44" />&nbsp;&nbsp;<img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" height="44" />&nbsp;&nbsp;<img src="assets/mariadb-skill-icon.svg" alt="MariaDB" height="44" /></nobr>
+<nobr><img src="https://skillicons.dev/icons?i=postgres" alt="PostgreSQL" height="40" />&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://skillicons.dev/icons?i=mongodb" alt="MongoDB" height="40" />&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" height="40" />&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/mariadb-skill-icon.svg" alt="MariaDB" height="40" /></nobr>
 </td>
 </tr>
 <tr>
