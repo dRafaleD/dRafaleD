@@ -42,7 +42,7 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 
 <table align="center">
 <tr>
-<td align="center" width="50%">
+<td align="center" valign="top" width="50%">
 <img src="https://img.shields.io/badge/RECON_%26_OSINT-123D25?style=for-the-badge&labelColor=070B09" alt="Recon and OSINT" /><br /><br />
 <img src="https://img.shields.io/badge/Nmap-070B09?style=flat-square&color=123D25" alt="Nmap" />
 <img src="https://img.shields.io/badge/Shodan-070B09?style=flat-square&color=123D25" alt="Shodan" />
@@ -50,7 +50,7 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 <img src="https://img.shields.io/badge/Maltego-070B09?style=flat-square&color=123D25" alt="Maltego" />
 <img src="https://img.shields.io/badge/Tor-070B09?style=flat-square&logo=torproject&logoColor=39FF88&color=123D25" alt="Tor" />
 </td>
-<td align="center" width="50%">
+<td align="center" valign="top" width="50%">
 <img src="https://img.shields.io/badge/WEB_SECURITY-123D25?style=for-the-badge&labelColor=070B09" alt="Web Security" /><br /><br />
 <img src="https://img.shields.io/badge/Burp_Suite-070B09?style=flat-square&logo=burpsuite&logoColor=39FF88&color=123D25" alt="Burp Suite" />
 <img src="https://img.shields.io/badge/OWASP_ZAP-070B09?style=flat-square&logo=owasp&logoColor=39FF88&color=123D25" alt="OWASP ZAP" />
@@ -62,7 +62,7 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 </td>
 </tr>
 <tr>
-<td align="center">
+<td align="center" valign="top">
 <img src="https://img.shields.io/badge/OFFENSIVE_SECURITY-123D25?style=for-the-badge&labelColor=070B09" alt="Offensive Security" /><br /><br />
 <img src="https://img.shields.io/badge/Metasploit-070B09?style=flat-square&logo=metasploit&logoColor=39FF88&color=123D25" alt="Metasploit" />
 <img src="https://img.shields.io/badge/Hashcat-070B09?style=flat-square&logo=hashcat&logoColor=39FF88&color=123D25" alt="Hashcat" />
@@ -76,7 +76,7 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 <img src="https://img.shields.io/badge/Mimikatz-070B09?style=flat-square&color=123D25" alt="Mimikatz" />
 <img src="https://img.shields.io/badge/Evil--WinRM-070B09?style=flat-square&color=123D25" alt="Evil-WinRM" />
 </td>
-<td align="center">
+<td align="center" valign="top">
 <img src="https://img.shields.io/badge/DEFENSIVE_%26_ANALYSIS-123D25?style=for-the-badge&labelColor=070B09" alt="Defensive and Analysis" /><br /><br />
 <img src="https://img.shields.io/badge/Wireshark-070B09?style=flat-square&logo=wireshark&logoColor=39FF88&color=123D25" alt="Wireshark" />
 <img src="https://img.shields.io/badge/Snort-070B09?style=flat-square&logo=snort&logoColor=39FF88&color=123D25" alt="Snort" />
@@ -94,7 +94,7 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 </td>
 </tr>
 <tr>
-<td align="center" colspan="2">
+<td align="center" valign="top" colspan="2">
 <img src="https://img.shields.io/badge/REVERSE_ENGINEERING-123D25?style=for-the-badge&labelColor=070B09" alt="Reverse Engineering" /><br /><br />
 <img src="https://img.shields.io/badge/Ghidra-070B09?style=flat-square&color=123D25" alt="Ghidra" />
 <img src="https://img.shields.io/badge/IDA-070B09?style=flat-square&color=123D25" alt="IDA" />
