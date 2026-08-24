@@ -171,7 +171,19 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 
 ## Ethics
 
-> All security research and testing is performed in authorized environments only.
+<div align="center">
+
+<img src="https://img.shields.io/badge/WHITE_HAT_SECURITY-39FF88?style=for-the-badge&logo=hackthebox&logoColor=39FF88&labelColor=070B09" alt="White Hat Security" />
+
+<br /><br />
+
+<sub><strong>AUTHORIZED RESEARCH ONLY</strong> · Explore responsibly · Report ethically · Strengthen securely</sub>
+
+<br />
+
+<sub>All security research and testing is performed in authorized environments only.</sub>
+
+</div>
 
 ## Connect
 
