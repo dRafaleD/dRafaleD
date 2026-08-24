@@ -1,169 +1,76 @@
-<!-- dRafaleD GitHub Profile README -->
-<!-- Terminal / Black Mesa themed -->
+<div align="center">
+  <img src="assets/profile-terminal.gif" alt="dRafaleD animated cybersecurity profile terminal" width="100%" />
+</div>
+
+## About
+
+I am Eren Erdogan, a backend development student focused on cybersecurity, Linux systems, and secure software development. I build practical tools while improving my skills in penetration testing, OSINT, malware analysis, and full-stack development.
+
+## Tech Stack
 
 <div align="center">
 
-<img src="assets/terminal_rafaled_lambda_animated.svg" alt="dRafaleD animated terminal" width="100%" />
+<sub>Languages</sub>
 
-<br>
+<br /><br />
 
-<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=18&pause=1200&color=00FF41&center=true&vCenter=true&width=720&lines=Initializing+dRafaleD.exe...;Red+Team+%7C+Pentester+%7C+Developer;Security+is+not+a+product%2C+it%27s+a+process.;Think.+Break.+Build.+Repeat." alt="Typing SVG" />
+<img src="https://skillicons.dev/icons?i=python,js,ts,c,cpp,rust,html,css&perline=8" alt="Python, JavaScript, TypeScript, C, C++, Rust, HTML and CSS" />
 
-<br><br>
+<br /><br />
 
-<img src="https://img.shields.io/badge/Red_Team-FF4444?style=for-the-badge&labelColor=0d1117" alt="Red Team" />
-<img src="https://img.shields.io/badge/Pentester-00D4AA?style=for-the-badge&labelColor=0d1117&logoColor=black" alt="Pentester" />
-<img src="https://img.shields.io/badge/Developer-9B59B6?style=for-the-badge&labelColor=0d1117" alt="Developer" />
-<img src="https://img.shields.io/badge/Lambda_HEV_Suit_Online-FF9900?style=for-the-badge&labelColor=0d1117" alt="HEV Suit Online" />
+<sub>Development & Databases</sub>
+
+<br /><br />
+
+<img src="https://skillicons.dev/icons?i=nodejs,react,postgres,mongodb,mysql,git,linux&perline=7" alt="Node.js, React, PostgreSQL, MongoDB, MariaDB, Git and Linux" />
 
 </div>
 
-<br>
-
 <div align="center">
 
-*"Security is not a product, it's a process."*
-
-**Think.** `Break.` **Build.** `Repeat.`
+![Assembly](https://img.shields.io/badge/Assembly-070B09?style=flat-square&logo=assemblyscript&logoColor=39FF88)
+![MariaDB](https://img.shields.io/badge/MariaDB-070B09?style=flat-square&logo=mariadb&logoColor=39FF88)
+![OSINT](https://img.shields.io/badge/OSINT-070B09?style=flat-square&logo=opensourceinitiative&logoColor=39FF88)
+![Secure Coding](https://img.shields.io/badge/Secure_Coding-070B09?style=flat-square&logo=hackthebox&logoColor=39FF88)
 
 </div>
 
----
+## Security Focus
 
-## LAMBDA SYSTEM.INFO
+- Web application security and penetration testing
+- Vulnerability assessment and secure-code review
+- OSINT and digital-footprint security
+- Malware analysis and reverse-engineering fundamentals
+- Binary analysis and exploit-development fundamentals
+- Cryptography fundamentals and applied security concepts
+- Linux systems, network security, and automation
+- Secure backend development
 
-<div align="center">
+## Currently Learning
 
-<img src="assets/terminal-sysinfo.svg" alt="system info terminal" width="100%" />
+- Advanced web application security
+- Malware analysis and reverse engineering
+- Linux hardening and network security
+- Secure API and backend architecture
 
-</div>
+## Selected Projects
 
----
+| Project | Description | Stack |
+| --- | --- | --- |
+| [The-Trackher](https://github.com/dRafaleD/The-Trackher) | Open-source digital-footprint cleaner and OSINT tool. | Python |
+| [FhniX](https://github.com/dRafaleD/FhniX) | Local-first phishing email triage with GUI reporting, read-only IMAP scans, and optional local ML. | Python |
+| [Banshee](https://github.com/dRafaleD/Banshee) | Systems-oriented project written in Rust. | Rust |
+| [Malware-analysis-AsphDex](https://github.com/dRafaleD/Malware-analysis-AsphDex) | Malware-analysis project. | JavaScript |
 
-## TECH ARSENAL
+## Ethics
 
-<div align="center">
+> All security research and testing is performed in authorized environments only.
 
-<img src="assets/terminal-arsenal.svg" alt="tech arsenal terminal" width="100%" />
-
-</div>
-
----
-
-## DEVELOPMENT STACK
-
-<div align="center">
-
-<img src="assets/terminal-stack.svg" alt="development stack terminal" width="100%" />
-
-</div>
-
----
-
-## CORE SKILLS
-
-<div align="center">
-
-<sub>grouped signals / offensive / analysis / engineering</sub>
-
-</div>
-
-<table>
-<tr>
-<td valign="top" width="33%">
-
-**OFFENSIVE**
-
-```txt
-Penetration Testing
-Web Security
-Red Teaming
-Vulnerability Assessment
-Bug Bounty
-Exploit Development
-```
-
-</td>
-<td valign="top" width="33%">
-
-**ANALYSIS**
-
-```txt
-Threat Hunting
-OSINT
-Reverse Engineering
-Binary Analysis
-Malware Analysis
-Cryptography
-```
-
-</td>
-<td valign="top" width="33%">
-
-**ENGINEERING**
-
-```txt
-Network Security
-Secure Coding
-Linux Administration
-Automation
-Problem Solving
-```
-
-</td>
-</tr>
-</table>
+## Connect
 
 <div align="center">
-
-![Offensive](https://img.shields.io/badge/OFFENSIVE-5c1a1a?style=for-the-badge&labelColor=0d1117)
-![Analysis](https://img.shields.io/badge/ANALYSIS-1a3a5c?style=for-the-badge&labelColor=0d1117)
-![Engineering](https://img.shields.io/badge/ENGINEERING-0d4f3c?style=for-the-badge&labelColor=0d1117)
-
-</div>
-
----
-
-## CURRENT FOCUS
-
-<div align="center">
-
-<img src="assets/terminal-focus.svg" alt="current focus terminal" width="100%" />
-
-</div>
-
----
-
-## CONTRIBUTION ICHTHYOSAUR
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake.svg" />
-  <img alt="snake animation" src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" />
-</picture>
-
-<sub>resonance trail active | crowbar ready | black mesa protocol online</sub>
-
-</div>
-
----
-
-<div align="center">
-
-<img src="assets/terminal-outro.svg" alt="black mesa terminal outro" width="100%" />
-
-<br>
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/)
-<img src="https://komarev.com/ghpvc/?username=dRafaleD&color=00FF41&style=for-the-badge&label=profile+views" alt="Visitor Count" />
-
-<br>
-
-<img src="https://img.shields.io/badge/Lambda_Complex-FF9900?style=flat-square&labelColor=0d1117" alt="Lambda Complex" />
-<img src="https://img.shields.io/badge/Crowbar_Ready-FF6600?style=flat-square&labelColor=0d1117" alt="Crowbar Ready" />
-<img src="https://img.shields.io/badge/HEV_Online-00FF41?style=flat-square&labelColor=0d1117" alt="HEV Online" />
-<img src="https://img.shields.io/badge/Xen_Cleared-B44DFF?style=flat-square&labelColor=0d1117" alt="Xen Cleared" />
+[![Profile views](https://komarev.com/ghpvc/?username=dRafaleD&color=39ff88&style=for-the-badge&label=profile+views)](https://github.com/dRafaleD)
 
 </div>
