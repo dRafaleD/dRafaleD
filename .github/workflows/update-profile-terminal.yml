@@ -1,0 +1,45 @@
+name: Update profile terminal
+
+on:
+  schedule:
+    # Runs daily at 06:17 Europe/Istanbul (03:17 UTC).
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-terminal:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install image renderer dependency
+        run: python -m pip install --disable-pip-version-check Pillow
+
+      - name: Render terminal with current GitHub stats
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/render_profile_terminal.py
+
+      - name: Commit updated terminal when it changed
+        shell: bash
+        run: |
+          if git diff --quiet -- assets/profile-terminal-v2.gif; then
+            echo "Terminal asset is already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/profile-terminal-v2.gif
+          git commit -m "chore: refresh profile terminal stats"
+          git push
