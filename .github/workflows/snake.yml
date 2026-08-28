@@ -14,8 +14,8 @@ jobs:
         with:
           github_user_name: dRafaleD
           outputs: |
-            dist/github-contribution-grid-snake.svg?color_snake=#39FF88&color_dots=#EBEDF0,#C6F6D5,#68D391,#2F855A,#123D25
-            dist/github-contribution-grid-snake-dark.svg?color_snake=#39FF88&color_dots=#070B09,#0B1B10,#123D25,#1F7A3F,#39FF88
+            dist/github-contribution-grid-snake.svg?color_snake=#B7F34A&color_dots=#EBEDF0,#39FF88,#39FF88,#39FF88,#39FF88
+            dist/github-contribution-grid-snake-dark.svg?color_snake=#B7F34A&color_dots=#070B09,#39FF88,#39FF88,#39FF88,#39FF88
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
