@@ -7,6 +7,18 @@
 
 I am Eren Erdogan, a backend development student focused on cybersecurity, Linux systems, and secure software development. I build practical tools while improving my skills in penetration testing, OSINT, malware analysis, reverse engineering, and full-stack development.
 
+## GitHub Activity
+
+<div align="center">
+
+<img src="https://streak-stats.demolab.com?user=dRafaleD&amp;background=070B09&amp;border=174C2B&amp;stroke=174C2B&amp;ring=39FF88&amp;fire=39FF88&amp;currStreakNum=D7FFE3&amp;sideNums=D7FFE3&amp;currStreakLabel=39FF88&amp;sideLabels=6D9479&amp;dates=6D9479&amp;border_radius=12&amp;card_width=760" alt="dRafaleD GitHub contribution streak" width="100%" />
+
+<br />
+
+<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" alt="GitHub contribution snake animation" width="100%" />
+
+</div>
+
 ## Technical Arsenal
 
 <table align="center">
