@@ -196,7 +196,7 @@ All security research and testing is performed in authorized environments only.
 
 <div align="center">
 
-<img src="https://streak-stats.demolab.com/?user=dRafaleD&amp;background=070B09&amp;border=174C2B&amp;stroke=174C2B&amp;ring=39FF88&amp;fire=39FF88&amp;currStreakNum=D7FFE3&amp;sideNums=D7FFE3&amp;currStreakLabel=39FF88&amp;sideLabels=6D9479&amp;dates=6D9479&amp;border_radius=12&amp;card_width=760&amp;v=2" alt="dRafaleD GitHub contribution streak" width="100%" />
+<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg" alt="dRafaleD GitHub contribution streak" width="100%" />
 
 <br />
 
