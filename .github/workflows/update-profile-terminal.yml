@@ -32,7 +32,9 @@ jobs:
 
       - name: Render streak card from GitHub contributions
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Uses a personal token when configured so anonymous private
+          # contributions are included; otherwise falls back to github.token.
+          GITHUB_TOKEN: ${{ secrets.CONTRIBUTIONS_TOKEN || github.token }}
         run: python scripts/render_streak_card.py
 
       - name: Commit updated profile activity when it changed
