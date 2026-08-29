@@ -30,11 +30,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/render_profile_terminal.py
 
-      - name: Refresh streak card
-        run: >-
-          curl --fail --retry 3 --silent --show-error
-          "https://streak-stats.demolab.com/?user=dRafaleD&background=070B09&border=174C2B&stroke=174C2B&ring=39FF88&fire=39FF88&currStreakNum=D7FFE3&sideNums=D7FFE3&currStreakLabel=39FF88&sideLabels=6D9479&dates=6D9479&border_radius=12&card_width=760"
-          --output assets/github-streak.svg
+      - name: Render streak card from GitHub contributions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/render_streak_card.py
 
       - name: Commit updated profile activity when it changed
         shell: bash
