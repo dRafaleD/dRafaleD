@@ -12,17 +12,17 @@
   <line x1="506" y1="30" x2="506" y2="180" stroke="#174C2B"/>
 
   <g text-anchor="middle">
-    <text class="value" x="127" y="88">259</text>
+    <text class="value" x="127" y="88">260</text>
     <text class="label" x="127" y="126">Total Contributions</text>
     <text class="date" x="127" y="158">Sep 15, 2025 - Present</text>
 
     <circle class="ring" cx="380" cy="82" r="52" fill="none" stroke="#39FF88" stroke-width="7"/>
-    <text class="value" x="380" y="95">8</text>
+    <text class="value" x="380" y="95">9</text>
     <text class="label" x="380" y="154">Current Streak</text>
-    <text class="date" x="380" y="181">Aug 23, 2026 - Aug 30, 2026</text>
+    <text class="date" x="380" y="181">Aug 23, 2026 - Aug 31, 2026</text>
 
-    <text class="value" x="633" y="88">8</text>
+    <text class="value" x="633" y="88">9</text>
     <text class="label" x="633" y="126">Longest Streak</text>
-    <text class="date" x="633" y="158">Aug 23, 2026 - Aug 30, 2026</text>
+    <text class="date" x="633" y="158">Aug 23, 2026 - Aug 31, 2026</text>
   </g>
 </svg>
