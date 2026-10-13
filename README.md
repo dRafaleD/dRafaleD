@@ -46,80 +46,9 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 
 ## Security Toolkit
 
-<table align="center">
-<tr>
-<td align="center" valign="top" width="50%">
-<img src="https://img.shields.io/badge/RECON_%26_OSINT-123D25?style=for-the-badge&labelColor=070B09" alt="Recon and OSINT" /><br /><br />
-<img src="https://img.shields.io/badge/Nmap-070B09?style=flat-square&color=123D25" alt="Nmap" />
-<img src="https://img.shields.io/badge/Shodan-070B09?style=flat-square&color=123D25" alt="Shodan" />
-<img src="https://img.shields.io/badge/theHarvester-070B09?style=flat-square&color=123D25" alt="theHarvester" />
-<img src="https://img.shields.io/badge/Maltego-070B09?style=flat-square&color=123D25" alt="Maltego" />
-<img src="https://img.shields.io/badge/Tor-070B09?style=flat-square&logo=torproject&logoColor=39FF88&color=123D25" alt="Tor" />
-</td>
-<td align="center" valign="top" width="50%">
-<img src="https://img.shields.io/badge/WEB_SECURITY-123D25?style=for-the-badge&labelColor=070B09" alt="Web Security" /><br /><br />
-<img src="https://img.shields.io/badge/Burp_Suite-070B09?style=flat-square&logo=burpsuite&logoColor=39FF88&color=123D25" alt="Burp Suite" />
-<img src="https://img.shields.io/badge/OWASP_ZAP-070B09?style=flat-square&logo=owasp&logoColor=39FF88&color=123D25" alt="OWASP ZAP" />
-<img src="https://img.shields.io/badge/Nikto-070B09?style=flat-square&color=123D25" alt="Nikto" />
-<img src="https://img.shields.io/badge/sqlmap-070B09?style=flat-square&color=123D25" alt="sqlmap" />
-<img src="https://img.shields.io/badge/Gobuster-070B09?style=flat-square&color=123D25" alt="Gobuster" />
-<img src="https://img.shields.io/badge/ffuf-070B09?style=flat-square&color=123D25" alt="ffuf" />
-<img src="https://img.shields.io/badge/WPScan-070B09?style=flat-square&color=123D25" alt="WPScan" />
-</td>
-</tr>
-<tr>
-<td align="center" valign="top">
-<img src="https://img.shields.io/badge/OFFENSIVE_SECURITY-123D25?style=for-the-badge&labelColor=070B09" alt="Offensive Security" /><br /><br />
-<img src="https://img.shields.io/badge/Metasploit-070B09?style=flat-square&logo=metasploit&logoColor=39FF88&color=123D25" alt="Metasploit" />
-<img src="https://img.shields.io/badge/Hashcat-070B09?style=flat-square&logo=hashcat&logoColor=39FF88&color=123D25" alt="Hashcat" />
-<img src="https://img.shields.io/badge/Hydra-070B09?style=flat-square&color=123D25" alt="Hydra" />
-<img src="https://img.shields.io/badge/John_the_Ripper-070B09?style=flat-square&color=123D25" alt="John the Ripper" />
-<img src="https://img.shields.io/badge/Aircrack--ng-070B09?style=flat-square&color=123D25" alt="Aircrack-ng" />
-<img src="https://img.shields.io/badge/Impacket-070B09?style=flat-square&color=123D25" alt="Impacket" />
-<img src="https://img.shields.io/badge/NetExec-070B09?style=flat-square&color=123D25" alt="NetExec" />
-<img src="https://img.shields.io/badge/Responder-070B09?style=flat-square&color=123D25" alt="Responder" />
-<img src="https://img.shields.io/badge/BloodHound-070B09?style=flat-square&color=123D25" alt="BloodHound" />
-<img src="https://img.shields.io/badge/Mimikatz-070B09?style=flat-square&color=123D25" alt="Mimikatz" />
-<img src="https://img.shields.io/badge/Evil--WinRM-070B09?style=flat-square&color=123D25" alt="Evil-WinRM" />
-</td>
-<td align="center" valign="top">
-<img src="https://img.shields.io/badge/DEFENSIVE_%26_ANALYSIS-123D25?style=for-the-badge&labelColor=070B09" alt="Defensive and Analysis" /><br /><br />
-<img src="https://img.shields.io/badge/Wireshark-070B09?style=flat-square&logo=wireshark&logoColor=39FF88&color=123D25" alt="Wireshark" />
-<img src="https://img.shields.io/badge/Snort-070B09?style=flat-square&logo=snort&logoColor=39FF88&color=123D25" alt="Snort" />
-<img src="https://img.shields.io/badge/VirusTotal-070B09?style=flat-square&logo=virustotal&logoColor=39FF88&color=123D25" alt="VirusTotal" />
-<img src="https://img.shields.io/badge/Splunk-070B09?style=flat-square&logo=splunk&logoColor=39FF88&color=123D25" alt="Splunk" />
-<img src="https://img.shields.io/badge/YARA-070B09?style=flat-square&color=123D25" alt="YARA" />
-<img src="https://img.shields.io/badge/tcpdump-070B09?style=flat-square&color=123D25" alt="tcpdump" />
-<img src="https://img.shields.io/badge/Zeek-070B09?style=flat-square&color=123D25" alt="Zeek" />
-<img src="https://img.shields.io/badge/Suricata-070B09?style=flat-square&color=123D25" alt="Suricata" />
-<img src="https://img.shields.io/badge/Sysmon-070B09?style=flat-square&logo=windows&logoColor=39FF88&color=123D25" alt="Sysmon" />
-<img src="https://img.shields.io/badge/Velociraptor-070B09?style=flat-square&color=123D25" alt="Velociraptor" />
-<img src="https://img.shields.io/badge/Volatility-070B09?style=flat-square&color=123D25" alt="Volatility" />
-<img src="https://img.shields.io/badge/ELK_%2F_Elastic-070B09?style=flat-square&logo=elastic&logoColor=39FF88&color=123D25" alt="ELK and Elastic" />
-<img src="https://img.shields.io/badge/Sigma-070B09?style=flat-square&color=123D25" alt="Sigma" />
-</td>
-</tr>
-<tr>
-<td align="center" valign="top" colspan="2">
-<img src="https://img.shields.io/badge/REVERSE_ENGINEERING-123D25?style=for-the-badge&labelColor=070B09" alt="Reverse Engineering" /><br /><br />
-<img src="https://img.shields.io/badge/Ghidra-070B09?style=flat-square&color=123D25" alt="Ghidra" />
-<img src="https://img.shields.io/badge/IDA-070B09?style=flat-square&color=123D25" alt="IDA" />
-<img src="https://img.shields.io/badge/radare2-070B09?style=flat-square&color=123D25" alt="radare2" />
-<img src="https://img.shields.io/badge/Cutter-070B09?style=flat-square&color=123D25" alt="Cutter" />
-<img src="https://img.shields.io/badge/x64dbg-070B09?style=flat-square&color=123D25" alt="x64dbg" />
-<img src="https://img.shields.io/badge/GDB-070B09?style=flat-square&color=123D25" alt="GDB" />
-<img src="https://img.shields.io/badge/Binary_Ninja-070B09?style=flat-square&color=123D25" alt="Binary Ninja" />
-<img src="https://img.shields.io/badge/dnSpy-070B09?style=flat-square&color=123D25" alt="dnSpy" />
-<img src="https://img.shields.io/badge/Frida-070B09?style=flat-square&color=123D25" alt="Frida" />
-<img src="https://img.shields.io/badge/objdump-070B09?style=flat-square&color=123D25" alt="objdump" />
-<img src="https://img.shields.io/badge/PE--bear-070B09?style=flat-square&color=123D25" alt="PE-bear" />
-<img src="https://img.shields.io/badge/Detect_It_Easy_%28DIE%29-070B09?style=flat-square&color=123D25" alt="Detect It Easy" />
-<img src="https://img.shields.io/badge/HxD-070B09?style=flat-square&color=123D25" alt="HxD" />
-<img src="https://img.shields.io/badge/WinDbg-070B09?style=flat-square&logo=windows&logoColor=39FF88&color=123D25" alt="WinDbg" />
-<img src="https://img.shields.io/badge/Procmon-070B09?style=flat-square&logo=windows&logoColor=39FF88&color=123D25" alt="Procmon" />
-</td>
-</tr>
-</table>
+<div align="center">
+  <img src="assets/security-toolkit.svg" alt="Recon and OSINT: Nmap: Shodan: theHarvester: Maltego: Tor. Web Security: Burp Suite: OWASP ZAP: Nikto: sqlmap: Gobuster: ffuf: WPScan. Offensive Security: Metasploit: Hashcat: Hydra: John the Ripper: Aircrack-ng: Impacket: NetExec: Responder: BloodHound: Mimikatz: Evil-WinRM. Defensive and Analysis: Wireshark: Snort: VirusTotal: Splunk: YARA: tcpdump: Zeek: Suricata: Sysmon: Velociraptor: Volatility: ELK and Elastic: Sigma. Reverse Engineering: Ghidra: IDA: radare2: Cutter: x64dbg: GDB: Binary Ninja: dnSpy: Frida: objdump: PE-bear: Detect It Easy: HxD: WinDbg: Procmon" width="100%" />
+</div>
 
 ## Security Focus
 
