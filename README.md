@@ -47,7 +47,7 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 ## Security Toolkit
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/41817280605840a1158ab62e9ae4fc9beafb2e1d/assets/security-toolkit.svg" alt="Recon and OSINT: Nmap: Shodan: theHarvester: Maltego: Tor. Web Security: Burp Suite: OWASP ZAP: Nikto: sqlmap: Gobuster: ffuf: WPScan. Offensive Security: Metasploit: Hashcat: Hydra: John the Ripper: Aircrack-ng: Impacket: NetExec: Responder: BloodHound: Mimikatz: Evil-WinRM. Defensive and Analysis: Wireshark: Snort: VirusTotal: Splunk: YARA: tcpdump: Zeek: Suricata: Sysmon: Velociraptor: Volatility: ELK and Elastic: Sigma. Reverse Engineering: Ghidra: IDA: radare2: Cutter: x64dbg: GDB: Binary Ninja: dnSpy: Frida: objdump: PE-bear: Detect It Easy: HxD: WinDbg: Procmon" width="100%" />
+  <img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/4e5cb7bc8543496281b60416aceaf7aae0641c4d/assets/security-toolkit.svg" alt="Recon and OSINT: Nmap: Shodan: theHarvester: Maltego: Tor: Amass: Recon-ng: SpiderFoot: Sherlock. Web Security: Burp Suite: OWASP ZAP: Nikto: sqlmap: Gobuster: ffuf: WPScan: Nuclei: dirsearch. Offensive Security: Metasploit: Hashcat: Hydra: John the Ripper: Aircrack-ng: Impacket: NetExec: Responder: BloodHound: Mimikatz: Evil-WinRM. Defensive and Analysis: Wireshark: Snort: VirusTotal: Splunk: YARA: tcpdump: Zeek: Suricata: Sysmon: Velociraptor: Volatility: ELK and Elastic: Sigma. Reverse Engineering: Ghidra: IDA: radare2: Cutter: x64dbg: GDB: Binary Ninja: dnSpy: Frida: objdump: PE-bear: Detect It Easy: HxD: WinDbg: Procmon" width="100%" />
 </div>
 
 ## Security Focus
