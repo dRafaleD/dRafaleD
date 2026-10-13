@@ -188,7 +188,7 @@ All security research and testing is performed in authorized environments only.
 <div align="center">
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/)
-[![Profile views](https://komarev.com/ghpvc/?username=dRafaleD&color=39ff88&style=for-the-badge&label=profile+views)](https://github.com/dRafaleD)
+[![Profile views](https://komarev.com/ghpvc/?username=dRafaleD&color=39ff88&style=for-the-badge&label=profile%20views)](https://github.com/dRafaleD)
 
 </div>
 
