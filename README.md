@@ -89,6 +89,10 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 </tr>
 </table>
 
+## Community Contributions
+
+[![XERJ Corpus Hub contributor](https://hub.xerj.org/contributors/dRafaleD/badge.svg)](https://hub.xerj.org/contributors/dRafaleD.html)
+
 ## Selected Projects
 
 | Project | Description | Stack |
