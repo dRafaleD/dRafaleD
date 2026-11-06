@@ -9,32 +9,9 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 
 ## Technical Arsenal
 
-<table align="center">
-<tr>
-<td align="center">
-<strong>Languages</strong><br /><br />
-<img src="https://skillicons.dev/icons?i=rust,python,c,cpp&perline=4" alt="Rust, Python, C and C++" height="48" />
-<img src="assets/assembly-icon.svg" alt="Assembly" height="48" />
-<img src="assets/yara-icon.svg" alt="YARA" height="48" /><br />
-<img src="assets/lua-icon.svg" alt="Lua" height="48" />
-<img src="https://skillicons.dev/icons?i=js,html,css&perline=3" alt="JavaScript, HTML and CSS" height="48" />
-</td>
-</tr>
-<tr>
-<td align="center">
-<strong>Databases</strong><br /><br />
-<img src="https://skillicons.dev/icons?i=postgres" alt="PostgreSQL" height="48" />
-</td>
-</tr>
-<tr>
-<td align="center">
-<strong>Security Platforms</strong><br /><br />
-<img src="https://img.shields.io/badge/Kali_Linux-070B09?style=for-the-badge&logo=kalilinux&logoColor=39FF88" alt="Kali Linux" />
-<img src="https://img.shields.io/badge/Debian-070B09?style=for-the-badge&logo=debian&logoColor=39FF88" alt="Debian" />
-<img src="https://img.shields.io/badge/Arch_Linux-070B09?style=for-the-badge&logo=archlinux&logoColor=39FF88" alt="Arch Linux" />
-</td>
-</tr>
-</table>
+<div align="center">
+  <img src="assets/technical-arsenal.svg" alt="Languages: Rust, YARA, Assembly, C, C++, Python, Lua, JavaScript, HTML, CSS. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
+</div>
 
 ## Security Toolkit
 
