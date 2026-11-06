@@ -11,31 +11,23 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 
 <table align="center">
 <tr>
-<td align="center" colspan="2">
+<td align="center">
 <strong>Languages</strong><br /><br />
-<img src="https://skillicons.dev/icons?i=python,js,ts,c,cpp,cs&perline=6" alt="Python, JavaScript, TypeScript, C, C++ and C#" /><br />
-<img src="https://skillicons.dev/icons?i=go,rust,lua,html,css&perline=6" alt="Go, Rust, Lua, HTML and CSS" />
-<img src="https://cdn.simpleicons.org/assemblyscript/39ff88" alt="Assembly" height="48" />
+<img src="https://skillicons.dev/icons?i=rust,python,c,cpp&perline=4" alt="Rust, Python, C and C++" height="48" />
+<img src="assets/assembly-icon.svg" alt="Assembly" height="48" />
+<img src="assets/yara-icon.svg" alt="YARA" height="48" /><br />
+<img src="assets/lua-icon.svg" alt="Lua" height="48" />
+<img src="https://skillicons.dev/icons?i=js,html,css&perline=3" alt="JavaScript, HTML and CSS" height="48" />
 </td>
 </tr>
 <tr>
-<td align="center" valign="top" width="50%">
-<strong>Development</strong><br /><br />
-<img src="https://skillicons.dev/icons?i=nodejs,react,git,linux" alt="Node.js, React, Git and Linux" height="48" />
-</td>
-<td align="center" valign="top" width="50%">
+<td align="center">
 <strong>Databases</strong><br /><br />
-<img src="assets/database-stack.svg" alt="PostgreSQL, MongoDB, MySQL and MariaDB" height="48" />
+<img src="https://skillicons.dev/icons?i=postgres" alt="PostgreSQL" height="48" />
 </td>
 </tr>
 <tr>
-<td align="center" colspan="2">
-<strong>Frameworks</strong><br /><br />
-<img src="https://skillicons.dev/icons?i=dotnet,django,flask,fastapi&perline=4" alt="ASP.NET Core, Django, Flask and FastAPI" height="48" />
-</td>
-</tr>
-<tr>
-<td align="center" colspan="2">
+<td align="center">
 <strong>Security Platforms</strong><br /><br />
 <img src="https://img.shields.io/badge/Kali_Linux-070B09?style=for-the-badge&logo=kalilinux&logoColor=39FF88" alt="Kali Linux" />
 <img src="https://img.shields.io/badge/Debian-070B09?style=for-the-badge&logo=debian&logoColor=39FF88" alt="Debian" />
