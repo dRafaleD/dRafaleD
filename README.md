@@ -10,7 +10,7 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 ## Technical Arsenal
 
 <div align="center">
-  <img src="assets/technical-arsenal.svg" alt="Languages: Rust, YARA, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
+  <img src="assets/technical-arsenal-v2.svg" alt="Languages: Rust, YARA, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
 </div>
 
 ## Security Toolkit
