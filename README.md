@@ -89,10 +89,10 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 
 | Project | Description | Stack |
 | --- | --- | --- |
-| [The-Trackher](https://github.com/dRafaleD/The-Trackher) | Open-source digital-footprint cleaner and OSINT tool. | Python |
-| [FhniX](https://github.com/dRafaleD/FhniX) | Local-first phishing email triage with GUI reporting, read-only IMAP scans, and optional local ML. | Python |
-| [Banshee](https://github.com/dRafaleD/Banshee) | Systems-oriented project written in Rust. | Rust |
-| [Malware-analysis-AsphDex](https://github.com/dRafaleD/Malware-analysis-AsphDex) | Malware-analysis project. | JavaScript |
+| [Banshee](https://github.com/dRafaleD/Banshee) | Offline, pipe-friendly security analysis toolkit (alpha). Decodes suspicious values, extracts IOCs, inspects PE/ELF metadata, applies local rules and preserves results in verifiable evidence bundles, all without uploading your inputs. | Rust · YARA |
+| [AsphDex](https://github.com/dRafaleD/Malware-analysis-AsphDex) | Defensive static malware triage for Windows and Linux (release candidate). PE/ELF analysis, strings, entropy, YARA and IOC extraction with explainable reports, without intentionally executing the sample. | Electron · JavaScript · Rust · YARA |
+| [FhniX](https://github.com/dRafaleD/FhniX) | Explainable, local-first phishing email triage. Transparent rule scoring with an optional local Naive Bayes model, desktop GUI and CLI, folder reports and read-only IMAP scans. Links are defanged and never visited. | Python |
+| [The-Trackher](https://github.com/dRafaleD/The-Trackher) | Digital-footprint and privacy toolkit with CLI and GUI. Username and email OSINT for your own accounts, breach exposure checks and local trace cleanup with dry-run support. | Python |
 
 ## Ethics
 
