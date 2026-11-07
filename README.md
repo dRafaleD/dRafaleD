@@ -96,3 +96,7 @@ All security research and testing is performed in authorized environments only.
 <img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" alt="GitHub contribution snake animation" width="100%" />
 
 </div>
+
+<div align="center">
+  <img src="assets/profile-banner.gif" alt="Pixel-art hacker at a laptop in a dark neon-green lab" width="100%" />
+</div>
