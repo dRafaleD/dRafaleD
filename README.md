@@ -98,5 +98,5 @@ All security research and testing is performed in authorized environments only.
 </div>
 
 <div align="center">
-  <img src="assets/profile-banner.gif" alt="Pixel-art hacker at a laptop in a dark neon-green lab" width="100%" />
+  <img src="assets/profile-banner-v2.gif" alt="Animated pixel-art hacker typing at a laptop in a dark neon-green lab" width="100%" />
 </div>
