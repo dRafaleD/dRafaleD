@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="290" viewBox="0 0 600 290" role="img" aria-labelledby="title desc">
+<title id="title">Banshee — OFFLINE ANALYSIS</title>
+<desc id="desc">Inspect files. Decode suspicious values. Extract IOCs and preserve evidence. Local analysis, pipe-friendly workflow. RUST / YARA / ALPHA</desc>
+<style>
+text{font-family:'Segoe UI',Ubuntu,Arial,sans-serif}
+.meta{font-family:Consolas,'DejaVu Sans Mono',monospace;font-size:14px;letter-spacing:1.2px;fill:#90a69a}
+.body{font-size:20px;fill:#b7c5bd}
+.scan{animation:scan 9s ease-in-out infinite;animation-delay:-2s}
+@keyframes scan{0%,100%{transform:translateX(0);opacity:.25}50%{transform:translateX(455px);opacity:.65}}
+@media(prefers-reduced-motion:reduce){.scan{animation:none;opacity:.4}}
+</style>
+<rect x="1" y="1" width="598" height="288" rx="18" fill="#080d0b" stroke="#213a2b"/>
+<path d="M30 62H570" stroke="#1b3024"/>
+<text x="30" y="38" class="meta">01 / OFFLINE ANALYSIS</text>
+<text x="30" y="114" fill="#edfff4" font-size="38" font-weight="650">Banshee</text>
+<g transform="translate(516 78)" fill="none" stroke="#6bdc99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7h19l8 8v31H12Z M31 7v9h8 M19 26h13 M19 33h13"/></g>
+<text x="30" y="155" class="body">Inspect files. Decode suspicious values.</text><text x="30" y="183" class="body">Extract IOCs and preserve evidence.</text><text x="30" y="211" class="body">Local analysis, pipe-friendly workflow.</text>
+<text x="30" y="255" class="meta" style="font-size:13px;fill:#71bd8d">RUST / YARA / ALPHA</text>
+<path d="M30 274H570" stroke="#15251b"/>
+<g transform="translate(30 0)"><path class="scan" d="M0 274H55" stroke="#6bdc99" stroke-width="2"/></g>
+</svg>

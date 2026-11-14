@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="70" viewBox="0 0 920 70" role="img" aria-labelledby="t d">
+<title id="t">Build. Investigate. Document.</title><desc id="d">Cybersecurity, Linux, and secure software development.</desc>
+<style>.signal{animation:breathe 5s ease-in-out infinite}@keyframes breathe{0%,100%{opacity:.35}50%{opacity:.95}}@media(prefers-reduced-motion:reduce){.signal{animation:none;opacity:.7}}</style>
+<rect x="1" y="1" width="918" height="68" rx="12" fill="#080d0b" stroke="#213a2b"/>
+<circle class="signal" cx="30" cy="35" r="4" fill="#6bdc99"/>
+<g fill="#a7c0b0" font-family="Consolas,'DejaVu Sans Mono',monospace" font-size="15" letter-spacing="1.4"><text x="48" y="40">BUILD / INVESTIGATE / DOCUMENT</text></g>
+<path d="M445 35H880" stroke="#1b3024"/><g class="signal" stroke="#6bdc99" fill="none" stroke-width="1.5"><path d="M735 35h25l6-7 9 15 9-20 9 12h30"/></g>
+</svg>

@@ -1,7 +1,8 @@
 <div align="center">
   <!-- The terminal uses assets/profile-terminal-mask.png, independent of the profile photo. -->
   <img src="assets/profile-terminal-v2.gif" alt="dRafaleD animated cybersecurity profile terminal" width="100%" />
-  <p><sub>CYBERSECURITY &nbsp; / &nbsp; LINUX &nbsp; / &nbsp; SECURE SOFTWARE</sub></p>
+  <br /><br />
+  <img src="assets/profile-signal.svg" alt="Build / Investigate / Document — cybersecurity, Linux and secure software" width="100%" />
 </div>
 
 ## About
@@ -14,32 +15,12 @@ I learn by building, investigating, and documenting what I find.
 
 <table>
 <tr>
-<td width="50%" valign="top">
-<sub>01 / OFFLINE ANALYSIS</sub>
-<h3><a href="https://github.com/dRafaleD/Banshee">Banshee ↗</a></h3>
-<p>Pipe-friendly security analysis. Decode suspicious values, extract IOCs, inspect PE/ELF files, and preserve verifiable evidence bundles.</p>
-<p><sub>Rust · YARA · Alpha</sub></p>
-</td>
-<td width="50%" valign="top">
-<sub>02 / STATIC MALWARE TRIAGE</sub>
-<h3><a href="https://github.com/dRafaleD/Malware-analysis-AsphDex">AsphDex ↗</a></h3>
-<p>PE/ELF inspection, strings, entropy, YARA matches, and explainable reports, without intentionally executing the sample.</p>
-<p><sub>Electron · JavaScript · Rust · YARA</sub></p>
-</td>
+<td width="50%"><a href="https://github.com/dRafaleD/Banshee"><img src="assets/project-banshee.svg" width="100%" alt="Banshee — offline file analysis, IOC extraction and evidence bundles. Rust / YARA / alpha." /></a></td>
+<td width="50%"><a href="https://github.com/dRafaleD/Malware-analysis-AsphDex"><img src="assets/project-asphdex.svg" width="100%" alt="AsphDex — static PE/ELF triage, YARA, strings and entropy. Electron / JavaScript / Rust / YARA." /></a></td>
 </tr>
 <tr>
-<td width="50%" valign="top">
-<sub>03 / EMAIL SECURITY</sub>
-<h3><a href="https://github.com/dRafaleD/FhniX">FhniX ↗</a></h3>
-<p>Local phishing email triage with transparent rule scoring, an optional local classifier, and read-only IMAP scans. Links stay defanged.</p>
-<p><sub>Python · Desktop & CLI</sub></p>
-</td>
-<td width="50%" valign="top">
-<sub>04 / DIGITAL FOOTPRINT</sub>
-<h3><a href="https://github.com/dRafaleD/The-Trackher">The-Trackher ↗</a></h3>
-<p>Username and email OSINT for your own accounts, breach exposure checks, and local trace cleanup with dry-run support.</p>
-<p><sub>Python · Privacy & OSINT</sub></p>
-</td>
+<td width="50%"><a href="https://github.com/dRafaleD/FhniX"><img src="assets/project-fhnix.svg" width="100%" alt="FhniX — local, explainable phishing email triage with read-only IMAP. Python / desktop and CLI." /></a></td>
+<td width="50%"><a href="https://github.com/dRafaleD/The-Trackher"><img src="assets/project-trackher.svg" width="100%" alt="The-Trackher — own-account OSINT, breach exposure and local privacy checks. Python." /></a></td>
 </tr>
 </table>
 
@@ -52,19 +33,14 @@ I learn by building, investigating, and documenting what I find.
 | Static malware analysis & reverse engineering | Local security tools with explainable results | Advanced web application security |
 | OSINT & digital-footprint research | Secure backend services & APIs | Linux hardening & network security |
 
-## Tools & credentials
-
-<details>
-<summary><strong>Languages, databases & platforms</strong></summary>
+## Technical arsenal
 
 <div align="center">
   <img src="assets/technical-arsenal-v3.svg" alt="Languages: Rust, YARA, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
 </div>
 
-</details>
-
 <details>
-<summary><strong>Security toolkit</strong></summary>
+<summary><strong>Explore the security toolkit</strong></summary>
 
 <div align="center">
   <img src="assets/security-toolkit-v3.svg" alt="Recon and OSINT: Nmap: Shodan: theHarvester: Maltego: Tor: Amass: Recon-ng: SpiderFoot: Sherlock. Web Security: Burp Suite: OWASP ZAP: Nikto: sqlmap: Gobuster: ffuf: WPScan: Nuclei: dirsearch. Offensive Security: Metasploit: Hashcat: Hydra: John the Ripper: Aircrack-ng: Impacket: NetExec: Responder: BloodHound: Mimikatz: Evil-WinRM. Defensive and Analysis: Wireshark: Snort: VirusTotal: Splunk: YARA: tcpdump: Zeek: Suricata: Sysmon: Velociraptor: Volatility: ELK and Elastic: Sigma. Reverse Engineering: Ghidra: IDA: radare2: Cutter: x64dbg: GDB: Binary Ninja: dnSpy: Frida: objdump: PE-bear: Detect It Easy: HxD: WinDbg: Procmon" width="100%" />
@@ -73,8 +49,7 @@ I learn by building, investigating, and documenting what I find.
 
 </details>
 
-<details>
-<summary><strong>Certifications — Siber Vatan & Cisco</strong></summary>
+## Certifications
 
 <table align="center">
 <tr>
@@ -97,20 +72,13 @@ I learn by building, investigating, and documenting what I find.
 </tr>
 </table>
 
-</details>
-
 ## Community
 
 [XERJ Corpus Hub contributor ↗](https://hub.xerj.org/contributors/dRafaleD.html)
 
 ## Activity
 
-<details>
-<summary>GitHub contribution streak</summary>
-
 <img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg" alt="dRafaleD GitHub contribution streak" width="100%" />
-
-</details>
 
 ---
 
