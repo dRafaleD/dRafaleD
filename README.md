@@ -1,72 +1,100 @@
 <div align="center">
   <!-- The terminal uses assets/profile-terminal-mask.png, independent of the profile photo. -->
   <img src="assets/profile-terminal-v2.gif" alt="dRafaleD animated cybersecurity profile terminal" width="100%" />
-
+  <img src="https://readme-typing-svg.demolab.com?font=Cascadia+Code&weight=600&size=18&duration=3600&pause=1800&color=39FF88&center=true&vCenter=true&width=720&lines=Security+is+not+a+product%2C+it%27s+a+process." alt="Security is not a product, it's a process." />
 </div>
 
 ## About
 
-I am **Eren Erdogan**, a backend development student building practical tools for security research. My work spans static file analysis, phishing detection, OSINT, and secure software development.
+I am Eren Erdogan, a backend development student focused on cybersecurity, Linux systems, and secure software development. I build practical tools while improving my skills in penetration testing, OSINT, malware analysis, reverse engineering, and full-stack development.
 
-I learn by building, investigating, and documenting what I find.
+## Technical Arsenal
 
-## Research atlas
+<div align="center">
+  <img src="assets/technical-arsenal-v3.svg" alt="Languages: Rust, YARA, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
+</div>
 
-<img src="assets/research-atlas.svg" alt="Four connected research projects: Banshee for offline analysis, AsphDex for static malware triage, FhniX for email security and The-Trackher for digital-footprint research. Local, explainable analysis connects them." width="100%" />
+## Security Toolkit
 
-<p align="center">
-<a href="https://github.com/dRafaleD/Banshee">Banshee ↗</a> &nbsp; · &nbsp;
-<a href="https://github.com/dRafaleD/Malware-analysis-AsphDex">AsphDex ↗</a> &nbsp; · &nbsp;
-<a href="https://github.com/dRafaleD/FhniX">FhniX ↗</a> &nbsp; · &nbsp;
-<a href="https://github.com/dRafaleD/The-Trackher">The-Trackher ↗</a>
-</p>
+<div align="center">
+  <img src="assets/security-toolkit-v3.svg" alt="Recon and OSINT: Nmap: Shodan: theHarvester: Maltego: Tor: Amass: Recon-ng: SpiderFoot: Sherlock. Web Security: Burp Suite: OWASP ZAP: Nikto: sqlmap: Gobuster: ffuf: WPScan: Nuclei: dirsearch. Offensive Security: Metasploit: Hashcat: Hydra: John the Ripper: Aircrack-ng: Impacket: NetExec: Responder: BloodHound: Mimikatz: Evil-WinRM. Defensive and Analysis: Wireshark: Snort: VirusTotal: Splunk: YARA: tcpdump: Zeek: Suricata: Sysmon: Velociraptor: Volatility: ELK and Elastic: Sigma. Reverse Engineering: Ghidra: IDA: radare2: Cutter: x64dbg: GDB: Binary Ninja: dnSpy: Frida: objdump: PE-bear: Detect It Easy: HxD: WinDbg: Procmon" width="100%" />
+  <br /><sub>Highlighted tools are the ones I use the most.</sub>
+</div>
 
-## Current focus
+## Security Focus & Learning
 
-| Investigate | Build | Learn |
-| :--- | :--- | :--- |
-| Static malware analysis & reverse engineering | Local security tools with explainable results | Advanced web application security |
-| OSINT & digital-footprint research | Secure backend services & APIs | Linux hardening & network security |
-
-## Engineering & investigation
-
-<img src="assets/engineering-base.svg" alt="Engineering base: Rust, YARA, Assembly, C, C++, Python, JavaScript; Kali Linux, Debian, Arch Linux and PostgreSQL." width="100%" />
-
-<img src="assets/investigation-instruments.svg" alt="Security toolkit: recon and OSINT; web security; authorized offensive testing; detection and analysis; reverse engineering. All tools are listed directly in the image." width="100%" />
+<div align="center">
+  <img src="assets/terminal-focus-learning-v2.svg" alt="Security focus: web application security and penetration testing; vulnerability assessment and secure-code review; OSINT and digital-footprint security; malware analysis, reverse engineering, and binary analysis; cryptography fundamentals and applied security concepts; Linux systems, network security, automation, and secure backend development. Currently learning: advanced web application security; malware analysis and reverse engineering; Linux hardening and network security; secure API and backend architecture." width="100%" />
+</div>
 
 ## Certifications
 
 <table align="center">
 <tr>
 <td align="center">
-<a href="https://drdogrulama.sanayi.gov.tr/tr/verify/07578340853062/"><img src="assets/siber-vatan-logo.png" width="100" alt="Siber Vatan Certificate" /></a><br />
+<a href="https://drdogrulama.sanayi.gov.tr/tr/verify/07578340853062/"><img src="assets/siber-vatan-logo.png" width="185" alt="Siber Vatan Certificate" /></a><br />
 <sub>Verified certificate</sub>
 </td>
 <td align="center">
-<a href="https://www.credly.com/badges/567e79bb-6b4e-4b79-9564-0b727902d11f"><img src="https://images.credly.com/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/linkedin_thumb_I2CS__1_.png" width="72" alt="Cisco Introduction to Cybersecurity badge" /></a><br />
+<a href="https://www.credly.com/badges/567e79bb-6b4e-4b79-9564-0b727902d11f"><img src="https://images.credly.com/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/linkedin_thumb_I2CS__1_.png" width="110" alt="Cisco Introduction to Cybersecurity badge" /></a><br />
 <sub>Introduction to Cybersecurity</sub>
 </td>
 <td align="center">
-<a href="https://www.credly.com/badges/b6fbd459-5454-4c96-9e67-7a485b5d6485"><img src="https://images.credly.com/images/51526f76-711b-4caf-b04d-27f89512b112/linkedin_thumb_NetworkDefense_v1_091721.png" width="72" alt="Cisco Network Defense badge" /></a><br />
+<a href="https://www.credly.com/badges/b6fbd459-5454-4c96-9e67-7a485b5d6485"><img src="https://images.credly.com/images/51526f76-711b-4caf-b04d-27f89512b112/linkedin_thumb_NetworkDefense_v1_091721.png" width="110" alt="Cisco Network Defense badge" /></a><br />
 <sub>Network Defense</sub>
 </td>
 <td align="center">
-<a href="https://www.credly.com/badges/cf6d7994-2f69-45d0-abcc-9aa032e18f86"><img src="https://images.credly.com/images/5d5ac32b-d239-42b8-9665-8a921dc3ab47/linkedin_thumb_image.png" width="72" alt="Cisco Cyber Threat Management badge" /></a><br />
+<a href="https://www.credly.com/badges/cf6d7994-2f69-45d0-abcc-9aa032e18f86"><img src="https://images.credly.com/images/5d5ac32b-d239-42b8-9665-8a921dc3ab47/linkedin_thumb_image.png" width="110" alt="Cisco Cyber Threat Management badge" /></a><br />
 <sub>Cyber Threat Management</sub>
 </td>
 </tr>
 </table>
 
-## Community
+## Community Contributions
 
-[XERJ Corpus Hub contributor ↗](https://hub.xerj.org/contributors/dRafaleD.html)
+[![XERJ Corpus Hub contributor](https://hub.xerj.org/contributors/dRafaleD/badge.svg)](https://hub.xerj.org/contributors/dRafaleD.html)
 
-## Activity
+## Selected Projects
+
+| Project | Description | Stack |
+| --- | --- | --- |
+| [Banshee](https://github.com/dRafaleD/Banshee) | Offline, pipe-friendly security analysis toolkit (alpha). Decodes suspicious values, extracts IOCs, inspects PE/ELF metadata, applies local rules and preserves results in verifiable evidence bundles, all without uploading your inputs. | Rust · YARA |
+| [AsphDex](https://github.com/dRafaleD/Malware-analysis-AsphDex) | Defensive static malware triage for Windows and Linux (release candidate). PE/ELF analysis, strings, entropy, YARA and IOC extraction with explainable reports, without intentionally executing the sample. | Electron · JavaScript · Rust · YARA |
+| [FhniX](https://github.com/dRafaleD/FhniX) | Explainable, local-first phishing email triage. Transparent rule scoring with an optional local Naive Bayes model, desktop GUI and CLI, folder reports and read-only IMAP scans. Links are defanged and never visited. | Python |
+| [The-Trackher](https://github.com/dRafaleD/The-Trackher) | Digital-footprint and privacy toolkit with CLI and GUI. Username and email OSINT for your own accounts, breach exposure checks and local trace cleanup with dry-run support. | Python |
+
+## Ethics
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/WHITE_HAT-SECURITY-39FF88?style=for-the-badge&logo=hackthebox&logoColor=39FF88&labelColor=070B09" alt="White Hat Security" />
+<img src="https://img.shields.io/badge/AUTHORIZED_RESEARCH-ONLY-123D25?style=for-the-badge&labelColor=070B09" alt="Authorized Research Only" />
+
+<br />
+
+<strong>Explore responsibly · Report ethically · Strengthen securely</strong><br />
+All security research and testing is performed in authorized environments only.
+
+</div>
+
+## Connect
+
+<div align="center">
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/)
+[![Profile views](https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=39ff88&labelColor=555555&extraCount=1260)](https://hits.sh/github.com/dRafaleD/)
+
+</div>
+
+## GitHub Activity
+
+<div align="center">
 
 <img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg" alt="dRafaleD GitHub contribution streak" width="100%" />
 
----
+<br />
 
-**Research responsibly. Build carefully.** All security research and testing is performed in authorized environments only.
+<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" alt="GitHub contribution snake animation" width="100%" />
 
-[Portfolio](https://drafaled.github.io/) &nbsp; · &nbsp; [LinkedIn](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/) &nbsp; · &nbsp; [GitHub repositories](https://github.com/dRafaleD?tab=repositories)
+</div>
+
