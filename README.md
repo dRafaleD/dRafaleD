@@ -8,23 +8,33 @@
 
 I am Eren Erdogan, a backend development student focused on cybersecurity, Linux systems, and secure software development. I build practical tools while improving my skills in penetration testing, OSINT, malware analysis, reverse engineering, and full-stack development.
 
+## Selected Projects
+
+<img src="assets/research-atlas.svg" alt="Research atlas: Banshee for offline analysis, AsphDex for static malware triage, FhniX for email security and The-Trackher for digital-footprint research, connected through local, explainable analysis." width="100%" />
+
+<p align="center">
+<a href="https://github.com/dRafaleD/Banshee">Banshee ↗</a> &nbsp; · &nbsp;
+<a href="https://github.com/dRafaleD/Malware-analysis-AsphDex">AsphDex ↗</a> &nbsp; · &nbsp;
+<a href="https://github.com/dRafaleD/FhniX">FhniX ↗</a> &nbsp; · &nbsp;
+<a href="https://github.com/dRafaleD/The-Trackher">The-Trackher ↗</a>
+</p>
+
 ## Technical Arsenal
 
 <div align="center">
-  <img src="assets/technical-arsenal-v3.svg" alt="Languages: Rust, YARA, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
+  <img src="assets/engineering-base.svg" alt="Languages: Rust, YARA, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
 </div>
 
 ## Security Toolkit
 
 <div align="center">
-  <img src="assets/security-toolkit-v3.svg" alt="Recon and OSINT: Nmap: Shodan: theHarvester: Maltego: Tor: Amass: Recon-ng: SpiderFoot: Sherlock. Web Security: Burp Suite: OWASP ZAP: Nikto: sqlmap: Gobuster: ffuf: WPScan: Nuclei: dirsearch. Offensive Security: Metasploit: Hashcat: Hydra: John the Ripper: Aircrack-ng: Impacket: NetExec: Responder: BloodHound: Mimikatz: Evil-WinRM. Defensive and Analysis: Wireshark: Snort: VirusTotal: Splunk: YARA: tcpdump: Zeek: Suricata: Sysmon: Velociraptor: Volatility: ELK and Elastic: Sigma. Reverse Engineering: Ghidra: IDA: radare2: Cutter: x64dbg: GDB: Binary Ninja: dnSpy: Frida: objdump: PE-bear: Detect It Easy: HxD: WinDbg: Procmon" width="100%" />
-  <br /><sub>Highlighted tools are the ones I use the most.</sub>
+  <img src="assets/investigation-instruments.svg" alt="Recon and OSINT: Nmap: Shodan: theHarvester: Maltego: Tor: Amass: Recon-ng: SpiderFoot: Sherlock. Web Security: Burp Suite: OWASP ZAP: Nikto: sqlmap: Gobuster: ffuf: WPScan: Nuclei: dirsearch. Offensive Security: Metasploit: Hashcat: Hydra: John the Ripper: Aircrack-ng: Impacket: NetExec: Responder: BloodHound: Mimikatz: Evil-WinRM. Defensive and Analysis: Wireshark: Snort: VirusTotal: Splunk: YARA: tcpdump: Zeek: Suricata: Sysmon: Velociraptor: Volatility: ELK and Elastic: Sigma. Reverse Engineering: Ghidra: IDA: radare2: Cutter: x64dbg: GDB: Binary Ninja: dnSpy: Frida: objdump: PE-bear: Detect It Easy: HxD: WinDbg: Procmon" width="100%" />
 </div>
 
 ## Security Focus & Learning
 
 <div align="center">
-  <img src="assets/terminal-focus-learning-v2.svg" alt="Security focus: web application security and penetration testing; vulnerability assessment and secure-code review; OSINT and digital-footprint security; malware analysis, reverse engineering, and binary analysis; cryptography fundamentals and applied security concepts; Linux systems, network security, automation, and secure backend development. Currently learning: advanced web application security; malware analysis and reverse engineering; Linux hardening and network security; secure API and backend architecture." width="100%" />
+  <img src="assets/focus-learning-map.svg" alt="Security focus: web application security and penetration testing; vulnerability assessment and secure-code review; OSINT and digital-footprint security; malware analysis, reverse engineering, and binary analysis; cryptography fundamentals and applied security concepts; Linux systems, network security, automation, and secure backend development. Currently learning: advanced web application security; malware analysis and reverse engineering; Linux hardening and network security; secure API and backend architecture." width="100%" />
 </div>
 
 ## Certifications
@@ -53,15 +63,6 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 ## Community Contributions
 
 [![XERJ Corpus Hub contributor](https://hub.xerj.org/contributors/dRafaleD/badge.svg)](https://hub.xerj.org/contributors/dRafaleD.html)
-
-## Selected Projects
-
-| Project | Description | Stack |
-| --- | --- | --- |
-| [Banshee](https://github.com/dRafaleD/Banshee) | Offline, pipe-friendly security analysis toolkit (alpha). Decodes suspicious values, extracts IOCs, inspects PE/ELF metadata, applies local rules and preserves results in verifiable evidence bundles, all without uploading your inputs. | Rust · YARA |
-| [AsphDex](https://github.com/dRafaleD/Malware-analysis-AsphDex) | Defensive static malware triage for Windows and Linux (release candidate). PE/ELF analysis, strings, entropy, YARA and IOC extraction with explainable reports, without intentionally executing the sample. | Electron · JavaScript · Rust · YARA |
-| [FhniX](https://github.com/dRafaleD/FhniX) | Explainable, local-first phishing email triage. Transparent rule scoring with an optional local Naive Bayes model, desktop GUI and CLI, folder reports and read-only IMAP scans. Links are defanged and never visited. | Python |
-| [The-Trackher](https://github.com/dRafaleD/The-Trackher) | Digital-footprint and privacy toolkit with CLI and GUI. Username and email OSINT for your own accounts, breach exposure checks and local trace cleanup with dry-run support. | Python |
 
 ## Ethics
 
@@ -97,4 +98,3 @@ All security research and testing is performed in authorized environments only.
 <img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" alt="GitHub contribution snake animation" width="100%" />
 
 </div>
-

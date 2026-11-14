@@ -96,3 +96,21 @@ for i,(title,lines) in enumerate(tool_groups):
     if i<4:body+=f'<path d="M81 {y+98}H950" stroke="#142d1d"/>'
 save("investigation-instruments.svg", 820, "Investigation instruments", "All security tools grouped by recon, web security, authorized offensive testing, detection and analysis, and reverse engineering. No hidden sections.", body)
 print("Rendered the research atlas, engineering base and investigation instruments.")
+
+# Show research interests beside the learning path, with every topic visible.
+body = text(40, 43, "RESEARCH / NEXT HORIZON", 13, "#39ff88", 'class="mono"')
+body += text(40, 88, "Curiosity, with a direction.", 34, "#e6ffed", 'font-weight="600"')
+body += '<path d="M500 142V420" stroke="#20412c"/><path class="flow" d="M500 142V420" stroke="#39ff88" fill="none" stroke-width="2"/>'
+body += text(40, 157, "INVESTIGATING", 12, "#b7f34a", 'class="mono"')
+body += text(555, 157, "GOING DEEPER", 12, "#b7f34a", 'class="mono"')
+focus = ["Web security & penetration testing", "Vulnerability assessment & code review", "OSINT & digital footprints", "Malware analysis & reverse engineering", "Cryptography & applied security", "Linux, networking & automation"]
+learning = ["Advanced web application security", "Malware analysis & reverse engineering", "Linux hardening & network security", "Secure API & backend architecture"]
+for i, value in enumerate(focus):
+    body += text(40, 201 + i * 35, value, 19)
+for i, value in enumerate(learning):
+    y = 201 + i * 52
+    body += f'<circle cx="561" cy="{y-6}" r="4" fill="#070b09" stroke="#39ff88"/>'
+    body += text(580, y, value, 18)
+body += '<path d="M40 432H960" stroke="#193723"/><path d="M40 432H240" stroke="#39ff88" stroke-opacity=".4"/>'
+body += text(40, 466, "LEARN BY BUILDING. UNDERSTAND BY INVESTIGATING.", 11, "#7fa38a", 'class="mono"')
+save("focus-learning-map.svg", 494, "Security focus and current learning", "Research: web security, vulnerability assessment, code review, OSINT, malware analysis, reverse engineering, cryptography, Linux and networking. Learning: advanced web security, malware analysis, Linux hardening and secure backend architecture.", body)
