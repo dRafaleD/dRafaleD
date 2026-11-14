@@ -98,6 +98,3 @@ All security research and testing is performed in authorized environments only.
 
 </div>
 
-<div align="center">
-  <img src="assets/profile-banner-v2.gif" alt="Animated pixel-art hacker typing at a laptop in a dark neon-green lab" width="100%" />
-</div>
