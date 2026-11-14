@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="820" viewBox="0 0 1000 820" role="img" aria-labelledby="t d">
+<title id="t">Investigation instruments</title><desc id="d">All security tools grouped by recon, web security, authorized offensive testing, detection and analysis, and reverse engineering. No hidden sections.</desc>
+<defs>
+ <radialGradient id="halo"><stop stop-color="#39ff88" stop-opacity=".12"/><stop offset="1" stop-color="#39ff88" stop-opacity="0"/></radialGradient>
+ <linearGradient id="fade"><stop stop-color="#39ff88" stop-opacity=".55"/><stop offset="1" stop-color="#39ff88" stop-opacity="0"/></linearGradient>
+ <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<style>
+text{font-family:'Segoe UI',Ubuntu,Arial,sans-serif}
+.mono{font-family:Consolas,'DejaVu Sans Mono',monospace;letter-spacing:1.8px}
+.flow{stroke-dasharray:3 22;animation:flow 9s linear infinite}
+.orbit{animation:orbit 60s linear infinite;transform-origin:500px 370px}
+.pulse{animation:pulse 5s ease-in-out infinite}
+@keyframes flow{to{stroke-dashoffset:-250}}
+@keyframes orbit{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.flow,.orbit,.pulse{animation:none}}
+</style>
+<rect width="1000" height="820" rx="20" fill="#070b09"/>
+<text x="40" y="43" font-size="13" fill="#39ff88" class="mono">INVESTIGATION INSTRUMENTS</text><text x="40" y="87" font-size="32" fill="#e6ffed" font-weight="600">Different lenses. Same curiosity.</text><path d="M49 151V711" stroke="#1c422b" stroke-width="1.5"/><path class="flow" d="M49 151V711" stroke="#39ff88" stroke-width="2" fill="none"/><circle cx="49" cy="153" r="8" fill="#070b09" stroke="#39ff88"/><circle class="pulse" style="animation-delay:-0s" cx="49" cy="153" r="3" fill="#b7f34a"/><text x="81" y="160" font-size="24" fill="#d3f5df" font-weight="500">Recon &amp; OSINT</text><text x="81" y="194" font-size="18" fill="#a5b9ac" >Nmap · Shodan · theHarvester · Maltego · Tor</text><text x="81" y="219" font-size="18" fill="#a5b9ac" >Amass · Recon-ng · SpiderFoot · Sherlock</text><path d="M81 243H950" stroke="#142d1d"/><circle cx="49" cy="286" r="8" fill="#070b09" stroke="#39ff88"/><circle class="pulse" style="animation-delay:-1s" cx="49" cy="286" r="3" fill="#b7f34a"/><text x="81" y="293" font-size="24" fill="#d3f5df" font-weight="500">Web security</text><text x="81" y="327" font-size="18" fill="#a5b9ac" >Burp Suite · OWASP ZAP · Nikto · sqlmap · Gobuster</text><text x="81" y="352" font-size="18" fill="#a5b9ac" >ffuf · WPScan · Nuclei · dirsearch</text><path d="M81 376H950" stroke="#142d1d"/><circle cx="49" cy="419" r="8" fill="#070b09" stroke="#39ff88"/><circle class="pulse" style="animation-delay:-2s" cx="49" cy="419" r="3" fill="#b7f34a"/><text x="81" y="426" font-size="24" fill="#d3f5df" font-weight="500">Authorized offensive testing</text><text x="81" y="460" font-size="18" fill="#a5b9ac" >Metasploit · Hashcat · Hydra · John the Ripper · Aircrack-ng</text><text x="81" y="485" font-size="18" fill="#a5b9ac" >Impacket · NetExec · Responder · BloodHound · Mimikatz · Evil-WinRM</text><path d="M81 509H950" stroke="#142d1d"/><circle cx="49" cy="552" r="8" fill="#070b09" stroke="#39ff88"/><circle class="pulse" style="animation-delay:-3s" cx="49" cy="552" r="3" fill="#b7f34a"/><text x="81" y="559" font-size="24" fill="#d3f5df" font-weight="500">Detection &amp; analysis</text><text x="81" y="593" font-size="18" fill="#a5b9ac" >Wireshark · Snort · VirusTotal · Splunk · YARA · tcpdump · Zeek</text><text x="81" y="618" font-size="18" fill="#a5b9ac" >Suricata · Sysmon · Velociraptor · Volatility · ELK and Elastic · Sigma</text><path d="M81 642H950" stroke="#142d1d"/><circle cx="49" cy="685" r="8" fill="#070b09" stroke="#39ff88"/><circle class="pulse" style="animation-delay:-4s" cx="49" cy="685" r="3" fill="#b7f34a"/><text x="81" y="692" font-size="24" fill="#d3f5df" font-weight="500">Reverse engineering</text><text x="81" y="726" font-size="18" fill="#a5b9ac" >Ghidra · IDA · radare2 · Cutter · x64dbg · GDB · Binary Ninja · dnSpy</text><text x="81" y="751" font-size="18" fill="#a5b9ac" >Frida · objdump · PE-bear · Detect It Easy · HxD · WinDbg · Procmon</text>
+</svg>

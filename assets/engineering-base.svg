@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="264" viewBox="0 0 1000 264" role="img" aria-labelledby="t d">
+<title id="t">Engineering base</title><desc id="d">Languages: Rust, YARA, Assembly, C, C++, Python, JavaScript. Environments: Kali Linux, Debian, Arch Linux, PostgreSQL.</desc>
+<defs>
+ <radialGradient id="halo"><stop stop-color="#39ff88" stop-opacity=".12"/><stop offset="1" stop-color="#39ff88" stop-opacity="0"/></radialGradient>
+ <linearGradient id="fade"><stop stop-color="#39ff88" stop-opacity=".55"/><stop offset="1" stop-color="#39ff88" stop-opacity="0"/></linearGradient>
+ <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<style>
+text{font-family:'Segoe UI',Ubuntu,Arial,sans-serif}
+.mono{font-family:Consolas,'DejaVu Sans Mono',monospace;letter-spacing:1.8px}
+.flow{stroke-dasharray:3 22;animation:flow 9s linear infinite}
+.orbit{animation:orbit 60s linear infinite;transform-origin:500px 370px}
+.pulse{animation:pulse 5s ease-in-out infinite}
+@keyframes flow{to{stroke-dashoffset:-250}}
+@keyframes orbit{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.flow,.orbit,.pulse{animation:none}}
+</style>
+<rect width="1000" height="264" rx="20" fill="#070b09"/>
+<text x="40" y="43" font-size="13" fill="#39ff88" class="mono">ENGINEERING BASE</text><text x="40" y="86" font-size="32" fill="#e6ffed" font-weight="600">Built close to the system.</text><path d="M40 120h375" stroke="url(#fade)"/><text x="40" y="150" font-size="12" fill="#7da58a" class="mono">LANGUAGES</text><text x="40" y="184" font-size="21" fill="#ccebd6" >Rust · YARA · Assembly · C · C++</text><text x="40" y="213" font-size="21" fill="#ccebd6" >Python · JavaScript</text><path d="M560 120h375" stroke="url(#fade)"/><text x="560" y="150" font-size="12" fill="#7da58a" class="mono">ENVIRONMENTS</text><text x="560" y="184" font-size="21" fill="#ccebd6" >Kali Linux · Debian · Arch Linux</text><text x="560" y="213" font-size="21" fill="#ccebd6" >PostgreSQL</text><circle class="pulse" cx="947" cy="42" r="4" fill="#39ff88"/>
+</svg>
