@@ -1,6 +1,5 @@
 from pathlib import Path
 import os
-import tempfile
 import urllib.request
 import json
 from PIL import Image, ImageDraw, ImageFont
@@ -8,7 +7,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parents[1]
 USERNAME = "dRafaleD"
 API_BASE = "https://api.github.com"
-AVATAR_SOURCE = Path(tempfile.gettempdir()) / "drafaled-github-avatar.png"
+MASK_SOURCE = ROOT / "assets" / "profile-terminal-mask.png"
 OUTPUT = ROOT / "assets" / "profile-terminal-v2.gif"
 FONT = Path(r"C:\Windows\Fonts\CascadiaMono.ttf")
 
@@ -43,12 +42,7 @@ def fetch_stats():
         return fallback
 
 
-def download_avatar():
-    urllib.request.urlretrieve(f"https://github.com/{USERNAME}.png?size=512", AVATAR_SOURCE)
-
-
 STATS = fetch_stats()
-download_avatar()
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 
 W, H = 920, 900
@@ -98,26 +92,13 @@ entries = [
 TOTAL_CHARS = sum(len(item[0]) for item in entries)
 
 
-def crop_avatar() -> Image.Image:
-    source = Image.open(AVATAR_SOURCE).convert("RGBA")
-    # The workflow downloads the avatar directly from GitHub, so use the
-    # complete square image instead of the old screenshot crop.
-    avatar = source
-
-    # Keep only the green ASCII mask pixels. The circular avatar background,
-    # border and surrounding black area become fully transparent.
-    pixels = avatar.load()
-    for y in range(avatar.height):
-        for x in range(avatar.width):
-            red, green, blue, _ = pixels[x, y]
-            green_signal = green - max(red, blue)
-            alpha = min(255, max(0, (green_signal - 4) * 5)) if green > 18 else 0
-            pixels[x, y] = (red, green, blue, alpha)
-
-    return avatar.resize((245, 245), Image.Resampling.LANCZOS)
+def load_terminal_mask() -> Image.Image:
+    # Keep the original terminal mask independent of the GitHub profile photo.
+    # This checked-in crop preserves the historic mask's pixels and placement.
+    return Image.open(MASK_SOURCE).convert("RGBA")
 
 
-AVATAR = crop_avatar()
+TERMINAL_MASK = load_terminal_mask()
 
 
 def render(visible_chars: int, cursor_strength: float, scanline_y: int) -> Image.Image:
@@ -146,7 +127,7 @@ def render(visible_chars: int, cursor_strength: float, scanline_y: int) -> Image
             break
 
     if avatar_visible:
-        image.paste(AVATAR, (52, 318), AVATAR)
+        image.paste(TERMINAL_MASK, (52, 318), TERMINAL_MASK)
 
     if visible_chars >= TOTAL_CHARS:
         draw.ellipse((44, 802, 54, 812), fill=GREEN)
