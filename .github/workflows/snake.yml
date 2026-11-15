@@ -25,6 +25,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Frame contribution animation in the profile universe
+        run: python3 scripts/frame_contribution_snake.py dist
+
       - uses: crazy-max/ghaction-github-pages@5859b4ea7efe6b470a5b19c570460eae9323aefc # v3
         with:
           target_branch: output
