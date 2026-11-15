@@ -10,7 +10,7 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 
 ## Selected Projects
 
-<img src="assets/research-atlas-v2.svg" alt="Research atlas: Banshee — offline analysis and evidence bundles; AsphDex — static PE/ELF malware triage; FhniX — explainable email triage; The-Trackher — own-account OSINT and privacy checks." width="100%" />
+<img src="assets/research-atlas-galaxy.svg" alt="Research atlas: Banshee — offline analysis and evidence bundles; AsphDex — static PE/ELF malware triage; FhniX — explainable email triage; The-Trackher — own-account OSINT and privacy checks." width="100%" />
 
 <p align="center">
 <a href="https://github.com/dRafaleD/Banshee"><strong>Banshee ↗</strong></a> &nbsp; · &nbsp;
