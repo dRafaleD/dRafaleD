@@ -42,11 +42,22 @@ def save(name, height, title, description, body):
 body = text(40, 45, "THE RESEARCH ATLAS", 13, "#39ff88", 'class="mono"')
 body += text(40, 99, "From signal to evidence.", 43, "#e7ffef", 'font-weight="600"')
 body += text(40, 132, "Four projects. One way of thinking: inspect, explain, preserve.", 18)
+body += text(960, 45, "OPEN SOURCE / LOCAL FIRST", 10, "#79ad8b", 'class="mono" text-anchor="end"')
+for x, y in [(40, 183), (630, 183), (40, 441), (630, 441)]:
+    body += f'<rect x="{x}" y="{y}" width="330" height="173" rx="12" fill="#0b130e" stroke="#174c2b"/>'
+    body += f'<path d="M{x+17} {y+36}h296" stroke="#173522"/>'
+    body += f'<circle cx="{x+296}" cy="{y+61}" r="27" fill="#0c2114"/>'
 body += '<ellipse cx="500" cy="370" rx="235" ry="220" fill="url(#halo)"/>'
+body += '<g fill="#39ff88" opacity=".2">'
+for x, y in [(421,190),(488,207),(558,188),(430,560),(510,588),(575,550),(403,405),(603,414)]:
+    body += f'<circle cx="{x}" cy="{y}" r="1.5"/>'
+body += '</g>'
 paths = ["M370 251C440 251 405 370 500 370", "M630 251C560 251 595 370 500 370", "M370 509C440 509 405 370 500 370", "M630 509C560 509 595 370 500 370"]
 for i, p in enumerate(paths):
     body += f'<path d="{p}" fill="none" stroke="#1c422b" stroke-width="1.5"/><path class="flow" style="animation-delay:-{i*2}s" d="{p}" fill="none" stroke="#39ff88" stroke-width="2"/>'
 body += '<circle cx="500" cy="370" r="104" fill="none" stroke="#173c25"/><g class="orbit"><circle cx="500" cy="370" r="91" fill="none" stroke="#39ff88" stroke-opacity=".5" stroke-dasharray="38 175 8 175"/><circle cx="500" cy="279" r="4" fill="#b7f34a"/></g>'
+body += '<circle cx="500" cy="370" r="115" fill="none" stroke="#28673b" stroke-opacity=".45" stroke-dasharray="1 13"/>'
+body += '<path class="pulse" d="m500 312 58 58-58 58-58-58Z" fill="none" stroke="#39ff88" stroke-width="4" filter="url(#glow)"/>'
 body += '<path d="m500 312 58 58-58 58-58-58Z" fill="#0b1b10" stroke="#39ff88" stroke-opacity=".8"/><path d="m500 325 45 45-45 45-45-45Z" fill="none" stroke="#1b512c"/>'
 body += text(500, 368, "EVIDENCE", 15, "#e0ffeb", 'text-anchor="middle" class="mono"')
 body += text(500, 390, "LOCAL FIRST", 10, "#75a386", 'text-anchor="middle" class="mono"')
@@ -62,11 +73,11 @@ for x, y, n, name, category, lines, stack, icon in projects:
     body += text(x+17, y+65, name, 32, "#e6ffed", 'font-weight="600"')
     body += f'<g transform="translate({x+275} {y+37})" fill="none" stroke="#39ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"> <path d="{icon}"/></g>'
     for j, line in enumerate(lines):
-        body += text(x+17, y+99+j*25, line, 16)
+        body += text(x+17, y+99+j*25, line, 17)
     body += text(x+17, y+154, stack, 10, "#b7f34a", 'class="mono"')
 body += '<path d="M40 649H960" stroke="#1b3d27"/>'
 body += text(40, 677, "INSPECT", 11, "#76b98c", 'class="mono"')+text(426, 677, "EXPLAIN", 11, "#76b98c", 'class="mono"')+text(870, 677, "PRESERVE", 11, "#76b98c", 'class="mono"')
-save("research-atlas.svg", 704, "The research atlas — from signal to evidence", "Banshee: offline analysis. AsphDex: static malware triage. FhniX: email security. The-Trackher: digital-footprint research. Connected by local, explainable analysis.", body)
+save("research-atlas-v2.svg", 704, "The research atlas — from signal to evidence", "Banshee: offline analysis. AsphDex: static malware triage. FhniX: email security. The-Trackher: digital-footprint research. Connected by local, explainable analysis.", body)
 
 # A single engineering surface replaces stacked miniature terminal windows.
 body = text(40, 43, "ENGINEERING BASE", 13, "#39ff88", 'class="mono"')

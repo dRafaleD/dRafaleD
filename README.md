@@ -10,31 +10,32 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 
 ## Selected Projects
 
-<img src="assets/research-atlas.svg" alt="Research atlas: Banshee for offline analysis, AsphDex for static malware triage, FhniX for email security and The-Trackher for digital-footprint research, connected through local, explainable analysis." width="100%" />
+<img src="assets/research-atlas-v2.svg" alt="Research atlas: Banshee — offline analysis and evidence bundles; AsphDex — static PE/ELF malware triage; FhniX — explainable email triage; The-Trackher — own-account OSINT and privacy checks." width="100%" />
 
 <p align="center">
-<a href="https://github.com/dRafaleD/Banshee">Banshee ↗</a> &nbsp; · &nbsp;
-<a href="https://github.com/dRafaleD/Malware-analysis-AsphDex">AsphDex ↗</a> &nbsp; · &nbsp;
-<a href="https://github.com/dRafaleD/FhniX">FhniX ↗</a> &nbsp; · &nbsp;
-<a href="https://github.com/dRafaleD/The-Trackher">The-Trackher ↗</a>
+<a href="https://github.com/dRafaleD/Banshee"><strong>Banshee ↗</strong></a> &nbsp; · &nbsp;
+<a href="https://github.com/dRafaleD/Malware-analysis-AsphDex"><strong>AsphDex ↗</strong></a> &nbsp; · &nbsp;
+<a href="https://github.com/dRafaleD/FhniX"><strong>FhniX ↗</strong></a> &nbsp; · &nbsp;
+<a href="https://github.com/dRafaleD/The-Trackher"><strong>The-Trackher ↗</strong></a>
 </p>
 
 ## Technical Arsenal
 
 <div align="center">
-  <img src="assets/engineering-base.svg" alt="Languages: Rust, YARA, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
+  <img src="assets/technical-arsenal-v3.svg" alt="Languages: Rust, YARA, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
 </div>
 
 ## Security Toolkit
 
 <div align="center">
-  <img src="assets/investigation-instruments.svg" alt="Recon and OSINT: Nmap: Shodan: theHarvester: Maltego: Tor: Amass: Recon-ng: SpiderFoot: Sherlock. Web Security: Burp Suite: OWASP ZAP: Nikto: sqlmap: Gobuster: ffuf: WPScan: Nuclei: dirsearch. Offensive Security: Metasploit: Hashcat: Hydra: John the Ripper: Aircrack-ng: Impacket: NetExec: Responder: BloodHound: Mimikatz: Evil-WinRM. Defensive and Analysis: Wireshark: Snort: VirusTotal: Splunk: YARA: tcpdump: Zeek: Suricata: Sysmon: Velociraptor: Volatility: ELK and Elastic: Sigma. Reverse Engineering: Ghidra: IDA: radare2: Cutter: x64dbg: GDB: Binary Ninja: dnSpy: Frida: objdump: PE-bear: Detect It Easy: HxD: WinDbg: Procmon" width="100%" />
+  <img src="assets/security-toolkit-v3.svg" alt="Recon and OSINT: Nmap: Shodan: theHarvester: Maltego: Tor: Amass: Recon-ng: SpiderFoot: Sherlock. Web Security: Burp Suite: OWASP ZAP: Nikto: sqlmap: Gobuster: ffuf: WPScan: Nuclei: dirsearch. Offensive Security: Metasploit: Hashcat: Hydra: John the Ripper: Aircrack-ng: Impacket: NetExec: Responder: BloodHound: Mimikatz: Evil-WinRM. Defensive and Analysis: Wireshark: Snort: VirusTotal: Splunk: YARA: tcpdump: Zeek: Suricata: Sysmon: Velociraptor: Volatility: ELK and Elastic: Sigma. Reverse Engineering: Ghidra: IDA: radare2: Cutter: x64dbg: GDB: Binary Ninja: dnSpy: Frida: objdump: PE-bear: Detect It Easy: HxD: WinDbg: Procmon" width="100%" />
+  <br /><sub>Highlighted tools are the ones I use the most.</sub>
 </div>
 
 ## Security Focus & Learning
 
 <div align="center">
-  <img src="assets/focus-learning-map.svg" alt="Security focus: web application security and penetration testing; vulnerability assessment and secure-code review; OSINT and digital-footprint security; malware analysis, reverse engineering, and binary analysis; cryptography fundamentals and applied security concepts; Linux systems, network security, automation, and secure backend development. Currently learning: advanced web application security; malware analysis and reverse engineering; Linux hardening and network security; secure API and backend architecture." width="100%" />
+  <img src="assets/terminal-focus-learning-v2.svg" alt="Security focus: web application security and penetration testing; vulnerability assessment and secure-code review; OSINT and digital-footprint security; malware analysis, reverse engineering, and binary analysis; cryptography fundamentals and applied security concepts; Linux systems, network security, automation, and secure backend development. Currently learning: advanced web application security; malware analysis and reverse engineering; Linux hardening and network security; secure API and backend architecture." width="100%" />
 </div>
 
 ## Certifications
