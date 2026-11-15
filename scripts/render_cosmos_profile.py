@@ -1,184 +1,221 @@
-"""Build the animated Kozmos layout in the profile's original green palette.
+"""Render a living green universe as self-contained animated GitHub SVGs.
 
-Run from any directory with Python 3; no packages or network access required.
-Text stays inside opaque panels. Only the header's galaxy uses a gradient.
+No JavaScript, fonts, network services or raster assets are needed. The large
+terminal is independent and is never read or changed by this renderer.
 """
 from html import escape
 from pathlib import Path
 import math
 import random
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "assets"
-BG, PANEL, LINE = "#070b09", "#0c1410", "#174c2b"
-TEXT, MUTED, ACCENT = "#d7ffe3", "#86b697", "#39ff88"
+ASSETS = ROOT / 'assets'
+BG, TEXT, MUTED, ACCENT = '#050907', '#e0f5e8', '#94b6a3', '#39ff88'
 
 
-def text(x, y, value, size=18, color=TEXT, mono=False, extra=""):
-    return (f'<text x="{x}" y="{y}" font-size="{size}" fill="{color}" '
-            f'class="{"mono" if mono else "ui"}" {extra}>{escape(value)}</text>')
+def text(x, y, value, size=18, color=TEXT, mono=False, extra=''):
+    return f'<text x="{x}" y="{y}" font-size="{size}" fill="{color}" class="{"mono" if mono else "ui"}" {extra}>{escape(value)}</text>'
 
 
-def rect(x, y, w, h, fill=PANEL):
-    return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="6" fill="{fill}" stroke="{LINE}"/>'
+def field(width, height, seed, count=110):
+    rng = random.Random(seed)
+    stars = []
+    for i in range(count):
+        x, y = rng.uniform(5, width-5), rng.uniform(5, height-5)
+        r = rng.uniform(.35, 1.25)
+        stars.append(f'<circle class="star s{i%3}" cx="{x:.1f}" cy="{y:.1f}" r="{r:.2f}" fill="{rng.choice(["#c3dace", "#7caf91", "#dfffea"])}" opacity="{rng.uniform(.13,.65):.2f}"/>')
+    return ''.join(stars)
+
+
+def flare(x, y, size=1):
+    return f'<g transform="translate({x} {y}) scale({size})"><circle class="breathe" r="17" fill="url(#starGlow)"/><path d="M-8 0H8M0-8V8" stroke="#a2f7bd" stroke-width=".6" opacity=".7"/><circle r="1.7" fill="#eaffef"/></g>'
+
+
+def galaxy(x, y, scale=1, seed=31, particles=1900):
+    rng = random.Random(seed)
+    dust = []
+    for i in range(particles):
+        reach = rng.random() ** .72
+        angle = (i % 4) * math.tau / 4 + reach * 6.7 + rng.gauss(0, .16 + .12*(1-reach))
+        distance = reach * 210
+        px, py = math.cos(angle)*distance, math.sin(angle)*distance
+        color = rng.choice(['#c5efd5', '#65d993', '#39ff88', '#a4e6bd', '#e6f8e9'])
+        dust.append(f'<circle cx="{px:.2f}" cy="{py:.2f}" r="{rng.uniform(.3,1.25):.2f}" fill="{color}" opacity="{rng.uniform(.15,.85)*(1-reach*.5):.2f}"/>')
+    # Rotate particles inside a fixed projection: a tilted, flattened spiral,
+    # rather than rotating a flat galaxy picture around the page.
+    return (f'<g transform="translate({x} {y}) scale({scale})">'
+            '<ellipse class="breathe" rx="280" ry="140" fill="url(#nebula)" transform="rotate(-24)"/>'
+            '<g transform="rotate(-24) scale(1 .48)"><g class="galaxy-spin">'+''.join(dust)+'</g></g>'
+            '<ellipse rx="57" ry="26" fill="url(#core)" transform="rotate(-24)"/>'
+            '<ellipse rx="13" ry="6" fill="url(#core)" transform="rotate(-24)"/></g>')
+
+
+STYLE = '''
+.ui{font-family:'Segoe UI',Ubuntu,Arial,sans-serif}.mono{font-family:Consolas,'DejaVu Sans Mono',monospace;letter-spacing:.5px}
+.star{animation:twinkle 5s ease-in-out infinite}.s1{animation-delay:-1.8s;animation-duration:7s}.s2{animation-delay:-3.7s;animation-duration:9s}
+.galaxy-spin{animation:spin 95s linear infinite;transform-origin:0 0}
+.breathe{animation:breathe 8s ease-in-out infinite}
+.nebula-drift{animation:nebulaDrift 24s ease-in-out infinite}
+.stream{stroke-dasharray:3 18;animation:stream 12s linear infinite}
+.link-flow{stroke-dasharray:2 80;animation:stream 7s linear infinite}
+.meteor{animation:meteor 13s linear infinite}.meteor.second{animation-delay:-7s;animation-duration:19s}
+@keyframes twinkle{0%,100%{opacity:.16}50%{opacity:.8}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes breathe{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes nebulaDrift{0%,100%{transform:translate(0,0)}50%{transform:translate(-15px,7px)}}
+@keyframes stream{to{stroke-dashoffset:-328}}
+@keyframes meteor{0%,72%{opacity:0;transform:translate(-100px,-30px)}74%{opacity:.8}85%,100%{opacity:0;transform:translate(1150px,240px)}}
+@media(prefers-reduced-motion:reduce){.star,.galaxy-spin,.breathe,.nebula-drift,.stream,.link-flow,.meteor{animation:none}.meteor{opacity:0}}
+'''
+DEFS = '''<defs>
+<radialGradient id="nebula"><stop stop-color="#39ff88" stop-opacity=".24"/><stop offset=".42" stop-color="#14663d" stop-opacity=".16"/><stop offset="1" stop-color="#050907" stop-opacity="0"/></radialGradient>
+<radialGradient id="core"><stop stop-color="#efffda" stop-opacity=".95"/><stop offset=".12" stop-color="#c6f5c5" stop-opacity=".7"/><stop offset=".42" stop-color="#39ff88" stop-opacity=".18"/><stop offset="1" stop-color="#39ff88" stop-opacity="0"/></radialGradient>
+<radialGradient id="starGlow"><stop stop-color="#dfffea" stop-opacity=".85"/><stop offset=".12" stop-color="#39ff88" stop-opacity=".5"/><stop offset="1" stop-color="#39ff88" stop-opacity="0"/></radialGradient>
+<linearGradient id="panel" x2="1" y2="1"><stop stop-color="#101e17" stop-opacity=".94"/><stop offset="1" stop-color="#07100b" stop-opacity=".82"/></linearGradient>
+<linearGradient id="edge"><stop stop-color="#39ff88" stop-opacity=".55"/><stop offset=".55" stop-color="#509a69" stop-opacity=".2"/><stop offset="1" stop-color="#39ff88" stop-opacity="0"/></linearGradient>
+<linearGradient id="veil"><stop stop-color="#050907"/><stop offset=".48" stop-color="#050907" stop-opacity=".9"/><stop offset=".76" stop-color="#050907" stop-opacity="0"/></linearGradient>
+<linearGradient id="meteor"><stop stop-color="#39ff88" stop-opacity="0"/><stop offset="1" stop-color="#e4ffec" stop-opacity=".9"/></linearGradient>
+</defs>'''
 
 
 def save(name, height, title, description, body):
-    rng = random.Random(name)
-    stars = ""
-    for i in range(30):
-        x, y = rng.uniform(12, 988), rng.uniform(10, height-10)
-        stars += f'<circle class="twinkle" style="animation-delay:-{i % 7}s" cx="{x:.1f}" cy="{y:.1f}" r="{rng.uniform(.5,1.2):.1f}" fill="{ACCENT}" opacity=".24"/>'
-    instrument = orbit(936, 35, 15)
+    backdrop = field(1000, height, name, max(100, int(height*.3)))
+    clouds = f'<g class="nebula-drift"><ellipse cx="840" cy="{height*.55}" rx="370" ry="210" fill="url(#nebula)" opacity=".45"/><ellipse cx="120" cy="{height*.8}" rx="260" ry="160" fill="url(#nebula)" opacity=".22"/></g>'
+    meteors = '<g class="meteor"><path d="M0 0L95 22" stroke="url(#meteor)" stroke-width="1.3"/></g><g class="meteor second"><path d="M0 120L70 136" stroke="url(#meteor)" stroke-width="1"/></g>'
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="{height}" viewBox="0 0 1000 {height}" role="img" aria-labelledby="title desc">
-<title id="title">{escape(title)}</title><desc id="desc">{escape(description)}</desc>
-<style>
-.ui{{font-family:'Segoe UI',Ubuntu,Arial,sans-serif}}.mono{{font-family:Consolas,'DejaVu Sans Mono',monospace}}
-.twinkle{{animation:twinkle 7s ease-in-out infinite}}
-.orbit{{animation:orbit 28s linear infinite;transform-origin:0px 0px}}
-.signal{{stroke-dasharray:3 170;animation:signal 22s linear infinite}}
-.drift{{animation:drift 18s ease-in-out infinite}}
-@keyframes twinkle{{0%,100%{{opacity:.12}}50%{{opacity:.52}}}}
-@keyframes orbit{{to{{transform:rotate(360deg)}}}}
-@keyframes signal{{to{{stroke-dashoffset:-346}}}}
-@keyframes drift{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-4px)}}}}
-@media(prefers-reduced-motion:reduce){{.twinkle,.orbit,.signal,.drift{{animation:none}}}}
-</style>
-<rect x=".5" y=".5" width="999" height="{height-1}" rx="6" fill="{BG}" stroke="{LINE}"/>
-{stars}{body}{instrument}</svg>'''
-    (ASSETS / name).write_text(svg, encoding="utf-8", newline="\n")
+<title id="title">{escape(title)}</title><desc id="desc">{escape(description)}</desc>{DEFS}<style>{STYLE}</style>
+<rect width="1000" height="{height}" rx="12" fill="{BG}"/>{clouds}{backdrop}{meteors}{body}</svg>'''
+    (ASSETS/name).write_text(svg,encoding='utf-8',newline='\n')
 
 
 def heading(index, title, detail):
-    return (text(28, 35, index, 13, ACCENT, True)
-            + text(64, 36, title, 19, TEXT, True)
-            + text(28, 64, detail, 15, MUTED)
-            + f'<path class="signal" d="M28 77H972" stroke="{ACCENT}" opacity=".24"/>')
+    return (text(34, 33, f'{index} / DEEP SPACE ARCHIVE', 11, ACCENT, True)
+            + text(34, 73, title, 30, TEXT)
+            + text(34, 101, detail, 15, MUTED)
+            + '<path d="M34 119H966" stroke="url(#edge)" stroke-width=".8"/>')
 
 
-def orbit(x, y, radius):
-    return (f'<g transform="translate({x} {y})" fill="none" stroke="{ACCENT}" stroke-width=".8">'
-            f'<circle r="{radius}" opacity=".22"/><ellipse rx="{radius+7}" ry="{radius*.4}" opacity=".25"/>'
-            f'<g class="orbit"><circle cx="{radius}" r="2" fill="{ACCENT}" stroke="none"/></g></g>')
+def panel(x, y, width, height):
+    return (f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="9" fill="url(#panel)" stroke="#264334" stroke-opacity=".6" stroke-width=".8"/>'
+            f'<path d="M{x+12} {y+.5}H{x+width-12}" stroke="url(#edge)" stroke-width=".8"/>')
+
+
+def cluster(x, y, seed):
+    rng=random.Random(seed)
+    dots=''
+    for _ in range(36):
+        angle=rng.random()*math.tau
+        radius=rng.random()**1.5*42
+        dots+=f'<circle class="star s{rng.randrange(3)}" cx="{x+math.cos(angle)*radius:.1f}" cy="{y+math.sin(angle)*radius*.55:.1f}" r="{rng.uniform(.3,.9):.1f}" fill="#b6e8c8" opacity=".5"/>'
+    return dots+flare(x,y,.6)
 
 
 def hero():
-    body = '''<defs><radialGradient id="core"><stop stop-color="#d7ffe3" stop-opacity=".30"/><stop offset=".35" stop-color="#39ff88" stop-opacity=".10"/><stop offset="1" stop-color="#050a07" stop-opacity="0"/></radialGradient>
-<clipPath id="space"><rect x="608" y="49" width="363" height="196" rx="6"/></clipPath></defs>'''
-    body += text(28, 30, "MISSION LOG / dRafaleD", 13, ACCENT, True)
-    body += f'<path d="M1 48H999" stroke="{LINE}"/>'
-    body += '<g clip-path="url(#space)"><rect x="608" y="49" width="363" height="268" fill="#050a07"/>'
-    body += '<g class="drift"><ellipse cx="798" cy="151" rx="217" ry="150" fill="url(#core)"/>'
-    rng = random.Random(221)
-    for _ in range(100):
-        x, y = rng.uniform(609, 971), rng.uniform(49, 317)
-        body += f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{rng.uniform(.4,1):.1f}" fill="#86b697" opacity="{rng.uniform(.15,.5):.2f}"/>'
-    for _ in range(1700):
-        reach = rng.random() ** 1.2
-        angle = rng.randrange(4) * math.tau / 4 + reach * 5.4 + rng.gauss(0, .15)
-        px, py = math.cos(angle) * reach * 188, math.sin(angle) * reach * 188 * .46
-        x = 798 + px * .91 + py * .41
-        y = 151 - px * .41 + py * .91
-        color = rng.choice(["#d7ffe3", "#86b697", "#39ff88", "#b7f34a"])
-        body += f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{rng.uniform(.35,1):.1f}" fill="{color}" opacity="{rng.uniform(.1,.65):.2f}"/>'
-    body += '</g></g>'
-    body += text(28, 111, "Follow the signal.", 35, TEXT, True)
-    body += text(30, 151, "From unfamiliar binaries to clearer evidence.", 20)
-    body += text(30, 183, "A learning journey through code, systems and security.", 17, MUTED)
-    body += text(30, 224, "OBSERVE / UNDERSTAND / BUILD", 14, ACCENT, True)
-    save("cosmos-header.svg", 262, "Mission log / dRafaleD", "Follow the signal. From unfamiliar binaries to clearer evidence. A learning journey through code, systems and security.", body)
+    body=galaxy(745,221,1.48,73,2400)
+    body+='<rect width="1000" height="410" fill="url(#veil)"/>'
+    body+=text(34,39,'dRafaleD / SIGNALS FROM THE UNKNOWN',11,ACCENT,True)
+    body+=text(34,123,'Beyond the surface.',43,TEXT)
+    body+=text(36,169,'Every binary has a story.',22,TEXT)
+    body+=text(36,202,'Every signal is a place to begin.',20,MUTED)
+    body+=text(36,254,'Exploring systems, tracing evidence,',17,MUTED)
+    body+=text(36,280,'and building tools to make the unknown clearer.',17,MUTED)
+    body+='<path class="stream" d="M36 321H425" stroke="#39ff88" stroke-opacity=".4"/>'
+    body+=text(36,357,'OBSERVE  /  UNDERSTAND  /  BUILD',11,ACCENT,True)
+    body+=text(964,382,'LOCAL TOOLS. WIDER HORIZONS.',10,MUTED,True,'text-anchor="end"')
+    save('cosmos-header.svg',410,'Signals from the unknown','An animated, tilted spiral galaxy in green starlight. Exploring systems, tracing evidence, and building tools to make the unknown clearer.',body)
 
 
 def projects():
-    items = [
-        ("01", "Banshee", "Offline analysis & evidence bundles", "Inspect artifacts. Preserve the investigation.", "OFFLINE ANALYSIS"),
-        ("02", "AsphDex", "Static PE / ELF malware triage", "Explore binaries and explain suspicious signals.", "BINARY TRIAGE"),
-        ("03", "FhniX", "Explainable email triage", "Review messages with local-first workflows.", "EMAIL SECURITY"),
-        ("04", "The-Trackher", "Own-account OSINT & privacy checks", "Understand and reduce your digital footprint.", "OSINT / PRIVACY"),
+    items=[
+        ('01','Banshee','Offline analysis & evidence bundles','Inspect artifacts. Preserve the investigation.','OFFLINE ANALYSIS'),
+        ('02','AsphDex','Static PE / ELF malware triage','Explore binaries. Explain suspicious signals.','BINARY TRIAGE'),
+        ('03','FhniX','Explainable email triage','Review messages with local-first workflows.','EMAIL SECURITY'),
+        ('04','The-Trackher','Own-account OSINT & privacy checks','Understand and reduce your digital footprint.','OSINT / PRIVACY'),
     ]
-    body = heading("01", "Project constellation", "Four missions in one orbit: inspect the signal, explain it, preserve the evidence.")
-    for i, (number, name, subtitle, detail, tag) in enumerate(items):
-        x, y = 28 + (i % 2) * 480, 88 + (i // 2) * 169
-        body += rect(x, y, 464, 153)
-        body += orbit(x+422, y+54, 13)
-        body += text(x+18, y+26, number + " / " + tag, 11, ACCENT, True)
-        body += text(x+18, y+62, name, 27, TEXT, True)
-        body += text(x+18, y+92, subtitle, 17)
-        body += text(x+18, y+125, detail, 14, MUTED)
-    save("cosmos-projects.svg", 436, "Selected projects", "; ".join(f"{i[1]}: {i[2]}" for i in items), body)
+    body=heading('01','A constellation of investigations.','Four projects, connected by curiosity. Follow the signal from one field to the next.')
+    paths=['M262 238C370 238 400 349 500 349S641 238 742 238','M262 462C370 462 400 349 500 349S641 462 742 462','M262 238C240 330 240 390 262 462','M742 238C764 330 764 390 742 462']
+    for path in paths:
+        body+=f'<path d="{path}" fill="none" stroke="#285e3e" stroke-width=".8" opacity=".7"/><path class="link-flow" d="{path}" fill="none" stroke="#83efac" stroke-width="1.3" opacity=".7"/>'
+    body+=galaxy(500,349,.44,53,600)
+    for i,(number,name,subtitle,detail,tag) in enumerate(items):
+        x,y=34+(i%2)*482,144+(i//2)*223
+        body+=panel(x,y,450,190)
+        body+=cluster(x+390,y+48,number)
+        body+=text(x+22,y+29,number+' / '+tag,10,ACCENT,True)
+        body+=text(x+22,y+73,name,29,TEXT)
+        body+=text(x+22,y+110,subtitle,17,TEXT)
+        body+=text(x+22,y+145,detail,14,MUTED)
+        body+=f'<path class="stream" d="M{x+22} {y+168}h180" stroke="#4dba79" opacity=".35"/>'
+    body+=text(34,593,'INDEPENDENT PROJECTS / ONE CONTINUING EXPLORATION',10,MUTED,True)
+    save('cosmos-projects.svg',618,'Project constellation','; '.join(f'{a[1]}: {a[2]}' for a in items),body)
 
 
-def chips(x, y, width, names, highlights=()):
-    start = x
-    body = ""
+def chips(x,y,width,names,highlights=()):
+    start=x
+    body=''
     for name in names:
-        w = len(name) * 8.1 + 26
-        if x + w > start + width:
-            x = start
-            y += 40
-        active = name in highlights
-        body += rect(round(x, 1), y, round(w, 1), 29, "#123020" if active else BG)
-        body += text(round(x+13, 1), y+20, name, 13, ACCENT if active else MUTED, True)
-        x += w + 8
-    return body, y + 29
+        w=len(name)*8.1+26
+        if x+w>start+width:
+            x=start;y+=40
+        active=name in highlights
+        body+=f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="29" rx="5" fill="{"#113322" if active else "#08140e"}" stroke="{"#31774b" if active else "#203a2b"}" stroke-width=".7"/>'
+        body+=text(round(x+13,1),y+20,name,13,ACCENT if active else '#a7c6b4',True)
+        x+=w+8
+    return body,y+29
 
 
 def arsenal():
-    body = heading("02", "Engineering deck", "The building blocks aboard my workspace: languages, data and Linux systems.")
-    rows = [
-        ("LANGUAGES", ["Rust", "YARA", "Assembly", "C", "C++", "Python", "JavaScript"]),
-        ("DATABASE", ["PostgreSQL"]),
-        ("PLATFORMS", ["Kali Linux", "Debian", "Arch Linux"]),
-    ]
-    for i, (label, names) in enumerate(rows):
-        y = 91 + i*49
-        body += text(28, y+20, label, 12, ACCENT, True)
-        body += chips(177, y, 795, names)[0]
-    save("cosmos-arsenal.svg", 249, "Technical arsenal", "; ".join(label+": "+", ".join(names) for label, names in rows), body)
+    rows=[('LANGUAGES',['Rust','YARA','YARA-X','Assembly','C','C++','Python','JavaScript']),('DATABASE',['PostgreSQL']),('PLATFORMS',['Kali Linux','Debian','Arch Linux'])]
+    body=heading('02','The engineering spectrum.','Languages, rule engines and Linux systems behind the exploration.')
+    body+=panel(34,143,932,170)
+    for i,(label,names) in enumerate(rows):
+        y=162+i*47
+        body+=text(55,y+20,label,11,ACCENT,True)+chips(180,y,760,names,['YARA-X'])[0]
+    body+='<path d="M55 348C240 321 420 375 595 348S805 330 945 347" fill="none" stroke="#285e3e" opacity=".6"/><path class="link-flow" d="M55 348C240 321 420 375 595 348S805 330 945 347" fill="none" stroke="#83efac" opacity=".7"/>'
+    body+=flare(181,340,.5)+flare(595,348,.5)+flare(866,338,.5)
+    save('cosmos-arsenal.svg',377,'Languages, rule engines and platforms','; '.join(a+': '+', '.join(b) for a,b in rows),body)
 
 
 def toolkit():
-    categories = [
-        ("Recon & OSINT", "Nmap,Shodan,theHarvester,Maltego,Tor,Amass,Recon-ng,SpiderFoot,Sherlock"),
-        ("Web security", "Burp Suite,OWASP ZAP,Nikto,sqlmap,Gobuster,ffuf,WPScan,Nuclei,dirsearch"),
-        ("Offensive security", "Metasploit,Hashcat,Hydra,John the Ripper,Aircrack-ng,Impacket,NetExec,Responder,BloodHound,Mimikatz,Evil-WinRM"),
-        ("Defensive analysis", "Wireshark,Snort,VirusTotal,Splunk,YARA,tcpdump,Zeek,Suricata,Sysmon,Velociraptor,Volatility,ELK and Elastic,Sigma"),
-        ("Reverse engineering", "Ghidra,IDA,radare2,Cutter,x64dbg,GDB,Binary Ninja,dnSpy,Frida,objdump,PE-bear,Detect It Easy,HxD,WinDbg,Procmon"),
+    categories=[
+        ('Recon & OSINT','Nmap,Shodan,theHarvester,Maltego,Tor,Amass,Recon-ng,SpiderFoot,Sherlock'),
+        ('Web security','Burp Suite,OWASP ZAP,Nikto,sqlmap,Gobuster,ffuf,WPScan,Nuclei,dirsearch'),
+        ('Offensive security','Metasploit,Hashcat,Hydra,John the Ripper,Aircrack-ng,Impacket,NetExec,Responder,BloodHound,Mimikatz,Evil-WinRM'),
+        ('Defensive analysis','Wireshark,Snort,VirusTotal,Splunk,YARA,YARA-X,tcpdump,Zeek,Suricata,Sysmon,Velociraptor,Volatility,ELK and Elastic,Sigma'),
+        ('Reverse engineering','Ghidra,IDA,radare2,Cutter,x64dbg,GDB,Binary Ninja,dnSpy,Frida,objdump,PE-bear,Detect It Easy,HxD,WinDbg,Procmon'),
     ]
-    # Preserve the user's existing highlighted tools.
-    import xml.etree.ElementTree as ET
-    old = ET.parse(ASSETS / "security-toolkit-v3.svg")
-    highlights = [n.text for n in old.iter() if n.tag.endswith("text") and "hot" in n.get("class", "").split()]
-    body = heading("03", "Instrument bay", "Tools for navigating the security landscape. Green marks my most-used instruments.")
-    y = 88
-    for label, names in categories:
-        labels, bottom = chips(48, y+48, 904, names.split(","), highlights)
-        body += rect(28, y, 944, bottom-y+18)
-        body += text(48, y+29, label, 17, TEXT, True) + labels
-        y = bottom+32
-    save("cosmos-toolkit.svg", y+14, "Security toolkit", "; ".join(label+": "+names for label, names in categories), body)
+    old=ET.parse(ASSETS/'security-toolkit-v3.svg')
+    highlights=[n.text for n in old.iter() if n.tag.endswith('text') and 'hot' in n.get('class','').split()]
+    body=heading('03','Instruments for the unknown.','A working reference across the security spectrum. Green marks the tools I use most.')
+    y=144
+    for index,(label,names) in enumerate(categories):
+        labels,bottom=chips(61,y+51,878,names.split(','),highlights)
+        body+=panel(34,y,932,bottom-y+19)
+        body+=text(61,y+31,label,18,TEXT)+labels
+        body+=cluster(925,y+24,index+17)
+        y=bottom+35
+    save('cosmos-toolkit.svg',y+10,'Security toolkit','; '.join(a+': '+b for a,b in categories),body)
 
 
 def focus():
-    body = heading("04", "Flight plan", "Current coordinates and the next frontiers in my security learning journey.")
-    columns = [
-        (28, "~/security/focus.txt", ["Web security & penetration testing", "Vulnerability assessment & code review", "OSINT & digital-footprint security", "Malware, reverse engineering & binaries", "Cryptography fundamentals", "Linux, networks & backend development"]),
-        (508, "~/security/learning.txt", ["Advanced web application security", "Malware analysis & reverse engineering", "Linux hardening & network security", "Secure APIs & backend architecture"]),
+    columns=[
+        (34,'CURRENT COORDINATES',['Web security & penetration testing','Vulnerability assessment & code review','OSINT & digital-footprint security','Malware, reverse engineering & binaries','Cryptography fundamentals','Linux, networks & backend development']),
+        (516,'NEXT HORIZONS',['Advanced web application security','Malware analysis & reverse engineering','Linux hardening & network security','Secure APIs & backend architecture']),
     ]
-    for x, label, lines in columns:
-        body += rect(x, 88, 464, 246)
-        body += text(x+18, 119, label, 14, ACCENT, True)
-        body += f'<path d="M{x+18} 136h428" stroke="{LINE}"/>'
-        for i, value in enumerate(lines):
-            body += text(x+18, 166+i*28, "›", 16, ACCENT)
-            body += text(x+36, 166+i*28, value, 16, MUTED)
-    save("cosmos-focus.svg", 362, "Focus and learning", "; ".join(label+": "+", ".join(lines) for _, label, lines in columns), body)
+    body=heading('04','There is always more to discover.','A flight plan through practical security research and secure backend development.')
+    for x,label,lines in columns:
+        body+=panel(x,144,450,247)
+        body+=text(x+22,176,label,11,ACCENT,True)
+        for i,value in enumerate(lines):
+            body+=f'<circle cx="{x+24}" cy="{208+i*28}" r="1.6" fill="#71d999"/>'
+            body+=text(x+38,213+i*28,value,16,MUTED)
+    body+='<path d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#30543d" stroke-width="1"/><path class="link-flow" d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#a4efbd" stroke-width="1.2"/>'
+    body+=flare(129,426,.65)+flare(501,438,.75)+flare(882,420,.5)
+    body+=text(34,487,'LEARNING IS THE MISSION. CURIOSITY IS THE PROPULSION.',10,MUTED,True)
+    save('cosmos-focus.svg',511,'Focus and learning','; '.join(label+': '+', '.join(lines) for _,label,lines in columns),body)
 
 
-if __name__ == "__main__":
-    hero()
-    projects()
-    arsenal()
-    toolkit()
-    focus()
-    print("Rendered five Kozmos profile assets.")
+if __name__=='__main__':
+    hero();projects();arsenal();toolkit();focus()
+    print('Rendered five animated green-universe assets.')

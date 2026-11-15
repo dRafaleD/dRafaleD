@@ -4,7 +4,7 @@
   <img src="https://readme-typing-svg.demolab.com?font=Cascadia+Code&weight=600&size=18&duration=3600&pause=1800&color=39FF88&center=true&vCenter=true&width=720&lines=Security+is+not+a+product%2C+it%27s+a+process." alt="Security is not a product, it's a process." />
 </div>
 
-<img src="assets/cosmos-header.svg" alt="Mission log: follow the signal, from unfamiliar binaries to clearer evidence. Animated green galaxy." width="100%" />
+<img src="assets/cosmos-header.svg" alt="Beyond the surface: an animated green spiral galaxy, drifting nebulae, stars and meteors. Exploring systems and tracing evidence." width="100%" />
 
 ## About
 
@@ -20,11 +20,11 @@ I am Eren Erdoğan, a backend development student focused on cybersecurity, Linu
 </p>
 
 <div align="center">
-  <img src="assets/cosmos-arsenal.svg" alt="Languages: Rust, YARA, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
+  <img src="assets/cosmos-arsenal.svg" alt="Languages and rule engines: Rust, YARA, YARA-X, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
 </div>
 
 <div align="center">
-  <img src="assets/cosmos-toolkit.svg" alt="Recon and OSINT: Nmap: Shodan: theHarvester: Maltego: Tor: Amass: Recon-ng: SpiderFoot: Sherlock. Web Security: Burp Suite: OWASP ZAP: Nikto: sqlmap: Gobuster: ffuf: WPScan: Nuclei: dirsearch. Offensive Security: Metasploit: Hashcat: Hydra: John the Ripper: Aircrack-ng: Impacket: NetExec: Responder: BloodHound: Mimikatz: Evil-WinRM. Defensive and Analysis: Wireshark: Snort: VirusTotal: Splunk: YARA: tcpdump: Zeek: Suricata: Sysmon: Velociraptor: Volatility: ELK and Elastic: Sigma. Reverse Engineering: Ghidra: IDA: radare2: Cutter: x64dbg: GDB: Binary Ninja: dnSpy: Frida: objdump: PE-bear: Detect It Easy: HxD: WinDbg: Procmon" width="100%" />
+  <img src="assets/cosmos-toolkit.svg" alt="Recon and OSINT: Nmap: Shodan: theHarvester: Maltego: Tor: Amass: Recon-ng: SpiderFoot: Sherlock. Web Security: Burp Suite: OWASP ZAP: Nikto: sqlmap: Gobuster: ffuf: WPScan: Nuclei: dirsearch. Offensive Security: Metasploit: Hashcat: Hydra: John the Ripper: Aircrack-ng: Impacket: NetExec: Responder: BloodHound: Mimikatz: Evil-WinRM. Defensive and Analysis: Wireshark: Snort: VirusTotal: Splunk: YARA: YARA-X: tcpdump: Zeek: Suricata: Sysmon: Velociraptor: Volatility: ELK and Elastic: Sigma. Reverse Engineering: Ghidra: IDA: radare2: Cutter: x64dbg: GDB: Binary Ninja: dnSpy: Frida: objdump: PE-bear: Detect It Easy: HxD: WinDbg: Procmon" width="100%" />
 </div>
 
 <div align="center">
