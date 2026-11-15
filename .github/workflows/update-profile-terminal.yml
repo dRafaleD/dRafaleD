@@ -22,6 +22,14 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Install terminal renderer dependency
+        run: python -m pip install --disable-pip-version-check Pillow
+
+      - name: Render original terminal in Kozmos colors
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/render_profile_terminal.py
+
       - name: Render streak card from GitHub contributions
         env:
           # Uses a personal token when configured so anonymous private
@@ -32,13 +40,13 @@ jobs:
       - name: Commit updated profile activity when it changed
         shell: bash
         run: |
-          if git diff --quiet -- assets/github-streak.svg; then
+          if git diff --quiet -- assets/profile-terminal-v2.gif assets/github-streak.svg; then
             echo "Profile activity assets are already up to date."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/github-streak.svg
+          git add assets/profile-terminal-v2.gif assets/github-streak.svg
           git commit -m "chore: refresh profile activity stats"
           git push

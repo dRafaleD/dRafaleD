@@ -1,10 +1,12 @@
 <div align="center">
-  <img src="assets/cosmos-header.svg" alt="Eren Erdoğan / dRafaleD — backend development, reverse engineering, malware analysis and Linux. Kozmos workspace." width="100%" />
+  <img src="assets/profile-terminal-v2.gif" alt="dRafaleD animated profile terminal: whoami, profile summary and neofetch with the original mask in Kozmos ice blue." width="100%" />
 </div>
+
+<img src="assets/cosmos-header.svg" alt="Mission log / Kozmos: follow the signal, from unfamiliar binaries to clearer evidence. An animated galaxy accompanies the learning journey." width="100%" />
 
 ## About
 
-I am Eren Erdoğan, a backend development student focused on cybersecurity, Linux systems, and secure software development. I build practical tools while improving my skills in penetration testing, OSINT, malware analysis, reverse engineering, and full-stack development.
+I am Eren Erdoğan, a backend development student focused on cybersecurity, Linux systems, and secure software development. My projects form a small constellation of practical tools: each explores a different signal, from binaries and email to digital footprints. I am developing my skills in penetration testing, OSINT, malware analysis, reverse engineering, and full-stack development along the way.
 
 <img src="assets/cosmos-projects.svg" alt="Research atlas: Banshee — offline analysis and evidence bundles; AsphDex — static PE/ELF malware triage; FhniX — explainable email triage; The-Trackher — own-account OSINT and privacy checks." width="100%" />
 

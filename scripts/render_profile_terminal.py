@@ -2,7 +2,9 @@ from pathlib import Path
 import os
 import urllib.request
 import json
-from PIL import Image, ImageDraw, ImageFont
+import shutil
+import subprocess
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
 USERNAME = "dRafaleD"
@@ -21,38 +23,43 @@ def github_api(path: str):
     if token:
         headers["Authorization"] = f"Bearer {token}"
     request = urllib.request.Request(API_BASE + path, headers=headers)
-    with urllib.request.urlopen(request, timeout=30) as response:
-        return json.load(response)
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            return json.load(response)
+    except OSError:
+        if not shutil.which("gh"):
+            raise
+        # Use the authenticated CLI if the local Python HTTPS transport fails.
+        result = subprocess.run(["gh", "api", path], check=True, capture_output=True, text=True)
+        return json.loads(result.stdout)
 
 
 def fetch_stats():
-    fallback = {"repos": 7, "followers": 27, "stars": 4, "commits": 123}
     try:
         user = github_api(f"/users/{USERNAME}")
         repos = github_api(f"/users/{USERNAME}/repos?type=owner&per_page=100")
         search = github_api(f"/search/commits?q=author%3A{USERNAME}&per_page=1")
         return {
-            "repos": user.get("public_repos", fallback["repos"]),
-            "followers": user.get("followers", fallback["followers"]),
+            "repos": user["public_repos"],
+            "followers": user["followers"],
             "stars": sum(repo.get("stargazers_count", 0) for repo in repos),
-            "commits": search.get("total_count", fallback["commits"]),
+            "commits": search["total_count"],
         }
     except Exception as error:
-        print(f"GitHub stats unavailable, using fallback values: {error}")
-        return fallback
+        raise RuntimeError("GitHub stats unavailable; keeping the existing terminal asset.") from error
 
 
 STATS = fetch_stats()
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 
 W, H = 920, 900
-BG = "#070b09"
-HEADER = "#0c1410"
-BORDER = "#174c2b"
-GREEN = "#39ff88"
-LIME = "#b7f34a"
-TEXT = "#d7ffe3"
-MUTED = "#6d9479"
+BG = "#0e0f12"
+HEADER = "#15171b"
+BORDER = "#272a30"
+GREEN = "#9fc4e8"
+LIME = "#b9d5f0"
+TEXT = "#e4e6ea"
+MUTED = "#adb2ba"
 
 prompt_font = ImageFont.truetype(str(FONT), 16)
 body_font = ImageFont.truetype(str(FONT), 15)
@@ -94,8 +101,14 @@ TOTAL_CHARS = sum(len(item[0]) for item in entries)
 
 def load_terminal_mask() -> Image.Image:
     # Keep the original terminal mask independent of the GitHub profile photo.
-    # This checked-in crop preserves the historic mask's pixels and placement.
-    return Image.open(MASK_SOURCE).convert("RGBA")
+    # This checked-in crop preserves the historic mask's shape and placement.
+    original = Image.open(MASK_SOURCE).convert("RGBA")
+    # Keep the historic mask's shape, detail and position. Map its green
+    # intensity to Kozmos blue, including the original opaque background.
+    intensity = original.getchannel("G").point(lambda value: max(0, min(255, round((value - 11) * 255 / 213))))
+    recolored = ImageOps.colorize(intensity, BG, GREEN).convert("RGBA")
+    recolored.putalpha(original.getchannel("A"))
+    return recolored
 
 
 TERMINAL_MASK = load_terminal_mask()
@@ -107,10 +120,10 @@ def render(visible_chars: int, cursor_strength: float, scanline_y: int) -> Image
     draw.rectangle((22, 22, 898, 878), outline=BORDER, width=2)
     draw.rectangle((22, 22, 898, 64), fill=HEADER)
     draw.line((22, 64, 898, 64), fill=BORDER, width=2)
-    draw.line((24, scanline_y, 896, scanline_y), fill="#0a160f", width=1)
-    draw.ellipse((40, 36, 54, 50), fill="#ff5f57")
-    draw.ellipse((62, 36, 76, 50), fill="#ffbd2e")
-    draw.ellipse((84, 36, 98, 50), fill="#28c840")
+    draw.line((24, scanline_y, 896, scanline_y), fill="#171c24", width=1)
+    draw.ellipse((40, 36, 54, 50), fill="#3a3e46")
+    draw.ellipse((62, 36, 76, 50), fill="#6c7f98")
+    draw.ellipse((84, 36, 98, 50), fill=GREEN)
     draw.text((115, 38), "dRafaleD@github: ~/profile", font=small_font, fill=MUTED)
 
     progress = visible_chars
@@ -132,9 +145,9 @@ def render(visible_chars: int, cursor_strength: float, scanline_y: int) -> Image
     if visible_chars >= TOTAL_CHARS:
         draw.ellipse((44, 802, 54, 812), fill=GREEN)
     cursor = (
-        int(20 + 37 * cursor_strength),
-        int(70 + 185 * cursor_strength),
-        int(45 + 91 * cursor_strength),
+        int(50 + 109 * cursor_strength),
+        int(65 + 131 * cursor_strength),
+        int(82 + 150 * cursor_strength),
     )
     draw.rectangle((366, 832, 376, 852), fill=cursor)
     return image
