@@ -1,4 +1,4 @@
-name: Update profile activity
+name: Update profile terminal
 
 on:
   schedule:
@@ -22,10 +22,10 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Install terminal renderer dependency
+      - name: Install image renderer dependency
         run: python -m pip install --disable-pip-version-check Pillow
 
-      - name: Render original terminal in Kozmos colors
+      - name: Render terminal with current GitHub stats
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/render_profile_terminal.py

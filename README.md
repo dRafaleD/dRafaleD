@@ -1,14 +1,16 @@
 <div align="center">
-  <img src="assets/profile-terminal-v2.gif" alt="dRafaleD animated profile terminal: whoami, profile summary and neofetch with the original mask in Kozmos ice blue." width="100%" />
+  <!-- The terminal uses assets/profile-terminal-mask.png, independent of the profile photo. -->
+  <img src="assets/profile-terminal-v2.gif" alt="dRafaleD animated cybersecurity profile terminal" width="100%" />
+  <img src="https://readme-typing-svg.demolab.com?font=Cascadia+Code&weight=600&size=18&duration=3600&pause=1800&color=39FF88&center=true&vCenter=true&width=720&lines=Security+is+not+a+product%2C+it%27s+a+process." alt="Security is not a product, it's a process." />
 </div>
-
-<img src="assets/cosmos-header.svg" alt="Mission log / Kozmos: follow the signal, from unfamiliar binaries to clearer evidence. An animated galaxy accompanies the learning journey." width="100%" />
 
 ## About
 
-I am Eren Erdoğan, a backend development student focused on cybersecurity, Linux systems, and secure software development. My projects form a small constellation of practical tools: each explores a different signal, from binaries and email to digital footprints. I am developing my skills in penetration testing, OSINT, malware analysis, reverse engineering, and full-stack development along the way.
+I am Eren Erdogan, a backend development student focused on cybersecurity, Linux systems, and secure software development. I build practical tools while improving my skills in penetration testing, OSINT, malware analysis, reverse engineering, and full-stack development.
 
-<img src="assets/cosmos-projects.svg" alt="Research atlas: Banshee — offline analysis and evidence bundles; AsphDex — static PE/ELF malware triage; FhniX — explainable email triage; The-Trackher — own-account OSINT and privacy checks." width="100%" />
+## Selected Projects
+
+<img src="assets/research-atlas-galaxy.svg" alt="Research atlas: Banshee — offline analysis and evidence bundles; AsphDex — static PE/ELF malware triage; FhniX — explainable email triage; The-Trackher — own-account OSINT and privacy checks." width="100%" />
 
 <p align="center">
 <a href="https://github.com/dRafaleD/Banshee"><strong>Banshee ↗</strong></a> &nbsp; · &nbsp;
@@ -17,16 +19,23 @@ I am Eren Erdoğan, a backend development student focused on cybersecurity, Linu
 <a href="https://github.com/dRafaleD/The-Trackher"><strong>The-Trackher ↗</strong></a>
 </p>
 
-<div align="center">
-  <img src="assets/cosmos-arsenal.svg" alt="Languages: Rust, YARA, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
-</div>
+## Technical Arsenal
 
 <div align="center">
-  <img src="assets/cosmos-toolkit.svg" alt="Recon and OSINT: Nmap: Shodan: theHarvester: Maltego: Tor: Amass: Recon-ng: SpiderFoot: Sherlock. Web Security: Burp Suite: OWASP ZAP: Nikto: sqlmap: Gobuster: ffuf: WPScan: Nuclei: dirsearch. Offensive Security: Metasploit: Hashcat: Hydra: John the Ripper: Aircrack-ng: Impacket: NetExec: Responder: BloodHound: Mimikatz: Evil-WinRM. Defensive and Analysis: Wireshark: Snort: VirusTotal: Splunk: YARA: tcpdump: Zeek: Suricata: Sysmon: Velociraptor: Volatility: ELK and Elastic: Sigma. Reverse Engineering: Ghidra: IDA: radare2: Cutter: x64dbg: GDB: Binary Ninja: dnSpy: Frida: objdump: PE-bear: Detect It Easy: HxD: WinDbg: Procmon" width="100%" />
+  <img src="assets/technical-arsenal-v3.svg" alt="Languages: Rust, YARA, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
 </div>
 
+## Security Toolkit
+
 <div align="center">
-  <img src="assets/cosmos-focus.svg" alt="Security focus: web application security and penetration testing; vulnerability assessment and secure-code review; OSINT and digital-footprint security; malware analysis, reverse engineering, and binary analysis; cryptography fundamentals and applied security concepts; Linux systems, network security, automation, and secure backend development. Currently learning: advanced web application security; malware analysis and reverse engineering; Linux hardening and network security; secure API and backend architecture." width="100%" />
+  <img src="assets/security-toolkit-v3.svg" alt="Recon and OSINT: Nmap: Shodan: theHarvester: Maltego: Tor: Amass: Recon-ng: SpiderFoot: Sherlock. Web Security: Burp Suite: OWASP ZAP: Nikto: sqlmap: Gobuster: ffuf: WPScan: Nuclei: dirsearch. Offensive Security: Metasploit: Hashcat: Hydra: John the Ripper: Aircrack-ng: Impacket: NetExec: Responder: BloodHound: Mimikatz: Evil-WinRM. Defensive and Analysis: Wireshark: Snort: VirusTotal: Splunk: YARA: tcpdump: Zeek: Suricata: Sysmon: Velociraptor: Volatility: ELK and Elastic: Sigma. Reverse Engineering: Ghidra: IDA: radare2: Cutter: x64dbg: GDB: Binary Ninja: dnSpy: Frida: objdump: PE-bear: Detect It Easy: HxD: WinDbg: Procmon" width="100%" />
+  <br /><sub>Highlighted tools are the ones I use the most.</sub>
+</div>
+
+## Security Focus & Learning
+
+<div align="center">
+  <img src="assets/terminal-focus-learning-v2.svg" alt="Security focus: web application security and penetration testing; vulnerability assessment and secure-code review; OSINT and digital-footprint security; malware analysis, reverse engineering, and binary analysis; cryptography fundamentals and applied security concepts; Linux systems, network security, automation, and secure backend development. Currently learning: advanced web application security; malware analysis and reverse engineering; Linux hardening and network security; secure API and backend architecture." width="100%" />
 </div>
 
 ## Certifications
@@ -60,8 +69,8 @@ I am Eren Erdoğan, a backend development student focused on cybersecurity, Linu
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/WHITE_HAT-SECURITY-9FC4E8?style=for-the-badge&logo=hackthebox&logoColor=9FC4E8&labelColor=15171B" alt="White Hat Security" />
-<img src="https://img.shields.io/badge/AUTHORIZED_RESEARCH-ONLY-20262E?style=for-the-badge&labelColor=15171B" alt="Authorized Research Only" />
+<img src="https://img.shields.io/badge/WHITE_HAT-SECURITY-39FF88?style=for-the-badge&logo=hackthebox&logoColor=39FF88&labelColor=070B09" alt="White Hat Security" />
+<img src="https://img.shields.io/badge/AUTHORIZED_RESEARCH-ONLY-123D25?style=for-the-badge&labelColor=070B09" alt="Authorized Research Only" />
 
 <br />
 
@@ -74,8 +83,8 @@ All security research and testing is performed in authorized environments only.
 
 <div align="center">
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-20262E?style=for-the-badge&logo=linkedin&logoColor=9FC4E8)](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/)
-[![Profile views](https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=9fc4e8&labelColor=15171B&extraCount=1260)](https://hits.sh/github.com/dRafaleD/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/)
+[![Profile views](https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=39ff88&labelColor=555555&extraCount=1260)](https://hits.sh/github.com/dRafaleD/)
 
 </div>
 
