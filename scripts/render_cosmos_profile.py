@@ -243,9 +243,9 @@ def terminal_chrome(prompt, sector_tag, y=28):
 
 
 def heading(index, command, title, detail, sector_tag=None):
-    tag = sector_tag or f'SECTOR {index} // TELEMETRY'
+    tag = sector_tag or f'SECTION {index}'
     return (
-        terminal_chrome(f'dRafaleD@cosmos:~$ {command}', tag, 30)
+        terminal_chrome(f'dRafaleD@github:~$ {command}', tag, 30)
         + text(34, 72, title, 28, TEXT)
         + text(34, 100, detail, 14.5, MUTED)
         + '<path d="M34 118H966" stroke="url(#edge)" stroke-width=".9"/>'
@@ -263,22 +263,22 @@ def panel(x, y, width, height):
 def hero():
     body = f'<rect width="1000" height="420" fill="url(#veil)"/>'
     body += '<rect width="1000" height="52" fill="#040806" opacity=".62"/>'
-    body += terminal_chrome('dRafaleD@cosmos:~$ ./uplink --status', '39.8°N · ESKİŞEHİR // SECTOR-00', 32)
+    body += terminal_chrome('dRafaleD@github:~$ ./profile --status', 'ESKİŞEHİR, TR // ONLINE', 32)
     body += '<path d="M34 49H966" stroke="url(#edge)" stroke-width=".7" opacity=".75"/>'
-    body += text(34, 124, 'Beyond the surface.', 44, TEXT)
-    body += text(36, 170, 'Every binary has a story.', 22, TEXT)
-    body += text(36, 204, 'Every signal leaves a trace.', 20, MUTED)
-    body += text(36, 256, 'Exploring systems, tracing forensic evidence,', 16.5, MUTED)
-    body += text(36, 282, 'and building local-first security tools in Rust and Python.', 16.5, MUTED)
+    body += text(34, 124, 'Security, systems & code.', 42, TEXT)
+    body += text(36, 170, 'Inspecting binaries, network traffic & forensic artifacts.', 20, TEXT)
+    body += text(36, 204, 'Building local-first tools in Rust and Python.', 19, MUTED)
+    body += text(36, 256, 'Backend development student focused on Linux systems,', 16.5, MUTED)
+    body += text(36, 282, 'malware triage, digital forensics, and defensive engineering.', 16.5, MUTED)
     body += '<path class="stream" d="M36 322H440" stroke="#39ff88" stroke-opacity=".55" stroke-width="1"/>'
-    body += text(36, 360, '> OBSERVE  /  ANALYZE  /  HARDEN', 11.5, ACCENT, True)
-    body += '<rect class="cursor" x="284" y="349" width="7" height="13" rx="1" fill="#39ff88"/>'
-    body += text(964, 388, 'LOCAL TOOLS · WIDER HORIZONS', 10, MUTED, True, 'text-anchor="end"')
+    body += text(36, 360, '> ANALYZE  /  BUILD  /  SECURE', 11.5, ACCENT, True)
+    body += '<rect class="cursor" x="275" y="349" width="7" height="13" rx="1" fill="#39ff88"/>'
+    body += text(964, 388, 'LOCAL-FIRST · OPEN-SOURCE', 10, MUTED, True, 'text-anchor="end"')
     save(
         'cosmos-header.svg',
         420,
-        'Signals from the unknown',
-        'Deep space spiral galaxy with subtle terminal telemetry: Beyond the surface. Exploring systems, tracing forensic evidence, and building local-first security tools.',
+        'dRafaleD profile overview',
+        'Security, systems and code. Inspecting binaries, network traffic and forensic artifacts. Building local-first tools in Rust and Python.',
         body,
     )
 
@@ -286,12 +286,12 @@ def hero():
 def about():
     body = '<rect width="1000" height="368" fill="url(#veil)"/>'
     body += '<rect width="1000" height="48" fill="#040806" opacity=".48"/>'
-    body += heading('00', 'cat about.md', 'System profile & orbit.', 'Eren Erdoğan · Backend development student & defensive security builder', 'NODE // WHOAMI')
+    body += heading('00', 'cat about.md', 'About me.', 'Eren Erdoğan · Backend development student & security developer', 'PROFILE')
     lines = [
-        'I study backend development and explore cybersecurity, Linux internals,',
+        'I study backend development and work on cybersecurity, Linux systems,',
         'and secure software engineering. My tools focus on verifiable,',
-        'offline-first investigation across binaries, emails, timelines, and traffic.',
-        'Through practical builds and security labs, I work across malware triage,',
+        'local-first analysis across binaries, emails, timelines, and traffic.',
+        'Through practical projects and security labs, I work on malware triage,',
         'digital forensics, OSINT, penetration testing, and backend architecture.',
     ]
     for i, line in enumerate(lines):
@@ -306,13 +306,13 @@ def projects():
         ('01', 'Banshee', 'Offline security analysis & evidence bundles', 'Decode artifacts, inspect PE/ELF, preserve findings.', 'RUST · OFFLINE ANALYSIS'),
         ('02', 'AsphDex', 'Static PE / ELF malware triage', 'Strings, entropy, YARA & IOC extraction — no execution.', 'JS / RUST · BINARY TRIAGE'),
         ('03', 'FhniX', 'Explainable phishing email triage', 'Desktop GUI, folder reports, IMAP scans & local ML.', 'PYTHON · EMAIL SECURITY'),
-        ('04', 'The-Trackher', 'Digital footprint & own-account OSINT', 'Inspect exposed signals and reduce privacy surface.', 'PYTHON · OSINT / PRIVACY'),
+        ('04', 'The-Trackher', 'Digital footprint & own-account OSINT', 'Inspect exposed data and reduce privacy surface.', 'PYTHON · OSINT / PRIVACY'),
         ('05', 'sentinel-security', 'Linux MACB timeline forensic scanner', 'Live filesystem & TSK disk image artifact timelines.', 'RUST · LINUX FORENSICS'),
         ('06', 'flowscope', 'Offline PCAP / PCAPNG traffic analyzer', 'DNS, HTTP, TLS fingerprints, scan & beacon heuristics.', 'PYTHON · NETWORK TRIAGE'),
     ]
     height = 835
     body = f'<rect width="1000" height="{height}" fill="url(#veilStrong)"/>'
-    body += heading('01', 'ls -la ~/constellation', 'A constellation of investigations.', 'Six local-first security tools connected by curiosity and forensic rigor.', '6 ACTIVE NODES')
+    body += heading('01', 'ls -la ~/projects', 'Selected projects.', 'Six local-first security tools built for analysis, triage, and forensics.', '6 PROJECTS')
 
     # Constellation network connecting all 6 project nodes around a central core
     cx, cy = 500, 446
@@ -347,9 +347,9 @@ def projects():
         body += text(x + 22, y + 136, detail, 13.5, MUTED)
         body += f'<path class="stream" d="M{x + 22} {y + 160}h195" stroke="#39ff88" opacity=".4"/>'
 
-    body += text(34, 804, '> INDEPENDENT TOOLS · ONE CONTINUING EXPLORATION', 10.5, MUTED, True)
+    body += text(34, 804, '> OPEN-SOURCE SECURITY TOOLS', 10.5, MUTED, True)
     body += text(966, 804, 'STATUS: MAINTAINED', 10, ACCENT, True, 'text-anchor="end"')
-    save('cosmos-projects.svg', height, 'Project constellation', '; '.join(f'{a[1]}: {a[2]}' for a in items), body)
+    save('cosmos-projects.svg', height, 'Selected projects', '; '.join(f'{a[1]}: {a[2]}' for a in items), body)
 
 
 def chips(x, y, width, names, highlights=()):
@@ -376,7 +376,7 @@ def arsenal():
         ('DATABASE', ['PostgreSQL']),
         ('PLATFORMS', ['Kali Linux', 'Debian', 'Arch Linux']),
     ]
-    body = heading('02', 'ls -la ~/stack', 'Technical arsenal.', 'Languages, rule engines and Linux environments powering the work.', 'CORE STACK')
+    body = heading('02', 'ls -la ~/stack', 'Technical stack.', 'Languages, rule engines, and Linux environments I work with.', 'TECH STACK')
     body += panel(34, 143, 932, 174)
     body += cluster(915, 180, 99)
     for i, (label, names) in enumerate(rows):
@@ -431,7 +431,7 @@ def toolkit():
     highlights.append('YARA-X')
 
     body = '<rect width="1000" height="1068" fill="url(#veilStrong)"/>'
-    body += heading('03', 'ls ~/security/toolkit --color=always', 'Security instruments.', 'Five operational domains across the cosmos. Green highlights primary workflow tools.', '58 TOOLS // 5 DOMAINS')
+    body += heading('03', 'ls ~/security/toolkit --color=always', 'Security toolkit.', 'Tools across five security domains. Green highlights the ones I use most.', '58 TOOLS // 5 CATEGORIES')
 
     # Constellation arcs connecting the 5 security domains
     orbit_paths = [
@@ -491,7 +491,7 @@ def toolkit():
     body += render_domain_card(4, 34, row3_y, 932, row3_h, *categories[4])
 
     footer_y = row3_y + row3_h + 34
-    body += text(34, footer_y, '> 58 INSTRUMENTS INDEXED ACROSS 5 SECURITY ORBITS', 10.5, MUTED, True)
+    body += text(34, footer_y, '> 58 TOOLS ACROSS 5 CATEGORIES', 10.5, MUTED, True)
     body += '<rect x="738" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#10291b" stroke="#39ff88" stroke-width=".9"/>'
     body += text(755, footer_y, 'PRIMARY', 10, ACCENT, True)
     body += '<rect x="838" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#060c08" stroke="#234230" stroke-width=".9"/>'
@@ -504,7 +504,7 @@ def toolkit():
 
 def focus():
     columns = [
-        (34, '01 // CURRENT COORDINATES', [
+        (34, '01 // CURRENT FOCUS', [
             'Web application security & pentesting',
             'Vulnerability assessment & code review',
             'OSINT & digital-footprint security',
@@ -512,7 +512,7 @@ def focus():
             'Applied cryptography fundamentals',
             'Linux systems, networks & secure backend',
         ]),
-        (516, '02 // NEXT HORIZONS', [
+        (516, '02 // CURRENTLY LEARNING', [
             'Advanced web application security',
             'Malware analysis & reverse engineering',
             'Linux hardening & network forensics',
@@ -520,7 +520,7 @@ def focus():
             'Container & cloud security tooling',
         ]),
     ]
-    body = heading('04', 'cat ~/flight-plan.md', 'Focus & flight plan.', 'Practical security research paired with resilient backend engineering.', 'TRAJECTORY')
+    body = heading('04', 'cat ~/learning.md', 'Focus & learning.', 'Areas I currently work on and topics I am studying next.', 'FOCUS')
     for idx, (x, label, lines) in enumerate(columns):
         body += panel(x, 144, 450, 247)
         body += cluster(x + 412, 174, 41 + idx)
@@ -530,7 +530,7 @@ def focus():
             body += text(x + 38, 213 + i * 28, value, 15.5, MUTED)
     body += '<path d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#225737" stroke-width="1"/><path class="link-flow" d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#a4efbd" stroke-width="1.3"/>'
     body += flare(129, 426, 0.65) + flare(501, 438, 0.75) + flare(882, 420, 0.55)
-    body += text(34, 487, '> LEARNING IS THE MISSION · CURIOSITY IS THE PROPULSION', 10.5, MUTED, True)
+    body += text(34, 487, '> HANDS-ON PRACTICE · CONTINUOUS LEARNING', 10.5, MUTED, True)
     save('cosmos-focus.svg', 512, 'Focus and learning', '; '.join(label + ': ' + ', '.join(lines) for _, label, lines in columns), body)
 
 
@@ -541,7 +541,7 @@ def certifications():
         ('Cisco', 'Network Defense', 'Credly verified badge'),
         ('Cisco', 'Cyber Threat Management', 'Credly verified badge'),
     ]
-    body = heading('05', 'ls ~/credentials', 'Learning milestones.', 'Verified certifications and training records. Original badges follow below.', '4 VERIFIED')
+    body = heading('05', 'ls ~/credentials', 'Certifications.', 'Verified certificates and training badges. Links are listed below.', '4 VERIFIED')
     for i, (issuer, name, source) in enumerate(items):
         x = 34 + (i % 2) * 482
         y = 144 + (i // 2) * 158
@@ -554,31 +554,31 @@ def certifications():
 
 def community():
     body = '<rect width="1000" height="240" fill="url(#veil)"/>'
-    body += terminal_chrome('dRafaleD@cosmos:~$ curl https://hub.xerj.org/contributors/dRafaleD', 'COMMUNITY UPLINK', 30)
-    body += text(34, 86, 'Contributing to shared knowledge.', 29, TEXT)
+    body += terminal_chrome('dRafaleD@github:~$ curl https://hub.xerj.org/contributors/dRafaleD', 'COMMUNITY', 30)
+    body += text(34, 86, 'Community contributions.', 29, TEXT)
     body += text(36, 132, 'XERJ Corpus Hub', 20, LIME)
-    body += text(36, 165, 'Verified community contributions / dRafaleD', 15.5, MUTED)
-    body += text(36, 208, '> OPEN CONTRIBUTOR RECORD  →', 10.5, ACCENT, True)
+    body += text(36, 165, 'Verified contributor profile / dRafaleD', 15.5, MUTED)
+    body += text(36, 208, '> VIEW CONTRIBUTOR PROFILE  →', 10.5, ACCENT, True)
     save('cosmos-community.svg', 240, 'Community contributions', 'XERJ Corpus Hub contributor record for dRafaleD.', body)
 
 
 def ethics():
     body = '<rect width="1000" height="398" fill="url(#veil)"/>'
-    body += heading('06', 'cat /etc/ethics.conf', 'Code of conduct.', 'Curiosity opens the universe. Responsibility defines the route.', 'WHITE HAT')
+    body += heading('06', 'cat /etc/ethics.conf', 'Research ethics.', 'Authorized testing and responsible security research.', 'WHITE HAT')
     body += text(36, 162, 'WHITE HAT // AUTHORIZED RESEARCH ONLY', 11, ACCENT, True)
-    body += text(36, 205, 'Explore responsibly.', 24, TEXT)
-    body += text(36, 242, 'Report ethically. Strengthen securely.', 24, TEXT)
+    body += text(36, 205, 'Test responsibly.', 24, TEXT)
+    body += text(36, 242, 'Report ethically. Build securely.', 24, TEXT)
     body += text(36, 290, 'All security research, analysis, and testing is performed', 16.5, MUTED)
     body += text(36, 318, 'strictly within authorized environments.', 16.5, MUTED)
     body += '<path d="M36 358C270 338 398 382 630 355S866 339 966 351" fill="none" stroke="#225737" stroke-width=".9"/><path class="link-flow" d="M36 358C270 338 398 382 630 355S866 339 966 351" fill="none" stroke="#84cfa2" stroke-width="1.2" opacity=".8"/>'
     body += flare(490, 363, 0.65)
-    save('cosmos-ethics.svg', 398, 'Research ethics', 'White hat security. Authorized research only. Explore responsibly. Report ethically. Strengthen securely.', body)
+    save('cosmos-ethics.svg', 398, 'Research ethics', 'White hat security. Authorized research only. Test responsibly. Report ethically. Build securely.', body)
 
 
 def connect():
     body = f'<rect width="1000" height="196" fill="url(#veil)"/>'
-    body += heading('07', './uplink --channels', 'Send a signal across the stars.', 'Connect on LinkedIn, explore repositories on GitHub, or visit the web portfolio.', 'OPEN CHANNELS')
-    body += text(34, 166, '> SELECT AN OPEN TRANSMISSION CHANNEL BELOW', 10.5, ACCENT, True)
+    body += heading('07', './connect --links', 'Connect.', 'Find me on LinkedIn, browse my repositories on GitHub, or visit my portfolio.', 'LINKS')
+    body += text(34, 166, '> LINKS BELOW', 10.5, ACCENT, True)
     save('cosmos-connect.svg', 196, 'Connect with Eren Erdoğan', 'LinkedIn: Eren Erdoğan. GitHub: dRafaleD. Portfolio: drafaled.github.io.', body)
 
     channels = [
@@ -599,11 +599,11 @@ def connect():
             '<circle cx="38" cy="24" r="3.2" fill="#214630"/>'
             '<circle cx="50" cy="24" r="3.2" fill="#39ff88" opacity=".65"/>'
         )
-        cbody += text(64, 28, f'> open --channel {name}', 11, ACCENT, True)
+        cbody += text(64, 28, f'> open {name}', 11, ACCENT, True)
         cbody += text(w - 22, 28, f'{label.upper()}', 10, DIM, True, 'text-anchor="end"')
         cbody += text(24, 78, detail, 22, TEXT)
         cbody += text(24, 106, sub, 12.5, MUTED, True)
-        cbody += text(24, 138, '> FOLLOW THE SIGNAL  →', 10.5, ACCENT, True)
+        cbody += text(24, 138, f'> OPEN {label.upper()}  →', 10.5, ACCENT, True)
         cbody += f'<rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="12" fill="none" stroke="#183d27" stroke-width="1"/>'
         csvg = (
             f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
@@ -617,15 +617,15 @@ def connect():
 
 def activity_header():
     body = '<rect width="1000" height="196" fill="url(#veil)"/>'
-    body += heading('08', 'git log --graph --cosmos', 'The journey leaves a trail.', 'GitHub contribution streaks and a path across the contribution sky.', 'LIVE TELEMETRY')
+    body += heading('08', 'git log --stat', 'GitHub activity.', 'Contribution streaks and recent commit activity.', 'ACTIVITY')
     body += '<path d="M35 156C240 112 456 200 696 146S884 131 963 151" fill="none" stroke="#225737" stroke-width=".9"/><path class="link-flow" d="M35 156C240 112 456 200 696 146S884 131 963 151" fill="none" stroke="#9fe1b5" stroke-width="1.2" opacity=".8"/>'
     body += flare(235, 148, 0.6) + flare(645, 155, 0.65)
-    save('cosmos-activity.svg', 196, 'GitHub activity', 'GitHub activity, contribution streaks, and an animated contribution snake follow.', body)
+    save('cosmos-activity.svg', 196, 'GitHub activity', 'GitHub activity, contribution streaks, and contribution graph.', body)
 
 
 def streak_card(total, current, longest, total_range, current_range, longest_range):
     body = '<rect width="1000" height="327" fill="url(#veilStrong)"/>'
-    body += heading('LIVE', 'git activity --summary', 'Contribution telemetry.', 'Totals and streaks, refreshed automatically from GitHub activity.', 'SYNCED')
+    body += heading('LIVE', 'git activity --summary', 'Contribution summary.', 'Totals and streaks, updated automatically from GitHub activity.', 'SYNCED')
     stats = [
         (f'{total:,}', 'Total contributions', total_range, ACCENT),
         (str(current), 'Current streak', current_range, LIME),
