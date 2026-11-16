@@ -12,7 +12,7 @@
 <mask id="fogMask"><ellipse cx="760" cy="200" rx="480" ry="340" fill="url(#fogFade)"/></mask>
 <filter id="spaceFog" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".008 .018" numOctaves="3" seed="17"/><feColorMatrix type="matrix" values="0 0 0 0 .06 0 0 0 0 .32 0 0 0 0 .17 0 0 0 .6 0"/></filter>
 </defs><style>
-.space-photo{animation:spaceDrift 30s ease-in-out infinite;transform-origin:75% 50%}@keyframes spaceDrift{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+.space-photo{animation:spaceDrift 18s ease-in-out infinite;transform-origin:75% 50%}@keyframes spaceDrift{0%,100%{transform:scale(1)}50%{transform:translate(-10px,-3px) scale(1.065)}}
 .ui{font-family:'Segoe UI',Ubuntu,Arial,sans-serif}.mono{font-family:Consolas,'DejaVu Sans Mono',monospace;letter-spacing:.5px}
 .star{animation:twinkle 5s ease-in-out infinite}.s1{animation-delay:-1.8s;animation-duration:7s}.s2{animation-delay:-3.7s;animation-duration:9s}
 .galaxy-spin{animation:spin 95s linear infinite;transform-origin:0 0}

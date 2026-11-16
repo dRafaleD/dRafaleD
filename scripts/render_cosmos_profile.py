@@ -32,7 +32,7 @@ def galaxy(*args, **kwargs):
 
 
 STYLE = '''
-.space-photo{animation:spaceDrift 30s ease-in-out infinite;transform-origin:75% 50%}@keyframes spaceDrift{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+.space-photo{animation:spaceDrift 18s ease-in-out infinite;transform-origin:75% 50%}@keyframes spaceDrift{0%,100%{transform:scale(1)}50%{transform:translate(-10px,-3px) scale(1.065)}}
 .ui{font-family:'Segoe UI',Ubuntu,Arial,sans-serif}.mono{font-family:Consolas,'DejaVu Sans Mono',monospace;letter-spacing:.5px}
 .star{animation:twinkle 5s ease-in-out infinite}.s1{animation-delay:-1.8s;animation-duration:7s}.s2{animation-delay:-3.7s;animation-duration:9s}
 .galaxy-spin{animation:spin 95s linear infinite;transform-origin:0 0}
@@ -65,9 +65,20 @@ DEFS = '''<defs>
 
 
 def save(name, height, title, description, body, output_dir=ASSETS):
-    strength = '.85' if name in ['cosmos-header.svg','cosmos-ethics.svg','cosmos-community.svg'] else '.38'
-    photo = base64.b64encode((ASSETS/'deep-space-lime.png').read_bytes()).decode()
-    backdrop = f'<image class="space-photo" href="data:image/png;base64,{photo}" width="1000" height="{height}" preserveAspectRatio="xMidYMid slice" opacity="{strength}"/>'
+    scenes = {
+        'cosmos-header.svg': ('deep-space-lime.png', '.85'),
+        'cosmos-projects.svg': ('deep-space-nebula.png', '.6'),
+        'cosmos-connect.svg': ('deep-space-horizon.png', '.8'),
+    }
+    backdrop = ''
+    if name in scenes:
+        asset, strength = scenes[name]
+        photo = base64.b64encode((ASSETS/asset).read_bytes()).decode()
+        backdrop = f'<image class="space-photo" href="data:image/png;base64,{photo}" width="1000" height="{height}" preserveAspectRatio="xMidYMid slice" opacity="{strength}"/>'
+    else:
+        backdrop = '<rect x=".5" y=".5" width="999" height="'+str(height-1)+'" rx="8" fill="#080808" stroke="#242424"/>'
+    if name not in scenes:
+        backdrop += '<path class="stream" d="M24 48H976" stroke="#a3e635" stroke-width=".6" opacity=".18"/>'
     clouds = ''
     meteors = ''
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="{height}" viewBox="0 0 1000 {height}" role="img" aria-labelledby="title desc">
@@ -77,7 +88,7 @@ def save(name, height, title, description, body, output_dir=ASSETS):
 
 
 def heading(index, title, detail):
-    return (text(34, 33, f'{index} / DEEP SPACE ARCHIVE', 11, ACCENT, True)
+    return (text(34, 33, f'dRafaleD@workspace:~ / {index}', 11, ACCENT, True)
             + text(34, 73, title, 30, TEXT)
             + text(34, 101, detail, 15, MUTED)
             + '<path d="M34 119H966" stroke="url(#edge)" stroke-width=".8"/>')
@@ -152,7 +163,7 @@ def chips(x,y,width,names,highlights=()):
 
 def arsenal():
     rows=[('LANGUAGES',['Rust','YARA','YARA-X','Assembly','C','C++','Python','JavaScript']),('DATABASE',['PostgreSQL']),('PLATFORMS',['Kali Linux','Debian','Arch Linux'])]
-    body=heading('02','The engineering spectrum.','Languages, rule engines and Linux systems behind the exploration.')
+    body=heading('02','ls ~/stack','Languages, rule engines and Linux systems behind the exploration.')
     body+=panel(34,143,932,170)
     for i,(label,names) in enumerate(rows):
         y=162+i*47
@@ -173,7 +184,7 @@ def toolkit():
     old=ET.parse(ASSETS/'security-toolkit-v3.svg')
     highlights=[n.text for n in old.iter() if n.tag.endswith('text') and 'hot' in n.get('class','').split()]
     highlights.append('YARA-X')
-    body=heading('03','Instruments for the unknown.','A working reference across the security spectrum. Green marks the tools I use most.')
+    body=heading('03','ls ~/security/toolkit','A working reference across the security spectrum. Green marks the tools I use most.')
     y=144
     for index,(label,names) in enumerate(categories):
         labels,bottom=chips(61,y+51,878,names.split(','),highlights)
@@ -189,7 +200,7 @@ def focus():
         (34,'CURRENT COORDINATES',['Web security & penetration testing','Vulnerability assessment & code review','OSINT & digital-footprint security','Malware, reverse engineering & binaries','Cryptography fundamentals','Linux, networks & backend development']),
         (516,'NEXT HORIZONS',['Advanced web application security','Malware analysis & reverse engineering','Linux hardening & network security','Secure APIs & backend architecture']),
     ]
-    body=heading('04','There is always more to discover.','A flight plan through practical security research and secure backend development.')
+    body=heading('04','cat learning.md','A flight plan through practical security research and secure backend development.')
     for x,label,lines in columns:
         body+=panel(x,144,450,247)
         body+=text(x+22,176,label,11,ACCENT,True)
@@ -203,7 +214,7 @@ def focus():
 
 
 def about():
-    body=heading('00','A little closer to the source.','Eren Erdoğan / backend development student / security tooling')
+    body=heading('00','cat about.txt','Eren Erdoğan / backend development student / security tooling')
     body+=planet(914,242,121)
     lines=[
         'I study backend development and explore cybersecurity, Linux systems,',
@@ -219,7 +230,7 @@ def about():
 
 def certifications():
     items=[('Siber Vatan','Certificate verification','Sanayi ve Teknoloji Bakanlığı'),('Cisco','Introduction to Cybersecurity','Credly badge'),('Cisco','Network Defense','Credly badge'),('Cisco','Cyber Threat Management','Credly badge')]
-    body=heading('05','Milestones along the journey.','Certifications and learning records. Original badges and verification links are below.')
+    body=heading('05','ls ~/credentials','Certifications and learning records. Original badges and verification links are below.')
     for i,(issuer,name,source) in enumerate(items):
         x,y=34+(i%2)*482,144+(i//2)*158
         body+=panel(x,y,450,133)+cluster(x+392,y+39,50+i)
@@ -232,8 +243,8 @@ def certifications():
 def community():
     body=galaxy(844,133,.81,89,1050)
     body+='<rect width="1000" height="239" fill="url(#veil)"/>'
-    body+=text(34,33,'06 / SHARED CONSTELLATIONS',11,ACCENT,True)
-    body+=text(34,87,'Knowledge travels further together.',30)
+    body+=text(34,33,'dRafaleD@workspace:~ / community',11,ACCENT,True)
+    body+=text(34,87,'Contributing to shared knowledge.',30)
     body+=text(36,133,'XERJ Corpus Hub',20)
     body+=text(36,166,'Community contributions / dRafaleD',16,MUTED)
     body+=text(36,208,'EXPLORE THE CONTRIBUTOR RECORD  →',10,ACCENT,True)
@@ -243,7 +254,7 @@ def community():
 def ethics():
     body=galaxy(853,201,.95,102,1400)
     body+='<rect width="1000" height="413" fill="url(#veil)"/>'
-    body+=heading('07','Explore with a clear compass.','Curiosity opens the universe. Responsibility defines the route.')
+    body+=heading('07','cat ethics.md','Curiosity opens the universe. Responsibility defines the route.')
     body+=text(36,160,'WHITE HAT / AUTHORIZED RESEARCH ONLY',11,ACCENT,True)
     body+=text(36,203,'Explore responsibly.',24)
     body+=text(36,241,'Report ethically. Strengthen securely.',24)
@@ -278,7 +289,7 @@ def activity_header():
 
 
 def streak_card(total,current,longest,total_range,current_range,longest_range):
-    body=heading('LIVE','A record of continued exploration.','Contribution totals and streaks, refreshed from GitHub activity.')
+    body=heading('LIVE','git activity --summary','Contribution totals and streaks, refreshed from GitHub activity.')
     body+=galaxy(855,169,.68,87,700)
     for i,(value,label,dates) in enumerate([(f'{total:,}','Total contributions',total_range),(str(current),'Current streak',current_range),(str(longest),'Longest streak',longest_range)]):
         x=34+i*316
