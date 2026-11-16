@@ -6,7 +6,7 @@
 
 <img src="assets/cosmos-header.svg?v=6" alt="Beyond the surface: an animated green spiral galaxy with terminal telemetry. Exploring systems, tracing forensic evidence, and building local-first security tools." width="100%" />
 
-<img src="assets/cosmos-about.svg?v=6" alt="About Eren Erdoğan: backend development student and defensive security builder exploring Linux internals, malware triage, digital forensics, OSINT, and secure software engineering." width="100%" />
+<img src="assets/cosmos-about.svg?v=7" alt="About Eren Erdoğan: backend development student and defensive security builder exploring Linux internals, malware triage, digital forensics, OSINT, and secure software engineering." width="100%" />
 
 <img src="assets/cosmos-projects.svg?v=6" alt="Research constellation: Banshee, AsphDex, FhniX, The-Trackher, sentinel-security, and flowscope." width="100%" />
 
@@ -34,7 +34,7 @@
 </div>
 
 <div align="center">
-  <img src="assets/cosmos-toolkit.svg?v=6" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" />
+  <img src="assets/cosmos-toolkit.svg?v=7" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" />
 </div>
 
 <div align="center">
@@ -78,7 +78,7 @@
 
 </details>
 
-<img src="assets/cosmos-ethics.svg?v=6" alt="Ethics: white hat security and authorized research only. Explore responsibly, report ethically, strengthen securely." width="100%" />
+<img src="assets/cosmos-ethics.svg?v=7" alt="Ethics: white hat security and authorized research only. Explore responsibly, report ethically, strengthen securely." width="100%" />
 
 <img src="assets/cosmos-connect.svg?v=6" alt="Send a signal across the stars. Connect with Eren Erdoğan on LinkedIn, explore dRafaleD on GitHub, or visit the web portfolio." width="100%" />
 

@@ -149,6 +149,7 @@ STYLE = '''
 .stream{stroke-dasharray:3 16;animation:stream 14s linear infinite}
 .link-flow{stroke-dasharray:2 84;animation:stream 7.5s linear infinite}
 .cursor{animation:blink 1.15s steps(2,start) infinite}
+.scan{animation:scan 9s linear infinite;opacity:.75}
 .meteor{animation:meteor 14s linear infinite}
 .meteor.second{animation-delay:-7.5s;animation-duration:21s}
 @keyframes twinkle{0%,100%{opacity:.16}50%{opacity:.86}}
@@ -157,8 +158,9 @@ STYLE = '''
 @keyframes nebulaDrift{0%,100%{transform:translate(0,0)}50%{transform:translate(-14px,6px)}}
 @keyframes stream{to{stroke-dashoffset:-328}}
 @keyframes blink{0%,49%{opacity:.95}50%,100%{opacity:0}}
+@keyframes scan{0%{transform:translateX(0);opacity:0}10%{opacity:.85}90%{opacity:.85}100%{transform:translateX(var(--end,360px));opacity:0}}
 @keyframes meteor{0%,72%{opacity:0;transform:translate(-100px,-30px)}74%{opacity:.85}86%,100%{opacity:0;transform:translate(1160px,240px)}}
-@media(prefers-reduced-motion:reduce){.space-photo,.star,.galaxy-spin,.breathe,.nebula-drift,.stream,.link-flow,.cursor,.meteor{animation:none}.meteor{opacity:0}}
+@media(prefers-reduced-motion:reduce){.space-photo,.star,.galaxy-spin,.breathe,.nebula-drift,.stream,.link-flow,.cursor,.scan,.meteor{animation:none}.meteor{opacity:0}}
 '''
 
 DEFS = '''<defs>
@@ -179,7 +181,10 @@ DEFS = '''<defs>
 def save(name, height, title, description, body, output_dir=ASSETS):
     scenes = {
         'cosmos-header.svg': ('deep-space-lime.png', '.88'),
+        'cosmos-about.svg': ('deep-space-planet.jpg', '.95'),
         'cosmos-projects.svg': ('deep-space-nebula.png', '.74'),
+        'cosmos-toolkit.svg': ('deep-space-nebula.png', '.42'),
+        'cosmos-ethics.svg': ('deep-space-eclipse.jpg', '.95'),
         'cosmos-connect.svg': ('deep-space-horizon.png', '.85'),
     }
     if name in scenes:
@@ -276,7 +281,8 @@ def hero():
 
 
 def about():
-    body = planet(896, 255, 114)
+    body = '<rect width="1000" height="368" fill="url(#veil)"/>'
+    body += '<rect width="1000" height="48" fill="#040806" opacity=".48"/>'
     body += heading('00', 'cat about.md', 'System profile & orbit.', 'Eren Erdoğan · Backend development student & defensive security builder', 'NODE // WHOAMI')
     lines = [
         'I study backend development and explore cybersecurity, Linux internals,',
@@ -381,24 +387,116 @@ def arsenal():
 
 def toolkit():
     categories = [
-        ('Recon & OSINT', 'Nmap,Shodan,theHarvester,Maltego,Tor,Amass,Recon-ng,SpiderFoot,Sherlock'),
-        ('Web security', 'Burp Suite,OWASP ZAP,Nikto,sqlmap,Gobuster,ffuf,WPScan,Nuclei,dirsearch'),
-        ('Offensive security', 'Metasploit,Hashcat,Hydra,John the Ripper,Aircrack-ng,Impacket,NetExec,Responder,BloodHound,Mimikatz,Evil-WinRM'),
-        ('Defensive analysis', 'Wireshark,Snort,VirusTotal,Splunk,YARA,YARA-X,tcpdump,Zeek,Suricata,Sysmon,Velociraptor,Volatility,ELK and Elastic,Sigma'),
-        ('Reverse engineering', 'Ghidra,IDA,radare2,Cutter,x64dbg,GDB,Binary Ninja,dnSpy,Frida,objdump,PE-bear,Detect It Easy,HxD,WinDbg,Procmon'),
+        (
+            'Recon & OSINT',
+            'Discovery · intelligence · digital footprints',
+            '~/toolkit/recon',
+            '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12l6.5-6.5"/>',
+            'Nmap,Shodan,theHarvester,Maltego,Tor,Amass,Recon-ng,SpiderFoot,Sherlock',
+        ),
+        (
+            'Web security',
+            'Application testing · auditing · assessment',
+            '~/toolkit/web',
+            '<path d="m12 2 8 4v6c0 5-8 10-8 10S4 17 4 12V6Z"/><path d="m8.5 12 2.5 2.5 4.5-5.5"/>',
+            'Burp Suite,OWASP ZAP,Nikto,sqlmap,Gobuster,ffuf,WPScan,Nuclei,dirsearch',
+        ),
+        (
+            'Offensive security',
+            'Authorized testing · adversary simulation',
+            '~/toolkit/offense',
+            '<circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="3"/><path d="M12 1.5v4m0 13v4M1.5 12h4m13 0h4"/>',
+            'Metasploit,Hashcat,Hydra,John the Ripper,Aircrack-ng,Impacket,NetExec,Responder,BloodHound,Mimikatz,Evil-WinRM',
+        ),
+        (
+            'Defensive analysis',
+            'Detection · packet & artifact triage · IR',
+            '~/toolkit/defense',
+            '<path d="M1.5 12h4l2.8-7.5 4.4 15 2.8-7.5h7"/>',
+            'Wireshark,Snort,VirusTotal,Splunk,YARA,YARA-X,tcpdump,Zeek,Suricata,Sysmon,Velociraptor,Volatility,ELK and Elastic,Sigma',
+        ),
+        (
+            'Reverse engineering',
+            'Binary inspection · debugging · dynamic instrumentation',
+            '~/toolkit/reversing',
+            '<path d="m8 6-5.5 6L8 18m8-12 5.5 6L16 18m-2.5-14-3 16"/>',
+            'Ghidra,IDA,radare2,Cutter,x64dbg,GDB,Binary Ninja,dnSpy,Frida,objdump,PE-bear,Detect It Easy,HxD,WinDbg,Procmon',
+        ),
     ]
     old = ET.parse(ASSETS / 'security-toolkit-v3.svg')
     highlights = [n.text for n in old.iter() if n.tag.endswith('text') and 'hot' in n.get('class', '').split()]
     highlights.append('YARA-X')
-    body = heading('03', 'ls ~/security/toolkit --color=always', 'Security instruments.', 'A working reference across the spectrum. Green highlights daily-driver tools.', '5 DOMAINS')
-    y = 144
-    for index, (label, names) in enumerate(categories):
-        labels, bottom = chips(61, y + 51, 878, names.split(','), highlights)
-        body += panel(34, y, 932, bottom - y + 19)
-        body += text(61, y + 31, label, 17.5, TEXT) + labels
-        body += cluster(925, y + 25, index + 17)
-        y = bottom + 34
-    save('cosmos-toolkit.svg', y + 10, 'Security toolkit', '; '.join(a + ': ' + b for a, b in categories), body)
+
+    body = '<rect width="1000" height="1068" fill="url(#veilStrong)"/>'
+    body += heading('03', 'ls ~/security/toolkit --color=always', 'Security instruments.', 'Five operational domains across the cosmos. Green highlights primary workflow tools.', '58 TOOLS // 5 DOMAINS')
+
+    # Constellation arcs connecting the 5 security domains
+    orbit_paths = [
+        'M262 280C420 260 580 260 738 280',
+        'M262 560C420 540 580 540 738 560',
+        'M262 280C230 420 230 560 262 770',
+        'M738 280C770 420 770 560 738 770',
+    ]
+    for op in orbit_paths:
+        body += f'<path d="{op}" fill="none" stroke="#1d4d31" stroke-width=".9" opacity=".65"/>'
+        body += f'<path class="link-flow" d="{op}" fill="none" stroke="#83efac" stroke-width="1.3" opacity=".7"/>'
+
+    def render_domain_card(idx, x, y, w, h, title, subtitle, path_label, icon_svg, tool_list):
+        tools = tool_list.split(',')
+        accent_col = LIME if idx in (1, 3) else ACCENT
+        inner = panel(x, y, w, h)
+        # Left glowing domain accent bar
+        inner += f'<rect x="{x}" y="{y + 24}" width="3" height="34" rx="1.5" fill="{accent_col}" opacity=".9"/>'
+        # Icon badge
+        inner += f'<rect x="{x + 22}" y="{y + 20}" width="40" height="40" rx="10" fill="#06160d" stroke="#235437" stroke-width=".9"/>'
+        inner += (
+            f'<g transform="translate({x + 30} {y + 28})" fill="none" stroke="{accent_col}" '
+            f'stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">{icon_svg}</g>'
+        )
+        inner += text(x + 74, y + 37, title, 18.5, TEXT)
+        inner += text(x + 74, y + 56, f'{len(tools):02d} TOOLS  ·  {path_label}', 10.5, accent_col, True)
+        inner += text(x + 22, y + 83, subtitle, 12.5, MUTED)
+        inner += cluster(x + w - 34, y + 32, 70 + idx)
+
+        # Animated scanner line
+        line_w = w - 44
+        inner += f'<path d="M{x + 22} {y + 98}H{x + w - 22}" stroke="#163b25" stroke-width=".9"/>'
+        inner += (
+            f'<g class="scan" style="animation-delay:-{idx * 1.8:.1f}s;--end:{line_w - 22}px">'
+            f'<rect x="{x + 22}" y="{y + 97}" width="20" height="2" rx="1" fill="{accent_col}" opacity=".35"/>'
+            f'<circle cx="{x + 42}" cy="{y + 98}" r="2.1" fill="{accent_col}"/></g>'
+        )
+
+        labels, _ = chips(x + 22, y + 114, w - 44, tools, highlights)
+        inner += labels
+        return inner
+
+    # Row 1: Recon & OSINT (left) + Web security (right)
+    row1_h = 258
+    body += render_domain_card(0, 34, 144, 454, row1_h, *categories[0])
+    body += render_domain_card(1, 512, 144, 454, row1_h, *categories[1])
+
+    # Row 2: Offensive security (left) + Defensive analysis (right)
+    row2_y = 144 + row1_h + 24
+    row2_h = 310
+    body += render_domain_card(2, 34, row2_y, 454, row2_h, *categories[2])
+    body += render_domain_card(3, 512, row2_y, 454, row2_h, *categories[3])
+
+    # Row 3: Reverse engineering (full width)
+    row3_y = row2_y + row2_h + 24
+    row3_h = 212
+    body += render_domain_card(4, 34, row3_y, 932, row3_h, *categories[4])
+
+    footer_y = row3_y + row3_h + 34
+    body += text(34, footer_y, '> 58 INSTRUMENTS INDEXED ACROSS 5 SECURITY ORBITS', 10.5, MUTED, True)
+    body += '<rect x="738" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#10291b" stroke="#39ff88" stroke-width=".9"/>'
+    body += text(755, footer_y, 'PRIMARY', 10, ACCENT, True)
+    body += '<rect x="838" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#060c08" stroke="#234230" stroke-width=".9"/>'
+    body += text(855, footer_y, 'REFERENCE', 10, MUTED, True)
+
+    total_h = footer_y + 26
+    body = body.replace('height="1068"', f'height="{total_h}"', 1)
+    save('cosmos-toolkit.svg', total_h, 'Security toolkit', '; '.join(a + ': ' + e for a, _, _, _, e in categories), body)
 
 
 def focus():
@@ -463,9 +561,7 @@ def community():
 
 
 def ethics():
-    body = planet(902, 232, 128)
-    body += galaxy(820, 145, 0.52, 102, 420)
-    body += '<rect width="1000" height="398" fill="url(#veil)"/>'
+    body = '<rect width="1000" height="398" fill="url(#veil)"/>'
     body += heading('06', 'cat /etc/ethics.conf', 'Code of conduct.', 'Curiosity opens the universe. Responsibility defines the route.', 'WHITE HAT')
     body += text(36, 162, 'WHITE HAT // AUTHORIZED RESEARCH ONLY', 11, ACCENT, True)
     body += text(36, 205, 'Explore responsibly.', 24, TEXT)
