@@ -4,13 +4,11 @@
   <img src="https://readme-typing-svg.demolab.com?font=Cascadia+Code&weight=600&size=18&duration=3600&pause=1800&color=39FF88&center=true&vCenter=true&width=720&lines=Security+is+not+a+product%2C+it%27s+a+process." alt="Security is not a product, it's a process." />
 </div>
 
-## About
+<img src="assets/cosmos-header.svg?v=4" alt="Beyond the surface: an animated green spiral galaxy, drifting nebulae, stars and meteors. Exploring systems and tracing evidence." width="100%" />
 
-I am Eren Erdogan, a backend development student focused on cybersecurity, Linux systems, and secure software development. I build practical tools while improving my skills in penetration testing, OSINT, malware analysis, reverse engineering, and full-stack development.
+<img src="assets/cosmos-about.svg?v=4" alt="About Eren Erdoğan: backend development student exploring cybersecurity, Linux and secure software. Learning penetration testing, OSINT, malware analysis, reverse engineering and full-stack development through practical projects." width="100%" />
 
-## Selected Projects
-
-<img src="assets/research-atlas-galaxy.svg" alt="Research atlas: Banshee — offline analysis and evidence bundles; AsphDex — static PE/ELF malware triage; FhniX — explainable email triage; The-Trackher — own-account OSINT and privacy checks." width="100%" />
+<img src="assets/cosmos-projects.svg?v=4" alt="Research atlas: Banshee — offline analysis and evidence bundles; AsphDex — static PE/ELF malware triage; FhniX — explainable email triage; The-Trackher — own-account OSINT and privacy checks." width="100%" />
 
 <p align="center">
 <a href="https://github.com/dRafaleD/Banshee"><strong>Banshee ↗</strong></a> &nbsp; · &nbsp;
@@ -19,26 +17,23 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 <a href="https://github.com/dRafaleD/The-Trackher"><strong>The-Trackher ↗</strong></a>
 </p>
 
-## Technical Arsenal
-
 <div align="center">
-  <img src="assets/technical-arsenal-v3.svg" alt="Languages: Rust, YARA, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
+  <img src="assets/cosmos-arsenal.svg?v=4" alt="Languages and rule engines: Rust, YARA, YARA-X, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
 </div>
 
-## Security Toolkit
-
 <div align="center">
-  <img src="assets/security-toolkit-v3.svg" alt="Recon and OSINT: Nmap: Shodan: theHarvester: Maltego: Tor: Amass: Recon-ng: SpiderFoot: Sherlock. Web Security: Burp Suite: OWASP ZAP: Nikto: sqlmap: Gobuster: ffuf: WPScan: Nuclei: dirsearch. Offensive Security: Metasploit: Hashcat: Hydra: John the Ripper: Aircrack-ng: Impacket: NetExec: Responder: BloodHound: Mimikatz: Evil-WinRM. Defensive and Analysis: Wireshark: Snort: VirusTotal: Splunk: YARA: tcpdump: Zeek: Suricata: Sysmon: Velociraptor: Volatility: ELK and Elastic: Sigma. Reverse Engineering: Ghidra: IDA: radare2: Cutter: x64dbg: GDB: Binary Ninja: dnSpy: Frida: objdump: PE-bear: Detect It Easy: HxD: WinDbg: Procmon" width="100%" />
-  <br /><sub>Highlighted tools are the ones I use the most.</sub>
+  <img src="assets/cosmos-toolkit.svg?v=4" alt="Recon and OSINT: Nmap: Shodan: theHarvester: Maltego: Tor: Amass: Recon-ng: SpiderFoot: Sherlock. Web Security: Burp Suite: OWASP ZAP: Nikto: sqlmap: Gobuster: ffuf: WPScan: Nuclei: dirsearch. Offensive Security: Metasploit: Hashcat: Hydra: John the Ripper: Aircrack-ng: Impacket: NetExec: Responder: BloodHound: Mimikatz: Evil-WinRM. Defensive and Analysis: Wireshark: Snort: VirusTotal: Splunk: YARA: YARA-X: tcpdump: Zeek: Suricata: Sysmon: Velociraptor: Volatility: ELK and Elastic: Sigma. Reverse Engineering: Ghidra: IDA: radare2: Cutter: x64dbg: GDB: Binary Ninja: dnSpy: Frida: objdump: PE-bear: Detect It Easy: HxD: WinDbg: Procmon" width="100%" />
 </div>
 
-## Security Focus & Learning
-
 <div align="center">
-  <img src="assets/terminal-focus-learning-v2.svg" alt="Security focus: web application security and penetration testing; vulnerability assessment and secure-code review; OSINT and digital-footprint security; malware analysis, reverse engineering, and binary analysis; cryptography fundamentals and applied security concepts; Linux systems, network security, automation, and secure backend development. Currently learning: advanced web application security; malware analysis and reverse engineering; Linux hardening and network security; secure API and backend architecture." width="100%" />
+  <img src="assets/cosmos-focus.svg?v=4" alt="Security focus: web application security and penetration testing; vulnerability assessment and secure-code review; OSINT and digital-footprint security; malware analysis, reverse engineering, and binary analysis; cryptography fundamentals and applied security concepts; Linux systems, network security, automation, and secure backend development. Currently learning: advanced web application security; malware analysis and reverse engineering; Linux hardening and network security; secure API and backend architecture." width="100%" />
 </div>
 
-## Certifications
+<img src="assets/cosmos-certifications.svg?v=4" alt="Learning milestones: Siber Vatan; Cisco Introduction to Cybersecurity, Network Defense, and Cyber Threat Management. Original badges and verification links follow." width="100%" />
+
+<details>
+<summary>Original credential badges and verification links</summary>
+
 
 <table align="center">
 <tr>
@@ -61,41 +56,42 @@ I am Eren Erdogan, a backend development student focused on cybersecurity, Linux
 </tr>
 </table>
 
-## Community Contributions
+</details>
+
+<a href="https://hub.xerj.org/contributors/dRafaleD.html"><img src="assets/cosmos-community.svg?v=4" alt="XERJ Corpus Hub: community contributions by dRafaleD. Open the contributor record." width="100%" /></a>
+
+<details>
+<summary>Live contributor badge</summary>
+
 
 [![XERJ Corpus Hub contributor](https://hub.xerj.org/contributors/dRafaleD/badge.svg)](https://hub.xerj.org/contributors/dRafaleD.html)
 
-## Ethics
+</details>
+
+<img src="assets/cosmos-ethics.svg?v=4" alt="Ethics: white hat security and authorized research only. Explore responsibly, report ethically, strengthen securely. All security research and testing is performed in authorized environments only." width="100%" />
+
+<img src="assets/cosmos-connect.svg?v=4" alt="Send a signal across the stars. Connect with Eren Erdoğan on LinkedIn or explore dRafaleD on GitHub using the links below." width="100%" />
+
+<p align="center">
+<a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><img src="assets/cosmos-link-linkedin.svg?v=4" alt="LinkedIn: connect with Eren Erdoğan" width="49%" /></a>
+<a href="https://github.com/dRafaleD?tab=repositories"><img src="assets/cosmos-link-github.svg?v=4" alt="GitHub: explore dRafaleD repositories" width="49%" /></a>
+</p>
+
+<details>
+<summary>Profile visit counter</summary>
+
+[![Profile views](https://hits.sh/github.com/dRafaleD.svg?style=flat&label=profile%20views&color=39ff88&labelColor=050907&extraCount=1260)](https://hits.sh/github.com/dRafaleD/)
+
+</details>
+
+<img src="assets/cosmos-activity.svg?v=4" alt="GitHub activity: the journey leaves a trail. Contribution statistics and animated contribution sky follow." width="100%" />
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/WHITE_HAT-SECURITY-39FF88?style=for-the-badge&logo=hackthebox&logoColor=39FF88&labelColor=070B09" alt="White Hat Security" />
-<img src="https://img.shields.io/badge/AUTHORIZED_RESEARCH-ONLY-123D25?style=for-the-badge&labelColor=070B09" alt="Authorized Research Only" />
+<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg?v=4" alt="dRafaleD GitHub contribution streak" width="100%" />
 
 <br />
 
-<strong>Explore responsibly · Report ethically · Strengthen securely</strong><br />
-All security research and testing is performed in authorized environments only.
-
-</div>
-
-## Connect
-
-<div align="center">
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/)
-[![Profile views](https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=39ff88&labelColor=555555&extraCount=1260)](https://hits.sh/github.com/dRafaleD/)
-
-</div>
-
-## GitHub Activity
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg" alt="dRafaleD GitHub contribution streak" width="100%" />
-
-<br />
-
-<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg" alt="GitHub contribution snake animation" width="100%" />
+<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg?v=4" alt="GitHub contribution snake animation" width="100%" />
 
 </div>

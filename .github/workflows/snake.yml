@@ -15,6 +15,9 @@ jobs:
       contents: write
 
     steps:
+      - name: Check out profile framing scripts
+        uses: actions/checkout@v4
+
       - uses: Platane/snk@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
         with:
           github_user_name: dRafaleD
@@ -25,10 +28,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Frame contribution animation in the profile universe
+        run: python3 scripts/frame_contribution_snake.py dist --output framed-dist
+
       - uses: crazy-max/ghaction-github-pages@5859b4ea7efe6b470a5b19c570460eae9323aefc # v3
         with:
           target_branch: output
-          build_dir: dist
+          build_dir: framed-dist
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -132,37 +132,10 @@ def render() -> None:
     current, current_start, current_end, longest, longest_start, longest_end = streaks(counts)
     total_range = f"{format_date(account_start)} - Present"
 
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 210" width="760" height="210" role="img" aria-label="GitHub contribution streak statistics">
-  <style>
-    text {{ font-family: "Segoe UI", Ubuntu, Arial, sans-serif; }}
-    .value {{ fill: #D7FFE3; font-size: 40px; font-weight: 700; }}
-    .label {{ fill: #39FF88; font-size: 17px; font-weight: 600; }}
-    .date {{ fill: #6D9479; font-size: 13px; }}
-    .ring {{ animation: pulse 3s ease-in-out infinite; transform-origin: 380px 82px; }}
-    @keyframes pulse {{ 0%, 100% {{ opacity: .78; }} 50% {{ opacity: 1; }} }}
-  </style>
-  <rect x="1" y="1" width="758" height="208" rx="12" fill="#070B09" stroke="#174C2B" stroke-width="2"/>
-  <line x1="254" y1="30" x2="254" y2="180" stroke="#174C2B"/>
-  <line x1="506" y1="30" x2="506" y2="180" stroke="#174C2B"/>
-
-  <g text-anchor="middle">
-    <text class="value" x="127" y="88">{total:,}</text>
-    <text class="label" x="127" y="126">Total Contributions</text>
-    <text class="date" x="127" y="158">{total_range}</text>
-
-    <circle class="ring" cx="380" cy="82" r="52" fill="none" stroke="#39FF88" stroke-width="7"/>
-    <text class="value" x="380" y="95">{current}</text>
-    <text class="label" x="380" y="154">Current Streak</text>
-    <text class="date" x="380" y="181">{format_range(current_start, current_end)}</text>
-
-    <text class="value" x="633" y="88">{longest}</text>
-    <text class="label" x="633" y="126">Longest Streak</text>
-    <text class="date" x="633" y="158">{format_range(longest_start, longest_end)}</text>
-  </g>
-</svg>
-"""
-
-    OUTPUT.write_text(svg, encoding="utf-8", newline="\n")
+    from render_cosmos_profile import streak_card
+    streak_card(total, current, longest, total_range,
+                format_range(current_start, current_end),
+                format_range(longest_start, longest_end))
     print(f"Rendered {OUTPUT} ({total} contributions, {current}-day current streak, {longest}-day longest streak)")
 
 
