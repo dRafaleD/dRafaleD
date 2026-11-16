@@ -184,8 +184,11 @@ def save(name, height, title, description, body, output_dir=ASSETS):
         'cosmos-about.svg': ('deep-space-planet.jpg', '.95'),
         'cosmos-projects.svg': ('deep-space-nebula.png', '.74'),
         'cosmos-toolkit.svg': ('deep-space-nebula.png', '.42'),
+        'cosmos-community.svg': ('deep-space-pulsar.jpg', '.94'),
         'cosmos-ethics.svg': ('deep-space-eclipse.jpg', '.95'),
         'cosmos-connect.svg': ('deep-space-horizon.png', '.85'),
+        'cosmos-activity.svg': ('deep-space-comet.jpg', '.92'),
+        'github-streak.svg': ('deep-space-supernova.jpg', '.82'),
     }
     if name in scenes:
         asset, strength = scenes[name]
@@ -550,8 +553,7 @@ def certifications():
 
 
 def community():
-    body = galaxy(840, 132, 0.76, 89, 550)
-    body += '<rect width="1000" height="240" fill="url(#veil)"/>'
+    body = '<rect width="1000" height="240" fill="url(#veil)"/>'
     body += terminal_chrome('dRafaleD@cosmos:~$ curl https://hub.xerj.org/contributors/dRafaleD', 'COMMUNITY UPLINK', 30)
     body += text(34, 86, 'Contributing to shared knowledge.', 29, TEXT)
     body += text(36, 132, 'XERJ Corpus Hub', 20, LIME)
@@ -580,14 +582,17 @@ def connect():
     save('cosmos-connect.svg', 196, 'Connect with Eren Erdoğan', 'LinkedIn: Eren Erdoğan. GitHub: dRafaleD. Portfolio: drafaled.github.io.', body)
 
     channels = [
-        ('linkedin', 'LinkedIn', 'Connect with Eren Erdoğan', 'linkedin.com/in/eren-erdoğan', 19),
-        ('github', 'GitHub', 'Explore dRafaleD repositories', 'github.com/dRafaleD', 61),
+        ('linkedin', 'LinkedIn', 'Connect with Eren Erdoğan', 'linkedin.com/in/eren-erdoğan', 'deep-space-lens.jpg'),
+        ('github', 'GitHub', 'Explore dRafaleD repositories', 'github.com/dRafaleD', 'deep-space-binary.jpg'),
     ]
-    for name, label, detail, sub, seed in channels:
+    for name, label, detail, sub, backdrop_asset in channels:
         w, h = 490, 160
-        cbody = f'<rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="12" fill="url(#bgGrad)" stroke="#173825" stroke-width="1"/>'
-        cbody += field(w, h, f'link-{name}', 45)
-        cbody += galaxy(410, 96, 0.36, seed, 240)
+        photo = encode_backdrop(backdrop_asset, w, h)
+        cbody = (
+            f'<image class="space-photo" href="data:image/jpeg;base64,{photo}" '
+            f'width="{w}" height="{h}" preserveAspectRatio="xMidYMid slice" opacity=".92"/>'
+        )
+        cbody += field(w, h, f'link-{name}', 35)
         cbody += f'<rect width="{w}" height="{h}" fill="url(#veil)"/>'
         cbody += (
             '<circle cx="26" cy="24" r="3.2" fill="#2c593e"/>'
@@ -611,16 +616,16 @@ def connect():
 
 
 def activity_header():
-    body = heading('08', 'git log --graph --cosmos', 'The journey leaves a trail.', 'GitHub contribution streaks and a path across the contribution sky.', 'LIVE TELEMETRY')
-    body += galaxy(835, 122, 0.58, 27, 420)
+    body = '<rect width="1000" height="196" fill="url(#veil)"/>'
+    body += heading('08', 'git log --graph --cosmos', 'The journey leaves a trail.', 'GitHub contribution streaks and a path across the contribution sky.', 'LIVE TELEMETRY')
     body += '<path d="M35 156C240 112 456 200 696 146S884 131 963 151" fill="none" stroke="#225737" stroke-width=".9"/><path class="link-flow" d="M35 156C240 112 456 200 696 146S884 131 963 151" fill="none" stroke="#9fe1b5" stroke-width="1.2" opacity=".8"/>'
     body += flare(235, 148, 0.6) + flare(645, 155, 0.65)
     save('cosmos-activity.svg', 196, 'GitHub activity', 'GitHub activity, contribution streaks, and an animated contribution snake follow.', body)
 
 
 def streak_card(total, current, longest, total_range, current_range, longest_range):
-    body = heading('LIVE', 'git activity --summary', 'Contribution telemetry.', 'Totals and streaks, refreshed automatically from GitHub activity.', 'SYNCED')
-    body += galaxy(855, 174, 0.62, 87, 380)
+    body = '<rect width="1000" height="327" fill="url(#veilStrong)"/>'
+    body += heading('LIVE', 'git activity --summary', 'Contribution telemetry.', 'Totals and streaks, refreshed automatically from GitHub activity.', 'SYNCED')
     stats = [
         (f'{total:,}', 'Total contributions', total_range, ACCENT),
         (str(current), 'Current streak', current_range, LIME),

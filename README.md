@@ -69,7 +69,7 @@
 
 </details>
 
-<a href="https://hub.xerj.org/contributors/dRafaleD.html"><img src="assets/cosmos-community.svg?v=6" alt="XERJ Corpus Hub: community contributions by dRafaleD. Open the contributor record." width="100%" /></a>
+<a href="https://hub.xerj.org/contributors/dRafaleD.html"><img src="assets/cosmos-community.svg?v=8" alt="XERJ Corpus Hub: community contributions by dRafaleD. Open the contributor record." width="100%" /></a>
 
 <details>
 <summary>Live contributor badge</summary>
@@ -83,8 +83,8 @@
 <img src="assets/cosmos-connect.svg?v=6" alt="Send a signal across the stars. Connect with Eren Erdoğan on LinkedIn, explore dRafaleD on GitHub, or visit the web portfolio." width="100%" />
 
 <p align="center">
-<a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><img src="assets/cosmos-link-linkedin.svg?v=6" alt="LinkedIn: connect with Eren Erdoğan" width="49%" /></a>
-<a href="https://github.com/dRafaleD?tab=repositories"><img src="assets/cosmos-link-github.svg?v=6" alt="GitHub: explore dRafaleD repositories" width="49%" /></a>
+<a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><img src="assets/cosmos-link-linkedin.svg?v=8" alt="LinkedIn: connect with Eren Erdoğan" width="49%" /></a>
+<a href="https://github.com/dRafaleD?tab=repositories"><img src="assets/cosmos-link-github.svg?v=8" alt="GitHub: explore dRafaleD repositories" width="49%" /></a>
 </p>
 
 <p align="center">
@@ -93,11 +93,11 @@
   <a href="https://hits.sh/github.com/dRafaleD/"><img src="https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=39ff88&labelColor=060b08&extraCount=1260" alt="Profile views" /></a>
 </p>
 
-<img src="assets/cosmos-activity.svg?v=6" alt="GitHub activity: the journey leaves a trail. Contribution statistics and animated contribution sky follow." width="100%" />
+<img src="assets/cosmos-activity.svg?v=8" alt="GitHub activity: the journey leaves a trail. Contribution statistics and animated contribution sky follow." width="100%" />
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg?v=6" alt="dRafaleD GitHub contribution streak" width="100%" />
+<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg?v=8" alt="dRafaleD GitHub contribution streak" width="100%" />
 
 <br />
 
