@@ -1,306 +1,561 @@
-"""Render a living green universe as self-contained animated GitHub SVGs.
+"""Render a cosmic deep-space + subtle terminal GitHub profile as self-contained animated SVGs.
 
-Space artwork is an embedded generated raster asset. No external runtime is needed. The large
-terminal is independent and is never read or changed by this renderer.
+No JavaScript, external fonts, or network services are required at render time.
+The top animated profile terminal (assets/profile-terminal-v2.gif) is completely
+independent and is never modified by this renderer.
 """
 from html import escape
+from io import BytesIO
 from pathlib import Path
 import base64
 import math
 import random
 import xml.etree.ElementTree as ET
 
+from PIL import Image
+
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'assets'
-BG, TEXT, MUTED, ACCENT = '#000000', '#f2f2f2', '#a3a3a3', '#a3e635'
+
+BG = '#040806'
+SURFACE = '#070d09'
+TEXT = '#e8f5ec'
+MUTED = '#8fb39c'
+DIM = '#7ca38b'
+ACCENT = '#39ff88'
+LIME = '#a3e635'
+
+_IMAGE_CACHE: dict[tuple[str, int, int], str] = {}
+
+
+def encode_backdrop(asset_name: str, width: int, height: int, quality: int = 84) -> str:
+    """Resize and JPEG-encode a space raster asset to keep SVGs crisp and lightweight."""
+    key = (asset_name, width, height)
+    if key in _IMAGE_CACHE:
+        return _IMAGE_CACHE[key]
+    with Image.open(ASSETS / asset_name) as img:
+        rgb = img.convert('RGB')
+        src_w, src_h = rgb.size
+        target_ratio = width / height
+        src_ratio = src_w / src_h
+        if src_ratio > target_ratio:
+            crop_w = int(src_h * target_ratio)
+            left = (src_w - crop_w) // 2
+            rgb = rgb.crop((left, 0, left + crop_w, src_h))
+        else:
+            crop_h = int(src_w / target_ratio)
+            top = (src_h - crop_h) // 2
+            rgb = rgb.crop((0, top, src_w, top + crop_h))
+        resized = rgb.resize((width, height), Image.Resampling.LANCZOS)
+        buf = BytesIO()
+        resized.save(buf, format='JPEG', quality=quality, optimize=True, progressive=True)
+        encoded = base64.b64encode(buf.getvalue()).decode('ascii')
+    _IMAGE_CACHE[key] = encoded
+    return encoded
 
 
 def text(x, y, value, size=18, color=TEXT, mono=False, extra=''):
     return f'<text x="{x}" y="{y}" font-size="{size}" fill="{color}" class="{"mono" if mono else "ui"}" {extra}>{escape(value)}</text>'
 
 
-def field(*args, **kwargs):
-    return ''
+def field(width, height, seed, count=110):
+    rng = random.Random(seed)
+    stars = []
+    palette = ['#d7ffe3', '#96e6b3', '#39ff88', '#b7f34a', '#7da88d']
+    for i in range(count):
+        x = rng.uniform(8, width - 8)
+        y = rng.uniform(8, height - 8)
+        r = rng.uniform(0.35, 1.35)
+        color = rng.choice(palette)
+        opacity = rng.uniform(0.18, 0.78)
+        stars.append(
+            f'<circle class="star s{i % 3}" cx="{x:.1f}" cy="{y:.1f}" r="{r:.2f}" '
+            f'fill="{color}" opacity="{opacity:.2f}"/>'
+        )
+    return ''.join(stars)
 
 
-def flare(*args, **kwargs):
-    return ''
+def flare(x, y, size=1):
+    return (
+        f'<g transform="translate({x} {y}) scale({size})">'
+        '<circle class="breathe" r="18" fill="url(#starGlow)"/>'
+        '<path d="M-9 0H9M0-9V9" stroke="#a2f7bd" stroke-width=".65" opacity=".75"/>'
+        '<circle r="1.8" fill="#eaffef"/></g>'
+    )
 
 
-def galaxy(*args, **kwargs):
-    return ''
+def galaxy(x, y, scale=1, seed=31, particles=900):
+    rng = random.Random(seed)
+    dust = []
+    palette = ['#d7ffe3', '#65d993', '#39ff88', '#a3e635', '#9cc9ad']
+    for i in range(particles):
+        reach = rng.random() ** 0.72
+        angle = (i % 4) * math.tau / 4 + reach * 6.5 + rng.gauss(0, 0.16 + 0.12 * (1 - reach))
+        distance = reach * 200
+        px = math.cos(angle) * distance
+        py = math.sin(angle) * distance
+        color = rng.choice(palette)
+        r = rng.uniform(0.35, 1.25)
+        op = rng.uniform(0.16, 0.85) * (1 - reach * 0.48)
+        dust.append(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="{r:.2f}" fill="{color}" opacity="{op:.2f}"/>')
+    return (
+        f'<g transform="translate({x} {y}) scale({scale})">'
+        '<ellipse class="breathe" rx="265" ry="132" fill="url(#nebula)" transform="rotate(-22)"/>'
+        '<g transform="rotate(-22) scale(1 .46)"><g class="galaxy-spin">'
+        + ''.join(dust)
+        + '</g></g>'
+        '<ellipse rx="54" ry="24" fill="url(#core)" transform="rotate(-22)"/>'
+        '<ellipse rx="12" ry="5.5" fill="url(#core)" transform="rotate(-22)"/></g>'
+    )
+
+
+def cluster(x, y, seed):
+    rng = random.Random(seed)
+    dots = []
+    for _ in range(28):
+        angle = rng.random() * math.tau
+        radius = (rng.random() ** 1.45) * 38
+        cx = x + math.cos(angle) * radius
+        cy = y + math.sin(angle) * radius * 0.55
+        dots.append(
+            f'<circle class="star s{rng.randrange(3)}" cx="{cx:.1f}" cy="{cy:.1f}" '
+            f'r="{rng.uniform(0.35, 0.95):.1f}" fill="#b6e8c8" opacity=".52"/>'
+        )
+    return ''.join(dots) + flare(x, y, 0.55)
+
+
+def planet(x, y, radius):
+    return (
+        f'<g transform="translate({x} {y})">'
+        f'<circle class="breathe" r="{radius + 26}" fill="url(#nebula)"/>'
+        f'<circle r="{radius}" fill="url(#planet)" stroke="#39ff88" stroke-opacity=".28" stroke-width=".9"/>'
+        f'<ellipse rx="{radius * 1.48:.1f}" ry="{radius * 0.3:.1f}" fill="none" stroke="#a3e635" stroke-opacity=".24" stroke-width="1" transform="rotate(-16)"/>'
+        f'<ellipse rx="{radius * 1.65:.1f}" ry="{radius * 0.34:.1f}" fill="none" stroke="#39ff88" stroke-opacity=".13" stroke-width=".7" stroke-dasharray="4 7" transform="rotate(-16)"/>'
+        '</g>'
+    )
 
 
 STYLE = '''
-.space-photo{animation:spaceDrift 18s ease-in-out infinite;transform-origin:75% 50%}@keyframes spaceDrift{0%,100%{transform:scale(1)}50%{transform:translate(-10px,-3px) scale(1.065)}}
-.ui{font-family:'Segoe UI',Ubuntu,Arial,sans-serif}.mono{font-family:Consolas,'DejaVu Sans Mono',monospace;letter-spacing:.5px}
-.star{animation:twinkle 5s ease-in-out infinite}.s1{animation-delay:-1.8s;animation-duration:7s}.s2{animation-delay:-3.7s;animation-duration:9s}
-.galaxy-spin{animation:spin 95s linear infinite;transform-origin:0 0}
+.space-photo{animation:spaceDrift 22s ease-in-out infinite;transform-origin:75% 50%}
+@keyframes spaceDrift{0%,100%{transform:scale(1)}50%{transform:translate(-8px,-3px) scale(1.045)}}
+.ui{font-family:'Segoe UI',Ubuntu,Arial,sans-serif}
+.mono{font-family:Consolas,'DejaVu Sans Mono',monospace;letter-spacing:.4px}
+.star{animation:twinkle 5.5s ease-in-out infinite}
+.s1{animation-delay:-1.9s;animation-duration:7.2s}
+.s2{animation-delay:-3.8s;animation-duration:9.4s}
+.galaxy-spin{animation:spin 100s linear infinite;transform-origin:0 0}
 .breathe{animation:breathe 8s ease-in-out infinite}
-.nebula-drift{animation:nebulaDrift 24s ease-in-out infinite}
-.stream{stroke-dasharray:3 18;animation:stream 12s linear infinite}
-.link-flow{stroke-dasharray:2 80;animation:stream 7s linear infinite}
-.meteor{animation:meteor 13s linear infinite}.meteor.second{animation-delay:-7s;animation-duration:19s}
-@keyframes twinkle{0%,100%{opacity:.16}50%{opacity:.8}}
+.nebula-drift{animation:nebulaDrift 26s ease-in-out infinite}
+.stream{stroke-dasharray:3 16;animation:stream 14s linear infinite}
+.link-flow{stroke-dasharray:2 84;animation:stream 7.5s linear infinite}
+.cursor{animation:blink 1.15s steps(2,start) infinite}
+.meteor{animation:meteor 14s linear infinite}
+.meteor.second{animation-delay:-7.5s;animation-duration:21s}
+@keyframes twinkle{0%,100%{opacity:.16}50%{opacity:.86}}
 @keyframes spin{to{transform:rotate(360deg)}}
-@keyframes breathe{0%,100%{opacity:.55}50%{opacity:1}}
-@keyframes nebulaDrift{0%,100%{transform:translate(0,0)}50%{transform:translate(-15px,7px)}}
+@keyframes breathe{0%,100%{opacity:.52}50%{opacity:1}}
+@keyframes nebulaDrift{0%,100%{transform:translate(0,0)}50%{transform:translate(-14px,6px)}}
 @keyframes stream{to{stroke-dashoffset:-328}}
-@keyframes meteor{0%,72%{opacity:0;transform:translate(-100px,-30px)}74%{opacity:.8}85%,100%{opacity:0;transform:translate(1150px,240px)}}
-@media(prefers-reduced-motion:reduce){.space-photo,.star,.galaxy-spin,.breathe,.nebula-drift,.stream,.link-flow,.meteor{animation:none}.meteor{opacity:0}}
+@keyframes blink{0%,49%{opacity:.95}50%,100%{opacity:0}}
+@keyframes meteor{0%,72%{opacity:0;transform:translate(-100px,-30px)}74%{opacity:.85}86%,100%{opacity:0;transform:translate(1160px,240px)}}
+@media(prefers-reduced-motion:reduce){.space-photo,.star,.galaxy-spin,.breathe,.nebula-drift,.stream,.link-flow,.cursor,.meteor{animation:none}.meteor{opacity:0}}
 '''
+
 DEFS = '''<defs>
-<radialGradient id="nebula"><stop stop-color="#a3e635" stop-opacity=".24"/><stop offset=".42" stop-color="#14663d" stop-opacity=".16"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
-<radialGradient id="core"><stop stop-color="#efffda" stop-opacity=".95"/><stop offset=".12" stop-color="#c6f5c5" stop-opacity=".7"/><stop offset=".42" stop-color="#a3e635" stop-opacity=".18"/><stop offset="1" stop-color="#a3e635" stop-opacity="0"/></radialGradient>
-<radialGradient id="starGlow"><stop stop-color="#dfffea" stop-opacity=".85"/><stop offset=".12" stop-color="#a3e635" stop-opacity=".5"/><stop offset="1" stop-color="#a3e635" stop-opacity="0"/></radialGradient>
-<linearGradient id="panel" x2="1" y2="1"><stop stop-color="#0a0a0a" stop-opacity=".94"/><stop offset="1" stop-color="#080808" stop-opacity=".82"/></linearGradient>
-<linearGradient id="edge"><stop stop-color="#a3e635" stop-opacity=".55"/><stop offset=".55" stop-color="#a3e635" stop-opacity=".2"/><stop offset="1" stop-color="#a3e635" stop-opacity="0"/></linearGradient>
-<linearGradient id="veil"><stop stop-color="#000000"/><stop offset=".48" stop-color="#000000" stop-opacity=".9"/><stop offset=".76" stop-color="#000000" stop-opacity="0"/></linearGradient>
-<linearGradient id="meteor"><stop stop-color="#a3e635" stop-opacity="0"/><stop offset="1" stop-color="#e4ffec" stop-opacity=".9"/></linearGradient>
-<radialGradient id="planet" cx="26%" cy="18%" r="86%"><stop stop-color="#5d8a6a"/><stop offset=".25" stop-color="#173d2b"/><stop offset=".63" stop-color="#071a11"/><stop offset="1" stop-color="#010503"/></radialGradient>
-<radialGradient id="fogFade"><stop stop-color="white"/><stop offset=".5" stop-color="white" stop-opacity=".6"/><stop offset="1" stop-color="black"/></radialGradient>
-<mask id="fogMask"><ellipse cx="760" cy="200" rx="480" ry="340" fill="url(#fogFade)"/></mask>
-<filter id="spaceFog" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".008 .018" numOctaves="3" seed="17"/><feColorMatrix type="matrix" values="0 0 0 0 .06 0 0 0 0 .32 0 0 0 0 .17 0 0 0 .6 0"/></filter>
+<radialGradient id="nebula"><stop stop-color="#39ff88" stop-opacity=".22"/><stop offset=".45" stop-color="#14663d" stop-opacity=".14"/><stop offset="1" stop-color="#040806" stop-opacity="0"/></radialGradient>
+<radialGradient id="nebulaLime"><stop stop-color="#a3e635" stop-opacity=".16"/><stop offset=".48" stop-color="#14532d" stop-opacity=".12"/><stop offset="1" stop-color="#040806" stop-opacity="0"/></radialGradient>
+<radialGradient id="core"><stop stop-color="#efffda" stop-opacity=".95"/><stop offset=".15" stop-color="#c6f5c5" stop-opacity=".7"/><stop offset=".45" stop-color="#39ff88" stop-opacity=".18"/><stop offset="1" stop-color="#39ff88" stop-opacity="0"/></radialGradient>
+<radialGradient id="starGlow"><stop stop-color="#dfffea" stop-opacity=".85"/><stop offset=".18" stop-color="#39ff88" stop-opacity=".45"/><stop offset="1" stop-color="#39ff88" stop-opacity="0"/></radialGradient>
+<linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#040806"/><stop offset=".6" stop-color="#060c09"/><stop offset="1" stop-color="#040806"/></linearGradient>
+<linearGradient id="panel" x2="1" y2="1"><stop stop-color="#0b1510" stop-opacity=".92"/><stop offset="1" stop-color="#050a07" stop-opacity=".84"/></linearGradient>
+<linearGradient id="edge"><stop stop-color="#39ff88" stop-opacity=".6"/><stop offset=".55" stop-color="#a3e635" stop-opacity=".28"/><stop offset="1" stop-color="#39ff88" stop-opacity="0"/></linearGradient>
+<linearGradient id="veil"><stop stop-color="#040806"/><stop offset=".46" stop-color="#040806" stop-opacity=".88"/><stop offset=".78" stop-color="#040806" stop-opacity=".24"/><stop offset="1" stop-color="#040806" stop-opacity=".08"/></linearGradient>
+<linearGradient id="veilStrong"><stop stop-color="#040806" stop-opacity=".95"/><stop offset=".55" stop-color="#040806" stop-opacity=".82"/><stop offset="1" stop-color="#040806" stop-opacity=".5"/></linearGradient>
+<linearGradient id="meteor"><stop stop-color="#39ff88" stop-opacity="0"/><stop offset="1" stop-color="#e4ffec" stop-opacity=".92"/></linearGradient>
+<radialGradient id="planet" cx="26%" cy="18%" r="86%"><stop stop-color="#5d8a6a"/><stop offset=".26" stop-color="#173d2b"/><stop offset=".64" stop-color="#071a11"/><stop offset="1" stop-color="#010503"/></radialGradient>
 </defs>'''
 
 
 def save(name, height, title, description, body, output_dir=ASSETS):
     scenes = {
-        'cosmos-header.svg': ('deep-space-lime.png', '.85'),
-        'cosmos-projects.svg': ('deep-space-nebula.png', '.6'),
-        'cosmos-connect.svg': ('deep-space-horizon.png', '.8'),
+        'cosmos-header.svg': ('deep-space-lime.png', '.88'),
+        'cosmos-projects.svg': ('deep-space-nebula.png', '.74'),
+        'cosmos-connect.svg': ('deep-space-horizon.png', '.85'),
     }
-    backdrop = ''
     if name in scenes:
         asset, strength = scenes[name]
-        photo = base64.b64encode((ASSETS/asset).read_bytes()).decode()
-        backdrop = f'<image class="space-photo" href="data:image/png;base64,{photo}" width="1000" height="{height}" preserveAspectRatio="xMidYMid slice" opacity="{strength}"/>'
+        photo = encode_backdrop(asset, 1000, height)
+        backdrop = (
+            f'<image class="space-photo" href="data:image/jpeg;base64,{photo}" '
+            f'width="1000" height="{height}" preserveAspectRatio="xMidYMid slice" opacity="{strength}"/>'
+        )
+        clouds = ''
+        stars = field(1000, height, name, max(65, int(height * 0.14)))
     else:
-        backdrop = '<rect x=".5" y=".5" width="999" height="'+str(height-1)+'" rx="8" fill="#080808" stroke="#242424"/>'
-    if name not in scenes:
-        backdrop += '<path class="stream" d="M24 48H976" stroke="#a3e635" stroke-width=".6" opacity=".18"/>'
-    clouds = ''
+        backdrop = f'<rect x=".5" y=".5" width="999" height="{height - 1}" rx="12" fill="url(#bgGrad)" stroke="#173825" stroke-width="1"/>'
+        clouds = (
+            f'<g class="nebula-drift">'
+            f'<ellipse cx="835" cy="{height * 0.48:.1f}" rx="340" ry="{max(140, height * 0.46):.1f}" fill="url(#nebula)" opacity=".7"/>'
+            f'<ellipse cx="145" cy="{height * 0.78:.1f}" rx="250" ry="{max(110, height * 0.38):.1f}" fill="url(#nebulaLime)" opacity=".45"/>'
+            f'</g>'
+        )
+        stars = field(1000, height, name, max(75, min(220, int(height * 0.22))))
+
     meteors = ''
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="{height}" viewBox="0 0 1000 {height}" role="img" aria-labelledby="title desc">
-<title id="title">{escape(title)}</title><desc id="desc">{escape(description)}</desc>{DEFS}<style>{STYLE}</style>
-<rect width="1000" height="{height}" rx="12" fill="{BG}"/>{clouds}{backdrop}{meteors}{body}</svg>'''
-    (output_dir/name).write_text(svg,encoding='utf-8',newline='\n')
+    if name in ('cosmos-header.svg', 'cosmos-projects.svg', 'cosmos-ethics.svg', 'cosmos-activity.svg', 'cosmos-connect.svg'):
+        meteors = (
+            '<g class="meteor"><path d="M0 0L95 22" stroke="url(#meteor)" stroke-width="1.3"/></g>'
+            '<g class="meteor second"><path d="M0 120L70 136" stroke="url(#meteor)" stroke-width="1"/></g>'
+        )
+
+    outer_border = f'<rect x=".5" y=".5" width="999" height="{height - 1}" rx="12" fill="none" stroke="#183d27" stroke-width="1"/>'
+    svg = (
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="{height}" viewBox="0 0 1000 {height}" '
+        f'role="img" aria-labelledby="title desc">'
+        f'<title id="title">{escape(title)}</title>'
+        f'<desc id="desc">{escape(description)}</desc>'
+        f'{DEFS}<style>{STYLE}</style>'
+        f'<rect width="1000" height="{height}" rx="12" fill="{BG}"/>'
+        f'{backdrop}{clouds}{stars}{meteors}{body}{outer_border}</svg>'
+    )
+    (output_dir / name).write_text(svg, encoding='utf-8', newline='\n')
 
 
-def heading(index, title, detail):
-    return (text(34, 33, f'dRafaleD@workspace:~ / {index}', 11, ACCENT, True)
-            + text(34, 73, title, 30, TEXT)
-            + text(34, 101, detail, 15, MUTED)
-            + '<path d="M34 119H966" stroke="url(#edge)" stroke-width=".8"/>')
+def terminal_chrome(prompt, sector_tag, y=28):
+    dots = (
+        f'<circle cx="38" cy="{y - 4}" r="3.6" fill="#2c593e"/>'
+        f'<circle cx="52" cy="{y - 4}" r="3.6" fill="#214630"/>'
+        f'<circle cx="66" cy="{y - 4}" r="3.6" fill="#39ff88" opacity=".65"/>'
+    )
+    return (
+        dots
+        + text(82, y, prompt, 11.5, ACCENT, True)
+        + text(966, y, sector_tag, 10, DIM, True, 'text-anchor="end"')
+    )
+
+
+def heading(index, command, title, detail, sector_tag=None):
+    tag = sector_tag or f'SECTOR {index} // TELEMETRY'
+    return (
+        terminal_chrome(f'dRafaleD@cosmos:~$ {command}', tag, 30)
+        + text(34, 72, title, 28, TEXT)
+        + text(34, 100, detail, 14.5, MUTED)
+        + '<path d="M34 118H966" stroke="url(#edge)" stroke-width=".9"/>'
+    )
 
 
 def panel(x, y, width, height):
-    return (f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="9" fill="url(#panel)" stroke="#424242" stroke-opacity=".6" stroke-width=".8"/>'
-            f'<path d="M{x+12} {y+.5}H{x+width-12}" stroke="url(#edge)" stroke-width=".8"/>')
-
-
-def cluster(*args, **kwargs):
-    return ''
-
-
-def planet(*args, **kwargs):
-    return ''
+    return (
+        f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="10" fill="url(#panel)" '
+        f'stroke="#1c402b" stroke-opacity=".85" stroke-width=".9"/>'
+        f'<path d="M{x + 14} {y + .5}H{x + width - 14}" stroke="url(#edge)" stroke-width=".9"/>'
+    )
 
 
 def hero():
-    body=planet(938,430,167)+galaxy(745,221,1.48,73,2800)
-    body+='<rect width="1000" height="410" fill="url(#veil)"/>'
-    body+=text(34,39,'dRafaleD / SIGNALS FROM THE UNKNOWN',11,ACCENT,True)
-    body+=text(34,123,'Beyond the surface.',43,TEXT)
-    body+=text(36,169,'Every binary has a story.',22,TEXT)
-    body+=text(36,202,'Every signal is a place to begin.',20,MUTED)
-    body+=text(36,254,'Exploring systems, tracing evidence,',17,MUTED)
-    body+=text(36,280,'and building tools to make the unknown clearer.',17,MUTED)
-    body+='<path class="stream" d="M36 321H425" stroke="#a3e635" stroke-opacity=".4"/>'
-    body+=text(36,357,'OBSERVE  /  UNDERSTAND  /  BUILD',11,ACCENT,True)
-    body+=text(964,382,'LOCAL TOOLS. WIDER HORIZONS.',10,MUTED,True,'text-anchor="end"')
-    save('cosmos-header.svg',410,'Signals from the unknown','An animated, tilted spiral galaxy in green starlight. Exploring systems, tracing evidence, and building tools to make the unknown clearer.',body)
-
-
-def projects():
-    items=[
-        ('01','Banshee','Offline analysis & evidence bundles','Inspect artifacts. Preserve the investigation.','OFFLINE ANALYSIS'),
-        ('02','AsphDex','Static PE / ELF malware triage','Explore binaries. Explain suspicious signals.','BINARY TRIAGE'),
-        ('03','FhniX','Explainable email triage','Review messages with local-first workflows.','EMAIL SECURITY'),
-        ('04','The-Trackher','Own-account OSINT & privacy checks','Understand and reduce your digital footprint.','OSINT / PRIVACY'),
-    ]
-    body=heading('01','A constellation of investigations.','Four projects, connected by curiosity. Follow the signal from one field to the next.')
-    paths=['M262 238C370 238 400 349 500 349S641 238 742 238','M262 462C370 462 400 349 500 349S641 462 742 462','M262 238C240 330 240 390 262 462','M742 238C764 330 764 390 742 462']
-    for path in paths:
-        body+=f'<path d="{path}" fill="none" stroke="#285e3e" stroke-width=".8" opacity=".7"/><path class="link-flow" d="{path}" fill="none" stroke="#83efac" stroke-width="1.3" opacity=".7"/>'
-    body+=galaxy(500,349,.44,53,600)
-    for i,(number,name,subtitle,detail,tag) in enumerate(items):
-        x,y=34+(i%2)*482,144+(i//2)*223
-        body+=panel(x,y,450,190)
-        body+=cluster(x+390,y+48,number)
-        body+=text(x+22,y+29,number+' / '+tag,10,ACCENT,True)
-        body+=text(x+22,y+73,name,29,TEXT)
-        body+=text(x+22,y+110,subtitle,17,TEXT)
-        body+=text(x+22,y+145,detail,14,MUTED)
-        body+=f'<path class="stream" d="M{x+22} {y+168}h180" stroke="#4dba79" opacity=".35"/>'
-    body+=text(34,593,'INDEPENDENT PROJECTS / ONE CONTINUING EXPLORATION',10,MUTED,True)
-    save('cosmos-projects.svg',618,'Project constellation','; '.join(f'{a[1]}: {a[2]}' for a in items),body)
-
-
-def chips(x,y,width,names,highlights=()):
-    start=x
-    body=''
-    for name in names:
-        w=len(name)*8.1+26
-        if x+w>start+width:
-            x=start;y+=40
-        active=name in highlights
-        body+=f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="29" rx="5" fill="{"#253015" if active else "#080808"}" stroke="{"#a3e635" if active else "#333333"}" stroke-width=".7"/>'
-        body+=text(round(x+13,1),y+20,name,13,ACCENT if active else '#b5b5b5',True)
-        x+=w+8
-    return body,y+29
-
-
-def arsenal():
-    rows=[('LANGUAGES',['Rust','YARA','YARA-X','Assembly','C','C++','Python','JavaScript']),('DATABASE',['PostgreSQL']),('PLATFORMS',['Kali Linux','Debian','Arch Linux'])]
-    body=heading('02','ls ~/stack','Languages, rule engines and Linux systems behind the exploration.')
-    body+=panel(34,143,932,170)
-    for i,(label,names) in enumerate(rows):
-        y=162+i*47
-        body+=text(55,y+20,label,11,ACCENT,True)+chips(180,y,760,names,['Rust','YARA','YARA-X','C'])[0]
-    body+='<path d="M55 348C240 321 420 375 595 348S805 330 945 347" fill="none" stroke="#285e3e" opacity=".6"/><path class="link-flow" d="M55 348C240 321 420 375 595 348S805 330 945 347" fill="none" stroke="#83efac" opacity=".7"/>'
-    body+=flare(181,340,.5)+flare(595,348,.5)+flare(866,338,.5)
-    save('cosmos-arsenal.svg',377,'Languages, rule engines and platforms','; '.join(a+': '+', '.join(b) for a,b in rows),body)
-
-
-def toolkit():
-    categories=[
-        ('Recon & OSINT','Nmap,Shodan,theHarvester,Maltego,Tor,Amass,Recon-ng,SpiderFoot,Sherlock'),
-        ('Web security','Burp Suite,OWASP ZAP,Nikto,sqlmap,Gobuster,ffuf,WPScan,Nuclei,dirsearch'),
-        ('Offensive security','Metasploit,Hashcat,Hydra,John the Ripper,Aircrack-ng,Impacket,NetExec,Responder,BloodHound,Mimikatz,Evil-WinRM'),
-        ('Defensive analysis','Wireshark,Snort,VirusTotal,Splunk,YARA,YARA-X,tcpdump,Zeek,Suricata,Sysmon,Velociraptor,Volatility,ELK and Elastic,Sigma'),
-        ('Reverse engineering','Ghidra,IDA,radare2,Cutter,x64dbg,GDB,Binary Ninja,dnSpy,Frida,objdump,PE-bear,Detect It Easy,HxD,WinDbg,Procmon'),
-    ]
-    old=ET.parse(ASSETS/'security-toolkit-v3.svg')
-    highlights=[n.text for n in old.iter() if n.tag.endswith('text') and 'hot' in n.get('class','').split()]
-    highlights.append('YARA-X')
-    body=heading('03','ls ~/security/toolkit','A working reference across the security spectrum. Green marks the tools I use most.')
-    y=144
-    for index,(label,names) in enumerate(categories):
-        labels,bottom=chips(61,y+51,878,names.split(','),highlights)
-        body+=panel(34,y,932,bottom-y+19)
-        body+=text(61,y+31,label,18,TEXT)+labels
-        body+=cluster(925,y+24,index+17)
-        y=bottom+35
-    save('cosmos-toolkit.svg',y+10,'Security toolkit','; '.join(a+': '+b for a,b in categories),body)
-
-
-def focus():
-    columns=[
-        (34,'CURRENT COORDINATES',['Web security & penetration testing','Vulnerability assessment & code review','OSINT & digital-footprint security','Malware, reverse engineering & binaries','Cryptography fundamentals','Linux, networks & backend development']),
-        (516,'NEXT HORIZONS',['Advanced web application security','Malware analysis & reverse engineering','Linux hardening & network security','Secure APIs & backend architecture']),
-    ]
-    body=heading('04','cat learning.md','A flight plan through practical security research and secure backend development.')
-    for x,label,lines in columns:
-        body+=panel(x,144,450,247)
-        body+=text(x+22,176,label,11,ACCENT,True)
-        for i,value in enumerate(lines):
-            body+=f'<circle cx="{x+24}" cy="{208+i*28}" r="1.6" fill="#71d999"/>'
-            body+=text(x+38,213+i*28,value,16,MUTED)
-    body+='<path d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#30543d" stroke-width="1"/><path class="link-flow" d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#a4efbd" stroke-width="1.2"/>'
-    body+=flare(129,426,.65)+flare(501,438,.75)+flare(882,420,.5)
-    body+=text(34,487,'LEARNING IS THE MISSION. CURIOSITY IS THE PROPULSION.',10,MUTED,True)
-    save('cosmos-focus.svg',511,'Focus and learning','; '.join(label+': '+', '.join(lines) for _,label,lines in columns),body)
+    body = f'<rect width="1000" height="420" fill="url(#veil)"/>'
+    body += '<rect width="1000" height="52" fill="#040806" opacity=".62"/>'
+    body += terminal_chrome('dRafaleD@cosmos:~$ ./uplink --status', '39.8°N · ESKİŞEHİR // SECTOR-00', 32)
+    body += '<path d="M34 49H966" stroke="url(#edge)" stroke-width=".7" opacity=".75"/>'
+    body += text(34, 124, 'Beyond the surface.', 44, TEXT)
+    body += text(36, 170, 'Every binary has a story.', 22, TEXT)
+    body += text(36, 204, 'Every signal leaves a trace.', 20, MUTED)
+    body += text(36, 256, 'Exploring systems, tracing forensic evidence,', 16.5, MUTED)
+    body += text(36, 282, 'and building local-first security tools in Rust and Python.', 16.5, MUTED)
+    body += '<path class="stream" d="M36 322H440" stroke="#39ff88" stroke-opacity=".55" stroke-width="1"/>'
+    body += text(36, 360, '> OBSERVE  /  ANALYZE  /  HARDEN', 11.5, ACCENT, True)
+    body += '<rect class="cursor" x="284" y="349" width="7" height="13" rx="1" fill="#39ff88"/>'
+    body += text(964, 388, 'LOCAL TOOLS · WIDER HORIZONS', 10, MUTED, True, 'text-anchor="end"')
+    save(
+        'cosmos-header.svg',
+        420,
+        'Signals from the unknown',
+        'Deep space spiral galaxy with subtle terminal telemetry: Beyond the surface. Exploring systems, tracing forensic evidence, and building local-first security tools.',
+        body,
+    )
 
 
 def about():
-    body=heading('00','cat about.txt','Eren Erdoğan / backend development student / security tooling')
-    body+=planet(914,242,121)
-    lines=[
-        'I study backend development and explore cybersecurity, Linux systems,',
-        'and secure software development. My projects trace different signals:',
-        'binaries, email, digital footprints, and the evidence they leave behind.',
-        'I am learning penetration testing, OSINT, malware analysis, reverse',
-        'engineering, and full-stack development through practical work.',
+    body = planet(896, 255, 114)
+    body += heading('00', 'cat about.md', 'System profile & orbit.', 'Eren Erdoğan · Backend development student & defensive security builder', 'NODE // WHOAMI')
+    lines = [
+        'I study backend development and explore cybersecurity, Linux internals,',
+        'and secure software engineering. My tools focus on verifiable,',
+        'offline-first investigation across binaries, emails, timelines, and traffic.',
+        'Through practical builds and security labs, I work across malware triage,',
+        'digital forensics, OSINT, penetration testing, and backend architecture.',
     ]
-    for i,line in enumerate(lines):body+=text(36,156+i*30,line,17,MUTED)
-    body+=text(36,334,'CURIOUS BY NATURE. PRACTICAL BY DESIGN.',10,ACCENT,True)
-    save('cosmos-about.svg',363,'About Eren Erdoğan',' '.join(lines),body)
+    for i, line in enumerate(lines):
+        body += text(36, 158 + i * 30, line, 16.5, MUTED)
+    body += '<path class="stream" d="M36 308H520" stroke="#39ff88" stroke-opacity=".35"/>'
+    body += text(36, 340, '> CURIOUS BY NATURE · PRACTICAL BY DESIGN', 10.5, ACCENT, True)
+    save('cosmos-about.svg', 368, 'About Eren Erdoğan', ' '.join(lines), body)
+
+
+def projects():
+    items = [
+        ('01', 'Banshee', 'Offline security analysis & evidence bundles', 'Decode artifacts, inspect PE/ELF, preserve findings.', 'RUST · OFFLINE ANALYSIS'),
+        ('02', 'AsphDex', 'Static PE / ELF malware triage', 'Strings, entropy, YARA & IOC extraction — no execution.', 'JS / RUST · BINARY TRIAGE'),
+        ('03', 'FhniX', 'Explainable phishing email triage', 'Desktop GUI, folder reports, IMAP scans & local ML.', 'PYTHON · EMAIL SECURITY'),
+        ('04', 'The-Trackher', 'Digital footprint & own-account OSINT', 'Inspect exposed signals and reduce privacy surface.', 'PYTHON · OSINT / PRIVACY'),
+        ('05', 'sentinel-security', 'Linux MACB timeline forensic scanner', 'Live filesystem & TSK disk image artifact timelines.', 'RUST · LINUX FORENSICS'),
+        ('06', 'flowscope', 'Offline PCAP / PCAPNG traffic analyzer', 'DNS, HTTP, TLS fingerprints, scan & beacon heuristics.', 'PYTHON · NETWORK TRIAGE'),
+    ]
+    height = 835
+    body = f'<rect width="1000" height="{height}" fill="url(#veilStrong)"/>'
+    body += heading('01', 'ls -la ~/constellation', 'A constellation of investigations.', 'Six local-first security tools connected by curiosity and forensic rigor.', '6 ACTIVE NODES')
+
+    # Constellation network connecting all 6 project nodes around a central core
+    cx, cy = 500, 446
+    nodes = [
+        (259, 232), (741, 232),
+        (259, 446), (741, 446),
+        (259, 660), (741, 660),
+    ]
+    paths = [
+        f'M{nodes[0][0]} {nodes[0][1]} C370 232 400 {cy} {cx} {cy}',
+        f'M{nodes[1][0]} {nodes[1][1]} C630 232 600 {cy} {cx} {cy}',
+        f'M{nodes[2][0]} {nodes[2][1]} L{cx} {cy}',
+        f'M{nodes[3][0]} {nodes[3][1]} L{cx} {cy}',
+        f'M{nodes[4][0]} {nodes[4][1]} C370 660 400 {cy} {cx} {cy}',
+        f'M{nodes[5][0]} {nodes[5][1]} C630 660 600 {cy} {cx} {cy}',
+        f'M{nodes[0][0]} {nodes[0][1]} C232 340 232 550 {nodes[4][0]} {nodes[4][1]}',
+        f'M{nodes[1][0]} {nodes[1][1]} C768 340 768 550 {nodes[5][0]} {nodes[5][1]}',
+    ]
+    for path in paths:
+        body += f'<path d="{path}" fill="none" stroke="#225737" stroke-width=".9" opacity=".75"/>'
+        body += f'<path class="link-flow" d="{path}" fill="none" stroke="#83efac" stroke-width="1.35" opacity=".75"/>'
+    body += galaxy(cx, cy, 0.42, 53, 420)
+
+    for i, (number, name, subtitle, detail, tag) in enumerate(items):
+        x = 34 + (i % 2) * 482
+        y = 144 + (i // 2) * 214
+        body += panel(x, y, 450, 184)
+        body += cluster(x + 394, y + 44, 10 + i)
+        body += text(x + 22, y + 29, f'{number} / {tag}', 10, LIME if i % 2 else ACCENT, True)
+        body += text(x + 22, y + 71, name, 27, TEXT)
+        body += text(x + 22, y + 106, subtitle, 15.5, TEXT)
+        body += text(x + 22, y + 136, detail, 13.5, MUTED)
+        body += f'<path class="stream" d="M{x + 22} {y + 160}h195" stroke="#39ff88" opacity=".4"/>'
+
+    body += text(34, 804, '> INDEPENDENT TOOLS · ONE CONTINUING EXPLORATION', 10.5, MUTED, True)
+    body += text(966, 804, 'STATUS: MAINTAINED', 10, ACCENT, True, 'text-anchor="end"')
+    save('cosmos-projects.svg', height, 'Project constellation', '; '.join(f'{a[1]}: {a[2]}' for a in items), body)
+
+
+def chips(x, y, width, names, highlights=()):
+    start = x
+    body = ''
+    for name in names:
+        w = len(name) * 8.1 + 26
+        if x + w > start + width:
+            x = start
+            y += 40
+        active = name in highlights
+        fill = '#10291b' if active else '#060c08'
+        stroke = '#39ff88' if active else '#234230'
+        color = ACCENT if active else '#bfd6c7'
+        body += f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="29" rx="5" fill="{fill}" stroke="{stroke}" stroke-width=".8"/>'
+        body += text(round(x + 13, 1), y + 20, name, 13, color, True)
+        x += w + 8
+    return body, y + 29
+
+
+def arsenal():
+    rows = [
+        ('LANGUAGES', ['Rust', 'YARA', 'YARA-X', 'Assembly', 'C', 'C++', 'Python', 'JavaScript']),
+        ('DATABASE', ['PostgreSQL']),
+        ('PLATFORMS', ['Kali Linux', 'Debian', 'Arch Linux']),
+    ]
+    body = heading('02', 'ls -la ~/stack', 'Technical arsenal.', 'Languages, rule engines and Linux environments powering the work.', 'CORE STACK')
+    body += panel(34, 143, 932, 174)
+    body += cluster(915, 180, 99)
+    for i, (label, names) in enumerate(rows):
+        y = 164 + i * 47
+        body += text(55, y + 20, label, 11, LIME, True)
+        body += chips(180, y, 760, names, ['Rust', 'YARA', 'YARA-X', 'C', 'Python'])[0]
+    body += '<path d="M55 352C240 325 420 379 595 352S805 334 945 351" fill="none" stroke="#225737" opacity=".75"/><path class="link-flow" d="M55 352C240 325 420 379 595 352S805 334 945 351" fill="none" stroke="#83efac" opacity=".8"/>'
+    body += flare(181, 344, 0.5) + flare(595, 352, 0.55) + flare(866, 342, 0.5)
+    save('cosmos-arsenal.svg', 385, 'Languages, rule engines and platforms', '; '.join(a + ': ' + ', '.join(b) for a, b in rows), body)
+
+
+def toolkit():
+    categories = [
+        ('Recon & OSINT', 'Nmap,Shodan,theHarvester,Maltego,Tor,Amass,Recon-ng,SpiderFoot,Sherlock'),
+        ('Web security', 'Burp Suite,OWASP ZAP,Nikto,sqlmap,Gobuster,ffuf,WPScan,Nuclei,dirsearch'),
+        ('Offensive security', 'Metasploit,Hashcat,Hydra,John the Ripper,Aircrack-ng,Impacket,NetExec,Responder,BloodHound,Mimikatz,Evil-WinRM'),
+        ('Defensive analysis', 'Wireshark,Snort,VirusTotal,Splunk,YARA,YARA-X,tcpdump,Zeek,Suricata,Sysmon,Velociraptor,Volatility,ELK and Elastic,Sigma'),
+        ('Reverse engineering', 'Ghidra,IDA,radare2,Cutter,x64dbg,GDB,Binary Ninja,dnSpy,Frida,objdump,PE-bear,Detect It Easy,HxD,WinDbg,Procmon'),
+    ]
+    old = ET.parse(ASSETS / 'security-toolkit-v3.svg')
+    highlights = [n.text for n in old.iter() if n.tag.endswith('text') and 'hot' in n.get('class', '').split()]
+    highlights.append('YARA-X')
+    body = heading('03', 'ls ~/security/toolkit --color=always', 'Security instruments.', 'A working reference across the spectrum. Green highlights daily-driver tools.', '5 DOMAINS')
+    y = 144
+    for index, (label, names) in enumerate(categories):
+        labels, bottom = chips(61, y + 51, 878, names.split(','), highlights)
+        body += panel(34, y, 932, bottom - y + 19)
+        body += text(61, y + 31, label, 17.5, TEXT) + labels
+        body += cluster(925, y + 25, index + 17)
+        y = bottom + 34
+    save('cosmos-toolkit.svg', y + 10, 'Security toolkit', '; '.join(a + ': ' + b for a, b in categories), body)
+
+
+def focus():
+    columns = [
+        (34, '01 // CURRENT COORDINATES', [
+            'Web application security & pentesting',
+            'Vulnerability assessment & code review',
+            'OSINT & digital-footprint security',
+            'Malware, reverse engineering & binaries',
+            'Applied cryptography fundamentals',
+            'Linux systems, networks & secure backend',
+        ]),
+        (516, '02 // NEXT HORIZONS', [
+            'Advanced web application security',
+            'Malware analysis & reverse engineering',
+            'Linux hardening & network forensics',
+            'Secure API & backend architecture',
+            'Container & cloud security tooling',
+        ]),
+    ]
+    body = heading('04', 'cat ~/flight-plan.md', 'Focus & flight plan.', 'Practical security research paired with resilient backend engineering.', 'TRAJECTORY')
+    for idx, (x, label, lines) in enumerate(columns):
+        body += panel(x, 144, 450, 247)
+        body += cluster(x + 412, 174, 41 + idx)
+        body += text(x + 22, 176, label, 11, LIME if idx else ACCENT, True)
+        for i, value in enumerate(lines):
+            body += f'<circle cx="{x + 24}" cy="{208 + i * 28}" r="1.8" fill="#39ff88"/>'
+            body += text(x + 38, 213 + i * 28, value, 15.5, MUTED)
+    body += '<path d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#225737" stroke-width="1"/><path class="link-flow" d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#a4efbd" stroke-width="1.3"/>'
+    body += flare(129, 426, 0.65) + flare(501, 438, 0.75) + flare(882, 420, 0.55)
+    body += text(34, 487, '> LEARNING IS THE MISSION · CURIOSITY IS THE PROPULSION', 10.5, MUTED, True)
+    save('cosmos-focus.svg', 512, 'Focus and learning', '; '.join(label + ': ' + ', '.join(lines) for _, label, lines in columns), body)
 
 
 def certifications():
-    items=[('Siber Vatan','Certificate verification','Sanayi ve Teknoloji Bakanlığı'),('Cisco','Introduction to Cybersecurity','Credly badge'),('Cisco','Network Defense','Credly badge'),('Cisco','Cyber Threat Management','Credly badge')]
-    body=heading('05','ls ~/credentials','Certifications and learning records. Original badges and verification links are below.')
-    for i,(issuer,name,source) in enumerate(items):
-        x,y=34+(i%2)*482,144+(i//2)*158
-        body+=panel(x,y,450,133)+cluster(x+392,y+39,50+i)
-        body+=text(x+21,y+28,issuer.upper(),10,ACCENT,True)
-        body+=text(x+21,y+65,name,21,TEXT)
-        body+=text(x+21,y+100,source,13,MUTED)
-    save('cosmos-certifications.svg',477,'Certifications','Siber Vatan certificate; Cisco Introduction to Cybersecurity; Cisco Network Defense; Cisco Cyber Threat Management. Original verification links accompany this panel.',body)
+    items = [
+        ('Siber Vatan', 'Certificate verification', 'Sanayi ve Teknoloji Bakanlığı'),
+        ('Cisco', 'Introduction to Cybersecurity', 'Credly verified badge'),
+        ('Cisco', 'Network Defense', 'Credly verified badge'),
+        ('Cisco', 'Cyber Threat Management', 'Credly verified badge'),
+    ]
+    body = heading('05', 'ls ~/credentials', 'Learning milestones.', 'Verified certifications and training records. Original badges follow below.', '4 VERIFIED')
+    for i, (issuer, name, source) in enumerate(items):
+        x = 34 + (i % 2) * 482
+        y = 144 + (i // 2) * 158
+        body += panel(x, y, 450, 133) + cluster(x + 394, y + 39, 50 + i)
+        body += text(x + 21, y + 29, issuer.upper(), 10.5, LIME if i == 0 else ACCENT, True)
+        body += text(x + 21, y + 66, name, 20.5, TEXT)
+        body += text(x + 21, y + 100, source, 13, MUTED)
+    save('cosmos-certifications.svg', 474, 'Certifications', 'Siber Vatan certificate; Cisco Introduction to Cybersecurity; Cisco Network Defense; Cisco Cyber Threat Management.', body)
 
 
 def community():
-    body=galaxy(844,133,.81,89,1050)
-    body+='<rect width="1000" height="239" fill="url(#veil)"/>'
-    body+=text(34,33,'dRafaleD@workspace:~ / community',11,ACCENT,True)
-    body+=text(34,87,'Contributing to shared knowledge.',30)
-    body+=text(36,133,'XERJ Corpus Hub',20)
-    body+=text(36,166,'Community contributions / dRafaleD',16,MUTED)
-    body+=text(36,208,'EXPLORE THE CONTRIBUTOR RECORD  →',10,ACCENT,True)
-    save('cosmos-community.svg',239,'Community contributions','XERJ Corpus Hub contributor record for dRafaleD.',body)
+    body = galaxy(840, 132, 0.76, 89, 550)
+    body += '<rect width="1000" height="240" fill="url(#veil)"/>'
+    body += terminal_chrome('dRafaleD@cosmos:~$ curl https://hub.xerj.org/contributors/dRafaleD', 'COMMUNITY UPLINK', 30)
+    body += text(34, 86, 'Contributing to shared knowledge.', 29, TEXT)
+    body += text(36, 132, 'XERJ Corpus Hub', 20, LIME)
+    body += text(36, 165, 'Verified community contributions / dRafaleD', 15.5, MUTED)
+    body += text(36, 208, '> OPEN CONTRIBUTOR RECORD  →', 10.5, ACCENT, True)
+    save('cosmos-community.svg', 240, 'Community contributions', 'XERJ Corpus Hub contributor record for dRafaleD.', body)
 
 
 def ethics():
-    body=galaxy(853,201,.95,102,1400)
-    body+='<rect width="1000" height="413" fill="url(#veil)"/>'
-    body+=heading('07','cat ethics.md','Curiosity opens the universe. Responsibility defines the route.')
-    body+=text(36,160,'WHITE HAT / AUTHORIZED RESEARCH ONLY',11,ACCENT,True)
-    body+=text(36,203,'Explore responsibly.',24)
-    body+=text(36,241,'Report ethically. Strengthen securely.',24)
-    body+=text(36,292,'All security research and testing is performed',17,MUTED)
-    body+=text(36,320,'in authorized environments only.',17,MUTED)
-    body+='<path class="link-flow" d="M36 365C270 345 398 389 630 362S866 346 966 358" fill="none" stroke="#84cfa2" opacity=".65"/>'
-    body+=flare(490,370,.75)
-    save('cosmos-ethics.svg',413,'Research ethics','White hat security. Authorized research only. Explore responsibly. Report ethically. Strengthen securely. All security research and testing is performed in authorized environments only.',body)
+    body = planet(902, 232, 128)
+    body += galaxy(820, 145, 0.52, 102, 420)
+    body += '<rect width="1000" height="398" fill="url(#veil)"/>'
+    body += heading('06', 'cat /etc/ethics.conf', 'Code of conduct.', 'Curiosity opens the universe. Responsibility defines the route.', 'WHITE HAT')
+    body += text(36, 162, 'WHITE HAT // AUTHORIZED RESEARCH ONLY', 11, ACCENT, True)
+    body += text(36, 205, 'Explore responsibly.', 24, TEXT)
+    body += text(36, 242, 'Report ethically. Strengthen securely.', 24, TEXT)
+    body += text(36, 290, 'All security research, analysis, and testing is performed', 16.5, MUTED)
+    body += text(36, 318, 'strictly within authorized environments.', 16.5, MUTED)
+    body += '<path d="M36 358C270 338 398 382 630 355S866 339 966 351" fill="none" stroke="#225737" stroke-width=".9"/><path class="link-flow" d="M36 358C270 338 398 382 630 355S866 339 966 351" fill="none" stroke="#84cfa2" stroke-width="1.2" opacity=".8"/>'
+    body += flare(490, 363, 0.65)
+    save('cosmos-ethics.svg', 398, 'Research ethics', 'White hat security. Authorized research only. Explore responsibly. Report ethically. Strengthen securely.', body)
 
 
 def connect():
-    body=planet(926,208,111)
-    body+=heading('08','Send a signal across the stars.','Find me on LinkedIn, explore my GitHub projects, or follow the work as it evolves.')
-    body+=text(34,162,'THE LINKS BELOW ARE OPEN CHANNELS.',10,ACCENT,True)
-    save('cosmos-connect.svg',190,'Connect with Eren Erdoğan','LinkedIn: Eren Erdoğan. GitHub: dRafaleD. Click the links beneath this panel.',body)
-    # Separate image links remain clickable in GitHub's sanitized Markdown.
-    for name,label,detail in [('linkedin','LinkedIn','Connect with Eren Erdoğan'),('github','GitHub','Explore dRafaleD repositories')]:
-        body=galaxy(845,110,.61,19 if name=='linkedin' else 61,700)
-        body+='<rect width="1000" height="178" fill="url(#veil)"/>'
-        body+=text(36,45,'OPEN CHANNEL / '+label.upper(),11,ACCENT,True)
-        body+=text(36,91,detail,31)
-        body+=text(36,138,'FOLLOW THE SIGNAL  →',11,MUTED,True)
-        save('cosmos-link-'+name+'.svg',178,label,detail,body)
+    body = f'<rect width="1000" height="196" fill="url(#veil)"/>'
+    body += heading('07', './uplink --channels', 'Send a signal across the stars.', 'Connect on LinkedIn, explore repositories on GitHub, or visit the web portfolio.', 'OPEN CHANNELS')
+    body += text(34, 166, '> SELECT AN OPEN TRANSMISSION CHANNEL BELOW', 10.5, ACCENT, True)
+    save('cosmos-connect.svg', 196, 'Connect with Eren Erdoğan', 'LinkedIn: Eren Erdoğan. GitHub: dRafaleD. Portfolio: drafaled.github.io.', body)
+
+    channels = [
+        ('linkedin', 'LinkedIn', 'Connect with Eren Erdoğan', 'linkedin.com/in/eren-erdoğan', 19),
+        ('github', 'GitHub', 'Explore dRafaleD repositories', 'github.com/dRafaleD', 61),
+    ]
+    for name, label, detail, sub, seed in channels:
+        w, h = 490, 160
+        cbody = f'<rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="12" fill="url(#bgGrad)" stroke="#173825" stroke-width="1"/>'
+        cbody += field(w, h, f'link-{name}', 45)
+        cbody += galaxy(410, 96, 0.36, seed, 240)
+        cbody += f'<rect width="{w}" height="{h}" fill="url(#veil)"/>'
+        cbody += (
+            '<circle cx="26" cy="24" r="3.2" fill="#2c593e"/>'
+            '<circle cx="38" cy="24" r="3.2" fill="#214630"/>'
+            '<circle cx="50" cy="24" r="3.2" fill="#39ff88" opacity=".65"/>'
+        )
+        cbody += text(64, 28, f'> open --channel {name}', 11, ACCENT, True)
+        cbody += text(w - 22, 28, f'{label.upper()}', 10, DIM, True, 'text-anchor="end"')
+        cbody += text(24, 78, detail, 22, TEXT)
+        cbody += text(24, 106, sub, 12.5, MUTED, True)
+        cbody += text(24, 138, '> FOLLOW THE SIGNAL  →', 10.5, ACCENT, True)
+        cbody += f'<rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="12" fill="none" stroke="#183d27" stroke-width="1"/>'
+        csvg = (
+            f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
+            f'role="img" aria-labelledby="title desc">'
+            f'<title id="title">{escape(label)}</title><desc id="desc">{escape(detail)}</desc>'
+            f'{DEFS}<style>{STYLE}</style>'
+            f'<rect width="{w}" height="{h}" rx="12" fill="{BG}"/>{cbody}</svg>'
+        )
+        (ASSETS / f'cosmos-link-{name}.svg').write_text(csvg, encoding='utf-8', newline='\n')
 
 
 def activity_header():
-    body=heading('09','The journey leaves a trail.','GitHub activity, contribution streaks and a path through the contribution sky.')
-    body+=galaxy(835,115,.65,27,800)
-    body+='<path class="link-flow" d="M35 153C240 109 456 197 696 143S884 128 963 148" fill="none" stroke="#9fe1b5" opacity=".6"/>'
-    body+=flare(235,145,.65)+flare(645,152,.65)
-    save('cosmos-activity.svg',191,'GitHub activity','GitHub activity, contribution streaks, and an animated contribution snake follow.',body)
+    body = heading('08', 'git log --graph --cosmos', 'The journey leaves a trail.', 'GitHub contribution streaks and a path across the contribution sky.', 'LIVE TELEMETRY')
+    body += galaxy(835, 122, 0.58, 27, 420)
+    body += '<path d="M35 156C240 112 456 200 696 146S884 131 963 151" fill="none" stroke="#225737" stroke-width=".9"/><path class="link-flow" d="M35 156C240 112 456 200 696 146S884 131 963 151" fill="none" stroke="#9fe1b5" stroke-width="1.2" opacity=".8"/>'
+    body += flare(235, 148, 0.6) + flare(645, 155, 0.65)
+    save('cosmos-activity.svg', 196, 'GitHub activity', 'GitHub activity, contribution streaks, and an animated contribution snake follow.', body)
 
 
-def streak_card(total,current,longest,total_range,current_range,longest_range):
-    body=heading('LIVE','git activity --summary','Contribution totals and streaks, refreshed from GitHub activity.')
-    body+=galaxy(855,169,.68,87,700)
-    for i,(value,label,dates) in enumerate([(f'{total:,}','Total contributions',total_range),(str(current),'Current streak',current_range),(str(longest),'Longest streak',longest_range)]):
-        x=34+i*316
-        body+=panel(x,143,300,157)
-        body+=text(x+20,195,value,39,ACCENT)
-        body+=text(x+20,236,label,17,TEXT)
-        body+=text(x+20,272,dates,12,MUTED)
-    save('github-streak.svg',327,'GitHub contribution streak statistics',f'{total} total contributions; {current} current streak; {longest} longest streak. {total_range}; {current_range}; {longest_range}.',body)
+def streak_card(total, current, longest, total_range, current_range, longest_range):
+    body = heading('LIVE', 'git activity --summary', 'Contribution telemetry.', 'Totals and streaks, refreshed automatically from GitHub activity.', 'SYNCED')
+    body += galaxy(855, 174, 0.62, 87, 380)
+    stats = [
+        (f'{total:,}', 'Total contributions', total_range, ACCENT),
+        (str(current), 'Current streak', current_range, LIME),
+        (str(longest), 'Longest streak', longest_range, ACCENT),
+    ]
+    for i, (value, label, dates, col) in enumerate(stats):
+        x = 34 + i * 316
+        body += panel(x, 143, 300, 157)
+        body += cluster(x + 258, 175, 200 + i)
+        body += text(x + 20, 196, value, 39, col)
+        body += text(x + 20, 236, label, 16.5, TEXT)
+        body += text(x + 20, 272, dates, 12, MUTED, True)
+    save(
+        'github-streak.svg',
+        327,
+        'GitHub contribution streak statistics',
+        f'{total} total contributions; {current} current streak; {longest} longest streak. {total_range}; {current_range}; {longest_range}.',
+        body,
+    )
 
 
-if __name__=='__main__':
-    hero();about();projects();arsenal();toolkit();focus()
-    certifications();community();ethics();connect();activity_header()
-    print('Rendered the complete animated green-universe profile.')
+if __name__ == '__main__':
+    hero()
+    about()
+    projects()
+    arsenal()
+    toolkit()
+    focus()
+    certifications()
+    community()
+    ethics()
+    connect()
+    activity_header()
+    print('Rendered the cosmic-terminal profile SVGs.')
