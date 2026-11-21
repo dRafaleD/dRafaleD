@@ -1,7 +1,7 @@
 """Render the profile's pixel-art static-analysis loop and project cartridges."""
 from pathlib import Path
 import math
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageSequence
 from profile_palette import BACKGROUND as INK, BORDER as LINE, NEON as LIME, PHOSPHOR, FOREGROUND as WHITE, MUTED
 
 
@@ -121,9 +121,18 @@ def analysis_demos():
 
 def hero():
     frames = []
-    with Image.open(ASSETS / 'operator-avatar.png') as source:
-        avatar = source.convert("RGB").resize((288, 288), Image.Resampling.LANCZOS)
-    for i in range(48):
+    durations = []
+    with Image.open(ASSETS / 'operator-avatar-motion.gif') as source:
+        avatar_frames = [
+            (frame.convert('RGB').resize((288, 288), Image.Resampling.LANCZOS),
+             frame.info.get('duration', 110))
+            for frame in ImageSequence.Iterator(source)
+        ]
+    cycle_frames = len(avatar_frames)
+    row_frames = cycle_frames * 5 // 4
+    for i in range(cycle_frames * 5):
+        avatar, duration = avatar_frames[i % cycle_frames]
+        durations.append(duration)
         canvas = Image.new('RGB',(1000,360), INK)
         canvas.paste(avatar,(655,41))
         d = ImageDraw.Draw(canvas)
@@ -132,20 +141,20 @@ def hero():
         label(d,(42,173),'Malware analysis & reverse engineering',25,WHITE)
         label(d,(42,221),'Rust   /   YARA-X   /   C',19,LIME,True,True)
         d.line((42,271,555,271),fill=LINE)
-        row = (i // 12) * 4
+        row = min(i // row_frames, 3) * 4
         label(d,(42,294),f'0x{row:04X}',16,PHOSPHOR,True,True)
         byte_rows = ('4D 5A 90 00','03 00 00 00','04 00 00 00','FF FF 00 00')
-        label(d,(132,294),byte_rows[i//12],16,WHITE,False,True)
-        if i % 12 < 8:
+        label(d,(132,294),byte_rows[row//4],16,WHITE,False,True)
+        if i % row_frames < row_frames * 2 // 3:
             d.rectangle((259,295,268,310),fill=LIME)
         for x,dx in ((638,1),(960,-1)):
             for y,dy in ((31,1),(333,-1)):
                 d.line([(x+dx*17,y),(x,y),(x,y+dy*17)],fill=LIME,width=2)
         frames.append(canvas)
-    frames[24].save(ASSETS/'operator-profile-card.png')
-    palette = frames[24].quantize(colors=256)
+    frames[0].save(ASSETS/'operator-motion-card.png')
+    palette = frames[0].quantize(colors=256)
     frames = [f.quantize(palette=palette,dither=Image.Dither.NONE) for f in frames]
-    frames[0].save(ASSETS/'operator-profile-card.gif',save_all=True,append_images=frames[1:],duration=140,loop=0)
+    frames[0].save(ASSETS/'operator-motion-card.gif',save_all=True,append_images=frames[1:],duration=durations,loop=0)
 
 
 PROJECTS = [
