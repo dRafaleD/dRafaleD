@@ -161,7 +161,49 @@ def cards():
             for x,bit in enumerate(row):
                 if bit == '1':
                     d.rectangle((481+x*6,24+y*6,486+x*6,29+y*6),fill=LIME)
-        im.save(ASSETS/f'lab-project-{slug}.png')
+        frames = []
+        signals = {
+            'asphdex': ('4D 5A', 'PE', 'YARA'),
+            'banshee': ('READ', 'HASH', 'PACK'),
+            'flowscope': ('DNS', 'TCP', 'TLS'),
+            'sentinel': ('MTIME', 'CTIME', 'ATIME'),
+            'fhnix': ('FROM', 'LINK', 'SCORE'),
+            'trackher': ('ID', 'ALIAS', 'MATCH'),
+        }
+        for i in range(18):
+            frame = im.copy()
+            draw = ImageDraw.Draw(frame)
+            scan = 25 + round(45*(1-math.cos(math.tau*i/18))/2)
+            draw.line((475,scan,533,scan),fill='#a6ff59')
+            label(draw,(480,88),signals[slug][i//6],13,LIME,True,True)
+            frames.append(frame)
+        frames[6].save(ASSETS/f'trace-{slug}.png')
+        frames[0].save(ASSETS/f'trace-{slug}.gif', save_all=True,
+                       append_images=frames[1:], duration=160, loop=0)
+
+
+def disassembly():
+    frames = []
+    rows = [('0000','31 C0','xor eax, eax'),('0002','FF C0','inc eax'),
+            ('0004','83 F8 01','cmp eax, 1'),('0007','C3','ret')]
+    for i in range(4):
+        frame = Image.new('RGB',(1000,235),INK)
+        draw = ImageDraw.Draw(frame)
+        label(draw,(28,18),'Disassembly',24,WHITE,True)
+        label(draw,(663,23),'REGISTER WATCH',16,LIME,True,True)
+        for j,(offset,raw,instruction) in enumerate(rows):
+            y = 70+j*37
+            if i == j:
+                draw.rectangle((20,y-9,610,y+24),fill='#16280d')
+                draw.rectangle((20,y-9,23,y+24),fill=LIME)
+            for x,value in [(39,offset),(151,raw),(346,instruction)]:
+                label(draw,(x,y),value,19,LIME if i==j else PHOSPHOR,False,True)
+        label(draw,(663,83),'EAX',17,PHOSPHOR,True,True)
+        label(draw,(663,116),'00000000' if i==0 else '00000001',31,WHITE,True,True)
+        label(draw,(663,182),('zero register','increment','compare','return')[i],17,LIME,False,True)
+        frames.append(frame)
+    frames[2].save(ASSETS/'instruction-trace.png')
+    frames[0].save(ASSETS/'instruction-trace.gif',save_all=True,append_images=frames[1:],duration=800,loop=0)
 
 
 def yara_trace():
@@ -185,5 +227,6 @@ def yara_trace():
 if __name__ == '__main__':
     hero()
     analysis_demos()
+    disassembly()
     cards()
     yara_trace()

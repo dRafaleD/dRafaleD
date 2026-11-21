@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 USERNAME = "dRafaleD"
 API_BASE = "https://api.github.com"
 MASK_SOURCE = ROOT / "assets" / "profile-terminal-mask.png"
-OUTPUT = ROOT / "assets" / "profile-terminal-v2.gif"
+OUTPUT = ROOT / "assets" / "operator-terminal.gif"
 FONT = Path(r"C:\Windows\Fonts\CascadiaMono.ttf")
 
 if not FONT.exists():
@@ -46,13 +46,13 @@ STATS = fetch_stats()
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 
 W, H = 920, 900
-BG = "#070b09"
-HEADER = "#0c1410"
-BORDER = "#174c2b"
-GREEN = "#39ff88"
-LIME = "#b7f34a"
-TEXT = "#d7ffe3"
-MUTED = "#6d9479"
+BG = "#030503"
+HEADER = "#0a0e09"
+BORDER = "#263522"
+GREEN = "#82ed30"
+LIME = "#b6ff75"
+TEXT = "#edf1e9"
+MUTED = "#9eb193"
 
 prompt_font = ImageFont.truetype(str(FONT), 16)
 body_font = ImageFont.truetype(str(FONT), 15)
@@ -64,7 +64,7 @@ entries = [
     ("Eren Erdogan", 44, 124, body_font, TEXT),
     ("dRafaleD@github:~$", 44, 160, prompt_font, GREEN),
     ("./profile --summary", 320, 160, prompt_font, LIME),
-    ("Focus: Cybersecurity and secure software", 44, 190, body_font, TEXT),
+    ("Focus: Malware analysis and reverse engineering", 44, 190, body_font, TEXT),
     ("Secondary: Full Stack Development", 44, 216, body_font, TEXT),
     ("Status: Learning - building - testing", 44, 242, body_font, TEXT),
     ("dRafaleD@github:~$", 44, 278, prompt_font, GREEN),
@@ -107,10 +107,10 @@ def render(visible_chars: int, cursor_strength: float, scanline_y: int) -> Image
     draw.rectangle((22, 22, 898, 878), outline=BORDER, width=2)
     draw.rectangle((22, 22, 898, 64), fill=HEADER)
     draw.line((22, 64, 898, 64), fill=BORDER, width=2)
-    draw.line((24, scanline_y, 896, scanline_y), fill="#0a160f", width=1)
-    draw.ellipse((40, 36, 54, 50), fill="#ff5f57")
-    draw.ellipse((62, 36, 76, 50), fill="#ffbd2e")
-    draw.ellipse((84, 36, 98, 50), fill="#28c840")
+    draw.line((24, scanline_y, 896, scanline_y), fill="#11190e", width=1)
+    draw.ellipse((40, 36, 54, 50), fill="#35472a")
+    draw.ellipse((62, 36, 76, 50), fill="#557d39")
+    draw.ellipse((84, 36, 98, 50), fill="#82ed30")
     draw.text((115, 38), "dRafaleD@github: ~/profile", font=small_font, fill=MUTED)
 
     progress = visible_chars
@@ -151,6 +151,7 @@ for step in range(typing_steps):
     durations.append(60)
 
 final_frame = render(TOTAL_CHARS, 1.0, 82)
+final_frame.save(OUTPUT.with_suffix(".png"))
 for _ in range(6):
     frames.append(final_frame.copy())
     durations.append(10_000)

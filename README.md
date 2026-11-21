@@ -1,4 +1,9 @@
 <picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/operator-terminal.png" />
+  <img src="assets/operator-terminal.gif" alt="Animated profile terminal with Eren Erdoğan’s command history, original green mask, and GitHub statistics." width="100%" />
+</picture>
+
+<picture>
   <source media="(prefers-reduced-motion: reduce)" srcset="assets/lab-console.png?v=14" />
   <img src="assets/lab-console.gif?v=14" alt="Eren Erdoğan (dRafaleD). Pixel operator portrait and animated binary header. I build tools for reading binaries and tracing evidence with Rust, YARA-X and C." width="100%" />
 </picture>
@@ -9,14 +14,14 @@
 
 Open a project to explore its source.
 
-<a href="https://github.com/dRafaleD/Malware-analysis-AsphDex"><img src="assets/lab-project-asphdex.png?v=14" alt="AsphDex — Inspect PE / ELF files with YARA." width="49%" /></a>
-<a href="https://github.com/dRafaleD/Banshee"><img src="assets/lab-project-banshee.png?v=14" alt="Banshee — Decode artifacts and bundle findings." width="49%" /></a>
+<a href="https://github.com/dRafaleD/Malware-analysis-AsphDex"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-asphdex.png" /><img src="assets/trace-asphdex.gif" alt="AsphDex — Inspect PE / ELF files with YARA." width="49%" /></picture></a>
+<a href="https://github.com/dRafaleD/Banshee"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-banshee.png" /><img src="assets/trace-banshee.gif" alt="Banshee — Decode artifacts and bundle findings." width="49%" /></picture></a>
 
-<a href="https://github.com/dRafaleD/flowscope"><img src="assets/lab-project-flowscope.png?v=14" alt="flowscope — Follow traffic in offline captures." width="49%" /></a>
-<a href="https://github.com/dRafaleD/sentinel-security"><img src="assets/lab-project-sentinel.png?v=14" alt="sentinel-security — Rebuild filesystem timelines." width="49%" /></a>
+<a href="https://github.com/dRafaleD/flowscope"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-flowscope.png" /><img src="assets/trace-flowscope.gif" alt="flowscope — Follow traffic in offline captures." width="49%" /></picture></a>
+<a href="https://github.com/dRafaleD/sentinel-security"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-sentinel.png" /><img src="assets/trace-sentinel.gif" alt="sentinel-security — Rebuild filesystem timelines." width="49%" /></picture></a>
 
-<a href="https://github.com/dRafaleD/FhniX"><img src="assets/lab-project-fhnix.png?v=14" alt="FhniX — Inspect suspicious mail and its signals." width="49%" /></a>
-<a href="https://github.com/dRafaleD/The-Trackher"><img src="assets/lab-project-trackher.png?v=14" alt="The-Trackher — Review your own digital footprint." width="49%" /></a>
+<a href="https://github.com/dRafaleD/FhniX"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-fhnix.png" /><img src="assets/trace-fhnix.gif" alt="FhniX — Inspect suspicious mail and its signals." width="49%" /></picture></a>
+<a href="https://github.com/dRafaleD/The-Trackher"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-trackher.png" /><img src="assets/trace-trackher.gif" alt="The-Trackher — Review your own digital footprint." width="49%" /></picture></a>
 
 <details>
 <summary>More repositories & security labs</summary>
@@ -107,6 +112,11 @@ Open a project to explore its source.
 <picture>
   <source media="(prefers-reduced-motion: reduce)" srcset="assets/malware-chip-skull.png" />
   <img src="assets/malware-chip-skull.gif" width="100%" alt="Two illustrated demos. Static analysis scans a pixel-art microchip skull for a YARA marker. In the dynamic demo the skull recoils with an exclamation mark on file read and its eyes dim on process exit." />
+</picture>
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/instruction-trace.png" />
+  <img src="assets/instruction-trace.gif" width="100%" alt="Four x86 instructions illustrated with their bytes and the resulting EAX value." />
 </picture>
 
 ## Contact
