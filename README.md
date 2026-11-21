@@ -1,9 +1,9 @@
 <picture>
   <source media="(prefers-reduced-motion: reduce)" srcset="assets/lab-console.png" />
-  <img src="assets/lab-console.gif" alt="Eren Erdoğan (dRafaleD). Pixel specimen in a simulated static-analysis console. I build tools for reading binaries and tracing evidence with Rust, YARA-X and C." width="100%" />
+  <img src="assets/lab-console.gif" alt="Eren Erdoğan (dRafaleD). Animated Kozmos galaxy. I build tools for reading binaries and tracing evidence with Rust, YARA-X and C." width="100%" />
 </picture>
 
-[Projects](#projects) · [Stack & tools](#stack-and-tools) · [Training](#training-and-community) · [Activity](#activity) · [Contact](#contact)
+[Projects](#projects) · [Stack & tools](#stack-and-tools) · [Training](#training-and-community) · [Activity](#activity) · [Malware lab](#malware-analysis-lab) · [Contact](#contact)
 
 ## Projects
 
@@ -101,6 +101,13 @@ Open a project to explore its source.
 <img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg?v=6" alt="GitHub contribution snake animation" width="100%" />
 
 </div>
+
+## Malware analysis lab
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/lab-analysis.png" />
+  <img src="assets/lab-analysis.gif" width="100%" alt="Two illustrated demos. Static analysis scans a pixel-art circuit moth for a YARA marker. Dynamic analysis follows a simulated process starting, reading a file and exiting." />
+</picture>
 
 ## Contact
 

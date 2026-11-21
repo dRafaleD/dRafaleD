@@ -188,14 +188,15 @@ def save(name, height, title, description, body, output_dir=ASSETS):
         'cosmos-header.svg': ('deep-space-lime.png', '.88'),
         'cosmos-about.svg': ('deep-space-planet.jpg', '.95'),
         'cosmos-projects.svg': ('deep-space-nebula.png', '.74'),
-        'cosmos-toolkit.svg': ('deep-space-nebula.png', '.42'),
         'cosmos-community.svg': ('deep-space-pulsar.jpg', '.94'),
         'cosmos-ethics.svg': ('deep-space-eclipse.jpg', '.95'),
         'cosmos-connect.svg': ('deep-space-horizon.png', '.85'),
         'cosmos-activity.svg': ('deep-space-comet.jpg', '.92'),
         'github-streak.svg': ('deep-space-supernova.jpg', '.82'),
     }
-    if name in scenes:
+    if name in {'cosmos-arsenal.svg', 'cosmos-toolkit.svg', 'cosmos-focus.svg', 'cosmos-certifications.svg'}:
+        backdrop = clouds = stars = ''
+    elif name in scenes:
         asset, strength = scenes[name]
         photo = encode_backdrop(asset, 1000, height)
         backdrop = (
