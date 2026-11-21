@@ -113,7 +113,7 @@ def analysis_demos():
 def hero():
     frames = []
     with Image.open(ASSETS / 'operator-avatar.png') as source:
-        avatar = source.resize((288,288),Image.Resampling.NEAREST)
+        avatar = source.convert("RGB").resize((288, 288), Image.Resampling.LANCZOS)
     for i in range(48):
         canvas = Image.new('RGB',(1000,360), '#000000')
         canvas.paste(avatar,(655,41))
@@ -133,10 +133,10 @@ def hero():
             for y,dy in ((31,1),(333,-1)):
                 d.line([(x+dx*17,y),(x,y),(x,y+dy*17)],fill=LIME,width=2)
         frames.append(canvas)
-    frames[24].save(ASSETS/'lab-console.png')
-    palette = frames[24].quantize(colors=160)
+    frames[24].save(ASSETS/'operator-profile-card.png')
+    palette = frames[24].quantize(colors=256)
     frames = [f.quantize(palette=palette,dither=Image.Dither.NONE) for f in frames]
-    frames[0].save(ASSETS/'lab-console.gif',save_all=True,append_images=frames[1:],duration=140,loop=0)
+    frames[0].save(ASSETS/'operator-profile-card.gif',save_all=True,append_images=frames[1:],duration=140,loop=0)
 
 
 PROJECTS = [

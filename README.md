@@ -4,8 +4,8 @@
 </picture>
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/lab-console.png?v=14" />
-  <img src="assets/lab-console.gif?v=14" alt="Eren Erdoğan (dRafaleD). Pixel operator portrait and animated binary header. I build tools for reading binaries and tracing evidence with Rust, YARA-X and C." width="100%" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/operator-profile-card.png" />
+  <img src="assets/operator-profile-card.gif" alt="Eren Erdoğan (dRafaleD). Pixel operator portrait and animated binary header. I build tools for reading binaries and tracing evidence with Rust, YARA-X and C." width="100%" />
 </picture>
 
 [Projects](#projects) · [Stack & tools](#stack-and-tools) · [Training](#training-and-community) · [Activity](#activity) · [Malware lab](#malware-analysis-lab) · [Contact](#contact)
