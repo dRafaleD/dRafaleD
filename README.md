@@ -36,20 +36,20 @@ Open a project to explore its source.
 </picture>
 
 <div align="center">
-  <img src="assets/cosmos-arsenal.svg?v=10" alt="Languages and rule engines: Rust, YARA, YARA-X, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
+  <img src="assets/cosmos-arsenal.svg?v=11" alt="Languages and rule engines: Rust, YARA, YARA-X, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
 </div>
 
 <div align="center">
-  <img src="assets/cosmos-toolkit.svg?v=10" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" />
+  <img src="assets/cosmos-toolkit.svg?v=11" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" />
 </div>
 
 <div align="center">
-  <img src="assets/cosmos-focus.svg?v=10" alt="Focus and learning: current focus areas and topics currently being studied across web security, malware analysis, Linux hardening, and secure backend engineering." width="100%" />
+  <img src="assets/cosmos-focus.svg?v=11" alt="Focus and learning: current focus areas and topics currently being studied across web security, malware analysis, Linux hardening, and secure backend engineering." width="100%" />
 </div>
 
 ## Training and community
 
-<img src="assets/cosmos-certifications.svg?v=10" alt="Certifications: Siber Vatan; Cisco Introduction to Cybersecurity, Network Defense, and Cyber Threat Management. Original badges and verification links follow." width="100%" />
+<img src="assets/cosmos-certifications.svg?v=11" alt="Certifications: Siber Vatan; Cisco Introduction to Cybersecurity, Network Defense, and Cyber Threat Management. Original badges and verification links follow." width="100%" />
 
 <details>
 <summary>Original credential badges and verification links</summary>
@@ -77,7 +77,7 @@ Open a project to explore its source.
 
 </details>
 
-<a href="https://hub.xerj.org/contributors/dRafaleD.html"><img src="assets/cosmos-community.svg?v=10" alt="XERJ Corpus Hub: community contributions by dRafaleD. Open the contributor record." width="100%" /></a>
+<a href="https://hub.xerj.org/contributors/dRafaleD.html"><img src="assets/cosmos-community.svg?v=11" alt="XERJ Corpus Hub: community contributions by dRafaleD. Open the contributor record." width="100%" /></a>
 
 <details>
 <summary>Live contributor badge</summary>
@@ -86,15 +86,15 @@ Open a project to explore its source.
 
 </details>
 
-<img src="assets/cosmos-ethics.svg?v=10" alt="Ethics: white hat security and authorized research only. Test responsibly, report ethically, build securely." width="100%" />
+<img src="assets/cosmos-ethics.svg?v=11" alt="Ethics: white hat security and authorized research only. Test responsibly, report ethically, build securely." width="100%" />
 
 ## Activity
 
-<img src="assets/cosmos-activity.svg?v=10" alt="GitHub activity: contribution streaks and recent commit activity." width="100%" />
+<img src="assets/cosmos-activity.svg?v=11" alt="GitHub activity: contribution streaks and recent commit activity." width="100%" />
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg?v=10" alt="dRafaleD GitHub contribution streak" width="100%" />
+<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg?v=11" alt="dRafaleD GitHub contribution streak" width="100%" />
 
 <br />
 
@@ -104,15 +104,15 @@ Open a project to explore its source.
 
 ## Contact
 
-<img src="assets/cosmos-connect.svg?v=10" alt="Connect with Eren Erdoğan on LinkedIn, explore dRafaleD on GitHub, or visit the web portfolio." width="100%" />
+<img src="assets/cosmos-connect.svg?v=11" alt="Connect with Eren Erdoğan on LinkedIn, explore dRafaleD on GitHub, or visit the web portfolio." width="100%" />
 
 <p align="center">
-<a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><img src="assets/cosmos-link-linkedin.svg?v=10" alt="LinkedIn: connect with Eren Erdoğan" width="49%" /></a>
-<a href="https://github.com/dRafaleD?tab=repositories"><img src="assets/cosmos-link-github.svg?v=10" alt="GitHub: explore dRafaleD repositories" width="49%" /></a>
+<a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><img src="assets/cosmos-link-linkedin.svg?v=11" alt="LinkedIn: connect with Eren Erdoğan" width="49%" /></a>
+<a href="https://github.com/dRafaleD?tab=repositories"><img src="assets/cosmos-link-github.svg?v=11" alt="GitHub: explore dRafaleD repositories" width="49%" /></a>
 </p>
 
 <p align="center">
-  <a href="https://drafaled.github.io"><img src="https://img.shields.io/badge/Portfolio-dRafaleD.github.io-39FF88?style=for-the-badge&labelColor=060b08" alt="Portfolio" /></a>
+  <a href="https://drafaled.github.io"><img src="https://img.shields.io/badge/Portfolio-dRafaleD.github.io-9fc4e8?style=for-the-badge&labelColor=15171b" alt="Portfolio" /></a>
   &nbsp;
-  <a href="https://hits.sh/github.com/dRafaleD/"><img src="https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=39ff88&labelColor=060b08&extraCount=1260" alt="Profile views" /></a>
+  <a href="https://hits.sh/github.com/dRafaleD/"><img src="https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=98ecae&labelColor=15171b&extraCount=1260" alt="Profile views" /></a>
 </p>

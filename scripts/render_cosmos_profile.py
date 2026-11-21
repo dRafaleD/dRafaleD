@@ -12,20 +12,25 @@ import math
 import random
 import xml.etree.ElementTree as ET
 
-from PIL import Image
+from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'assets'
 
-BG = '#08090a'
-SURFACE = '#111215'
-TEXT = '#f2f2f2'
-MUTED = '#b4b6ba'
-DIM = '#a3a3a3'
-ACCENT = '#bef264'
-LIME = '#a3e635'
+BG = '#0e0f12'
+SURFACE = '#15171b'
+TEXT = '#e4e6ea'
+MUTED = '#adb2ba'
+DIM = '#a3a9b3'
+ACCENT = '#9fc4e8'
+LIME = '#98ecae'
 
 _IMAGE_CACHE: dict[tuple[str, int, int], str] = {}
+
+
+def cosmos_photo(image):
+    """Grade photographic backdrops with the display theme's cold stellar colors."""
+    return ImageOps.colorize(image.convert('L'), '#050608', '#f2f5f9', mid='#627e9b')
 
 
 def encode_backdrop(asset_name: str, width: int, height: int, quality: int = 84) -> str:
@@ -34,7 +39,7 @@ def encode_backdrop(asset_name: str, width: int, height: int, quality: int = 84)
     if key in _IMAGE_CACHE:
         return _IMAGE_CACHE[key]
     with Image.open(ASSETS / asset_name) as img:
-        rgb = img.convert('RGB')
+        rgb = cosmos_photo(img)
         src_w, src_h = rgb.size
         target_ratio = width / height
         src_ratio = src_w / src_h
@@ -61,7 +66,7 @@ def text(x, y, value, size=18, color=TEXT, mono=False, extra=''):
 def field(width, height, seed, count=110):
     rng = random.Random(seed)
     stars = []
-    palette = ['#d7ffe3', '#96e6b3', '#bef264', '#b7f34a', '#7da88d']
+    palette = ['#d7ffe3', '#96e6b3', '#9fc4e8', '#b7f34a', '#7da88d']
     for i in range(count):
         x = rng.uniform(8, width - 8)
         y = rng.uniform(8, height - 8)
@@ -87,7 +92,7 @@ def flare(x, y, size=1):
 def galaxy(x, y, scale=1, seed=31, particles=900):
     rng = random.Random(seed)
     dust = []
-    palette = ['#d7ffe3', '#65d993', '#bef264', '#a3e635', '#9cc9ad']
+    palette = ['#d7ffe3', '#65d993', '#9fc4e8', '#98ecae', '#9cc9ad']
     for i in range(particles):
         reach = rng.random() ** 0.72
         angle = (i % 4) * math.tau / 4 + reach * 6.5 + rng.gauss(0, 0.16 + 0.12 * (1 - reach))
@@ -128,9 +133,9 @@ def planet(x, y, radius):
     return (
         f'<g transform="translate({x} {y})">'
         f'<circle class="breathe" r="{radius + 26}" fill="url(#nebula)"/>'
-        f'<circle r="{radius}" fill="url(#planet)" stroke="#bef264" stroke-opacity=".28" stroke-width=".9"/>'
-        f'<ellipse rx="{radius * 1.48:.1f}" ry="{radius * 0.3:.1f}" fill="none" stroke="#a3e635" stroke-opacity=".24" stroke-width="1" transform="rotate(-16)"/>'
-        f'<ellipse rx="{radius * 1.65:.1f}" ry="{radius * 0.34:.1f}" fill="none" stroke="#bef264" stroke-opacity=".13" stroke-width=".7" stroke-dasharray="4 7" transform="rotate(-16)"/>'
+        f'<circle r="{radius}" fill="url(#planet)" stroke="#9fc4e8" stroke-opacity=".28" stroke-width=".9"/>'
+        f'<ellipse rx="{radius * 1.48:.1f}" ry="{radius * 0.3:.1f}" fill="none" stroke="#98ecae" stroke-opacity=".24" stroke-width="1" transform="rotate(-16)"/>'
+        f'<ellipse rx="{radius * 1.65:.1f}" ry="{radius * 0.34:.1f}" fill="none" stroke="#9fc4e8" stroke-opacity=".13" stroke-width=".7" stroke-dasharray="4 7" transform="rotate(-16)"/>'
         '</g>'
     )
 
@@ -164,16 +169,16 @@ STYLE = '''
 '''
 
 DEFS = '''<defs>
-<radialGradient id="nebula"><stop stop-color="#bef264" stop-opacity=".22"/><stop offset=".45" stop-color="#14663d" stop-opacity=".14"/><stop offset="1" stop-color="#08090a" stop-opacity="0"/></radialGradient>
-<radialGradient id="nebulaLime"><stop stop-color="#a3e635" stop-opacity=".16"/><stop offset=".48" stop-color="#14532d" stop-opacity=".12"/><stop offset="1" stop-color="#08090a" stop-opacity="0"/></radialGradient>
-<radialGradient id="core"><stop stop-color="#efffda" stop-opacity=".95"/><stop offset=".15" stop-color="#c6f5c5" stop-opacity=".7"/><stop offset=".45" stop-color="#bef264" stop-opacity=".18"/><stop offset="1" stop-color="#bef264" stop-opacity="0"/></radialGradient>
-<radialGradient id="starGlow"><stop stop-color="#dfffea" stop-opacity=".85"/><stop offset=".18" stop-color="#bef264" stop-opacity=".45"/><stop offset="1" stop-color="#bef264" stop-opacity="0"/></radialGradient>
-<linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#08090a"/><stop offset=".6" stop-color="#060c09"/><stop offset="1" stop-color="#08090a"/></linearGradient>
-<linearGradient id="panel" x2="1" y2="1"><stop stop-color="#0b1510" stop-opacity=".92"/><stop offset="1" stop-color="#050a07" stop-opacity=".84"/></linearGradient>
-<linearGradient id="edge"><stop stop-color="#bef264" stop-opacity=".6"/><stop offset=".55" stop-color="#a3e635" stop-opacity=".28"/><stop offset="1" stop-color="#bef264" stop-opacity="0"/></linearGradient>
-<linearGradient id="veil"><stop stop-color="#08090a"/><stop offset=".46" stop-color="#08090a" stop-opacity=".88"/><stop offset=".78" stop-color="#08090a" stop-opacity=".24"/><stop offset="1" stop-color="#08090a" stop-opacity=".08"/></linearGradient>
-<linearGradient id="veilStrong"><stop stop-color="#08090a" stop-opacity=".95"/><stop offset=".55" stop-color="#08090a" stop-opacity=".82"/><stop offset="1" stop-color="#08090a" stop-opacity=".5"/></linearGradient>
-<linearGradient id="meteor"><stop stop-color="#bef264" stop-opacity="0"/><stop offset="1" stop-color="#e4ffec" stop-opacity=".92"/></linearGradient>
+<radialGradient id="nebula"><stop stop-color="#9fc4e8" stop-opacity=".22"/><stop offset=".45" stop-color="#4a7fa8" stop-opacity=".14"/><stop offset="1" stop-color="#0e0f12" stop-opacity="0"/></radialGradient>
+<radialGradient id="nebulaLime"><stop stop-color="#98ecae" stop-opacity=".16"/><stop offset=".48" stop-color="#333d4c" stop-opacity=".12"/><stop offset="1" stop-color="#0e0f12" stop-opacity="0"/></radialGradient>
+<radialGradient id="core"><stop stop-color="#efffda" stop-opacity=".95"/><stop offset=".15" stop-color="#c6f5c5" stop-opacity=".7"/><stop offset=".45" stop-color="#9fc4e8" stop-opacity=".18"/><stop offset="1" stop-color="#9fc4e8" stop-opacity="0"/></radialGradient>
+<radialGradient id="starGlow"><stop stop-color="#dfffea" stop-opacity=".85"/><stop offset=".18" stop-color="#9fc4e8" stop-opacity=".45"/><stop offset="1" stop-color="#9fc4e8" stop-opacity="0"/></radialGradient>
+<linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0e0f12"/><stop offset=".6" stop-color="#15171b"/><stop offset="1" stop-color="#0e0f12"/></linearGradient>
+<linearGradient id="panel" x2="1" y2="1"><stop stop-color="#1b1e23" stop-opacity=".92"/><stop offset="1" stop-color="#15171b" stop-opacity=".84"/></linearGradient>
+<linearGradient id="edge"><stop stop-color="#9fc4e8" stop-opacity=".6"/><stop offset=".55" stop-color="#98ecae" stop-opacity=".28"/><stop offset="1" stop-color="#9fc4e8" stop-opacity="0"/></linearGradient>
+<linearGradient id="veil"><stop stop-color="#0e0f12"/><stop offset=".46" stop-color="#0e0f12" stop-opacity=".88"/><stop offset=".78" stop-color="#0e0f12" stop-opacity=".24"/><stop offset="1" stop-color="#0e0f12" stop-opacity=".08"/></linearGradient>
+<linearGradient id="veilStrong"><stop stop-color="#0e0f12" stop-opacity=".95"/><stop offset=".55" stop-color="#0e0f12" stop-opacity=".82"/><stop offset="1" stop-color="#0e0f12" stop-opacity=".5"/></linearGradient>
+<linearGradient id="meteor"><stop stop-color="#9fc4e8" stop-opacity="0"/><stop offset="1" stop-color="#e4ffec" stop-opacity=".92"/></linearGradient>
 <radialGradient id="planet" cx="26%" cy="18%" r="86%"><stop stop-color="#5d8a6a"/><stop offset=".26" stop-color="#173d2b"/><stop offset=".64" stop-color="#071a11"/><stop offset="1" stop-color="#010503"/></radialGradient>
 </defs>'''
 
@@ -200,7 +205,7 @@ def save(name, height, title, description, body, output_dir=ASSETS):
         clouds = ''
         stars = field(1000, height, name, max(65, int(height * 0.14)))
     else:
-        backdrop = f'<rect x=".5" y=".5" width="999" height="{height - 1}" rx="12" fill="url(#bgGrad)" stroke="#173825" stroke-width="1"/>'
+        backdrop = f'<rect x=".5" y=".5" width="999" height="{height - 1}" rx="12" fill="url(#bgGrad)" stroke="#272a30" stroke-width="1"/>'
         clouds = (
             f'<g class="nebula-drift">'
             f'<ellipse cx="835" cy="{height * 0.48:.1f}" rx="340" ry="{max(140, height * 0.46):.1f}" fill="url(#nebula)" opacity=".7"/>'
@@ -231,9 +236,9 @@ def save(name, height, title, description, body, output_dir=ASSETS):
 
 def terminal_chrome(prompt, sector_tag, y=28):
     dots = (
-        f'<circle cx="38" cy="{y - 4}" r="3.6" fill="#2c593e"/>'
-        f'<circle cx="52" cy="{y - 4}" r="3.6" fill="#214630"/>'
-        f'<circle cx="66" cy="{y - 4}" r="3.6" fill="#bef264" opacity=".65"/>'
+        f'<circle cx="38" cy="{y - 4}" r="3.6" fill="#545963"/>'
+        f'<circle cx="52" cy="{y - 4}" r="3.6" fill="#3a3e46"/>'
+        f'<circle cx="66" cy="{y - 4}" r="3.6" fill="#9fc4e8" opacity=".65"/>'
     )
     return (
         dots
@@ -246,7 +251,7 @@ def heading(index, command, title, detail, sector_tag=None):
     tag = sector_tag or f'SECTION {index}'
     return (
         terminal_chrome(f'dRafaleD@github:~$ {command}', tag, 30)
-        + text(34, 72, title, 28, TEXT)
+        + text(34, 72, title, 28, TEXT, True)
         + text(34, 100, detail, 14.5, MUTED)
         + '<path d="M34 118H966" stroke="url(#edge)" stroke-width=".9"/>'
     )
@@ -254,8 +259,8 @@ def heading(index, command, title, detail, sector_tag=None):
 
 def panel(x, y, width, height):
     return (
-        f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="10" fill="url(#panel)" '
-        f'stroke="#393d40" stroke-opacity=".85" stroke-width=".9"/>'
+        f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="6" fill="#15171b" '
+        f'stroke="#3a3e46" stroke-opacity=".85" stroke-width=".9"/>'
         f'<path d="M{x + 14} {y + .5}H{x + width - 14}" stroke="url(#edge)" stroke-width=".9"/>'
     )
 
@@ -275,7 +280,7 @@ def hero():
 
 def about():
     body = '<rect width="1000" height="368" fill="url(#veil)"/>'
-    body += '<rect width="1000" height="48" fill="#08090a" opacity=".48"/>'
+    body += '<rect width="1000" height="48" fill="#0e0f12" opacity=".48"/>'
     body += heading('00', 'cat about.md', 'About me.', 'Eren Erdoğan · Backend development student & security developer', 'PROFILE')
     lines = [
         'I study backend development and work on cybersecurity, Linux systems,',
@@ -286,7 +291,7 @@ def about():
     ]
     for i, line in enumerate(lines):
         body += text(36, 158 + i * 30, line, 16.5, MUTED)
-    body += '<path class="stream" d="M36 308H520" stroke="#bef264" stroke-opacity=".35"/>'
+    body += '<path class="stream" d="M36 308H520" stroke="#9fc4e8" stroke-opacity=".35"/>'
     body += text(36, 340, '> CURIOUS BY NATURE · PRACTICAL BY DESIGN', 10.5, ACCENT, True)
     save('cosmos-about.svg', 368, 'About Eren Erdoğan', ' '.join(lines), body)
 
@@ -322,8 +327,8 @@ def projects():
         f'M{nodes[1][0]} {nodes[1][1]} C768 340 768 550 {nodes[5][0]} {nodes[5][1]}',
     ]
     for path in paths:
-        body += f'<path d="{path}" fill="none" stroke="#225737" stroke-width=".9" opacity=".75"/>'
-        body += f'<path class="link-flow" d="{path}" fill="none" stroke="#83efac" stroke-width="1.35" opacity=".75"/>'
+        body += f'<path d="{path}" fill="none" stroke="#3a4959" stroke-width=".9" opacity=".75"/>'
+        body += f'<path class="link-flow" d="{path}" fill="none" stroke="#9fc4e8" stroke-width="1.35" opacity=".75"/>'
     body += galaxy(cx, cy, 0.42, 53, 420)
 
     for i, (number, name, subtitle, detail, tag) in enumerate(items):
@@ -335,7 +340,7 @@ def projects():
         body += text(x + 22, y + 71, name, 27, TEXT)
         body += text(x + 22, y + 106, subtitle, 15.5, TEXT)
         body += text(x + 22, y + 136, detail, 13.5, MUTED)
-        body += f'<path class="stream" d="M{x + 22} {y + 160}h195" stroke="#bef264" opacity=".4"/>'
+        body += f'<path class="stream" d="M{x + 22} {y + 160}h195" stroke="#9fc4e8" opacity=".4"/>'
 
     body += text(34, 804, '> OPEN-SOURCE SECURITY TOOLS', 10.5, MUTED, True)
     body += text(966, 804, 'STATUS: MAINTAINED', 10, ACCENT, True, 'text-anchor="end"')
@@ -351,9 +356,9 @@ def chips(x, y, width, names, highlights=()):
             x = start
             y += 40
         active = name in highlights
-        fill = '#10291b' if active else '#060c08'
-        stroke = '#bef264' if active else '#234230'
-        color = ACCENT if active else '#bfd6c7'
+        fill = '#1a2a22' if active else '#15171b'
+        stroke = '#9fc4e8' if active else '#3a3e46'
+        color = LIME if active else '#cdd2da'
         body += f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="29" rx="5" fill="{fill}" stroke="{stroke}" stroke-width=".8"/>'
         body += text(round(x + 13, 1), y + 20, name, 13, color, True)
         x += w + 8
@@ -373,7 +378,7 @@ def arsenal():
         y = 164 + i * 47
         body += text(55, y + 20, label, 11, LIME, True)
         body += chips(180, y, 760, names, ['Rust', 'YARA', 'YARA-X', 'C'])[0]
-    body += '<path d="M55 352C240 325 420 379 595 352S805 334 945 351" fill="none" stroke="#225737" opacity=".75"/><path class="link-flow" d="M55 352C240 325 420 379 595 352S805 334 945 351" fill="none" stroke="#83efac" opacity=".8"/>'
+    body += '<path d="M55 352C240 325 420 379 595 352S805 334 945 351" fill="none" stroke="#3a4959" opacity=".75"/><path class="link-flow" d="M55 352C240 325 420 379 595 352S805 334 945 351" fill="none" stroke="#9fc4e8" opacity=".8"/>'
     body += flare(181, 344, 0.5) + flare(595, 352, 0.55) + flare(866, 342, 0.5)
     save('cosmos-arsenal.svg', 385, 'Languages, rule engines and platforms', '; '.join(a + ': ' + ', '.join(b) for a, b in rows), body)
 
@@ -431,8 +436,8 @@ def toolkit():
         'M738 280C770 420 770 560 738 770',
     ]
     for op in orbit_paths:
-        body += f'<path d="{op}" fill="none" stroke="#1d4d31" stroke-width=".9" opacity=".65"/>'
-        body += f'<path class="link-flow" d="{op}" fill="none" stroke="#83efac" stroke-width="1.3" opacity=".7"/>'
+        body += f'<path d="{op}" fill="none" stroke="#334352" stroke-width=".9" opacity=".65"/>'
+        body += f'<path class="link-flow" d="{op}" fill="none" stroke="#9fc4e8" stroke-width="1.3" opacity=".7"/>'
 
     def render_domain_card(idx, x, y, w, h, title, subtitle, path_label, icon_svg, tool_list):
         tools = tool_list.split(',')
@@ -441,7 +446,7 @@ def toolkit():
         # Left glowing domain accent bar
         inner += f'<rect x="{x}" y="{y + 24}" width="3" height="34" rx="1.5" fill="{accent_col}" opacity=".9"/>'
         # Icon badge
-        inner += f'<rect x="{x + 22}" y="{y + 20}" width="40" height="40" rx="10" fill="#06160d" stroke="#235437" stroke-width=".9"/>'
+        inner += f'<rect x="{x + 22}" y="{y + 20}" width="40" height="40" rx="10" fill="#20262e" stroke="#3a3e46" stroke-width=".9"/>'
         inner += (
             f'<g transform="translate({x + 30} {y + 28})" fill="none" stroke="{accent_col}" '
             f'stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">{icon_svg}</g>'
@@ -453,7 +458,7 @@ def toolkit():
 
         # Animated scanner line
         line_w = w - 44
-        inner += f'<path d="M{x + 22} {y + 98}H{x + w - 22}" stroke="#163b25" stroke-width=".9"/>'
+        inner += f'<path d="M{x + 22} {y + 98}H{x + w - 22}" stroke="#272a30" stroke-width=".9"/>'
         inner += (
             f'<g class="scan" style="animation-delay:-{idx * 1.8:.1f}s;--end:{line_w - 22}px">'
             f'<rect x="{x + 22}" y="{y + 97}" width="20" height="2" rx="1" fill="{accent_col}" opacity=".35"/>'
@@ -482,9 +487,9 @@ def toolkit():
 
     footer_y = row3_y + row3_h + 34
     body += text(34, footer_y, '> 58 TOOLS ACROSS 5 CATEGORIES', 10.5, MUTED, True)
-    body += '<rect x="738" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#10291b" stroke="#bef264" stroke-width=".9"/>'
+    body += '<rect x="738" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#1a2a22" stroke="#9fc4e8" stroke-width=".9"/>'
     body += text(755, footer_y, 'PRIMARY', 10, ACCENT, True)
-    body += '<rect x="838" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#060c08" stroke="#234230" stroke-width=".9"/>'
+    body += '<rect x="838" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#15171b" stroke="#3a3e46" stroke-width=".9"/>'
     body += text(855, footer_y, 'REFERENCE', 10, MUTED, True)
 
     total_h = footer_y + 26
@@ -516,9 +521,9 @@ def focus():
         body += cluster(x + 412, 174, 41 + idx)
         body += text(x + 22, 176, label, 11, LIME if idx else ACCENT, True)
         for i, value in enumerate(lines):
-            body += f'<circle cx="{x + 24}" cy="{208 + i * 28}" r="1.8" fill="#bef264"/>'
+            body += f'<circle cx="{x + 24}" cy="{208 + i * 28}" r="1.8" fill="#9fc4e8"/>'
             body += text(x + 38, 213 + i * 28, value, 15.5, MUTED)
-    body += '<path d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#225737" stroke-width="1"/><path class="link-flow" d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#a4efbd" stroke-width="1.3"/>'
+    body += '<path d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#3a4959" stroke-width="1"/><path class="link-flow" d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#a4efbd" stroke-width="1.3"/>'
     body += flare(129, 426, 0.65) + flare(501, 438, 0.75) + flare(882, 420, 0.55)
     body += text(34, 487, '> HANDS-ON PRACTICE · CONTINUOUS LEARNING', 10.5, MUTED, True)
     save('cosmos-focus.svg', 512, 'Focus and learning', '; '.join(label + ': ' + ', '.join(lines) for _, label, lines in columns), body)
@@ -560,7 +565,7 @@ def ethics():
     body += text(36, 242, 'Report ethically. Build securely.', 24, TEXT)
     body += text(36, 290, 'All security research, analysis, and testing is performed', 16.5, MUTED)
     body += text(36, 318, 'strictly within authorized environments.', 16.5, MUTED)
-    body += '<path d="M36 358C270 338 398 382 630 355S866 339 966 351" fill="none" stroke="#225737" stroke-width=".9"/><path class="link-flow" d="M36 358C270 338 398 382 630 355S866 339 966 351" fill="none" stroke="#84cfa2" stroke-width="1.2" opacity=".8"/>'
+    body += '<path d="M36 358C270 338 398 382 630 355S866 339 966 351" fill="none" stroke="#3a4959" stroke-width=".9"/><path class="link-flow" d="M36 358C270 338 398 382 630 355S866 339 966 351" fill="none" stroke="#84cfa2" stroke-width="1.2" opacity=".8"/>'
     body += flare(490, 363, 0.65)
     save('cosmos-ethics.svg', 398, 'Research ethics', 'White hat security. Authorized research only. Test responsibly. Report ethically. Build securely.', body)
 
@@ -585,9 +590,9 @@ def connect():
         cbody += field(w, h, f'link-{name}', 35)
         cbody += f'<rect width="{w}" height="{h}" fill="url(#veil)"/>'
         cbody += (
-            '<circle cx="26" cy="24" r="3.2" fill="#2c593e"/>'
-            '<circle cx="38" cy="24" r="3.2" fill="#214630"/>'
-            '<circle cx="50" cy="24" r="3.2" fill="#bef264" opacity=".65"/>'
+            '<circle cx="26" cy="24" r="3.2" fill="#545963"/>'
+            '<circle cx="38" cy="24" r="3.2" fill="#3a3e46"/>'
+            '<circle cx="50" cy="24" r="3.2" fill="#9fc4e8" opacity=".65"/>'
         )
         cbody += text(64, 28, f'> open {name}', 11, ACCENT, True)
         cbody += text(w - 22, 28, f'{label.upper()}', 10, DIM, True, 'text-anchor="end"')
@@ -608,7 +613,7 @@ def connect():
 def activity_header():
     body = '<rect width="1000" height="196" fill="url(#veil)"/>'
     body += heading('08', 'git log --stat', 'GitHub activity.', 'Contribution streaks and recent commit activity.', 'ACTIVITY')
-    body += '<path d="M35 156C240 112 456 200 696 146S884 131 963 151" fill="none" stroke="#225737" stroke-width=".9"/><path class="link-flow" d="M35 156C240 112 456 200 696 146S884 131 963 151" fill="none" stroke="#9fe1b5" stroke-width="1.2" opacity=".8"/>'
+    body += '<path d="M35 156C240 112 456 200 696 146S884 131 963 151" fill="none" stroke="#3a4959" stroke-width=".9"/><path class="link-flow" d="M35 156C240 112 456 200 696 146S884 131 963 151" fill="none" stroke="#9fe1b5" stroke-width="1.2" opacity=".8"/>'
     body += flare(235, 148, 0.6) + flare(645, 155, 0.65)
     save('cosmos-activity.svg', 196, 'GitHub activity', 'GitHub activity, contribution streaks, and contribution graph.', body)
 
