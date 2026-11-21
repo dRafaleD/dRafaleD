@@ -105,8 +105,8 @@ Open a project to explore its source.
 ## Malware analysis lab
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/lab-analysis.png?v=3" />
-  <img src="assets/lab-analysis.gif?v=3" width="100%" alt="Two illustrated demos. Static analysis scans a pixel-art microchip skull for a YARA marker. In the dynamic demo the skull recoils with an exclamation mark on file read and its eyes dim on process exit." />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/malware-chip-skull.png" />
+  <img src="assets/malware-chip-skull.gif" width="100%" alt="Two illustrated demos. Static analysis scans a pixel-art microchip skull for a YARA marker. In the dynamic demo the skull recoils with an exclamation mark on file read and its eyes dim on process exit." />
 </picture>
 
 ## Contact
