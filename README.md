@@ -1,23 +1,20 @@
-<div align="center">
-  <!-- The terminal uses assets/profile-terminal-mask.png, independent of the profile photo. -->
-  <img src="assets/profile-terminal-v2.gif" alt="dRafaleD animated cybersecurity profile terminal" width="100%" />
-  <img src="https://readme-typing-svg.demolab.com?font=Cascadia+Code&weight=600&size=18&duration=3600&pause=1800&color=39FF88&center=true&vCenter=true&width=720&lines=Security+is+not+a+product%2C+it%27s+a+process." alt="Security is not a product, it's a process." />
-</div>
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/profile-observatory.png" />
+  <img src="assets/profile-observatory.gif" alt="Eren Erdoğan (dRafaleD), Eskişehir. I build tools for reading binaries and tracing evidence with Rust, YARA-X and C." width="100%" />
+</picture>
 
-<img src="assets/cosmos-header.svg?v=9" alt="Security, systems and code. Inspecting binaries, network traffic and forensic artifacts. Building local-first tools in Rust and Python." width="100%" />
+[Portfolio](https://drafaled.github.io/) · [Security projects](#selected-projects) · [Technical stack](#technical-stack) · [LinkedIn](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/)
 
-<img src="assets/cosmos-about.svg?v=9" alt="About Eren Erdoğan: backend development student and security developer working on Linux systems, malware triage, digital forensics, OSINT, and secure software engineering." width="100%" />
+## Selected projects
 
-<img src="assets/cosmos-projects.svg?v=9" alt="Selected projects: Banshee, AsphDex, FhniX, The-Trackher, sentinel-security, and flowscope." width="100%" />
-
-<p align="center">
-<a href="https://github.com/dRafaleD/Banshee"><strong>Banshee ↗</strong></a> &nbsp; · &nbsp;
-<a href="https://github.com/dRafaleD/Malware-analysis-AsphDex"><strong>AsphDex ↗</strong></a> &nbsp; · &nbsp;
-<a href="https://github.com/dRafaleD/FhniX"><strong>FhniX ↗</strong></a> &nbsp; · &nbsp;
-<a href="https://github.com/dRafaleD/The-Trackher"><strong>The-Trackher ↗</strong></a> &nbsp; · &nbsp;
-<a href="https://github.com/dRafaleD/sentinel-security"><strong>sentinel-security ↗</strong></a> &nbsp; · &nbsp;
-<a href="https://github.com/dRafaleD/flowscope"><strong>flowscope ↗</strong></a>
-</p>
+| Project | What I use it for |
+| --- | --- |
+| [**AsphDex**](https://github.com/dRafaleD/Malware-analysis-AsphDex) | Inspect PE and ELF files offline using strings, entropy and YARA matches. |
+| [**Banshee**](https://github.com/dRafaleD/Banshee) | Decode artifacts and package findings into an evidence bundle. |
+| [**flowscope**](https://github.com/dRafaleD/flowscope) | Read packet captures and follow DNS, HTTP and TLS activity. |
+| [**sentinel-security**](https://github.com/dRafaleD/sentinel-security) | Reconstruct Linux filesystem timelines from file timestamps. |
+| [**FhniX**](https://github.com/dRafaleD/FhniX) | Triage suspicious email and inspect the reasons behind each finding. |
+| [**The-Trackher**](https://github.com/dRafaleD/The-Trackher) | Review my own accounts for exposed information. |
 
 <details>
 <summary>More repositories & security labs</summary>
@@ -29,19 +26,21 @@
 
 </details>
 
+## Technical stack
+
 <div align="center">
-  <img src="assets/cosmos-arsenal.svg?v=9" alt="Languages and rule engines: Rust, YARA, YARA-X, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
+  <img src="assets/cosmos-arsenal.svg?v=10" alt="Languages and rule engines: Rust, YARA, YARA-X, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
 </div>
 
 <div align="center">
-  <img src="assets/cosmos-toolkit.svg?v=9" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" />
+  <img src="assets/cosmos-toolkit.svg?v=10" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" />
 </div>
 
 <div align="center">
-  <img src="assets/cosmos-focus.svg?v=9" alt="Focus and learning: current focus areas and topics currently being studied across web security, malware analysis, Linux hardening, and secure backend engineering." width="100%" />
+  <img src="assets/cosmos-focus.svg?v=10" alt="Focus and learning: current focus areas and topics currently being studied across web security, malware analysis, Linux hardening, and secure backend engineering." width="100%" />
 </div>
 
-<img src="assets/cosmos-certifications.svg?v=9" alt="Certifications: Siber Vatan; Cisco Introduction to Cybersecurity, Network Defense, and Cyber Threat Management. Original badges and verification links follow." width="100%" />
+<img src="assets/cosmos-certifications.svg?v=10" alt="Certifications: Siber Vatan; Cisco Introduction to Cybersecurity, Network Defense, and Cyber Threat Management. Original badges and verification links follow." width="100%" />
 
 <details>
 <summary>Original credential badges and verification links</summary>
@@ -69,7 +68,7 @@
 
 </details>
 
-<a href="https://hub.xerj.org/contributors/dRafaleD.html"><img src="assets/cosmos-community.svg?v=9" alt="XERJ Corpus Hub: community contributions by dRafaleD. Open the contributor record." width="100%" /></a>
+<a href="https://hub.xerj.org/contributors/dRafaleD.html"><img src="assets/cosmos-community.svg?v=10" alt="XERJ Corpus Hub: community contributions by dRafaleD. Open the contributor record." width="100%" /></a>
 
 <details>
 <summary>Live contributor badge</summary>
@@ -78,13 +77,13 @@
 
 </details>
 
-<img src="assets/cosmos-ethics.svg?v=9" alt="Ethics: white hat security and authorized research only. Test responsibly, report ethically, build securely." width="100%" />
+<img src="assets/cosmos-ethics.svg?v=10" alt="Ethics: white hat security and authorized research only. Test responsibly, report ethically, build securely." width="100%" />
 
-<img src="assets/cosmos-connect.svg?v=9" alt="Connect with Eren Erdoğan on LinkedIn, explore dRafaleD on GitHub, or visit the web portfolio." width="100%" />
+<img src="assets/cosmos-connect.svg?v=10" alt="Connect with Eren Erdoğan on LinkedIn, explore dRafaleD on GitHub, or visit the web portfolio." width="100%" />
 
 <p align="center">
-<a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><img src="assets/cosmos-link-linkedin.svg?v=9" alt="LinkedIn: connect with Eren Erdoğan" width="49%" /></a>
-<a href="https://github.com/dRafaleD?tab=repositories"><img src="assets/cosmos-link-github.svg?v=9" alt="GitHub: explore dRafaleD repositories" width="49%" /></a>
+<a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><img src="assets/cosmos-link-linkedin.svg?v=10" alt="LinkedIn: connect with Eren Erdoğan" width="49%" /></a>
+<a href="https://github.com/dRafaleD?tab=repositories"><img src="assets/cosmos-link-github.svg?v=10" alt="GitHub: explore dRafaleD repositories" width="49%" /></a>
 </p>
 
 <p align="center">
@@ -93,11 +92,11 @@
   <a href="https://hits.sh/github.com/dRafaleD/"><img src="https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=39ff88&labelColor=060b08&extraCount=1260" alt="Profile views" /></a>
 </p>
 
-<img src="assets/cosmos-activity.svg?v=9" alt="GitHub activity: contribution streaks and recent commit activity." width="100%" />
+<img src="assets/cosmos-activity.svg?v=10" alt="GitHub activity: contribution streaks and recent commit activity." width="100%" />
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg?v=9" alt="dRafaleD GitHub contribution streak" width="100%" />
+<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg?v=10" alt="dRafaleD GitHub contribution streak" width="100%" />
 
 <br />
 

@@ -17,12 +17,12 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'assets'
 
-BG = '#040806'
-SURFACE = '#070d09'
-TEXT = '#e8f5ec'
-MUTED = '#8fb39c'
-DIM = '#7ca38b'
-ACCENT = '#39ff88'
+BG = '#08090a'
+SURFACE = '#111215'
+TEXT = '#f2f2f2'
+MUTED = '#b4b6ba'
+DIM = '#a3a3a3'
+ACCENT = '#bef264'
 LIME = '#a3e635'
 
 _IMAGE_CACHE: dict[tuple[str, int, int], str] = {}
@@ -61,7 +61,7 @@ def text(x, y, value, size=18, color=TEXT, mono=False, extra=''):
 def field(width, height, seed, count=110):
     rng = random.Random(seed)
     stars = []
-    palette = ['#d7ffe3', '#96e6b3', '#39ff88', '#b7f34a', '#7da88d']
+    palette = ['#d7ffe3', '#96e6b3', '#bef264', '#b7f34a', '#7da88d']
     for i in range(count):
         x = rng.uniform(8, width - 8)
         y = rng.uniform(8, height - 8)
@@ -87,7 +87,7 @@ def flare(x, y, size=1):
 def galaxy(x, y, scale=1, seed=31, particles=900):
     rng = random.Random(seed)
     dust = []
-    palette = ['#d7ffe3', '#65d993', '#39ff88', '#a3e635', '#9cc9ad']
+    palette = ['#d7ffe3', '#65d993', '#bef264', '#a3e635', '#9cc9ad']
     for i in range(particles):
         reach = rng.random() ** 0.72
         angle = (i % 4) * math.tau / 4 + reach * 6.5 + rng.gauss(0, 0.16 + 0.12 * (1 - reach))
@@ -128,9 +128,9 @@ def planet(x, y, radius):
     return (
         f'<g transform="translate({x} {y})">'
         f'<circle class="breathe" r="{radius + 26}" fill="url(#nebula)"/>'
-        f'<circle r="{radius}" fill="url(#planet)" stroke="#39ff88" stroke-opacity=".28" stroke-width=".9"/>'
+        f'<circle r="{radius}" fill="url(#planet)" stroke="#bef264" stroke-opacity=".28" stroke-width=".9"/>'
         f'<ellipse rx="{radius * 1.48:.1f}" ry="{radius * 0.3:.1f}" fill="none" stroke="#a3e635" stroke-opacity=".24" stroke-width="1" transform="rotate(-16)"/>'
-        f'<ellipse rx="{radius * 1.65:.1f}" ry="{radius * 0.34:.1f}" fill="none" stroke="#39ff88" stroke-opacity=".13" stroke-width=".7" stroke-dasharray="4 7" transform="rotate(-16)"/>'
+        f'<ellipse rx="{radius * 1.65:.1f}" ry="{radius * 0.34:.1f}" fill="none" stroke="#bef264" stroke-opacity=".13" stroke-width=".7" stroke-dasharray="4 7" transform="rotate(-16)"/>'
         '</g>'
     )
 
@@ -164,16 +164,16 @@ STYLE = '''
 '''
 
 DEFS = '''<defs>
-<radialGradient id="nebula"><stop stop-color="#39ff88" stop-opacity=".22"/><stop offset=".45" stop-color="#14663d" stop-opacity=".14"/><stop offset="1" stop-color="#040806" stop-opacity="0"/></radialGradient>
-<radialGradient id="nebulaLime"><stop stop-color="#a3e635" stop-opacity=".16"/><stop offset=".48" stop-color="#14532d" stop-opacity=".12"/><stop offset="1" stop-color="#040806" stop-opacity="0"/></radialGradient>
-<radialGradient id="core"><stop stop-color="#efffda" stop-opacity=".95"/><stop offset=".15" stop-color="#c6f5c5" stop-opacity=".7"/><stop offset=".45" stop-color="#39ff88" stop-opacity=".18"/><stop offset="1" stop-color="#39ff88" stop-opacity="0"/></radialGradient>
-<radialGradient id="starGlow"><stop stop-color="#dfffea" stop-opacity=".85"/><stop offset=".18" stop-color="#39ff88" stop-opacity=".45"/><stop offset="1" stop-color="#39ff88" stop-opacity="0"/></radialGradient>
-<linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#040806"/><stop offset=".6" stop-color="#060c09"/><stop offset="1" stop-color="#040806"/></linearGradient>
+<radialGradient id="nebula"><stop stop-color="#bef264" stop-opacity=".22"/><stop offset=".45" stop-color="#14663d" stop-opacity=".14"/><stop offset="1" stop-color="#08090a" stop-opacity="0"/></radialGradient>
+<radialGradient id="nebulaLime"><stop stop-color="#a3e635" stop-opacity=".16"/><stop offset=".48" stop-color="#14532d" stop-opacity=".12"/><stop offset="1" stop-color="#08090a" stop-opacity="0"/></radialGradient>
+<radialGradient id="core"><stop stop-color="#efffda" stop-opacity=".95"/><stop offset=".15" stop-color="#c6f5c5" stop-opacity=".7"/><stop offset=".45" stop-color="#bef264" stop-opacity=".18"/><stop offset="1" stop-color="#bef264" stop-opacity="0"/></radialGradient>
+<radialGradient id="starGlow"><stop stop-color="#dfffea" stop-opacity=".85"/><stop offset=".18" stop-color="#bef264" stop-opacity=".45"/><stop offset="1" stop-color="#bef264" stop-opacity="0"/></radialGradient>
+<linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#08090a"/><stop offset=".6" stop-color="#060c09"/><stop offset="1" stop-color="#08090a"/></linearGradient>
 <linearGradient id="panel" x2="1" y2="1"><stop stop-color="#0b1510" stop-opacity=".92"/><stop offset="1" stop-color="#050a07" stop-opacity=".84"/></linearGradient>
-<linearGradient id="edge"><stop stop-color="#39ff88" stop-opacity=".6"/><stop offset=".55" stop-color="#a3e635" stop-opacity=".28"/><stop offset="1" stop-color="#39ff88" stop-opacity="0"/></linearGradient>
-<linearGradient id="veil"><stop stop-color="#040806"/><stop offset=".46" stop-color="#040806" stop-opacity=".88"/><stop offset=".78" stop-color="#040806" stop-opacity=".24"/><stop offset="1" stop-color="#040806" stop-opacity=".08"/></linearGradient>
-<linearGradient id="veilStrong"><stop stop-color="#040806" stop-opacity=".95"/><stop offset=".55" stop-color="#040806" stop-opacity=".82"/><stop offset="1" stop-color="#040806" stop-opacity=".5"/></linearGradient>
-<linearGradient id="meteor"><stop stop-color="#39ff88" stop-opacity="0"/><stop offset="1" stop-color="#e4ffec" stop-opacity=".92"/></linearGradient>
+<linearGradient id="edge"><stop stop-color="#bef264" stop-opacity=".6"/><stop offset=".55" stop-color="#a3e635" stop-opacity=".28"/><stop offset="1" stop-color="#bef264" stop-opacity="0"/></linearGradient>
+<linearGradient id="veil"><stop stop-color="#08090a"/><stop offset=".46" stop-color="#08090a" stop-opacity=".88"/><stop offset=".78" stop-color="#08090a" stop-opacity=".24"/><stop offset="1" stop-color="#08090a" stop-opacity=".08"/></linearGradient>
+<linearGradient id="veilStrong"><stop stop-color="#08090a" stop-opacity=".95"/><stop offset=".55" stop-color="#08090a" stop-opacity=".82"/><stop offset="1" stop-color="#08090a" stop-opacity=".5"/></linearGradient>
+<linearGradient id="meteor"><stop stop-color="#bef264" stop-opacity="0"/><stop offset="1" stop-color="#e4ffec" stop-opacity=".92"/></linearGradient>
 <radialGradient id="planet" cx="26%" cy="18%" r="86%"><stop stop-color="#5d8a6a"/><stop offset=".26" stop-color="#173d2b"/><stop offset=".64" stop-color="#071a11"/><stop offset="1" stop-color="#010503"/></radialGradient>
 </defs>'''
 
@@ -216,7 +216,7 @@ def save(name, height, title, description, body, output_dir=ASSETS):
             '<g class="meteor second"><path d="M0 120L70 136" stroke="url(#meteor)" stroke-width="1"/></g>'
         )
 
-    outer_border = f'<rect x=".5" y=".5" width="999" height="{height - 1}" rx="12" fill="none" stroke="#183d27" stroke-width="1"/>'
+    outer_border = f'<rect x=".5" y=".5" width="999" height="{height - 1}" rx="12" fill="none" stroke="#2b2e31" stroke-width="1"/>'
     svg = (
         f'<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="{height}" viewBox="0 0 1000 {height}" '
         f'role="img" aria-labelledby="title desc">'
@@ -233,7 +233,7 @@ def terminal_chrome(prompt, sector_tag, y=28):
     dots = (
         f'<circle cx="38" cy="{y - 4}" r="3.6" fill="#2c593e"/>'
         f'<circle cx="52" cy="{y - 4}" r="3.6" fill="#214630"/>'
-        f'<circle cx="66" cy="{y - 4}" r="3.6" fill="#39ff88" opacity=".65"/>'
+        f'<circle cx="66" cy="{y - 4}" r="3.6" fill="#bef264" opacity=".65"/>'
     )
     return (
         dots
@@ -255,37 +255,27 @@ def heading(index, command, title, detail, sector_tag=None):
 def panel(x, y, width, height):
     return (
         f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="10" fill="url(#panel)" '
-        f'stroke="#1c402b" stroke-opacity=".85" stroke-width=".9"/>'
+        f'stroke="#393d40" stroke-opacity=".85" stroke-width=".9"/>'
         f'<path d="M{x + 14} {y + .5}H{x + width - 14}" stroke="url(#edge)" stroke-width=".9"/>'
     )
 
 
 def hero():
-    body = f'<rect width="1000" height="420" fill="url(#veil)"/>'
-    body += '<rect width="1000" height="52" fill="#040806" opacity=".62"/>'
-    body += terminal_chrome('dRafaleD@github:~$ ./profile --status', 'ESKİŞEHİR, TR // ONLINE', 32)
-    body += '<path d="M34 49H966" stroke="url(#edge)" stroke-width=".7" opacity=".75"/>'
-    body += text(34, 124, 'Security, systems & code.', 42, TEXT)
-    body += text(36, 170, 'Inspecting binaries, network traffic & forensic artifacts.', 20, TEXT)
-    body += text(36, 204, 'Building local-first tools in Rust and Python.', 19, MUTED)
-    body += text(36, 256, 'Backend development student focused on Linux systems,', 16.5, MUTED)
-    body += text(36, 282, 'malware triage, digital forensics, and defensive engineering.', 16.5, MUTED)
-    body += '<path class="stream" d="M36 322H440" stroke="#39ff88" stroke-opacity=".55" stroke-width="1"/>'
-    body += text(36, 360, '> ANALYZE  /  BUILD  /  SECURE', 11.5, ACCENT, True)
-    body += '<rect class="cursor" x="275" y="349" width="7" height="13" rx="1" fill="#39ff88"/>'
-    body += text(964, 388, 'LOCAL-FIRST · OPEN-SOURCE', 10, MUTED, True, 'text-anchor="end"')
-    save(
-        'cosmos-header.svg',
-        420,
-        'dRafaleD profile overview',
-        'Security, systems and code. Inspecting binaries, network traffic and forensic artifacts. Building local-first tools in Rust and Python.',
-        body,
-    )
+    body = '<rect width="1000" height="398" fill="url(#veil)"/>'
+    body += text(48, 53, 'dRafaleD@linux ~ $ whoami', 16, ACCENT, True)
+    body += text(44, 155, 'Eren', 90, TEXT, extra='font-weight="700" letter-spacing="-4"')
+    body += text(44, 243, 'Erdoğan.', 90, TEXT, extra='font-weight="700" letter-spacing="-4"')
+    body += text(49, 289, 'I build tools for reading binaries and tracing evidence.', 19, TEXT)
+    body += '<path d="M48 324H950" stroke="url(#edge)"/>'
+    body += text(49, 361, 'Rust  /  YARA-X  /  C', 15, ACCENT, True)
+    body += text(950, 361, 'Eskişehir, TR', 15, TEXT, True, 'text-anchor="end"')
+    save('cosmos-header.svg', 398, 'Eren Erdoğan · dRafaleD',
+         'Local-first security tools, binary analysis and detection engineering.', body)
 
 
 def about():
     body = '<rect width="1000" height="368" fill="url(#veil)"/>'
-    body += '<rect width="1000" height="48" fill="#040806" opacity=".48"/>'
+    body += '<rect width="1000" height="48" fill="#08090a" opacity=".48"/>'
     body += heading('00', 'cat about.md', 'About me.', 'Eren Erdoğan · Backend development student & security developer', 'PROFILE')
     lines = [
         'I study backend development and work on cybersecurity, Linux systems,',
@@ -296,7 +286,7 @@ def about():
     ]
     for i, line in enumerate(lines):
         body += text(36, 158 + i * 30, line, 16.5, MUTED)
-    body += '<path class="stream" d="M36 308H520" stroke="#39ff88" stroke-opacity=".35"/>'
+    body += '<path class="stream" d="M36 308H520" stroke="#bef264" stroke-opacity=".35"/>'
     body += text(36, 340, '> CURIOUS BY NATURE · PRACTICAL BY DESIGN', 10.5, ACCENT, True)
     save('cosmos-about.svg', 368, 'About Eren Erdoğan', ' '.join(lines), body)
 
@@ -345,7 +335,7 @@ def projects():
         body += text(x + 22, y + 71, name, 27, TEXT)
         body += text(x + 22, y + 106, subtitle, 15.5, TEXT)
         body += text(x + 22, y + 136, detail, 13.5, MUTED)
-        body += f'<path class="stream" d="M{x + 22} {y + 160}h195" stroke="#39ff88" opacity=".4"/>'
+        body += f'<path class="stream" d="M{x + 22} {y + 160}h195" stroke="#bef264" opacity=".4"/>'
 
     body += text(34, 804, '> OPEN-SOURCE SECURITY TOOLS', 10.5, MUTED, True)
     body += text(966, 804, 'STATUS: MAINTAINED', 10, ACCENT, True, 'text-anchor="end"')
@@ -362,7 +352,7 @@ def chips(x, y, width, names, highlights=()):
             y += 40
         active = name in highlights
         fill = '#10291b' if active else '#060c08'
-        stroke = '#39ff88' if active else '#234230'
+        stroke = '#bef264' if active else '#234230'
         color = ACCENT if active else '#bfd6c7'
         body += f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="29" rx="5" fill="{fill}" stroke="{stroke}" stroke-width=".8"/>'
         body += text(round(x + 13, 1), y + 20, name, 13, color, True)
@@ -382,7 +372,7 @@ def arsenal():
     for i, (label, names) in enumerate(rows):
         y = 164 + i * 47
         body += text(55, y + 20, label, 11, LIME, True)
-        body += chips(180, y, 760, names, ['Rust', 'YARA', 'YARA-X', 'C', 'Python'])[0]
+        body += chips(180, y, 760, names, ['Rust', 'YARA', 'YARA-X', 'C'])[0]
     body += '<path d="M55 352C240 325 420 379 595 352S805 334 945 351" fill="none" stroke="#225737" opacity=".75"/><path class="link-flow" d="M55 352C240 325 420 379 595 352S805 334 945 351" fill="none" stroke="#83efac" opacity=".8"/>'
     body += flare(181, 344, 0.5) + flare(595, 352, 0.55) + flare(866, 342, 0.5)
     save('cosmos-arsenal.svg', 385, 'Languages, rule engines and platforms', '; '.join(a + ': ' + ', '.join(b) for a, b in rows), body)
@@ -492,7 +482,7 @@ def toolkit():
 
     footer_y = row3_y + row3_h + 34
     body += text(34, footer_y, '> 58 TOOLS ACROSS 5 CATEGORIES', 10.5, MUTED, True)
-    body += '<rect x="738" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#10291b" stroke="#39ff88" stroke-width=".9"/>'
+    body += '<rect x="738" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#10291b" stroke="#bef264" stroke-width=".9"/>'
     body += text(755, footer_y, 'PRIMARY', 10, ACCENT, True)
     body += '<rect x="838" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#060c08" stroke="#234230" stroke-width=".9"/>'
     body += text(855, footer_y, 'REFERENCE', 10, MUTED, True)
@@ -526,7 +516,7 @@ def focus():
         body += cluster(x + 412, 174, 41 + idx)
         body += text(x + 22, 176, label, 11, LIME if idx else ACCENT, True)
         for i, value in enumerate(lines):
-            body += f'<circle cx="{x + 24}" cy="{208 + i * 28}" r="1.8" fill="#39ff88"/>'
+            body += f'<circle cx="{x + 24}" cy="{208 + i * 28}" r="1.8" fill="#bef264"/>'
             body += text(x + 38, 213 + i * 28, value, 15.5, MUTED)
     body += '<path d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#225737" stroke-width="1"/><path class="link-flow" d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#a4efbd" stroke-width="1.3"/>'
     body += flare(129, 426, 0.65) + flare(501, 438, 0.75) + flare(882, 420, 0.55)
@@ -597,14 +587,14 @@ def connect():
         cbody += (
             '<circle cx="26" cy="24" r="3.2" fill="#2c593e"/>'
             '<circle cx="38" cy="24" r="3.2" fill="#214630"/>'
-            '<circle cx="50" cy="24" r="3.2" fill="#39ff88" opacity=".65"/>'
+            '<circle cx="50" cy="24" r="3.2" fill="#bef264" opacity=".65"/>'
         )
         cbody += text(64, 28, f'> open {name}', 11, ACCENT, True)
         cbody += text(w - 22, 28, f'{label.upper()}', 10, DIM, True, 'text-anchor="end"')
         cbody += text(24, 78, detail, 22, TEXT)
         cbody += text(24, 106, sub, 12.5, MUTED, True)
         cbody += text(24, 138, f'> OPEN {label.upper()}  →', 10.5, ACCENT, True)
-        cbody += f'<rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="12" fill="none" stroke="#183d27" stroke-width="1"/>'
+        cbody += f'<rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="12" fill="none" stroke="#2b2e31" stroke-width="1"/>'
         csvg = (
             f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
             f'role="img" aria-labelledby="title desc">'
