@@ -20,50 +20,37 @@ def label(draw, xy, value, size, color, bold=False, mono=False):
     draw.text(xy, value, font=font(size, bold, mono), fill=color, anchor='lt')
 
 
-def specimen(phase, reaction='idle'):
-    """Front-facing armored beetle with hooked limbs and articulated mandibles."""
+def specimen(reaction='idle'):
+    """Pixel executable mascot with an expressive bug emblem on its cover."""
     sprite = Image.new('RGBA', (96,68))
     d = ImageDraw.Draw(sprite)
-    alert = reaction == 'alert'
-    dark, shell, ridge = '#283723', '#526749', '#a0b78c'
-    eye = '#53624c' if reaction == 'offline' else LIME
-    twitch = 0 if reaction == 'offline' else round(2 * math.sin(phase * 3))
-    for side in (-1, 1):
-        def mirror(points):
-            return [(48 + side * x, y) for x, y in points]
-
-        for joint, knee, ankle, tip in [
-            ((11,19),(25,9),(33,15),(39,12)),
-            ((13,29),(31,21),(37,31),(44,32)),
-            ((12,38),(27,37),(36,51),(42,48)),
-        ]:
-            leg = mirror([joint, knee, ankle, (tip[0], tip[1]+twitch)])
-            d.line(leg, fill=shell, width=3)
-            d.line(leg[:2], fill=ridge)
-            d.point(leg[2], fill=LIME)
-        d.polygon(mirror([(1,33),(1,8),(5,4),(12,11),(15,20),(13,32),(8,38)]),
-                  fill=shell, outline=dark)
-        d.line(mirror([(3,25),(4,11),(6,8),(11,14)]),fill=ridge)
-        for y in (14,19,24):
-            d.line(mirror([(6,y),(10,y+3)]),fill='#30402c')
-        d.line(mirror([(9,38),(20,24),(26,18+twitch),(29,9+twitch)]),fill=PHOSPHOR)
-    d.polygon([(34,32),(40,26),(56,26),(62,32),(64,42),(58,51),
-               (51,55),(45,55),(38,51),(32,42)],fill=dark,outline=ridge)
-    for side in (-1, 1):
-        def face(points):
-            return [(48+side*x,y) for x,y in points]
-
-        d.polygon(face([(2,37),(14,32),(14,41),(8,46),(2,44)]),fill=INK)
-        if alert:
-            d.polygon(face([(3,42),(13,35),(12,40),(5,45)]),fill=eye)
-            d.line(face([(2,39),(12,32),(15,32)]),fill=ridge,width=2)
+    page = [(23,3),(60,3),(75,18),(75,61),(72,64),(23,64),(20,61),(20,6)]
+    d.polygon([(x+3,y+2) for x,y in page],fill='#24301d')
+    d.polygon(page,fill='#192515',outline='#91ab7c')
+    d.line([(23,58),(23,7),(26,6),(58,6)],fill='#43563b')
+    d.polygon([(60,4),(74,18),(60,18)],fill='#526843',outline=PHOSPHOR)
+    d.line([(61,20),(72,20)],fill=INK)
+    # Short circuit-like legs keep the bug inside the file silhouette.
+    for sign in (-1,1):
+        for y,offset in ((24,-3),(31,0),(37,3)):
+            d.line([(47+sign*10,y),(47+sign*15,y),(47+sign*18,y+offset)],
+                   fill='#96ba7f',width=2)
+        d.line([(47+sign*5,20),(47+sign*9,15),(47+sign*11,15)],fill=LIME)
+    d.polygon([(36,22),(41,18),(53,18),(58,22),(58,36),(52,42),
+               (42,42),(36,36)],fill='#080e07',outline='#749d59')
+    d.line([(43,39),(47,40),(51,39)],fill='#4e7240')
+    glow = '#506246' if reaction=='offline' else '#b6ff75'
+    for sign in (-1,1):
+        if reaction=='alert':
+            eye = [(2,31),(9,26),(9,30),(4,33),(2,33)]
+            d.line([(47+sign*2,28),(47+sign*9,23)],fill='#8cb072',width=2)
         else:
-            d.polygon(face([(4,37),(11,35),(12,39),(9,43),(4,43)]),fill=eye)
-            d.line(face([(8,37),(8,41)]),fill=dark)
-        spread = 4 if alert else 0
-        d.polygon(face([(8,47),(12,49),(12+spread,56),(8+spread,63),(4,65),
-                        (8+spread,57),(6,52)]),fill=shell,outline=ridge)
-    d.line([(45,49),(48,47),(51,49)],fill=INK,width=2)
+            eye = [(2,26),(8,25),(9,28),(8,32),(3,32),(2,31)]
+        d.polygon([(47+sign*x,y) for x,y in eye],fill=glow)
+        if reaction=='idle':
+            d.line([(47+sign*5,27),(47+sign*5,30)],fill=INK)
+    d.polygon([(17,45),(65,45),(69,49),(69,60),(17,60)],fill=LIME)
+    label(d,(24,47),'.EXE',14,INK,True,True)
     return sprite.resize((192,136),Image.Resampling.NEAREST)
 
 
@@ -80,7 +67,7 @@ def analysis_demos():
             label(d,(left+22,18),title,27,WHITE,True)
             label(d,(left+413,24),'DEMO',16,PHOSPHOR,True,True)
             d.line((left+1,61,left+490,61),fill=LINE)
-        sample = specimen(0)
+        sample = specimen()
         im.paste(sample,(sprite_x,sprite_y),sample)
         y = 83 + round(105*(1-math.cos(phase))/2)
         d.line((22,y,216,y),fill='#689581')
@@ -92,7 +79,7 @@ def analysis_demos():
 
         stage = min(i//12,2)
         reaction = ('idle','alert','offline')[stage]
-        sample = specimen(phase,reaction)
+        sample = specimen(reaction)
         recoil = {12:-6,13:-4,14:-2}.get(i,0)
         im.paste(sample,(right+sprite_x+recoil,sprite_y+recoil),sample)
         if stage == 1:
@@ -110,8 +97,8 @@ def analysis_demos():
         label(d,(530,216),'Synthetic event trace',20,PHOSPHOR,False,True)
         label(d,(530,254),('PID 104  /  started','PID 104  /  read 64 B','PID 104  /  exited')[stage],20,LIME,True,True)
         frames.append(im)
-    frames[18].save(ASSETS/'lab-beetle-pair.png')
-    frames[0].save(ASSETS/'lab-beetle-pair.gif',save_all=True,append_images=frames[1:],duration=150,loop=0)
+    frames[18].save(ASSETS/'exe-mascot-pair.png')
+    frames[0].save(ASSETS/'exe-mascot-pair.gif',save_all=True,append_images=frames[1:],duration=150,loop=0)
 
 
 def hero():
