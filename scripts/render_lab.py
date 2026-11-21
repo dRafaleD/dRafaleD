@@ -4,7 +4,7 @@ import math
 from PIL import Image, ImageDraw, ImageFont
 
 ASSETS = Path(__file__).resolve().parents[1] / 'assets'
-INK, LINE, LIME, PHOSPHOR, WHITE = '#030503', '#263522', '#82ed30', '#a8cf98', '#edf1e9'
+INK, LINE, LIME, PHOSPHOR, WHITE = '#000000', '#263522', '#82ed30', '#a8cf98', '#edf1e9'
 def font(size, bold=False, mono=False):
     names = ('consolab.ttf' if bold else 'consola.ttf', 'DejaVuSansMono.ttf') if mono else (
         'segoeuib.ttf' if bold else 'segoeui.ttf', 'DejaVuSans-Bold.ttf' if bold else 'DejaVuSans.ttf')
@@ -39,7 +39,7 @@ def specimen(reaction='idle'):
     d.polygon([(36,22),(41,18),(53,18),(58,22),(58,36),(52,42),
                (42,42),(36,36)],fill='#080e07',outline='#749d59')
     d.line([(43,39),(47,40),(51,39)],fill='#4e7240')
-    glow = '#506246' if reaction=='offline' else '#b6ff75'
+    glow = '#506246' if reaction=='offline' else '#82ed30'
     for sign in (-1,1):
         if reaction=='alert':
             eye = [(2,31),(9,26),(9,30),(4,33),(2,33)]
@@ -65,7 +65,7 @@ def analysis_demos():
         im = Image.new('RGB', (1000,height), INK)
         d = ImageDraw.Draw(im)
         for left, title in [(0,'Static analysis'),(508,'Dynamic analysis')]:
-            d.rounded_rectangle((left,0,left+491,height-1),radius=7,fill='#0a0e09',outline=LINE)
+            d.rounded_rectangle((left,0,left+491,height-1),radius=7,fill='#000000',outline=LINE)
             label(d,(left+22,18),title,31,WHITE,True)
             label(d,(left+413,24),'DEMO',18,PHOSPHOR,True,True)
             d.line((left+1,61,left+490,61),fill=LINE)
@@ -94,8 +94,8 @@ def analysis_demos():
             row = 99+j*38
             if j<2:
                 d.line((739,row+5,739,row+38),fill=LINE,width=2)
-            d.ellipse((734,row-4,744,row+6),fill=LIME if j==stage else '#586674')
-            label(d,(754,row-7),event,23,WHITE if j<=stage else '#86909a',False,True)
+            d.ellipse((734,row-4,744,row+6),fill=LIME if j==stage else '#506246')
+            label(d,(754,row-7),event,23,WHITE if j<=stage else '#a7ada2',False,True)
         label(d,(530,225),'Synthetic event trace',23,PHOSPHOR,False,True)
         label(d,(530,273),('PID 104  /  started','PID 104  /  read 64 B','PID 104  /  exited')[stage],23,LIME,True,True)
         frames.append(im)
@@ -162,12 +162,12 @@ ICONS = {
 
 def cards():
     for slug,name,category,detail,mark,accent in PROJECTS:
-        im = Image.new('RGB', (560,145), '#0a0e09')
+        im = Image.new('RGB', (560,145), '#000000')
         d = ImageDraw.Draw(im)
         d.rounded_rectangle((0,0,559,144),radius=6,outline=LINE)
         label(d,(23,18),category,16,PHOSPHOR,True,True)
         label(d,(22,45),name,35,WHITE,True)
-        label(d,(23,104),detail,19,'#bdc8b7')
+        label(d,(23,104),detail,19,'#edf1e9')
         for y,row in enumerate(ICONS[slug]):
             for x,bit in enumerate(row):
                 if bit == '1':
@@ -191,7 +191,7 @@ def cards():
         import textwrap
         mobile_frames = []
         for frame in frames:
-            mobile = Image.new('RGB',(352,146),'#0a0e09')
+            mobile = Image.new('RGB',(352,146),'#000000')
             pen = ImageDraw.Draw(mobile)
             pen.rectangle((0,0,351,145),outline=LINE)
             label(pen,(12,12),category,16,PHOSPHOR,True,True)
@@ -241,7 +241,7 @@ def yara_trace():
             for j,value in enumerate(('00','4D','5A','00','4C','41','42','00')):
                 x=13+j*((width-24)//8)
                 active=4<=j<=6 if i>=20 else j==i//3
-                d.rectangle((x,58,x+(width-24)//8-5,97),fill=LIME if active else '#20301a')
+                d.rectangle((x,58,x+(width-24)//8-5,97),fill=LIME if active else '#121c0e')
                 label(d,(x+5,67),value,20,INK if active else WHITE,True,True)
             label(d,(14,120),'MATCH: LAB' if i>=20 else 'Scanning for LAB',22,LIME,True,True)
             frames.append(im)

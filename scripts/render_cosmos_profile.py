@@ -16,11 +16,11 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'assets'
 
-BG = '#030503'
-SURFACE = '#0a0e09'
+BG = '#000000'
+SURFACE = '#000000'
 TEXT = '#edf1e9'
-MUTED = '#adb2ba'
-DIM = '#a3a9b3'
+MUTED = '#c5c8c0'
+DIM = '#a7ada2'
 ACCENT = '#a8cf98'
 LIME = '#82ed30'
 
@@ -170,15 +170,15 @@ STYLE = '''
 '''
 
 DEFS = '''<defs>
-<radialGradient id="nebula"><stop stop-color="#a8cf98" stop-opacity=".22"/><stop offset=".45" stop-color="#4a7fa8" stop-opacity=".14"/><stop offset="1" stop-color="#030503" stop-opacity="0"/></radialGradient>
-<radialGradient id="nebulaLime"><stop stop-color="#82ed30" stop-opacity=".16"/><stop offset=".48" stop-color="#333d4c" stop-opacity=".12"/><stop offset="1" stop-color="#030503" stop-opacity="0"/></radialGradient>
+<radialGradient id="nebula"><stop stop-color="#a8cf98" stop-opacity=".22"/><stop offset=".45" stop-color="#4a7fa8" stop-opacity=".14"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
+<radialGradient id="nebulaLime"><stop stop-color="#82ed30" stop-opacity=".16"/><stop offset=".48" stop-color="#333d4c" stop-opacity=".12"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
 <radialGradient id="core"><stop stop-color="#efffda" stop-opacity=".95"/><stop offset=".15" stop-color="#c6f5c5" stop-opacity=".7"/><stop offset=".45" stop-color="#a8cf98" stop-opacity=".18"/><stop offset="1" stop-color="#a8cf98" stop-opacity="0"/></radialGradient>
 <radialGradient id="starGlow"><stop stop-color="#dfffea" stop-opacity=".85"/><stop offset=".18" stop-color="#a8cf98" stop-opacity=".45"/><stop offset="1" stop-color="#a8cf98" stop-opacity="0"/></radialGradient>
-<linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#030503"/><stop offset=".6" stop-color="#0a0e09"/><stop offset="1" stop-color="#030503"/></linearGradient>
-<linearGradient id="panel" x2="1" y2="1"><stop stop-color="#1b1e23" stop-opacity=".92"/><stop offset="1" stop-color="#0a0e09" stop-opacity=".84"/></linearGradient>
+<linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#000000"/><stop offset=".6" stop-color="#000000"/><stop offset="1" stop-color="#000000"/></linearGradient>
+<linearGradient id="panel" x2="1" y2="1"><stop stop-color="#1b1e23" stop-opacity=".92"/><stop offset="1" stop-color="#000000" stop-opacity=".84"/></linearGradient>
 <linearGradient id="edge"><stop stop-color="#a8cf98" stop-opacity=".6"/><stop offset=".55" stop-color="#82ed30" stop-opacity=".28"/><stop offset="1" stop-color="#a8cf98" stop-opacity="0"/></linearGradient>
-<linearGradient id="veil"><stop stop-color="#030503"/><stop offset=".46" stop-color="#030503" stop-opacity=".88"/><stop offset=".78" stop-color="#030503" stop-opacity=".24"/><stop offset="1" stop-color="#030503" stop-opacity=".08"/></linearGradient>
-<linearGradient id="veilStrong"><stop stop-color="#030503" stop-opacity=".95"/><stop offset=".55" stop-color="#030503" stop-opacity=".82"/><stop offset="1" stop-color="#030503" stop-opacity=".5"/></linearGradient>
+<linearGradient id="veil"><stop stop-color="#000000"/><stop offset=".46" stop-color="#000000" stop-opacity=".88"/><stop offset=".78" stop-color="#000000" stop-opacity=".24"/><stop offset="1" stop-color="#000000" stop-opacity=".08"/></linearGradient>
+<linearGradient id="veilStrong"><stop stop-color="#000000" stop-opacity=".95"/><stop offset=".55" stop-color="#000000" stop-opacity=".82"/><stop offset="1" stop-color="#000000" stop-opacity=".5"/></linearGradient>
 <linearGradient id="meteor"><stop stop-color="#a8cf98" stop-opacity="0"/><stop offset="1" stop-color="#e4ffec" stop-opacity=".92"/></linearGradient>
 <radialGradient id="planet" cx="26%" cy="18%" r="86%"><stop stop-color="#5d8a6a"/><stop offset=".26" stop-color="#173d2b"/><stop offset=".64" stop-color="#071a11"/><stop offset="1" stop-color="#010503"/></radialGradient>
 </defs>'''
@@ -223,7 +223,7 @@ def heading(index, command, title, detail, sector_tag=None):
 
 def panel(x, y, width, height):
     return (
-        f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="6" fill="#0a0e09" '
+        f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="6" fill="#000000" '
         f'stroke="#263522" stroke-opacity=".85" stroke-width=".9"/>'
         f'<path d="M{x + 14} {y + .5}H{x + width - 14}" stroke="url(#edge)" stroke-width=".9"/>'
     )
@@ -244,7 +244,7 @@ def hero():
 
 def about():
     body = '<rect width="1000" height="368" fill="url(#veil)"/>'
-    body += '<rect width="1000" height="48" fill="#030503" opacity=".48"/>'
+    body += '<rect width="1000" height="48" fill="#000000" opacity=".48"/>'
     body += heading('00', 'cat about.md', 'About me.', 'Eren Erdoğan · Backend development student & security developer', 'PROFILE')
     lines = [
         'I study backend development and work on cybersecurity, Linux systems,',
@@ -318,9 +318,9 @@ def chips(x, y, width, names, highlights=()):
             x = start
             y += 40
         active = name in highlights
-        fill = '#1a2a22' if active else '#0a0e09'
+        fill = '#121c0e' if active else '#000000'
         stroke = '#a8cf98' if active else '#263522'
-        color = LIME if active else '#bdc8b7'
+        color = LIME if active else '#edf1e9'
         body += f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="29" rx="5" fill="{fill}" stroke="{stroke}" stroke-width=".8"/>'
         body += text(round(x + 13, 1), y + 20, name, 14.5, color, True)
         x += w + 8
@@ -451,7 +451,7 @@ def toolkit():
         # Left glowing domain accent bar
         inner += f'<rect x="{x}" y="{y + 24}" width="3" height="34" rx="1.5" fill="{accent_col}" opacity=".9"/>'
         # Icon badge
-        inner += f'<rect x="{x + 22}" y="{y + 20}" width="40" height="40" rx="10" fill="#20301a" stroke="#263522" stroke-width=".9"/>'
+        inner += f'<rect x="{x + 22}" y="{y + 20}" width="40" height="40" rx="10" fill="#121c0e" stroke="#263522" stroke-width=".9"/>'
         inner += pixel_icon(x+30, y+28, icon_rows, accent_col)
         inner += text(x + 74, y + 37, title, 20, TEXT)
         inner += text(x + 74, y + 56, f'{len(tools):02d} TOOLS  ·  {path_label}', 10.5, accent_col, True)
@@ -459,7 +459,7 @@ def toolkit():
 
         # Animated scanner line
         line_w = w - 44
-        inner += f'<path d="M{x + 22} {y + 98}H{x + w - 22}" stroke="#272a30" stroke-width=".9"/>'
+        inner += f'<path d="M{x + 22} {y + 98}H{x + w - 22}" stroke="#263522" stroke-width=".9"/>'
         inner += (
             f'<g class="scan" style="animation-delay:-{idx * 1.8:.1f}s;--end:{line_w - 22}px">'
             f'<rect x="{x + 22}" y="{y + 97}" width="20" height="2" rx="1" fill="{accent_col}" opacity=".35"/>'
@@ -487,9 +487,9 @@ def toolkit():
     body += render_domain_card(4, 34, row3_y, 932, row3_h, *categories[4])
 
     footer_y = row3_y + row3_h + 34
-    body += '<rect x="738" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#1a2a22" stroke="#a8cf98" stroke-width=".9"/>'
+    body += '<rect x="738" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#121c0e" stroke="#a8cf98" stroke-width=".9"/>'
     body += text(755, footer_y, 'PRIMARY', 10, ACCENT, True)
-    body += '<rect x="838" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#0a0e09" stroke="#263522" stroke-width=".9"/>'
+    body += '<rect x="838" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#000000" stroke="#263522" stroke-width=".9"/>'
     body += text(855, footer_y, 'REFERENCE', 10, MUTED, True)
 
     total_h = footer_y + 26
@@ -613,11 +613,11 @@ def connect():
             svg = (
                 f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} 96">'
                 f'<title>{title} — {action}</title>'
-                f'<rect x="1" y="1" width="{width-2}" height="94" rx="6" fill="#080c07" stroke="#374a2e"/>'
+                f'<rect x="1" y="1" width="{width-2}" height="94" rx="6" fill="#000000" stroke="#374a2e"/>'
                 '<rect x="15" y="23" width="50" height="50" rx="3" fill="#192711"/>'
                 f'<text x="40" y="56" text-anchor="middle" fill="#82ed30" font-family="monospace" font-weight="bold" font-size="24">{escape(icon)}</text>'
                 f'<text x="82" y="43" font-family="monospace" font-weight="bold" font-size="30" fill="#edf1e9">{title}</text>'
-                f'<text x="82" y="72" font-family="Arial,sans-serif" font-size="21" fill="#c5d0bd">{action}</text>'
+                f'<text x="82" y="72" font-family="Arial,sans-serif" font-size="21" fill="#edf1e9">{action}</text>'
                 f'<path d="M{width-49} 58l19-19m-17 0h17v17" fill="none" stroke="#82ed30" stroke-width="4"/>'
                 '</svg>'
             )

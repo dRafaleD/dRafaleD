@@ -46,11 +46,11 @@ STATS = fetch_stats()
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 
 W, H = 920, 900
-BG = "#030503"
-HEADER = "#0a0e09"
+BG = "#000000"
+HEADER = "#000000"
 BORDER = "#263522"
 GREEN = "#82ed30"
-LIME = "#b6ff75"
+LIME = "#82ed30"
 TEXT = "#edf1e9"
 MUTED = "#9eb193"
 
@@ -128,9 +128,9 @@ def render(visible_chars: int, cursor_strength: float, scanline_y: int) -> Image
         image.paste(TERMINAL_MASK, (52, 318))
 
     cursor = (
-        int(20 + 37 * cursor_strength),
-        int(70 + 185 * cursor_strength),
-        int(45 + 91 * cursor_strength),
+        int(30 + 100 * cursor_strength),
+        int(60 + 177 * cursor_strength),
+        int(12 + 36 * cursor_strength),
     )
     draw.rectangle((366, 832, 376, 852), fill=cursor)
     return image
