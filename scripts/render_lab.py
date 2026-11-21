@@ -57,15 +57,17 @@ def specimen(reaction='idle'):
 def analysis_demos():
     right = 508
     sprite_x, sprite_y = 22, 69
+    height = 328
     frames = []
+    stacked_frames = []
     for i in range(48):
         phase = math.tau*i/48
-        im = Image.new('RGB', (1000,300), INK)
+        im = Image.new('RGB', (1000,height), INK)
         d = ImageDraw.Draw(im)
         for left, title in [(0,'Static analysis'),(508,'Dynamic analysis')]:
-            d.rounded_rectangle((left,0,left+491,299),radius=7,fill='#0a0e09',outline=LINE)
-            label(d,(left+22,18),title,27,WHITE,True)
-            label(d,(left+413,24),'DEMO',16,PHOSPHOR,True,True)
+            d.rounded_rectangle((left,0,left+491,height-1),radius=7,fill='#0a0e09',outline=LINE)
+            label(d,(left+22,18),title,31,WHITE,True)
+            label(d,(left+413,24),'DEMO',18,PHOSPHOR,True,True)
             d.line((left+1,61,left+490,61),fill=LINE)
         sample = specimen()
         im.paste(sample,(sprite_x,sprite_y),sample)
@@ -73,9 +75,9 @@ def analysis_demos():
         d.line((22,y,216,y),fill='#689581')
         d.rectangle((22,y-2,26,y+2),fill=LIME)
         for j, value in enumerate(('4D 5A   MZ', '50 45   PE', '4C 41 42   LAB')):
-            label(d,(246,92+j*38),value,19,LIME if y>149 and j==2 else PHOSPHOR,False,True)
-        label(d,(22,216),'Static byte scan',20,PHOSPHOR,False,True)
-        label(d,(22,254),'YARA  /  '+('LAB marker matched' if y>149 else 'scanning bytes'),20,LIME,True,True)
+            label(d,(246,92+j*38),value,23,LIME if y>149 and j==2 else PHOSPHOR,False,True)
+        label(d,(22,225),'Static byte scan',23,PHOSPHOR,False,True)
+        label(d,(22,273),'YARA  /  '+('LAB marker matched' if y>149 else 'scanning bytes'),23,LIME,True,True)
 
         stage = min(i//12,2)
         reaction = ('idle','alert','offline')[stage]
@@ -93,12 +95,19 @@ def analysis_demos():
             if j<2:
                 d.line((739,row+5,739,row+38),fill=LINE,width=2)
             d.ellipse((734,row-4,744,row+6),fill=LIME if j==stage else '#586674')
-            label(d,(754,row-7),event,19,WHITE if j<=stage else '#86909a',False,True)
-        label(d,(530,216),'Synthetic event trace',20,PHOSPHOR,False,True)
-        label(d,(530,254),('PID 104  /  started','PID 104  /  read 64 B','PID 104  /  exited')[stage],20,LIME,True,True)
+            label(d,(754,row-7),event,23,WHITE if j<=stage else '#86909a',False,True)
+        label(d,(530,225),'Synthetic event trace',23,PHOSPHOR,False,True)
+        label(d,(530,273),('PID 104  /  started','PID 104  /  read 64 B','PID 104  /  exited')[stage],23,LIME,True,True)
         frames.append(im)
-    frames[18].save(ASSETS/'exe-mascot-pair.png')
-    frames[0].save(ASSETS/'exe-mascot-pair.gif',save_all=True,append_images=frames[1:],duration=150,loop=0)
+        stacked = Image.new('RGB', (492, height*2+12), INK)
+        stacked.paste(im.crop((0,0,492,height)), (0,0))
+        stacked.paste(im.crop((right,0,1000,height)), (0,height+12))
+        stacked_frames.append(stacked)
+    for layout, sequence in [('wide', frames), ('stacked', stacked_frames)]:
+        base = ASSETS / f'exe-mascot-{layout}'
+        sequence[18].save(base.with_suffix('.png'))
+        sequence[0].save(base.with_suffix('.gif'), save_all=True,
+                         append_images=sequence[1:], duration=150, loop=0)
 
 
 def hero():

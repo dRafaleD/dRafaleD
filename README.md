@@ -110,8 +110,10 @@ Open a project to explore its source.
 ## Malware analysis lab
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/exe-mascot-pair.png" />
-  <img src="assets/exe-mascot-pair.gif" width="100%" alt="Two illustrated demos. Static analysis scans a pixel-art .EXE mascot bearing a bug emblem for a YARA marker. In the dynamic demo the mascot recoils, narrows its eyes and displays an exclamation mark on file read and its eyes dim on process exit." />
+  <source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/exe-mascot-stacked.png" />
+  <source media="(max-width: 767px)" srcset="assets/exe-mascot-stacked.gif" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/exe-mascot-wide.png" />
+  <img src="assets/exe-mascot-wide.gif" width="100%" alt="Two illustrated demos. Static analysis scans a pixel-art .EXE mascot bearing a bug emblem for a YARA marker. In the dynamic demo the mascot recoils, narrows its eyes and displays an exclamation mark on file read and its eyes dim on process exit." />
 </picture>
 
 <picture>
