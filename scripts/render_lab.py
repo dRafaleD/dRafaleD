@@ -21,7 +21,7 @@ def label(draw, xy, value, size, color, bold=False, mono=False):
     draw.text(xy, value, font=font(size, bold, mono), fill=color, anchor='lt')
 
 
-def specimen(phase):
+def specimen(phase, reaction='idle'):
     """A socketed silicon skull with pulsing diagnostic LEDs."""
     sprite = Image.new('RGBA', (96, 68))
     draw = ImageDraw.Draw(sprite)
@@ -42,7 +42,13 @@ def specimen(phase):
         socket = [(3,32),(18,27),(18,34),(14,39),(5,38)]
         draw.polygon([(48+sign*x,y) for x,y in socket],fill=INK)
         glow = '#77b995' if math.cos(phase)<0 else LIME
-        draw.line([(48+sign*7,35),(48+sign*14,33)],fill=glow,width=2)
+        if reaction == 'alert':
+            draw.line([(48+sign*6,36),(48+sign*15,31)],fill='#ffae80',width=2)
+            draw.line([(48+sign*4,32),(48+sign*16,26)],fill='#52697e',width=3)
+        elif reaction == 'offline':
+            draw.line([(48+sign*7,35),(48+sign*14,35)],fill=shadow)
+        else:
+            draw.line([(48+sign*7,35),(48+sign*14,33)],fill=glow,width=2)
     draw.polygon([(47,38),(50,38),(53,44),(44,44)],fill=INK)
     draw.rectangle((39,50,57,56),fill=INK)
     for x in (39,44,50,55):
@@ -70,9 +76,17 @@ def analysis_demos():
         label(d,(22,216),'4D 5A    50 45    4C 41 42',20,ICE,False,True)
         label(d,(22,254),'YARA  /  '+('LAB marker matched' if y>149 else 'scanning bytes'),20,LIME,True,True)
 
-        skull = specimen(phase).resize((144,102),Image.Resampling.NEAREST)
-        im.paste(skull,(524,98),skull)
         stage = min(i//12,2)
+        reaction = ('idle','alert','offline')[stage]
+        skull = specimen(phase,reaction).resize((144,102),Image.Resampling.NEAREST)
+        recoil = {12:-6,13:-4,14:-2}.get(i,0)
+        im.paste(skull,(524+recoil,98+recoil),skull)
+        if stage == 1:
+            top = 80 + min(i-12,3)
+            d.rounded_rectangle((629,top,655,top+28),radius=4,fill='#382a27',outline='#d99574')
+            d.polygon([(630,top+26),(626,top+32),(637,top+27)],fill='#d99574')
+            d.rectangle((640,top+5,644,top+16),fill='#ffd6ac')
+            d.rectangle((640,top+20,644,top+23),fill='#ffd6ac')
         for j,event in enumerate(('Process start','File read','Process exit')):
             row = 99+j*38
             if j<2:
@@ -82,7 +96,7 @@ def analysis_demos():
         label(d,(530,216),'Synthetic event trace',20,ICE,False,True)
         label(d,(530,254),('PID 104  /  started','PID 104  /  read 64 B','PID 104  /  exited')[stage],20,LIME,True,True)
         frames.append(im)
-    frames[27].save(ASSETS/'lab-analysis.png')
+    frames[18].save(ASSETS/'lab-analysis.png')
     frames[0].save(ASSETS/'lab-analysis.gif',save_all=True,append_images=frames[1:],duration=150,loop=0)
 
 
