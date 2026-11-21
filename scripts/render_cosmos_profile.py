@@ -342,41 +342,47 @@ def arsenal():
     save('cosmos-arsenal.svg', 385, 'Languages, rule engines and platforms', '; '.join(a + ': ' + ', '.join(b) for a, b in rows), body)
 
 
+def pixel_icon(x, y, rows, color):
+    tiles = ''.join(f'M{col} {row}h1v1h-1z' for row, bits in enumerate(rows)
+                    for col, bit in enumerate(bits) if bit == '1')
+    return f'<path transform="translate({x} {y}) scale(3)" fill="{color}" shape-rendering="crispEdges" d="{tiles}"/>'
+
+
 def toolkit():
     categories = [
         (
             'Recon & OSINT',
             'Discovery · intelligence · digital footprints',
             '~/toolkit/recon',
-            '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12l6.5-6.5"/>',
+            '01110000 10001000 10101000 10001000 01110000 00001000 00000100 00000010'.split(),
             'Nmap,Shodan,theHarvester,Maltego,Tor,Amass,Recon-ng,SpiderFoot,Sherlock',
         ),
         (
             'Web security',
             'Application testing · auditing · assessment',
             '~/toolkit/web',
-            '<path d="m12 2 8 4v6c0 5-8 10-8 10S4 17 4 12V6Z"/><path d="m8.5 12 2.5 2.5 4.5-5.5"/>',
+            '00111100 01000010 01000010 11111111 10011001 10011001 10000001 11111111'.split(),
             'Burp Suite,OWASP ZAP,Nikto,sqlmap,Gobuster,ffuf,WPScan,Nuclei,dirsearch',
         ),
         (
             'Offensive security',
             'Authorized testing · adversary simulation',
             '~/toolkit/offense',
-            '<circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="3"/><path d="M12 1.5v4m0 13v4M1.5 12h4m13 0h4"/>',
+            '00011000 00111100 01011010 11100111 11100111 01011010 00111100 00011000'.split(),
             'Metasploit,Hashcat,Hydra,John the Ripper,Aircrack-ng,Impacket,NetExec,Responder,BloodHound,Mimikatz,Evil-WinRM',
         ),
         (
             'Defensive analysis',
             'Detection · packet & artifact triage · IR',
             '~/toolkit/defense',
-            '<path d="M1.5 12h4l2.8-7.5 4.4 15 2.8-7.5h7"/>',
+            '10000001 11111111 10000001 10011001 10100101 01000010 00100100 00011000'.split(),
             'Wireshark,Snort,VirusTotal,Splunk,YARA,YARA-X,tcpdump,Zeek,Suricata,Sysmon,Velociraptor,Volatility,ELK and Elastic,Sigma',
         ),
         (
             'Reverse engineering',
             'Binary inspection · debugging · dynamic instrumentation',
             '~/toolkit/reversing',
-            '<path d="m8 6-5.5 6L8 18m8-12 5.5 6L16 18m-2.5-14-3 16"/>',
+            '00100100 01111110 11000011 01011010 11011011 01000010 01111110 00100100'.split(),
             'Ghidra,IDA,radare2,Cutter,x64dbg,GDB,Binary Ninja,dnSpy,Frida,objdump,PE-bear,Detect It Easy,HxD,WinDbg,Procmon',
         ),
     ]
@@ -387,7 +393,7 @@ def toolkit():
     body = '<rect width="1000" height="1068" fill="url(#veilStrong)"/>'
     body += heading('03', 'ls ~/security/toolkit --color=always', 'Security toolkit.', 'Tools across five security domains. Green highlights the ones I use most.', '58 TOOLS // 5 CATEGORIES')
 
-    def render_domain_card(idx, x, y, w, h, title, subtitle, path_label, icon_svg, tool_list):
+    def render_domain_card(idx, x, y, w, h, title, subtitle, path_label, icon_rows, tool_list):
         tools = tool_list.split(',')
         accent_col = LIME if idx in (1, 3) else ACCENT
         inner = panel(x, y, w, h)
@@ -395,10 +401,7 @@ def toolkit():
         inner += f'<rect x="{x}" y="{y + 24}" width="3" height="34" rx="1.5" fill="{accent_col}" opacity=".9"/>'
         # Icon badge
         inner += f'<rect x="{x + 22}" y="{y + 20}" width="40" height="40" rx="10" fill="#20301a" stroke="#263522" stroke-width=".9"/>'
-        inner += (
-            f'<g transform="translate({x + 30} {y + 28})" fill="none" stroke="{accent_col}" '
-            f'stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">{icon_svg}</g>'
-        )
+        inner += pixel_icon(x+30, y+28, icon_rows, accent_col)
         inner += text(x + 74, y + 37, title, 18.5, TEXT)
         inner += text(x + 74, y + 56, f'{len(tools):02d} TOOLS  ·  {path_label}', 10.5, accent_col, True)
         inner += text(x + 22, y + 83, subtitle, 12.5, MUTED)
@@ -465,6 +468,9 @@ def focus():
     body = heading('04', 'cat ~/learning.md', 'Focus & learning.', 'Areas I currently work on and topics I am studying next.', 'FOCUS')
     for idx, (x, label, lines) in enumerate(columns):
         body += panel(x, 144, 450, 247)
+        symbol = ('11110000 10001000 10100100 10001000 11110000 00000110 00001111 00000110'
+                  if idx == 0 else '00000000 11100111 10011001 10011001 10011001 11111111 00011000 00000000')
+        body += pixel_icon(x+400, 159, symbol.split(), ACCENT)
         body += text(x + 22, 176, label, 11, LIME if idx else ACCENT, True)
         for i, value in enumerate(lines):
             body += f'<circle cx="{x + 24}" cy="{208 + i * 28}" r="1.8" fill="#a8cf98"/>'

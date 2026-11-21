@@ -45,11 +45,11 @@ Open a project to explore its source.
 </div>
 
 <div align="center">
-  <img src="assets/cosmos-toolkit.svg?v=14" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" />
+  <img src="assets/cosmos-toolkit.svg?v=15" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" />
 </div>
 
 <div align="center">
-  <img src="assets/cosmos-focus.svg?v=14" alt="Focus and learning: current focus areas and topics currently being studied across web security, malware analysis, Linux hardening, and secure backend engineering." width="100%" />
+  <img src="assets/cosmos-focus.svg?v=15" alt="Focus and learning: current focus areas and topics currently being studied across web security, malware analysis, Linux hardening, and secure backend engineering." width="100%" />
 </div>
 
 ## Training and community
@@ -110,8 +110,8 @@ Open a project to explore its source.
 ## Malware analysis lab
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/malware-chip-skull.png" />
-  <img src="assets/malware-chip-skull.gif" width="100%" alt="Two illustrated demos. Static analysis scans a pixel-art microchip skull for a YARA marker. In the dynamic demo the skull recoils with an exclamation mark on file read and its eyes dim on process exit." />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/infected-executable.png" />
+  <img src="assets/infected-executable.gif" width="100%" alt="Two illustrated demos. Static analysis scans a pixel-art .EXE file marked with a malware bug for a YARA marker. In the dynamic demo the infected file recoils with an exclamation mark on file read and its bug icon dims on process exit." />
 </picture>
 
 <picture>

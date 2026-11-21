@@ -21,38 +21,28 @@ def label(draw, xy, value, size, color, bold=False, mono=False):
 
 
 def specimen(phase, reaction='idle'):
-    """A socketed silicon skull with pulsing diagnostic LEDs."""
-    sprite = Image.new('RGBA', (96, 68))
-    draw = ImageDraw.Draw(sprite)
-    shadow = '#364932'
-    steel = '#94aa86'
-    for y in range(18,44,6):
-        draw.rectangle((18,y,77,y+2), fill=shadow)
-        for x in (18,75):
-            draw.rectangle((x,y,x+2,y+1), fill=PHOSPHOR)
-    draw.polygon([(24,17),(32,8),(64,8),(72,17),(72,36),(66,45),
-                  (61,46),(61,55),(55,61),(40,61),(34,55),(34,46),
-                  (29,45),(24,37)], fill=shadow)
-    draw.polygon([(26,18),(34,10),(62,10),(69,17),(69,35),(64,42),
-                  (57,44),(57,51),(39,51),(39,44),(32,42),(26,35)], fill=steel)
-    draw.polygon([(28,19),(35,12),(60,12),(64,15),(38,15),(31,22),(28,27)],fill='#d3e7bd')
-    draw.line([(57,11),(54,16),(57,17),(50,23)],fill=shadow,width=2)
+    """A folded executable file stamped with a six-legged glitch bug."""
+    sprite = Image.new('RGBA', (96,68))
+    d = ImageDraw.Draw(sprite)
+    sheet = [(26,3),(59,3),(71,15),(71,63),(26,63)]
+    d.polygon([(x+2,y+2) for x,y in sheet],fill='#283723')
+    d.polygon(sheet,fill='#182317',outline=PHOSPHOR,width=2)
+    d.polygon([(58,4),(58,16),(70,16)], fill='#526348',outline=PHOSPHOR)
+    ink = '#54634b' if reaction=='offline' else LIME
     for sign in (-1,1):
-        socket = [(3,32),(18,27),(18,34),(14,39),(5,38)]
-        draw.polygon([(48+sign*x,y) for x,y in socket],fill=INK)
-        glow = '#77b995' if math.cos(phase)<0 else LIME
-        if reaction == 'alert':
-            draw.line([(48+sign*6,36),(48+sign*15,31)],fill='#b6ff57',width=2)
-            draw.line([(48+sign*4,32),(48+sign*16,26)],fill='#59774b',width=3)
-        elif reaction == 'offline':
-            draw.line([(48+sign*7,35),(48+sign*14,35)],fill=shadow)
-        else:
-            draw.line([(48+sign*7,35),(48+sign*14,33)],fill=glow,width=2)
-    draw.polygon([(47,38),(50,38),(53,44),(44,44)],fill=INK)
-    draw.rectangle((39,50,57,56),fill=INK)
-    for x in (39,44,50,55):
-        draw.rectangle((x,48,x+2,54),fill='#d3e7bd')
-    draw.line([(38,55),(42,58),(54,58),(58,55)],fill=steel,width=2)
+        for y,dy in ((26,-4),(31,0),(36,4)):
+            d.line([(48+sign*5,y),(48+sign*10,y),(48+sign*13,y+dy)],fill=ink,width=2)
+        d.line([(48+sign*2,22),(48+sign*5,18)],fill=ink,width=2)
+    d.rounded_rectangle((43,21,53,27),radius=2,fill=ink)
+    d.rounded_rectangle((41,27,55,39),radius=4,fill=ink)
+    d.line((48,29,48,37),fill=INK)
+    for x in (45,50):
+        d.point((x,24),fill=INK)
+    if reaction=='alert':
+        d.line((43,22,47,24),fill=INK)
+        d.line((49,24,53,22),fill=INK)
+    d.rectangle((22,42,67,58),fill=ink)
+    label(d,(27,44),'.EXE',14,INK,True,True)
     return sprite.resize((192,136),Image.Resampling.NEAREST)
 
 
@@ -67,8 +57,8 @@ def analysis_demos():
             label(d,(left+22,18),title,27,WHITE,True)
             label(d,(left+413,24),'DEMO',16,PHOSPHOR,True,True)
             d.line((left+1,61,left+490,61),fill=LINE)
-        skull = specimen(0)
-        im.paste(skull,(149,70),skull)
+        sample = specimen(0)
+        im.paste(sample,(149,70),sample)
         y = 83 + round(105*(1-math.cos(phase))/2)
         d.line((47,y,444,y),fill='#689581')
         d.rectangle((43,y-2,47,y+2),fill=LIME)
@@ -77,9 +67,9 @@ def analysis_demos():
 
         stage = min(i//12,2)
         reaction = ('idle','alert','offline')[stage]
-        skull = specimen(phase,reaction).resize((144,102),Image.Resampling.NEAREST)
+        sample = specimen(phase,reaction).resize((144,102),Image.Resampling.NEAREST)
         recoil = {12:-6,13:-4,14:-2}.get(i,0)
-        im.paste(skull,(524+recoil,98+recoil),skull)
+        im.paste(sample,(524+recoil,98+recoil),sample)
         if stage == 1:
             top = 80 + min(i-12,3)
             d.rounded_rectangle((629,top,655,top+28),radius=4,fill='#18280e',outline='#82ed30')
@@ -95,8 +85,8 @@ def analysis_demos():
         label(d,(530,216),'Synthetic event trace',20,PHOSPHOR,False,True)
         label(d,(530,254),('PID 104  /  started','PID 104  /  read 64 B','PID 104  /  exited')[stage],20,LIME,True,True)
         frames.append(im)
-    frames[18].save(ASSETS/'malware-chip-skull.png')
-    frames[0].save(ASSETS/'malware-chip-skull.gif',save_all=True,append_images=frames[1:],duration=150,loop=0)
+    frames[18].save(ASSETS/'infected-executable.png')
+    frames[0].save(ASSETS/'infected-executable.gif',save_all=True,append_images=frames[1:],duration=150,loop=0)
 
 
 def hero():
