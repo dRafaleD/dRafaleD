@@ -61,7 +61,7 @@ def encode_backdrop(asset_name: str, width: int, height: int, quality: int = 84)
 
 
 def text(x, y, value, size=18, color=TEXT, mono=False, extra=''):
-    return f'<text x="{x}" y="{y}" font-size="{size}" fill="{color}" class="{"mono" if mono else "ui"}" {extra}>{escape(value)}</text>'
+    return f'<text x="{x}" y="{y}" font-size="{round(size * 1.06, 2) if size < 14 else size}" fill="{color}" class="{"mono" if mono else "ui"}" {extra}>{escape(value)}</text>'
 
 
 def field(width, height, seed, count=110):
@@ -313,7 +313,7 @@ def chips(x, y, width, names, highlights=()):
     start = x
     body = ''
     for name in names:
-        w = len(name) * 8.1 + 26
+        w = len(name) * 8.9 + 22
         if x + w > start + width:
             x = start
             y += 40
@@ -322,7 +322,7 @@ def chips(x, y, width, names, highlights=()):
         stroke = '#a8cf98' if active else '#263522'
         color = LIME if active else '#bdc8b7'
         body += f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="29" rx="5" fill="{fill}" stroke="{stroke}" stroke-width=".8"/>'
-        body += text(round(x + 13, 1), y + 20, name, 13, color, True)
+        body += text(round(x + 13, 1), y + 20, name, 14.5, color, True)
         x += w + 8
     return body, y + 29
 
@@ -330,7 +330,7 @@ def chips(x, y, width, names, highlights=()):
 def readable_cards(name, title, groups, highlights=()):
     """Flow each section to its actual reading width, including wrapped tool chips."""
     import textwrap
-    for mode, width in [('mobile', 352), ('wide', 720)]:
+    for mode, width in [('mobile', 384)]:
         title_lines = textwrap.wrap(title, int((width-32)/18))
         parts = [text(16, 42+i*35, line, 29, TEXT, True) for i,line in enumerate(title_lines)]
         y = 68 + (len(title_lines)-1)*35
@@ -379,6 +379,14 @@ def arsenal():
     ]
     readable_cards('arsenal','Technical stack',[(label.title(), [], tools, None)
                    for label,tools in rows], {'Rust','YARA','YARA-X','C'})
+
+    body = heading('02', 'ls -la ~/stack', 'Technical stack.', 'Languages, rule engines, and Linux environments I work with.', 'TECH STACK')
+    body += panel(34, 143, 932, 174)
+    for i, (label, names) in enumerate(rows):
+        y = 164 + i * 47
+        body += text(55, y + 20, label, 11, LIME, True)
+        body += chips(180, y, 760, names, ['Rust', 'YARA', 'YARA-X', 'C'])[0]
+    save('cosmos-arsenal.svg', 385, 'Languages, rule engines and platforms', '; '.join(a + ': ' + ', '.join(b) for a, b in rows), body)
 
 
 def pixel_icon(x, y, rows, color):
@@ -433,6 +441,62 @@ def toolkit():
         (title,[subtitle],tools.split(','),icon)
         for title,subtitle,path,icon,tools in categories], highlights)
 
+    body = '<rect width="1000" height="1068" fill="url(#veilStrong)"/>'
+    body += heading('03', 'ls ~/security/toolkit --color=always', 'Security toolkit.', 'Tools across five security domains. Green highlights the ones I use most.', '58 TOOLS // 5 CATEGORIES')
+
+    def render_domain_card(idx, x, y, w, h, title, subtitle, path_label, icon_rows, tool_list):
+        tools = tool_list.split(',')
+        accent_col = LIME if idx in (1, 3) else ACCENT
+        inner = panel(x, y, w, h)
+        # Left glowing domain accent bar
+        inner += f'<rect x="{x}" y="{y + 24}" width="3" height="34" rx="1.5" fill="{accent_col}" opacity=".9"/>'
+        # Icon badge
+        inner += f'<rect x="{x + 22}" y="{y + 20}" width="40" height="40" rx="10" fill="#20301a" stroke="#263522" stroke-width=".9"/>'
+        inner += pixel_icon(x+30, y+28, icon_rows, accent_col)
+        inner += text(x + 74, y + 37, title, 20, TEXT)
+        inner += text(x + 74, y + 56, f'{len(tools):02d} TOOLS  ·  {path_label}', 10.5, accent_col, True)
+        inner += text(x + 22, y + 83, subtitle, 14, MUTED)
+
+        # Animated scanner line
+        line_w = w - 44
+        inner += f'<path d="M{x + 22} {y + 98}H{x + w - 22}" stroke="#272a30" stroke-width=".9"/>'
+        inner += (
+            f'<g class="scan" style="animation-delay:-{idx * 1.8:.1f}s;--end:{line_w - 22}px">'
+            f'<rect x="{x + 22}" y="{y + 97}" width="20" height="2" rx="1" fill="{accent_col}" opacity=".35"/>'
+            f'<circle cx="{x + 42}" cy="{y + 98}" r="2.1" fill="{accent_col}"/></g>'
+        )
+
+        labels, _ = chips(x + 22, y + 114, w - 44, tools, highlights)
+        inner += labels
+        return inner
+
+    # Row 1: Recon & OSINT (left) + Web security (right)
+    row1_h = 258
+    body += render_domain_card(0, 34, 144, 454, row1_h, *categories[0])
+    body += render_domain_card(1, 512, 144, 454, row1_h, *categories[1])
+
+    # Row 2: Offensive security (left) + Defensive analysis (right)
+    row2_y = 144 + row1_h + 24
+    row2_h = 310
+    body += render_domain_card(2, 34, row2_y, 454, row2_h, *categories[2])
+    body += render_domain_card(3, 512, row2_y, 454, row2_h, *categories[3])
+
+    # Row 3: Reverse engineering (full width)
+    row3_y = row2_y + row2_h + 24
+    row3_h = 212
+    body += render_domain_card(4, 34, row3_y, 932, row3_h, *categories[4])
+
+    footer_y = row3_y + row3_h + 34
+    body += text(34, footer_y, '> 58 TOOLS ACROSS 5 CATEGORIES', 10.5, MUTED, True)
+    body += '<rect x="738" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#1a2a22" stroke="#a8cf98" stroke-width=".9"/>'
+    body += text(755, footer_y, 'PRIMARY', 10, ACCENT, True)
+    body += '<rect x="838" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#0a0e09" stroke="#263522" stroke-width=".9"/>'
+    body += text(855, footer_y, 'REFERENCE', 10, MUTED, True)
+
+    total_h = footer_y + 26
+    body = body.replace('height="1068"', f'height="{total_h}"', 1)
+    save('cosmos-toolkit.svg', total_h, 'Security toolkit', '; '.join(a + ': ' + e for a, _, _, _, e in categories), body)
+
 
 def focus():
     columns = [
@@ -455,6 +519,19 @@ def focus():
     readable_cards('focus','Focus & learning',[
         (label.split('// ')[1].title(), lines, [], None) for _,label,lines in columns])
 
+    body = heading('04', 'cat ~/learning.md', 'Focus & learning.', 'Areas I currently work on and topics I am studying next.', 'FOCUS')
+    for idx, (x, label, lines) in enumerate(columns):
+        body += panel(x, 144, 450, 247)
+        symbol = ('11110000 10001000 10100100 10001000 11110000 00000110 00001111 00000110'
+                  if idx == 0 else '00000000 11100111 10011001 10011001 10011001 11111111 00011000 00000000')
+        body += pixel_icon(x+400, 159, symbol.split(), ACCENT)
+        body += text(x + 22, 176, label, 11, LIME if idx else ACCENT, True)
+        for i, value in enumerate(lines):
+            body += f'<circle cx="{x + 24}" cy="{208 + i * 28}" r="1.8" fill="#a8cf98"/>'
+            body += text(x + 38, 213 + i * 28, value, 15.5, MUTED)
+    body += text(34, 487, '> HANDS-ON PRACTICE · CONTINUOUS LEARNING', 10.5, MUTED, True)
+    save('cosmos-focus.svg', 512, 'Focus and learning', '; '.join(label + ': ' + ', '.join(lines) for _, label, lines in columns), body)
+
 
 def certifications():
     items = [
@@ -466,11 +543,39 @@ def certifications():
     readable_cards('certifications','Certifications',[
         (name,[issuer,source],[],None) for issuer,name,source in items])
 
+    body = heading('05', 'ls ~/credentials', 'Certifications.', 'Verified certificates and training badges. Links are listed below.', '4 VERIFIED')
+    for i, (issuer, name, source) in enumerate(items):
+        x = 34 + (i % 2) * 482
+        y = 144 + (i // 2) * 158
+        body += panel(x, y, 450, 133)
+        body += text(x + 21, y + 29, issuer.upper(), 10.5, LIME if i == 0 else ACCENT, True)
+        body += text(x + 21, y + 66, name, 20.5, TEXT)
+        body += text(x + 21, y + 100, source, 13, MUTED)
+    save('cosmos-certifications.svg', 474, 'Certifications', 'Siber Vatan certificate; Cisco Introduction to Cybersecurity; Cisco Network Defense; Cisco Cyber Threat Management.', body)
+
 
 def community():
     readable_cards('community','Community contributions',[
         ('XERJ Corpus Hub',['View the verified contributor profile for dRafaleD.'],[],None),
         ('PE signature',['0000   4D 5A   MZ','003C   80 00 00 00','0080   50 45 00 00   PE'],[],None)])
+
+    body = '<rect width="1000" height="240" fill="url(#veil)"/>'
+    body += terminal_chrome('dRafaleD@github:~$ curl https://hub.xerj.org/contributors/dRafaleD', 'COMMUNITY', 30)
+    body += text(34, 86, 'Community contributions.', 29, TEXT)
+    body += text(36, 132, 'XERJ Corpus Hub', 20, LIME)
+    body += text(36, 165, 'Verified contributor profile / dRafaleD', 15.5, MUTED)
+    body += text(36, 208, '> VIEW CONTRIBUTOR PROFILE  →', 10.5, ACCENT, True)
+    body += panel(565, 56, 398, 158)
+    body += text(586, 85, 'HEX VIEW   /   PE signature', 16, ACCENT, True)
+    for i, (offset, values, ascii_view) in enumerate([
+        ('0000', '4D 5A', 'MZ'), ('003C', '80 00 00 00', '....'),
+        ('0080', '50 45 00 00', 'PE..')
+    ]):
+        y = 119 + 32*i
+        body += text(586, y, offset, 15, MUTED, True)
+        body += text(664, y, values, 16, TEXT, True)
+        body += text(886, y, ascii_view, 16, LIME, True)
+    save('cosmos-community.svg', 240, 'Community contributions', 'XERJ Corpus Hub contributor record for dRafaleD.', body)
 
 
 def ethics():
@@ -479,6 +584,24 @@ def ethics():
           'All testing takes place in authorized environments.'],[],None),
         ('Analysis scope',['Isolated sample copy. Read-only inspection.',
           'Execution off. Network offline.'],[],None)])
+
+    body = '<rect width="1000" height="398" fill="url(#veil)"/>'
+    body += heading('06', 'cat /etc/ethics.conf', 'Research ethics.', 'Authorized testing and responsible security research.', 'WHITE HAT')
+    body += text(36, 162, 'WHITE HAT // AUTHORIZED RESEARCH ONLY', 11, ACCENT, True)
+    body += text(36, 205, 'Test responsibly.', 24, TEXT)
+    body += text(36, 242, 'Report ethically. Build securely.', 24, TEXT)
+    body += text(36, 290, 'All security research, analysis, and testing is performed', 16.5, MUTED)
+    body += text(36, 318, 'strictly within authorized environments.', 16.5, MUTED)
+    body += panel(574, 144, 392, 213)
+    body += text(595, 178, 'ANALYSIS SCOPE', 16, ACCENT, True)
+    for i, (key, value) in enumerate([
+        ('sample', 'isolated copy'), ('inspection', 'read-only'),
+        ('execution', 'off'), ('network', 'offline')
+    ]):
+        y = 217 + 34*i
+        body += text(595, y, key, 16, MUTED, True)
+        body += text(755, y, value, 16, LIME if i == 2 else TEXT, True)
+    save('cosmos-ethics.svg', 398, 'Research ethics', 'White hat security. Authorized research only. Test responsibly. Report ethically. Build securely.', body)
 
 
 def connect():
@@ -506,6 +629,17 @@ def connect():
 def activity_header():
     readable_cards('activity','GitHub activity',[
         ('Contribution trace',['Contribution streaks and recent commit activity.'],['entry','decode','return'],None)])
+
+    body = '<rect width="1000" height="196" fill="url(#veil)"/>'
+    body += heading('08', 'git log --stat', 'GitHub activity.', 'Contribution streaks and recent commit activity.', 'ACTIVITY')
+    body += text(36, 165, 'TRACE VIEW', 13, ACCENT, True)
+    for i, step in enumerate(('entry', 'decode', 'return')):
+        x = 572 + i*134
+        body += panel(x, 137, 113, 38)
+        body += text(x+16, 162, step, 16, LIME if i == 1 else TEXT, True)
+        if i < 2:
+            body += f'<path d="M{x+113} 156h20m-5 -4 5 4 -5 4" fill="none" stroke="{ACCENT}"/>'
+    save('cosmos-activity.svg', 196, 'GitHub activity', 'GitHub activity, contribution streaks, and contribution graph.', body)
 
 
 def streak_card(total, current, longest, total_range, current_range, longest_range):
