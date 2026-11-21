@@ -14,14 +14,14 @@
 
 Open a project to explore its source.
 
-<p><a href="https://github.com/dRafaleD/Malware-analysis-AsphDex"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-asphdex.png" /><img src="assets/trace-asphdex.gif" alt="AsphDex — Inspect PE / ELF files with YARA." width="49%" /></picture></a></p>
-<p><a href="https://github.com/dRafaleD/Banshee"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-banshee.png" /><img src="assets/trace-banshee.gif" alt="Banshee — Decode artifacts and bundle findings." width="49%" /></picture></a></p>
+<a href="https://github.com/dRafaleD/Malware-analysis-AsphDex"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-asphdex.png" /><img src="assets/trace-asphdex.gif" alt="AsphDex — Inspect PE / ELF files with YARA." width="49%" /></picture></a>
+<a href="https://github.com/dRafaleD/Banshee"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-banshee.png" /><img src="assets/trace-banshee.gif" alt="Banshee — Decode artifacts and bundle findings." width="49%" /></picture></a>
 
-<p><a href="https://github.com/dRafaleD/flowscope"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-flowscope.png" /><img src="assets/trace-flowscope.gif" alt="flowscope — Follow traffic in offline captures." width="49%" /></picture></a></p>
-<p><a href="https://github.com/dRafaleD/sentinel-security"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-sentinel.png" /><img src="assets/trace-sentinel.gif" alt="sentinel-security — Rebuild filesystem timelines." width="49%" /></picture></a></p>
+<a href="https://github.com/dRafaleD/flowscope"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-flowscope.png" /><img src="assets/trace-flowscope.gif" alt="flowscope — Follow traffic in offline captures." width="49%" /></picture></a>
+<a href="https://github.com/dRafaleD/sentinel-security"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-sentinel.png" /><img src="assets/trace-sentinel.gif" alt="sentinel-security — Rebuild filesystem timelines." width="49%" /></picture></a>
 
-<p><a href="https://github.com/dRafaleD/FhniX"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-fhnix.png" /><img src="assets/trace-fhnix.gif" alt="FhniX — Inspect suspicious mail and its signals." width="49%" /></picture></a></p>
-<p><a href="https://github.com/dRafaleD/The-Trackher"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-trackher.png" /><img src="assets/trace-trackher.gif" alt="The-Trackher — Review your own digital footprint." width="49%" /></picture></a></p>
+<a href="https://github.com/dRafaleD/FhniX"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-fhnix.png" /><img src="assets/trace-fhnix.gif" alt="FhniX — Inspect suspicious mail and its signals." width="49%" /></picture></a>
+<a href="https://github.com/dRafaleD/The-Trackher"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-trackher.png" /><img src="assets/trace-trackher.gif" alt="The-Trackher — Review your own digital footprint." width="49%" /></picture></a>
 
 <details>
 <summary>More repositories & security labs</summary>
