@@ -68,6 +68,8 @@ def specimen(phase, reaction='idle'):
 
 
 def analysis_demos():
+    right = 508
+    sprite_x, sprite_y = 22, 69
     frames = []
     for i in range(48):
         phase = math.tau*i/48
@@ -79,30 +81,32 @@ def analysis_demos():
             label(d,(left+413,24),'DEMO',16,PHOSPHOR,True,True)
             d.line((left+1,61,left+490,61),fill=LINE)
         sample = specimen(0)
-        im.paste(sample,(149,70),sample)
+        im.paste(sample,(sprite_x,sprite_y),sample)
         y = 83 + round(105*(1-math.cos(phase))/2)
-        d.line((47,y,444,y),fill='#689581')
-        d.rectangle((43,y-2,47,y+2),fill=LIME)
-        label(d,(22,216),'4D 5A    50 45    4C 41 42',20,PHOSPHOR,False,True)
+        d.line((22,y,216,y),fill='#689581')
+        d.rectangle((22,y-2,26,y+2),fill=LIME)
+        for j, value in enumerate(('4D 5A   MZ', '50 45   PE', '4C 41 42   LAB')):
+            label(d,(246,92+j*38),value,19,LIME if y>149 and j==2 else PHOSPHOR,False,True)
+        label(d,(22,216),'Static byte scan',20,PHOSPHOR,False,True)
         label(d,(22,254),'YARA  /  '+('LAB marker matched' if y>149 else 'scanning bytes'),20,LIME,True,True)
 
         stage = min(i//12,2)
         reaction = ('idle','alert','offline')[stage]
-        sample = specimen(phase,reaction).resize((144,102),Image.Resampling.NEAREST)
+        sample = specimen(phase,reaction)
         recoil = {12:-6,13:-4,14:-2}.get(i,0)
-        im.paste(sample,(524+recoil,98+recoil),sample)
+        im.paste(sample,(right+sprite_x+recoil,sprite_y+recoil),sample)
         if stage == 1:
-            top = 80 + min(i-12,3)
-            d.rounded_rectangle((629,top,655,top+28),radius=4,fill='#18280e',outline='#82ed30')
-            d.polygon([(630,top+26),(626,top+32),(637,top+27)],fill='#82ed30')
-            d.rectangle((640,top+5,644,top+16),fill='#d4ffc1')
-            d.rectangle((640,top+20,644,top+23),fill='#d4ffc1')
+            top = 67 + min(i-12,3)
+            d.rounded_rectangle((691,top,717,top+28),radius=4,fill='#18280e',outline='#82ed30')
+            d.polygon([(692,top+26),(688,top+32),(699,top+27)],fill='#82ed30')
+            d.rectangle((702,top+5,706,top+16),fill='#d4ffc1')
+            d.rectangle((702,top+20,706,top+23),fill='#d4ffc1')
         for j,event in enumerate(('Process start','File read','Process exit')):
             row = 99+j*38
             if j<2:
-                d.line((697,row+5,697,row+38),fill=LINE,width=2)
-            d.ellipse((692,row-4,702,row+6),fill=LIME if j==stage else '#586674')
-            label(d,(718,row-7),event,19,WHITE if j<=stage else '#86909a',False,True)
+                d.line((739,row+5,739,row+38),fill=LINE,width=2)
+            d.ellipse((734,row-4,744,row+6),fill=LIME if j==stage else '#586674')
+            label(d,(754,row-7),event,19,WHITE if j<=stage else '#86909a',False,True)
         label(d,(530,216),'Synthetic event trace',20,PHOSPHOR,False,True)
         label(d,(530,254),('PID 104  /  started','PID 104  /  read 64 B','PID 104  /  exited')[stage],20,LIME,True,True)
         frames.append(im)
