@@ -22,28 +22,32 @@ def label(draw, xy, value, size, color, bold=False, mono=False):
 
 
 def specimen(phase):
-    """Mirror a hand-pixelled circuit moth around its segmented thorax."""
+    """A socketed silicon skull with pulsing diagnostic LEDs."""
     sprite = Image.new('RGBA', (96, 68))
     draw = ImageDraw.Draw(sprite)
-    lift = round(2 * math.cos(phase))
-    for side in (-1, 1):
-        def wing(points, color):
-            draw.polygon([(48 + side * x, y + (lift if x > 14 else 0))
-                          for x, y in points], fill=color)
-        wing([(3,28),(12,20),(32,9),(44,6),(42,20),(36,30),(21,38),(6,36)], '#536e89')
-        wing([(6,28),(15,20),(39,10),(34,20),(21,24),(13,32)], '#bdd8e9')
-        wing([(8,33),(18,27),(35,22),(30,28),(16,34)], '#85a8c3')
-        wing([(4,36),(22,33),(31,35),(25,45),(13,54),(8,61),(8,46)], '#59788b')
-        wing([(9,39),(24,35),(18,44),(12,48)], '#9bc4c9')
-        wing([(16,22),(22,18),(28,18),(23,23),(18,25)], '#243b4a')
-        wing([(19,21),(23,19),(25,19),(22,22)], LIME)
-        draw.line([(48+side*2,20),(48+side*7,12),(48+side*14,8)],fill=ICE,width=1)
-        draw.rectangle((min(47+side*14,49+side*14),7,49+side*14,9),fill=LIME)
-    draw.polygon([(45,19),(51,19),(53,24),(51,41),(48,52),(45,42),(43,25)],fill='#31475a')
-    for y in (24,29,34,39,44):
-        draw.line((46,y,50,y),fill=ICE)
-    draw.rectangle((45,20,46,21),fill=LIME)
-    draw.rectangle((50,20,51,21),fill=LIME)
+    shadow = '#37485a'
+    steel = '#86a4be'
+    for y in range(18,44,6):
+        draw.rectangle((18,y,77,y+2), fill=shadow)
+        for x in (18,75):
+            draw.rectangle((x,y,x+2,y+1), fill=ICE)
+    draw.polygon([(24,17),(32,8),(64,8),(72,17),(72,36),(66,45),
+                  (61,46),(61,55),(55,61),(40,61),(34,55),(34,46),
+                  (29,45),(24,37)], fill=shadow)
+    draw.polygon([(26,18),(34,10),(62,10),(69,17),(69,35),(64,42),
+                  (57,44),(57,51),(39,51),(39,44),(32,42),(26,35)], fill=steel)
+    draw.polygon([(28,19),(35,12),(60,12),(64,15),(38,15),(31,22),(28,27)],fill='#c5d9e7')
+    draw.line([(57,11),(54,16),(57,17),(50,23)],fill=shadow,width=2)
+    for sign in (-1,1):
+        socket = [(3,32),(18,27),(18,34),(14,39),(5,38)]
+        draw.polygon([(48+sign*x,y) for x,y in socket],fill=INK)
+        glow = '#77b995' if math.cos(phase)<0 else LIME
+        draw.line([(48+sign*7,35),(48+sign*14,33)],fill=glow,width=2)
+    draw.polygon([(47,38),(50,38),(53,44),(44,44)],fill=INK)
+    draw.rectangle((39,50,57,56),fill=INK)
+    for x in (39,44,50,55):
+        draw.rectangle((x,48,x+2,54),fill='#c5d9e7')
+    draw.line([(38,55),(42,58),(54,58),(58,55)],fill=steel,width=2)
     return sprite.resize((192,136),Image.Resampling.NEAREST)
 
 
@@ -58,16 +62,16 @@ def analysis_demos():
             label(d,(left+22,18),title,27,WHITE,True)
             label(d,(left+413,24),'DEMO',16,ICE,True,True)
             d.line((left+1,61,left+490,61),fill=LINE)
-        moth = specimen(0)
-        im.paste(moth,(149,70),moth)
+        skull = specimen(0)
+        im.paste(skull,(149,70),skull)
         y = 83 + round(105*(1-math.cos(phase))/2)
         d.line((47,y,444,y),fill='#689581')
         d.rectangle((43,y-2,47,y+2),fill=LIME)
         label(d,(22,216),'4D 5A    50 45    4C 41 42',20,ICE,False,True)
         label(d,(22,254),'YARA  /  '+('LAB marker matched' if y>149 else 'scanning bytes'),20,LIME,True,True)
 
-        moth = specimen(phase).resize((144,102),Image.Resampling.NEAREST)
-        im.paste(moth,(524,98),moth)
+        skull = specimen(phase).resize((144,102),Image.Resampling.NEAREST)
+        im.paste(skull,(524,98),skull)
         stage = min(i//12,2)
         for j,event in enumerate(('Process start','File read','Process exit')):
             row = 99+j*38
