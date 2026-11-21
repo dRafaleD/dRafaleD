@@ -2,7 +2,7 @@
 from pathlib import Path
 import argparse
 import xml.etree.ElementTree as ET
-from render_cosmos_profile import save, text, galaxy, MUTED, ACCENT
+from render_cosmos_profile import save, text, MUTED, ACCENT
 
 
 def frame_file(path: Path, output_dir: Path | None = None):
@@ -21,12 +21,11 @@ def frame_file(path: Path, output_dir: Path | None = None):
     root.set('width', '932')
     root.set('height', '204')
     original = ET.tostring(root, encoding='unicode')
-    body = '<g opacity=".35">' + galaxy(865,202,.62,19,700) + '</g>'
-    body += original
-    body += text(34,254,'A PATH THROUGH THE CONTRIBUTION SKY',10,ACCENT,True)
+    body = original
+    body += text(34,254,'CONTRIBUTION TRACE',13,ACCENT,True)
     body += text(966,254,'dRafaleD / GITHUB',10,MUTED,True,'text-anchor="end"')
-    save(path.name,277,'GitHub contribution sky',
-         'The original animated GitHub contribution snake, framed by stars and a green galaxy.',
+    save(path.name,277,'GitHub contribution trace',
+         'The original animated GitHub contribution snake, with an ice-blue activity grid and mint cursor.',
          body,output_dir)
     framed = destination.read_text(encoding='utf-8').replace('<svg ', '<svg data-cosmos-frame="true" ', 1)
     # Include the contribution animation in the reduced-motion fallback.

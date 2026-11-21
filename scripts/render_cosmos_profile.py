@@ -188,13 +188,9 @@ def save(name, height, title, description, body, output_dir=ASSETS):
         'cosmos-header.svg': ('deep-space-lime.png', '.88'),
         'cosmos-about.svg': ('deep-space-planet.jpg', '.95'),
         'cosmos-projects.svg': ('deep-space-nebula.png', '.74'),
-        'cosmos-community.svg': ('deep-space-pulsar.jpg', '.94'),
-        'cosmos-ethics.svg': ('deep-space-eclipse.jpg', '.95'),
         'cosmos-connect.svg': ('deep-space-horizon.png', '.85'),
-        'cosmos-activity.svg': ('deep-space-comet.jpg', '.92'),
-        'github-streak.svg': ('deep-space-supernova.jpg', '.82'),
     }
-    if name in {'cosmos-arsenal.svg', 'cosmos-toolkit.svg', 'cosmos-focus.svg', 'cosmos-certifications.svg'}:
+    if name.startswith('github-contribution-grid-snake') or name in {'cosmos-community.svg', 'cosmos-ethics.svg', 'cosmos-activity.svg', 'github-streak.svg', 'cosmos-arsenal.svg', 'cosmos-toolkit.svg', 'cosmos-focus.svg', 'cosmos-certifications.svg'}:
         backdrop = clouds = stars = ''
     elif name in scenes:
         asset, strength = scenes[name]
@@ -216,7 +212,7 @@ def save(name, height, title, description, body, output_dir=ASSETS):
         stars = field(1000, height, name, max(75, min(220, int(height * 0.22))))
 
     meteors = ''
-    if name in ('cosmos-header.svg', 'cosmos-projects.svg', 'cosmos-ethics.svg', 'cosmos-activity.svg', 'cosmos-connect.svg'):
+    if name in ('cosmos-header.svg', 'cosmos-projects.svg', 'cosmos-connect.svg'):
         meteors = (
             '<g class="meteor"><path d="M0 0L95 22" stroke="url(#meteor)" stroke-width="1.3"/></g>'
             '<g class="meteor second"><path d="M0 120L70 136" stroke="url(#meteor)" stroke-width="1"/></g>'
@@ -555,6 +551,16 @@ def community():
     body += text(36, 132, 'XERJ Corpus Hub', 20, LIME)
     body += text(36, 165, 'Verified contributor profile / dRafaleD', 15.5, MUTED)
     body += text(36, 208, '> VIEW CONTRIBUTOR PROFILE  →', 10.5, ACCENT, True)
+    body += panel(565, 56, 398, 158)
+    body += text(586, 85, 'HEX VIEW   /   PE signature', 16, ACCENT, True)
+    for i, (offset, values, ascii_view) in enumerate([
+        ('0000', '4D 5A', 'MZ'), ('003C', '80 00 00 00', '....'),
+        ('0080', '50 45 00 00', 'PE..')
+    ]):
+        y = 119 + 32*i
+        body += text(586, y, offset, 15, MUTED, True)
+        body += text(664, y, values, 16, TEXT, True)
+        body += text(886, y, ascii_view, 16, LIME, True)
     save('cosmos-community.svg', 240, 'Community contributions', 'XERJ Corpus Hub contributor record for dRafaleD.', body)
 
 
@@ -566,8 +572,15 @@ def ethics():
     body += text(36, 242, 'Report ethically. Build securely.', 24, TEXT)
     body += text(36, 290, 'All security research, analysis, and testing is performed', 16.5, MUTED)
     body += text(36, 318, 'strictly within authorized environments.', 16.5, MUTED)
-    body += '<path d="M36 358C270 338 398 382 630 355S866 339 966 351" fill="none" stroke="#3a4959" stroke-width=".9"/><path class="link-flow" d="M36 358C270 338 398 382 630 355S866 339 966 351" fill="none" stroke="#84cfa2" stroke-width="1.2" opacity=".8"/>'
-    body += flare(490, 363, 0.65)
+    body += panel(574, 144, 392, 213)
+    body += text(595, 178, 'ANALYSIS SCOPE', 16, ACCENT, True)
+    for i, (key, value) in enumerate([
+        ('sample', 'isolated copy'), ('inspection', 'read-only'),
+        ('execution', 'off'), ('network', 'offline')
+    ]):
+        y = 217 + 34*i
+        body += text(595, y, key, 16, MUTED, True)
+        body += text(755, y, value, 16, LIME if i == 2 else TEXT, True)
     save('cosmos-ethics.svg', 398, 'Research ethics', 'White hat security. Authorized research only. Test responsibly. Report ethically. Build securely.', body)
 
 
@@ -614,8 +627,13 @@ def connect():
 def activity_header():
     body = '<rect width="1000" height="196" fill="url(#veil)"/>'
     body += heading('08', 'git log --stat', 'GitHub activity.', 'Contribution streaks and recent commit activity.', 'ACTIVITY')
-    body += '<path d="M35 156C240 112 456 200 696 146S884 131 963 151" fill="none" stroke="#3a4959" stroke-width=".9"/><path class="link-flow" d="M35 156C240 112 456 200 696 146S884 131 963 151" fill="none" stroke="#9fe1b5" stroke-width="1.2" opacity=".8"/>'
-    body += flare(235, 148, 0.6) + flare(645, 155, 0.65)
+    body += text(36, 165, 'TRACE VIEW', 13, ACCENT, True)
+    for i, step in enumerate(('entry', 'decode', 'return')):
+        x = 572 + i*134
+        body += panel(x, 137, 113, 38)
+        body += text(x+16, 162, step, 16, LIME if i == 1 else TEXT, True)
+        if i < 2:
+            body += f'<path d="M{x+113} 156h20m-5 -4 5 4 -5 4" fill="none" stroke="{ACCENT}"/>'
     save('cosmos-activity.svg', 196, 'GitHub activity', 'GitHub activity, contribution streaks, and contribution graph.', body)
 
 
@@ -630,7 +648,7 @@ def streak_card(total, current, longest, total_range, current_range, longest_ran
     for i, (value, label, dates, col) in enumerate(stats):
         x = 34 + i * 316
         body += panel(x, 143, 300, 157)
-        body += cluster(x + 258, 175, 200 + i)
+        body += text(x + 219, 176, ('COUNT', 'CURRENT', 'MAX')[i], 12, MUTED, True)
         body += text(x + 20, 196, value, 39, col)
         body += text(x + 20, 236, label, 16.5, TEXT)
         body += text(x + 20, 272, dates, 12, MUTED, True)

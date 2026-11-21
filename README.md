@@ -77,7 +77,7 @@ Open a project to explore its source.
 
 </details>
 
-<a href="https://hub.xerj.org/contributors/dRafaleD.html"><img src="assets/cosmos-community.svg?v=11" alt="XERJ Corpus Hub: community contributions by dRafaleD. Open the contributor record." width="100%" /></a>
+<a href="https://hub.xerj.org/contributors/dRafaleD.html"><img src="assets/cosmos-community.svg?v=12" alt="XERJ Corpus Hub: community contributions by dRafaleD. Open the contributor record." width="100%" /></a>
 
 <details>
 <summary>Live contributor badge</summary>
@@ -86,19 +86,19 @@ Open a project to explore its source.
 
 </details>
 
-<img src="assets/cosmos-ethics.svg?v=11" alt="Ethics: white hat security and authorized research only. Test responsibly, report ethically, build securely." width="100%" />
+<img src="assets/cosmos-ethics.svg?v=12" alt="Ethics: white hat security and authorized research only. Test responsibly, report ethically, build securely." width="100%" />
 
 ## Activity
 
-<img src="assets/cosmos-activity.svg?v=11" alt="GitHub activity: contribution streaks and recent commit activity." width="100%" />
+<img src="assets/cosmos-activity.svg?v=12" alt="GitHub activity: contribution streaks and recent commit activity." width="100%" />
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg?v=11" alt="dRafaleD GitHub contribution streak" width="100%" />
+<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg?v=12" alt="dRafaleD GitHub contribution streak" width="100%" />
 
 <br />
 
-<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg?v=6" alt="GitHub contribution snake animation" width="100%" />
+<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg?v=12" alt="GitHub contribution snake animation" width="100%" />
 
 </div>
 
