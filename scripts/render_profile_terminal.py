@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 USERNAME = "dRafaleD"
 API_BASE = "https://api.github.com"
 MASK_SOURCE = ROOT / "assets" / "profile-terminal-mask.png"
-OUTPUT = ROOT / "assets" / "operator-terminal.gif"
+OUTPUT = ROOT / "assets" / "operator-terminal-brief.gif"
 FONT = Path(r"C:\Windows\Fonts\CascadiaMono.ttf")
 
 if not FONT.exists():
@@ -64,15 +64,13 @@ entries = [
     ("Eren Erdogan", 44, 124, body_font, TEXT),
     ("dRafaleD@github:~$", 44, 160, prompt_font, GREEN),
     ("./profile --summary", 320, 160, prompt_font, LIME),
-    ("Focus: Malware analysis and reverse engineering", 44, 190, body_font, TEXT),
-    ("Secondary: Full Stack Development", 44, 216, body_font, TEXT),
-    ("Status: Learning - building - testing", 44, 242, body_font, TEXT),
+    ("Malware analysis / Reverse engineering", 44, 190, body_font, TEXT),
+    ("Full-stack development", 44, 216, body_font, TEXT),
     ("dRafaleD@github:~$", 44, 278, prompt_font, GREEN),
     ("neofetch", 320, 278, prompt_font, LIME),
     ("dRafaleD @github.com", 350, 320, body_font, GREEN),
     ("--------------------", 350, 346, body_font, MUTED),
     ("OS:         GitHub", 350, 378, body_font, TEXT),
-    ("Focus:      Cybersecurity", 350, 406, body_font, TEXT),
     (f"Repos:      {STATS['repos']} public repositories", 350, 434, body_font, TEXT),
     (f"Followers:  {STATS['followers']}", 350, 462, body_font, TEXT),
     (f"Stars:      {STATS['stars']}", 350, 490, body_font, TEXT),
@@ -80,12 +78,8 @@ entries = [
     ("Location:   Eskisehir, Turkiye", 350, 546, body_font, TEXT),
     ("dRafaleD@github:~$", 44, 630, prompt_font, GREEN),
     ("cat about.txt", 320, 630, prompt_font, LIME),
-    ("Focused on cybersecurity, Linux systems,", 44, 660, body_font, TEXT),
-    ("and secure backend development.", 44, 686, body_font, TEXT),
-    ("Building tools for OSINT, malware analysis, and email security.", 44, 712, body_font, TEXT),
-    ("dRafaleD@github:~$", 44, 768, prompt_font, GREEN),
-    ("status", 320, 768, prompt_font, LIME),
-    ("SYSTEM ONLINE  |  SECURITY MONITORING  |  BUILD ACTIVE", 64, 796, body_font, TEXT),
+    ("Linux / Secure backend", 44, 660, body_font, TEXT),
+    ("Tools for OSINT, malware triage and email security.", 44, 686, body_font, TEXT),
     ("dRafaleD@github:~$", 44, 850, prompt_font, GREEN),
     ("exit", 320, 850, prompt_font, LIME),
 ]
@@ -129,8 +123,6 @@ def render(visible_chars: int, cursor_strength: float, scanline_y: int) -> Image
     if avatar_visible:
         image.paste(TERMINAL_MASK, (52, 318), TERMINAL_MASK)
 
-    if visible_chars >= TOTAL_CHARS:
-        draw.ellipse((44, 802, 54, 812), fill=GREEN)
     cursor = (
         int(20 + 37 * cursor_strength),
         int(70 + 185 * cursor_strength),

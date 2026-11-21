@@ -380,7 +380,7 @@ def arsenal():
     readable_cards('arsenal','Technical stack',[(label.title(), [], tools, None)
                    for label,tools in rows], {'Rust','YARA','YARA-X','C'})
 
-    body = heading('02', 'ls -la ~/stack', 'Technical stack.', 'Languages, rule engines, and Linux environments I work with.', 'TECH STACK')
+    body = heading('02', 'ls -la ~/stack', 'Technical stack.', 'Languages, rules and Linux.', 'TECH STACK')
     body += panel(34, 143, 932, 174)
     for i, (label, names) in enumerate(rows):
         y = 164 + i * 47
@@ -442,7 +442,7 @@ def toolkit():
         for title,subtitle,path,icon,tools in categories], highlights)
 
     body = '<rect width="1000" height="1068" fill="url(#veilStrong)"/>'
-    body += heading('03', 'ls ~/security/toolkit --color=always', 'Security toolkit.', 'Tools across five security domains. Green highlights the ones I use most.', '58 TOOLS // 5 CATEGORIES')
+    body += heading('03', 'ls ~/security/toolkit --color=always', 'Security toolkit.', 'Green marks my primary tools.', '58 TOOLS // 5 CATEGORIES')
 
     def render_domain_card(idx, x, y, w, h, title, subtitle, path_label, icon_rows, tool_list):
         tools = tool_list.split(',')
@@ -487,7 +487,6 @@ def toolkit():
     body += render_domain_card(4, 34, row3_y, 932, row3_h, *categories[4])
 
     footer_y = row3_y + row3_h + 34
-    body += text(34, footer_y, '> 58 TOOLS ACROSS 5 CATEGORIES', 10.5, MUTED, True)
     body += '<rect x="738" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#1a2a22" stroke="#a8cf98" stroke-width=".9"/>'
     body += text(755, footer_y, 'PRIMARY', 10, ACCENT, True)
     body += '<rect x="838" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#0a0e09" stroke="#263522" stroke-width=".9"/>'
@@ -519,7 +518,7 @@ def focus():
     readable_cards('focus','Focus & learning',[
         (label.split('// ')[1].title(), lines, [], None) for _,label,lines in columns])
 
-    body = heading('04', 'cat ~/learning.md', 'Focus & learning.', 'Areas I currently work on and topics I am studying next.', 'FOCUS')
+    body = heading('04', 'cat ~/learning.md', 'Focus & learning.', 'Current work and studies.', 'FOCUS')
     for idx, (x, label, lines) in enumerate(columns):
         body += panel(x, 144, 450, 247)
         symbol = ('11110000 10001000 10100100 10001000 11110000 00000110 00001111 00000110'
@@ -529,7 +528,6 @@ def focus():
         for i, value in enumerate(lines):
             body += f'<circle cx="{x + 24}" cy="{208 + i * 28}" r="1.8" fill="#a8cf98"/>'
             body += text(x + 38, 213 + i * 28, value, 15.5, MUTED)
-    body += text(34, 487, '> HANDS-ON PRACTICE · CONTINUOUS LEARNING', 10.5, MUTED, True)
     save('cosmos-focus.svg', 512, 'Focus and learning', '; '.join(label + ': ' + ', '.join(lines) for _, label, lines in columns), body)
 
 
@@ -543,7 +541,7 @@ def certifications():
     readable_cards('certifications','Certifications',[
         (name,[issuer,source],[],None) for issuer,name,source in items])
 
-    body = heading('05', 'ls ~/credentials', 'Certifications.', 'Verified certificates and training badges. Links are listed below.', '4 VERIFIED')
+    body = heading('05', 'ls ~/credentials', 'Certifications.', 'Verified training and certificates.', '4 VERIFIED')
     for i, (issuer, name, source) in enumerate(items):
         x = 34 + (i % 2) * 482
         y = 144 + (i // 2) * 158
@@ -556,7 +554,7 @@ def certifications():
 
 def community():
     readable_cards('community','Community contributions',[
-        ('XERJ Corpus Hub',['View the verified contributor profile for dRafaleD.'],[],None),
+        ('XERJ Corpus Hub',['Verified contributor profile.'],[],None),
         ('PE signature',['0000   4D 5A   MZ','003C   80 00 00 00','0080   50 45 00 00   PE'],[],None)])
 
     body = '<rect width="1000" height="240" fill="url(#veil)"/>'
@@ -644,7 +642,7 @@ def activity_header():
 
 def streak_card(total, current, longest, total_range, current_range, longest_range):
     body = '<rect width="1000" height="327" fill="url(#veilStrong)"/>'
-    body += heading('LIVE', 'git activity --summary', 'Contribution summary.', 'Totals and streaks, updated automatically from GitHub activity.', 'SYNCED')
+    body += heading('LIVE', 'git activity --summary', 'Contribution summary.', 'GitHub totals and streaks.', 'SYNCED')
     stats = [
         (f'{total:,}', 'Total contributions', total_range, ACCENT),
         (str(current), 'Current streak', current_range, LIME),

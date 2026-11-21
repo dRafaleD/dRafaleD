@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/operator-terminal.png" />
-  <img src="assets/operator-terminal.gif" alt="Animated profile terminal with Eren Erdoğan’s command history, original green mask, and GitHub statistics." width="100%" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/operator-terminal-brief.png" />
+  <img src="assets/operator-terminal-brief.gif" alt="Animated profile terminal with Eren Erdoğan’s command history, original green mask, and GitHub statistics." width="100%" />
 </picture>
 
 <picture>
@@ -11,8 +11,6 @@
 [Projects](#projects) · [Stack & tools](#stack-and-tools) · [Training](#training-and-community) · [Activity](#activity) · [Malware lab](#malware-analysis-lab) · [Contact](#contact)
 
 ## Projects
-
-Open a project to explore its source.
 
 <a href="https://github.com/dRafaleD/Malware-analysis-AsphDex"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-asphdex-mobile.png" /><source media="(max-width: 767px)" srcset="assets/trace-asphdex-mobile.gif" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-asphdex.png" /><img src="assets/trace-asphdex.gif" alt="AsphDex — Inspect PE / ELF files with YARA." width="402" /></picture></a>
 <a href="https://github.com/dRafaleD/Banshee"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-banshee-mobile.png" /><source media="(max-width: 767px)" srcset="assets/trace-banshee-mobile.gif" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-banshee.png" /><img src="assets/trace-banshee.gif" alt="Banshee — Decode artifacts and bundle findings." width="402" /></picture></a>
@@ -43,23 +41,23 @@ Open a project to explore its source.
 </picture>
 
 <div align="center">
-  <picture><source media="(max-width: 767px)" srcset="assets/read-arsenal-mobile.svg" /><img src="assets/cosmos-arsenal.svg?v=compact2" alt="Languages and rule engines: Rust, YARA, YARA-X, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" /></picture>
+  <picture><source media="(max-width: 767px)" srcset="assets/read-arsenal-mobile.svg" /><img src="assets/cosmos-arsenal.svg?v=brief" alt="Languages and rule engines: Rust, YARA, YARA-X, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" /></picture>
 </div>
 
 <div align="center">
-  <picture><source media="(max-width: 767px)" srcset="assets/read-toolkit-mobile.svg" /><img src="assets/cosmos-toolkit.svg?v=compact2" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" /></picture>
+  <picture><source media="(max-width: 767px)" srcset="assets/read-toolkit-mobile.svg" /><img src="assets/cosmos-toolkit.svg?v=brief" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" /></picture>
 </div>
 
 <div align="center">
-  <picture><source media="(max-width: 767px)" srcset="assets/read-focus-mobile.svg" /><img src="assets/cosmos-focus.svg?v=compact2" alt="Focus and learning: current focus areas and topics currently being studied across web security, malware analysis, Linux hardening, and secure backend engineering." width="100%" /></picture>
+  <picture><source media="(max-width: 767px)" srcset="assets/read-focus-mobile.svg" /><img src="assets/cosmos-focus.svg?v=brief" alt="Focus and learning: current focus areas and topics currently being studied across web security, malware analysis, Linux hardening, and secure backend engineering." width="100%" /></picture>
 </div>
 
 ## Training and community
 
-<picture><source media="(max-width: 767px)" srcset="assets/read-certifications-mobile.svg" /><img src="assets/cosmos-certifications.svg?v=compact2" alt="Certifications: Siber Vatan; Cisco Introduction to Cybersecurity, Network Defense, and Cyber Threat Management. Original badges and verification links follow." width="100%" /></picture>
+<picture><source media="(max-width: 767px)" srcset="assets/read-certifications-mobile.svg" /><img src="assets/cosmos-certifications.svg?v=brief" alt="Certifications: Siber Vatan; Cisco Introduction to Cybersecurity, Network Defense, and Cyber Threat Management. Original badges and verification links follow." width="100%" /></picture>
 
 <details>
-<summary>Original credential badges and verification links</summary>
+<summary>Credential verification</summary>
 
 <table align="center">
 <tr>
