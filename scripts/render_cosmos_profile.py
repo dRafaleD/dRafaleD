@@ -16,13 +16,13 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'assets'
 
-BG = '#0e0f12'
-SURFACE = '#15171b'
-TEXT = '#e4e6ea'
+BG = '#030503'
+SURFACE = '#0a0e09'
+TEXT = '#edf1e9'
 MUTED = '#adb2ba'
 DIM = '#a3a9b3'
-ACCENT = '#9fc4e8'
-LIME = '#98ecae'
+ACCENT = '#a8cf98'
+LIME = '#82ed30'
 
 _IMAGE_CACHE: dict[tuple[str, int, int], str] = {}
 
@@ -67,7 +67,7 @@ def text(x, y, value, size=18, color=TEXT, mono=False, extra=''):
 def field(width, height, seed, count=110):
     rng = random.Random(seed)
     stars = []
-    palette = ['#d7ffe3', '#96e6b3', '#9fc4e8', '#b7f34a', '#7da88d']
+    palette = ['#d7ffe3', '#96e6b3', '#a8cf98', '#b7f34a', '#7da88d']
     for i in range(count):
         x = rng.uniform(8, width - 8)
         y = rng.uniform(8, height - 8)
@@ -93,7 +93,7 @@ def flare(x, y, size=1):
 def galaxy(x, y, scale=1, seed=31, particles=900):
     rng = random.Random(seed)
     dust = []
-    palette = ['#d7ffe3', '#65d993', '#9fc4e8', '#98ecae', '#9cc9ad']
+    palette = ['#d7ffe3', '#65d993', '#a8cf98', '#82ed30', '#9cc9ad']
     for i in range(particles):
         reach = rng.random() ** 0.72
         angle = (i % 4) * math.tau / 4 + reach * 6.5 + rng.gauss(0, 0.16 + 0.12 * (1 - reach))
@@ -134,9 +134,9 @@ def planet(x, y, radius):
     return (
         f'<g transform="translate({x} {y})">'
         f'<circle class="breathe" r="{radius + 26}" fill="url(#nebula)"/>'
-        f'<circle r="{radius}" fill="url(#planet)" stroke="#9fc4e8" stroke-opacity=".28" stroke-width=".9"/>'
-        f'<ellipse rx="{radius * 1.48:.1f}" ry="{radius * 0.3:.1f}" fill="none" stroke="#98ecae" stroke-opacity=".24" stroke-width="1" transform="rotate(-16)"/>'
-        f'<ellipse rx="{radius * 1.65:.1f}" ry="{radius * 0.34:.1f}" fill="none" stroke="#9fc4e8" stroke-opacity=".13" stroke-width=".7" stroke-dasharray="4 7" transform="rotate(-16)"/>'
+        f'<circle r="{radius}" fill="url(#planet)" stroke="#a8cf98" stroke-opacity=".28" stroke-width=".9"/>'
+        f'<ellipse rx="{radius * 1.48:.1f}" ry="{radius * 0.3:.1f}" fill="none" stroke="#82ed30" stroke-opacity=".24" stroke-width="1" transform="rotate(-16)"/>'
+        f'<ellipse rx="{radius * 1.65:.1f}" ry="{radius * 0.34:.1f}" fill="none" stroke="#a8cf98" stroke-opacity=".13" stroke-width=".7" stroke-dasharray="4 7" transform="rotate(-16)"/>'
         '</g>'
     )
 
@@ -170,55 +170,21 @@ STYLE = '''
 '''
 
 DEFS = '''<defs>
-<radialGradient id="nebula"><stop stop-color="#9fc4e8" stop-opacity=".22"/><stop offset=".45" stop-color="#4a7fa8" stop-opacity=".14"/><stop offset="1" stop-color="#0e0f12" stop-opacity="0"/></radialGradient>
-<radialGradient id="nebulaLime"><stop stop-color="#98ecae" stop-opacity=".16"/><stop offset=".48" stop-color="#333d4c" stop-opacity=".12"/><stop offset="1" stop-color="#0e0f12" stop-opacity="0"/></radialGradient>
-<radialGradient id="core"><stop stop-color="#efffda" stop-opacity=".95"/><stop offset=".15" stop-color="#c6f5c5" stop-opacity=".7"/><stop offset=".45" stop-color="#9fc4e8" stop-opacity=".18"/><stop offset="1" stop-color="#9fc4e8" stop-opacity="0"/></radialGradient>
-<radialGradient id="starGlow"><stop stop-color="#dfffea" stop-opacity=".85"/><stop offset=".18" stop-color="#9fc4e8" stop-opacity=".45"/><stop offset="1" stop-color="#9fc4e8" stop-opacity="0"/></radialGradient>
-<linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0e0f12"/><stop offset=".6" stop-color="#15171b"/><stop offset="1" stop-color="#0e0f12"/></linearGradient>
-<linearGradient id="panel" x2="1" y2="1"><stop stop-color="#1b1e23" stop-opacity=".92"/><stop offset="1" stop-color="#15171b" stop-opacity=".84"/></linearGradient>
-<linearGradient id="edge"><stop stop-color="#9fc4e8" stop-opacity=".6"/><stop offset=".55" stop-color="#98ecae" stop-opacity=".28"/><stop offset="1" stop-color="#9fc4e8" stop-opacity="0"/></linearGradient>
-<linearGradient id="veil"><stop stop-color="#0e0f12"/><stop offset=".46" stop-color="#0e0f12" stop-opacity=".88"/><stop offset=".78" stop-color="#0e0f12" stop-opacity=".24"/><stop offset="1" stop-color="#0e0f12" stop-opacity=".08"/></linearGradient>
-<linearGradient id="veilStrong"><stop stop-color="#0e0f12" stop-opacity=".95"/><stop offset=".55" stop-color="#0e0f12" stop-opacity=".82"/><stop offset="1" stop-color="#0e0f12" stop-opacity=".5"/></linearGradient>
-<linearGradient id="meteor"><stop stop-color="#9fc4e8" stop-opacity="0"/><stop offset="1" stop-color="#e4ffec" stop-opacity=".92"/></linearGradient>
+<radialGradient id="nebula"><stop stop-color="#a8cf98" stop-opacity=".22"/><stop offset=".45" stop-color="#4a7fa8" stop-opacity=".14"/><stop offset="1" stop-color="#030503" stop-opacity="0"/></radialGradient>
+<radialGradient id="nebulaLime"><stop stop-color="#82ed30" stop-opacity=".16"/><stop offset=".48" stop-color="#333d4c" stop-opacity=".12"/><stop offset="1" stop-color="#030503" stop-opacity="0"/></radialGradient>
+<radialGradient id="core"><stop stop-color="#efffda" stop-opacity=".95"/><stop offset=".15" stop-color="#c6f5c5" stop-opacity=".7"/><stop offset=".45" stop-color="#a8cf98" stop-opacity=".18"/><stop offset="1" stop-color="#a8cf98" stop-opacity="0"/></radialGradient>
+<radialGradient id="starGlow"><stop stop-color="#dfffea" stop-opacity=".85"/><stop offset=".18" stop-color="#a8cf98" stop-opacity=".45"/><stop offset="1" stop-color="#a8cf98" stop-opacity="0"/></radialGradient>
+<linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#030503"/><stop offset=".6" stop-color="#0a0e09"/><stop offset="1" stop-color="#030503"/></linearGradient>
+<linearGradient id="panel" x2="1" y2="1"><stop stop-color="#1b1e23" stop-opacity=".92"/><stop offset="1" stop-color="#0a0e09" stop-opacity=".84"/></linearGradient>
+<linearGradient id="edge"><stop stop-color="#a8cf98" stop-opacity=".6"/><stop offset=".55" stop-color="#82ed30" stop-opacity=".28"/><stop offset="1" stop-color="#a8cf98" stop-opacity="0"/></linearGradient>
+<linearGradient id="veil"><stop stop-color="#030503"/><stop offset=".46" stop-color="#030503" stop-opacity=".88"/><stop offset=".78" stop-color="#030503" stop-opacity=".24"/><stop offset="1" stop-color="#030503" stop-opacity=".08"/></linearGradient>
+<linearGradient id="veilStrong"><stop stop-color="#030503" stop-opacity=".95"/><stop offset=".55" stop-color="#030503" stop-opacity=".82"/><stop offset="1" stop-color="#030503" stop-opacity=".5"/></linearGradient>
+<linearGradient id="meteor"><stop stop-color="#a8cf98" stop-opacity="0"/><stop offset="1" stop-color="#e4ffec" stop-opacity=".92"/></linearGradient>
 <radialGradient id="planet" cx="26%" cy="18%" r="86%"><stop stop-color="#5d8a6a"/><stop offset=".26" stop-color="#173d2b"/><stop offset=".64" stop-color="#071a11"/><stop offset="1" stop-color="#010503"/></radialGradient>
 </defs>'''
 
 
 def save(name, height, title, description, body, output_dir=ASSETS):
-    scenes = {
-        'cosmos-header.svg': ('deep-space-lime.png', '.88'),
-        'cosmos-about.svg': ('deep-space-planet.jpg', '.95'),
-        'cosmos-projects.svg': ('deep-space-nebula.png', '.74'),
-        'cosmos-connect.svg': ('deep-space-horizon.png', '.85'),
-    }
-    if name.startswith('github-contribution-grid-snake') or name in {'cosmos-community.svg', 'cosmos-ethics.svg', 'cosmos-activity.svg', 'github-streak.svg', 'cosmos-arsenal.svg', 'cosmos-toolkit.svg', 'cosmos-focus.svg', 'cosmos-certifications.svg'}:
-        backdrop = clouds = stars = ''
-    elif name in scenes:
-        asset, strength = scenes[name]
-        photo = encode_backdrop(asset, 1000, height)
-        backdrop = (
-            f'<image class="space-photo" href="data:image/jpeg;base64,{photo}" '
-            f'width="1000" height="{height}" preserveAspectRatio="xMidYMid slice" opacity="{strength}"/>'
-        )
-        clouds = ''
-        stars = field(1000, height, name, max(65, int(height * 0.14)))
-    else:
-        backdrop = f'<rect x=".5" y=".5" width="999" height="{height - 1}" rx="12" fill="url(#bgGrad)" stroke="#272a30" stroke-width="1"/>'
-        clouds = (
-            f'<g class="nebula-drift">'
-            f'<ellipse cx="835" cy="{height * 0.48:.1f}" rx="340" ry="{max(140, height * 0.46):.1f}" fill="url(#nebula)" opacity=".7"/>'
-            f'<ellipse cx="145" cy="{height * 0.78:.1f}" rx="250" ry="{max(110, height * 0.38):.1f}" fill="url(#nebulaLime)" opacity=".45"/>'
-            f'</g>'
-        )
-        stars = field(1000, height, name, max(75, min(220, int(height * 0.22))))
-
-    meteors = ''
-    if name in ('cosmos-header.svg', 'cosmos-projects.svg', 'cosmos-connect.svg'):
-        meteors = (
-            '<g class="meteor"><path d="M0 0L95 22" stroke="url(#meteor)" stroke-width="1.3"/></g>'
-            '<g class="meteor second"><path d="M0 120L70 136" stroke="url(#meteor)" stroke-width="1"/></g>'
-        )
-
     outer_border = f'<rect x=".5" y=".5" width="999" height="{height - 1}" rx="12" fill="none" stroke="#2b2e31" stroke-width="1"/>'
     svg = (
         f'<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="{height}" viewBox="0 0 1000 {height}" '
@@ -227,7 +193,7 @@ def save(name, height, title, description, body, output_dir=ASSETS):
         f'<desc id="desc">{escape(description)}</desc>'
         f'{DEFS}<style>{STYLE}</style>'
         f'<rect width="1000" height="{height}" rx="12" fill="{BG}"/>'
-        f'{backdrop}{clouds}{stars}{meteors}{body}{outer_border}</svg>'
+        f'{body}{outer_border}</svg>'
     )
     (output_dir / name).write_text(svg, encoding='utf-8', newline='\n')
 
@@ -235,8 +201,8 @@ def save(name, height, title, description, body, output_dir=ASSETS):
 def terminal_chrome(prompt, sector_tag, y=28):
     dots = (
         f'<circle cx="38" cy="{y - 4}" r="3.6" fill="#545963"/>'
-        f'<circle cx="52" cy="{y - 4}" r="3.6" fill="#3a3e46"/>'
-        f'<circle cx="66" cy="{y - 4}" r="3.6" fill="#9fc4e8" opacity=".65"/>'
+        f'<circle cx="52" cy="{y - 4}" r="3.6" fill="#263522"/>'
+        f'<circle cx="66" cy="{y - 4}" r="3.6" fill="#a8cf98" opacity=".65"/>'
     )
     return (
         dots
@@ -257,8 +223,8 @@ def heading(index, command, title, detail, sector_tag=None):
 
 def panel(x, y, width, height):
     return (
-        f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="6" fill="#15171b" '
-        f'stroke="#3a3e46" stroke-opacity=".85" stroke-width=".9"/>'
+        f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="6" fill="#0a0e09" '
+        f'stroke="#263522" stroke-opacity=".85" stroke-width=".9"/>'
         f'<path d="M{x + 14} {y + .5}H{x + width - 14}" stroke="url(#edge)" stroke-width=".9"/>'
     )
 
@@ -278,7 +244,7 @@ def hero():
 
 def about():
     body = '<rect width="1000" height="368" fill="url(#veil)"/>'
-    body += '<rect width="1000" height="48" fill="#0e0f12" opacity=".48"/>'
+    body += '<rect width="1000" height="48" fill="#030503" opacity=".48"/>'
     body += heading('00', 'cat about.md', 'About me.', 'Eren Erdoğan · Backend development student & security developer', 'PROFILE')
     lines = [
         'I study backend development and work on cybersecurity, Linux systems,',
@@ -289,7 +255,7 @@ def about():
     ]
     for i, line in enumerate(lines):
         body += text(36, 158 + i * 30, line, 16.5, MUTED)
-    body += '<path class="stream" d="M36 308H520" stroke="#9fc4e8" stroke-opacity=".35"/>'
+    body += '<path class="stream" d="M36 308H520" stroke="#a8cf98" stroke-opacity=".35"/>'
     body += text(36, 340, '> CURIOUS BY NATURE · PRACTICAL BY DESIGN', 10.5, ACCENT, True)
     save('cosmos-about.svg', 368, 'About Eren Erdoğan', ' '.join(lines), body)
 
@@ -326,19 +292,17 @@ def projects():
     ]
     for path in paths:
         body += f'<path d="{path}" fill="none" stroke="#3a4959" stroke-width=".9" opacity=".75"/>'
-        body += f'<path class="link-flow" d="{path}" fill="none" stroke="#9fc4e8" stroke-width="1.35" opacity=".75"/>'
-    body += galaxy(cx, cy, 0.42, 53, 420)
+        body += f'<path class="link-flow" d="{path}" fill="none" stroke="#a8cf98" stroke-width="1.35" opacity=".75"/>'
 
     for i, (number, name, subtitle, detail, tag) in enumerate(items):
         x = 34 + (i % 2) * 482
         y = 144 + (i // 2) * 214
         body += panel(x, y, 450, 184)
-        body += cluster(x + 394, y + 44, 10 + i)
         body += text(x + 22, y + 29, f'{number} / {tag}', 10, LIME if i % 2 else ACCENT, True)
         body += text(x + 22, y + 71, name, 27, TEXT)
         body += text(x + 22, y + 106, subtitle, 15.5, TEXT)
         body += text(x + 22, y + 136, detail, 13.5, MUTED)
-        body += f'<path class="stream" d="M{x + 22} {y + 160}h195" stroke="#9fc4e8" opacity=".4"/>'
+        body += f'<path class="stream" d="M{x + 22} {y + 160}h195" stroke="#a8cf98" opacity=".4"/>'
 
     body += text(34, 804, '> OPEN-SOURCE SECURITY TOOLS', 10.5, MUTED, True)
     body += text(966, 804, 'STATUS: MAINTAINED', 10, ACCENT, True, 'text-anchor="end"')
@@ -354,9 +318,9 @@ def chips(x, y, width, names, highlights=()):
             x = start
             y += 40
         active = name in highlights
-        fill = '#1a2a22' if active else '#15171b'
-        stroke = '#9fc4e8' if active else '#3a3e46'
-        color = LIME if active else '#cdd2da'
+        fill = '#1a2a22' if active else '#0a0e09'
+        stroke = '#a8cf98' if active else '#263522'
+        color = LIME if active else '#bdc8b7'
         body += f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="29" rx="5" fill="{fill}" stroke="{stroke}" stroke-width=".8"/>'
         body += text(round(x + 13, 1), y + 20, name, 13, color, True)
         x += w + 8
@@ -371,13 +335,10 @@ def arsenal():
     ]
     body = heading('02', 'ls -la ~/stack', 'Technical stack.', 'Languages, rule engines, and Linux environments I work with.', 'TECH STACK')
     body += panel(34, 143, 932, 174)
-    body += cluster(915, 180, 99)
     for i, (label, names) in enumerate(rows):
         y = 164 + i * 47
         body += text(55, y + 20, label, 11, LIME, True)
         body += chips(180, y, 760, names, ['Rust', 'YARA', 'YARA-X', 'C'])[0]
-    body += '<path d="M55 352C240 325 420 379 595 352S805 334 945 351" fill="none" stroke="#3a4959" opacity=".75"/><path class="link-flow" d="M55 352C240 325 420 379 595 352S805 334 945 351" fill="none" stroke="#9fc4e8" opacity=".8"/>'
-    body += flare(181, 344, 0.5) + flare(595, 352, 0.55) + flare(866, 342, 0.5)
     save('cosmos-arsenal.svg', 385, 'Languages, rule engines and platforms', '; '.join(a + ': ' + ', '.join(b) for a, b in rows), body)
 
 
@@ -426,17 +387,6 @@ def toolkit():
     body = '<rect width="1000" height="1068" fill="url(#veilStrong)"/>'
     body += heading('03', 'ls ~/security/toolkit --color=always', 'Security toolkit.', 'Tools across five security domains. Green highlights the ones I use most.', '58 TOOLS // 5 CATEGORIES')
 
-    # Constellation arcs connecting the 5 security domains
-    orbit_paths = [
-        'M262 280C420 260 580 260 738 280',
-        'M262 560C420 540 580 540 738 560',
-        'M262 280C230 420 230 560 262 770',
-        'M738 280C770 420 770 560 738 770',
-    ]
-    for op in orbit_paths:
-        body += f'<path d="{op}" fill="none" stroke="#334352" stroke-width=".9" opacity=".65"/>'
-        body += f'<path class="link-flow" d="{op}" fill="none" stroke="#9fc4e8" stroke-width="1.3" opacity=".7"/>'
-
     def render_domain_card(idx, x, y, w, h, title, subtitle, path_label, icon_svg, tool_list):
         tools = tool_list.split(',')
         accent_col = LIME if idx in (1, 3) else ACCENT
@@ -444,7 +394,7 @@ def toolkit():
         # Left glowing domain accent bar
         inner += f'<rect x="{x}" y="{y + 24}" width="3" height="34" rx="1.5" fill="{accent_col}" opacity=".9"/>'
         # Icon badge
-        inner += f'<rect x="{x + 22}" y="{y + 20}" width="40" height="40" rx="10" fill="#20262e" stroke="#3a3e46" stroke-width=".9"/>'
+        inner += f'<rect x="{x + 22}" y="{y + 20}" width="40" height="40" rx="10" fill="#20301a" stroke="#263522" stroke-width=".9"/>'
         inner += (
             f'<g transform="translate({x + 30} {y + 28})" fill="none" stroke="{accent_col}" '
             f'stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">{icon_svg}</g>'
@@ -452,7 +402,6 @@ def toolkit():
         inner += text(x + 74, y + 37, title, 18.5, TEXT)
         inner += text(x + 74, y + 56, f'{len(tools):02d} TOOLS  ·  {path_label}', 10.5, accent_col, True)
         inner += text(x + 22, y + 83, subtitle, 12.5, MUTED)
-        inner += cluster(x + w - 34, y + 32, 70 + idx)
 
         # Animated scanner line
         line_w = w - 44
@@ -485,9 +434,9 @@ def toolkit():
 
     footer_y = row3_y + row3_h + 34
     body += text(34, footer_y, '> 58 TOOLS ACROSS 5 CATEGORIES', 10.5, MUTED, True)
-    body += '<rect x="738" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#1a2a22" stroke="#9fc4e8" stroke-width=".9"/>'
+    body += '<rect x="738" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#1a2a22" stroke="#a8cf98" stroke-width=".9"/>'
     body += text(755, footer_y, 'PRIMARY', 10, ACCENT, True)
-    body += '<rect x="838" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#15171b" stroke="#3a3e46" stroke-width=".9"/>'
+    body += '<rect x="838" y="' + str(footer_y - 11) + '" width="10" height="10" rx="2.5" fill="#0a0e09" stroke="#263522" stroke-width=".9"/>'
     body += text(855, footer_y, 'REFERENCE', 10, MUTED, True)
 
     total_h = footer_y + 26
@@ -516,13 +465,10 @@ def focus():
     body = heading('04', 'cat ~/learning.md', 'Focus & learning.', 'Areas I currently work on and topics I am studying next.', 'FOCUS')
     for idx, (x, label, lines) in enumerate(columns):
         body += panel(x, 144, 450, 247)
-        body += cluster(x + 412, 174, 41 + idx)
         body += text(x + 22, 176, label, 11, LIME if idx else ACCENT, True)
         for i, value in enumerate(lines):
-            body += f'<circle cx="{x + 24}" cy="{208 + i * 28}" r="1.8" fill="#9fc4e8"/>'
+            body += f'<circle cx="{x + 24}" cy="{208 + i * 28}" r="1.8" fill="#a8cf98"/>'
             body += text(x + 38, 213 + i * 28, value, 15.5, MUTED)
-    body += '<path d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#3a4959" stroke-width="1"/><path class="link-flow" d="M58 435C230 397 342 482 501 438S784 396 941 433" fill="none" stroke="#a4efbd" stroke-width="1.3"/>'
-    body += flare(129, 426, 0.65) + flare(501, 438, 0.75) + flare(882, 420, 0.55)
     body += text(34, 487, '> HANDS-ON PRACTICE · CONTINUOUS LEARNING', 10.5, MUTED, True)
     save('cosmos-focus.svg', 512, 'Focus and learning', '; '.join(label + ': ' + ', '.join(lines) for _, label, lines in columns), body)
 
@@ -538,7 +484,7 @@ def certifications():
     for i, (issuer, name, source) in enumerate(items):
         x = 34 + (i % 2) * 482
         y = 144 + (i // 2) * 158
-        body += panel(x, y, 450, 133) + cluster(x + 394, y + 39, 50 + i)
+        body += panel(x, y, 450, 133)
         body += text(x + 21, y + 29, issuer.upper(), 10.5, LIME if i == 0 else ACCENT, True)
         body += text(x + 21, y + 66, name, 20.5, TEXT)
         body += text(x + 21, y + 100, source, 13, MUTED)
@@ -592,22 +538,15 @@ def connect():
     save('cosmos-connect.svg', 196, 'Connect with Eren Erdoğan', 'LinkedIn: Eren Erdoğan. GitHub: dRafaleD. Portfolio: drafaled.github.io.', body)
 
     channels = [
-        ('linkedin', 'LinkedIn', 'Connect with Eren Erdoğan', 'linkedin.com/in/eren-erdoğan', 'deep-space-lens.jpg'),
-        ('github', 'GitHub', 'Explore dRafaleD repositories', 'github.com/dRafaleD', 'deep-space-binary.jpg'),
+        ('linkedin', 'LinkedIn', 'Connect with Eren Erdoğan', 'linkedin.com/in/eren-erdoğan'),
+        ('github', 'GitHub', 'Explore dRafaleD repositories', 'github.com/dRafaleD'),
     ]
-    for name, label, detail, sub, backdrop_asset in channels:
+    for name, label, detail, sub in channels:
         w, h = 490, 160
-        photo = encode_backdrop(backdrop_asset, w, h)
         cbody = (
-            f'<image class="space-photo" href="data:image/jpeg;base64,{photo}" '
-            f'width="{w}" height="{h}" preserveAspectRatio="xMidYMid slice" opacity=".92"/>'
-        )
-        cbody += field(w, h, f'link-{name}', 35)
-        cbody += f'<rect width="{w}" height="{h}" fill="url(#veil)"/>'
-        cbody += (
             '<circle cx="26" cy="24" r="3.2" fill="#545963"/>'
-            '<circle cx="38" cy="24" r="3.2" fill="#3a3e46"/>'
-            '<circle cx="50" cy="24" r="3.2" fill="#9fc4e8" opacity=".65"/>'
+            '<circle cx="38" cy="24" r="3.2" fill="#263522"/>'
+            '<circle cx="50" cy="24" r="3.2" fill="#a8cf98" opacity=".65"/>'
         )
         cbody += text(64, 28, f'> open {name}', 11, ACCENT, True)
         cbody += text(w - 22, 28, f'{label.upper()}', 10, DIM, True, 'text-anchor="end"')

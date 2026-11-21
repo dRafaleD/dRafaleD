@@ -25,7 +25,7 @@ def frame_file(path: Path, output_dir: Path | None = None):
     body += text(34,254,'CONTRIBUTION TRACE',13,ACCENT,True)
     body += text(966,254,'dRafaleD / GITHUB',10,MUTED,True,'text-anchor="end"')
     save(path.name,277,'GitHub contribution trace',
-         'The original animated GitHub contribution snake, with an ice-blue activity grid and mint cursor.',
+         'The original animated GitHub contribution snake, with a phosphor-green activity grid and neon-green cursor.',
          body,output_dir)
     framed = destination.read_text(encoding='utf-8').replace('<svg ', '<svg data-cosmos-frame="true" ', 1)
     # Include the contribution animation in the reduced-motion fallback.

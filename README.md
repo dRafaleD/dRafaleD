@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/lab-console.png" />
-  <img src="assets/lab-console.gif" alt="Eren Erdoğan (dRafaleD). Animated Kozmos galaxy. I build tools for reading binaries and tracing evidence with Rust, YARA-X and C." width="100%" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/lab-console.png?v=14" />
+  <img src="assets/lab-console.gif?v=14" alt="Eren Erdoğan (dRafaleD). Pixel operator portrait and animated binary header. I build tools for reading binaries and tracing evidence with Rust, YARA-X and C." width="100%" />
 </picture>
 
 [Projects](#projects) · [Stack & tools](#stack-and-tools) · [Training](#training-and-community) · [Activity](#activity) · [Malware lab](#malware-analysis-lab) · [Contact](#contact)
@@ -9,14 +9,14 @@
 
 Open a project to explore its source.
 
-<a href="https://github.com/dRafaleD/Malware-analysis-AsphDex"><img src="assets/lab-project-asphdex.png" alt="AsphDex — Inspect PE / ELF files with YARA." width="49%" /></a>
-<a href="https://github.com/dRafaleD/Banshee"><img src="assets/lab-project-banshee.png" alt="Banshee — Decode artifacts and bundle findings." width="49%" /></a>
+<a href="https://github.com/dRafaleD/Malware-analysis-AsphDex"><img src="assets/lab-project-asphdex.png?v=14" alt="AsphDex — Inspect PE / ELF files with YARA." width="49%" /></a>
+<a href="https://github.com/dRafaleD/Banshee"><img src="assets/lab-project-banshee.png?v=14" alt="Banshee — Decode artifacts and bundle findings." width="49%" /></a>
 
-<a href="https://github.com/dRafaleD/flowscope"><img src="assets/lab-project-flowscope.png" alt="flowscope — Follow traffic in offline captures." width="49%" /></a>
-<a href="https://github.com/dRafaleD/sentinel-security"><img src="assets/lab-project-sentinel.png" alt="sentinel-security — Rebuild filesystem timelines." width="49%" /></a>
+<a href="https://github.com/dRafaleD/flowscope"><img src="assets/lab-project-flowscope.png?v=14" alt="flowscope — Follow traffic in offline captures." width="49%" /></a>
+<a href="https://github.com/dRafaleD/sentinel-security"><img src="assets/lab-project-sentinel.png?v=14" alt="sentinel-security — Rebuild filesystem timelines." width="49%" /></a>
 
-<a href="https://github.com/dRafaleD/FhniX"><img src="assets/lab-project-fhnix.png" alt="FhniX — Inspect suspicious mail and its signals." width="49%" /></a>
-<a href="https://github.com/dRafaleD/The-Trackher"><img src="assets/lab-project-trackher.png" alt="The-Trackher — Review your own digital footprint." width="49%" /></a>
+<a href="https://github.com/dRafaleD/FhniX"><img src="assets/lab-project-fhnix.png?v=14" alt="FhniX — Inspect suspicious mail and its signals." width="49%" /></a>
+<a href="https://github.com/dRafaleD/The-Trackher"><img src="assets/lab-project-trackher.png?v=14" alt="The-Trackher — Review your own digital footprint." width="49%" /></a>
 
 <details>
 <summary>More repositories & security labs</summary>
@@ -31,25 +31,25 @@ Open a project to explore its source.
 ## Stack and tools
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/lab-byte-trace.png" />
-  <img src="assets/lab-byte-trace.gif" width="100%" alt="YARA illustration. A byte scan highlights 4C 41 42, the ASCII marker LAB." />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/lab-byte-trace.png?v=14" />
+  <img src="assets/lab-byte-trace.gif?v=14" width="100%" alt="YARA illustration. A byte scan highlights 4C 41 42, the ASCII marker LAB." />
 </picture>
 
 <div align="center">
-  <img src="assets/cosmos-arsenal.svg?v=11" alt="Languages and rule engines: Rust, YARA, YARA-X, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
+  <img src="assets/cosmos-arsenal.svg?v=14" alt="Languages and rule engines: Rust, YARA, YARA-X, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
 </div>
 
 <div align="center">
-  <img src="assets/cosmos-toolkit.svg?v=11" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" />
+  <img src="assets/cosmos-toolkit.svg?v=14" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" />
 </div>
 
 <div align="center">
-  <img src="assets/cosmos-focus.svg?v=11" alt="Focus and learning: current focus areas and topics currently being studied across web security, malware analysis, Linux hardening, and secure backend engineering." width="100%" />
+  <img src="assets/cosmos-focus.svg?v=14" alt="Focus and learning: current focus areas and topics currently being studied across web security, malware analysis, Linux hardening, and secure backend engineering." width="100%" />
 </div>
 
 ## Training and community
 
-<img src="assets/cosmos-certifications.svg?v=11" alt="Certifications: Siber Vatan; Cisco Introduction to Cybersecurity, Network Defense, and Cyber Threat Management. Original badges and verification links follow." width="100%" />
+<img src="assets/cosmos-certifications.svg?v=14" alt="Certifications: Siber Vatan; Cisco Introduction to Cybersecurity, Network Defense, and Cyber Threat Management. Original badges and verification links follow." width="100%" />
 
 <details>
 <summary>Original credential badges and verification links</summary>
@@ -77,7 +77,7 @@ Open a project to explore its source.
 
 </details>
 
-<a href="https://hub.xerj.org/contributors/dRafaleD.html"><img src="assets/cosmos-community.svg?v=12" alt="XERJ Corpus Hub: community contributions by dRafaleD. Open the contributor record." width="100%" /></a>
+<a href="https://hub.xerj.org/contributors/dRafaleD.html"><img src="assets/cosmos-community.svg?v=14" alt="XERJ Corpus Hub: community contributions by dRafaleD. Open the contributor record." width="100%" /></a>
 
 <details>
 <summary>Live contributor badge</summary>
@@ -86,19 +86,19 @@ Open a project to explore its source.
 
 </details>
 
-<img src="assets/cosmos-ethics.svg?v=12" alt="Ethics: white hat security and authorized research only. Test responsibly, report ethically, build securely." width="100%" />
+<img src="assets/cosmos-ethics.svg?v=14" alt="Ethics: white hat security and authorized research only. Test responsibly, report ethically, build securely." width="100%" />
 
 ## Activity
 
-<img src="assets/cosmos-activity.svg?v=12" alt="GitHub activity: contribution streaks and recent commit activity." width="100%" />
+<img src="assets/cosmos-activity.svg?v=14" alt="GitHub activity: contribution streaks and recent commit activity." width="100%" />
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg?v=12" alt="dRafaleD GitHub contribution streak" width="100%" />
+<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg?v=14" alt="dRafaleD GitHub contribution streak" width="100%" />
 
 <br />
 
-<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg?v=12" alt="GitHub contribution snake animation" width="100%" />
+<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg?v=14" alt="GitHub contribution snake animation" width="100%" />
 
 </div>
 
@@ -111,15 +111,15 @@ Open a project to explore its source.
 
 ## Contact
 
-<img src="assets/cosmos-connect.svg?v=11" alt="Connect with Eren Erdoğan on LinkedIn, explore dRafaleD on GitHub, or visit the web portfolio." width="100%" />
+<img src="assets/cosmos-connect.svg?v=14" alt="Connect with Eren Erdoğan on LinkedIn, explore dRafaleD on GitHub, or visit the web portfolio." width="100%" />
 
 <p align="center">
-<a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><img src="assets/cosmos-link-linkedin.svg?v=11" alt="LinkedIn: connect with Eren Erdoğan" width="49%" /></a>
-<a href="https://github.com/dRafaleD?tab=repositories"><img src="assets/cosmos-link-github.svg?v=11" alt="GitHub: explore dRafaleD repositories" width="49%" /></a>
+<a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><img src="assets/cosmos-link-linkedin.svg?v=14" alt="LinkedIn: connect with Eren Erdoğan" width="49%" /></a>
+<a href="https://github.com/dRafaleD?tab=repositories"><img src="assets/cosmos-link-github.svg?v=14" alt="GitHub: explore dRafaleD repositories" width="49%" /></a>
 </p>
 
 <p align="center">
-  <a href="https://drafaled.github.io"><img src="https://img.shields.io/badge/Portfolio-dRafaleD.github.io-9fc4e8?style=for-the-badge&labelColor=15171b" alt="Portfolio" /></a>
+  <a href="https://drafaled.github.io"><img src="https://img.shields.io/badge/Portfolio-dRafaleD.github.io-82ed30?style=for-the-badge&labelColor=080b06" alt="Portfolio" /></a>
   &nbsp;
-  <a href="https://hits.sh/github.com/dRafaleD/"><img src="https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=98ecae&labelColor=15171b&extraCount=1260" alt="Profile views" /></a>
+  <a href="https://hits.sh/github.com/dRafaleD/"><img src="https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=82ed30&labelColor=080b06&extraCount=1260" alt="Profile views" /></a>
 </p>
