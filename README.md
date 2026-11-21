@@ -110,8 +110,8 @@ Open a project to explore its source.
 ## Malware analysis lab
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/infected-executable.png" />
-  <img src="assets/infected-executable.gif" width="100%" alt="Two illustrated demos. Static analysis scans a pixel-art .EXE file marked with a malware bug for a YARA marker. In the dynamic demo the infected file recoils with an exclamation mark on file read and its bug icon dims on process exit." />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/malware-beetle.png" />
+  <img src="assets/malware-beetle.gif" width="100%" alt="Two illustrated demos. Static analysis scans an armored pixel-art beetle for a YARA marker. In the dynamic demo the beetle recoils, narrows its eyes and displays an exclamation mark on file read and its eyes dim on process exit." />
 </picture>
 
 <picture>

@@ -21,28 +21,49 @@ def label(draw, xy, value, size, color, bold=False, mono=False):
 
 
 def specimen(phase, reaction='idle'):
-    """A folded executable file stamped with a six-legged glitch bug."""
+    """Front-facing armored beetle with hooked limbs and articulated mandibles."""
     sprite = Image.new('RGBA', (96,68))
     d = ImageDraw.Draw(sprite)
-    sheet = [(26,3),(59,3),(71,15),(71,63),(26,63)]
-    d.polygon([(x+2,y+2) for x,y in sheet],fill='#283723')
-    d.polygon(sheet,fill='#182317',outline=PHOSPHOR,width=2)
-    d.polygon([(58,4),(58,16),(70,16)], fill='#526348',outline=PHOSPHOR)
-    ink = '#54634b' if reaction=='offline' else LIME
-    for sign in (-1,1):
-        for y,dy in ((26,-4),(31,0),(36,4)):
-            d.line([(48+sign*5,y),(48+sign*10,y),(48+sign*13,y+dy)],fill=ink,width=2)
-        d.line([(48+sign*2,22),(48+sign*5,18)],fill=ink,width=2)
-    d.rounded_rectangle((43,21,53,27),radius=2,fill=ink)
-    d.rounded_rectangle((41,27,55,39),radius=4,fill=ink)
-    d.line((48,29,48,37),fill=INK)
-    for x in (45,50):
-        d.point((x,24),fill=INK)
-    if reaction=='alert':
-        d.line((43,22,47,24),fill=INK)
-        d.line((49,24,53,22),fill=INK)
-    d.rectangle((22,42,67,58),fill=ink)
-    label(d,(27,44),'.EXE',14,INK,True,True)
+    alert = reaction == 'alert'
+    dark, shell, ridge = '#283723', '#526749', '#a0b78c'
+    eye = '#53624c' if reaction == 'offline' else LIME
+    twitch = 0 if reaction == 'offline' else round(2 * math.sin(phase * 3))
+    for side in (-1, 1):
+        def mirror(points):
+            return [(48 + side * x, y) for x, y in points]
+
+        for joint, knee, ankle, tip in [
+            ((11,19),(25,9),(33,15),(39,12)),
+            ((13,29),(31,21),(37,31),(44,32)),
+            ((12,38),(27,37),(36,51),(42,48)),
+        ]:
+            leg = mirror([joint, knee, ankle, (tip[0], tip[1]+twitch)])
+            d.line(leg, fill=shell, width=3)
+            d.line(leg[:2], fill=ridge)
+            d.point(leg[2], fill=LIME)
+        d.polygon(mirror([(1,33),(1,8),(5,4),(12,11),(15,20),(13,32),(8,38)]),
+                  fill=shell, outline=dark)
+        d.line(mirror([(3,25),(4,11),(6,8),(11,14)]),fill=ridge)
+        for y in (14,19,24):
+            d.line(mirror([(6,y),(10,y+3)]),fill='#30402c')
+        d.line(mirror([(9,38),(20,24),(26,18+twitch),(29,9+twitch)]),fill=PHOSPHOR)
+    d.polygon([(34,32),(40,26),(56,26),(62,32),(64,42),(58,51),
+               (51,55),(45,55),(38,51),(32,42)],fill=dark,outline=ridge)
+    for side in (-1, 1):
+        def face(points):
+            return [(48+side*x,y) for x,y in points]
+
+        d.polygon(face([(2,37),(14,32),(14,41),(8,46),(2,44)]),fill=INK)
+        if alert:
+            d.polygon(face([(3,42),(13,35),(12,40),(5,45)]),fill=eye)
+            d.line(face([(2,39),(12,32),(15,32)]),fill=ridge,width=2)
+        else:
+            d.polygon(face([(4,37),(11,35),(12,39),(9,43),(4,43)]),fill=eye)
+            d.line(face([(8,37),(8,41)]),fill=dark)
+        spread = 4 if alert else 0
+        d.polygon(face([(8,47),(12,49),(12+spread,56),(8+spread,63),(4,65),
+                        (8+spread,57),(6,52)]),fill=shell,outline=ridge)
+    d.line([(45,49),(48,47),(51,49)],fill=INK,width=2)
     return sprite.resize((192,136),Image.Resampling.NEAREST)
 
 
@@ -85,8 +106,8 @@ def analysis_demos():
         label(d,(530,216),'Synthetic event trace',20,PHOSPHOR,False,True)
         label(d,(530,254),('PID 104  /  started','PID 104  /  read 64 B','PID 104  /  exited')[stage],20,LIME,True,True)
         frames.append(im)
-    frames[18].save(ASSETS/'infected-executable.png')
-    frames[0].save(ASSETS/'infected-executable.gif',save_all=True,append_images=frames[1:],duration=150,loop=0)
+    frames[18].save(ASSETS/'malware-beetle.png')
+    frames[0].save(ASSETS/'malware-beetle.gif',save_all=True,append_images=frames[1:],duration=150,loop=0)
 
 
 def hero():
