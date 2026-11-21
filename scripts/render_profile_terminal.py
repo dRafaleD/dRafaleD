@@ -2,13 +2,13 @@ from pathlib import Path
 import os
 import urllib.request
 import json
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 USERNAME = "dRafaleD"
 API_BASE = "https://api.github.com"
 MASK_SOURCE = ROOT / "assets" / "profile-terminal-mask.png"
-OUTPUT = ROOT / "assets" / "operator-terminal-brief.gif"
+OUTPUT = ROOT / "assets" / "operator-terminal-blended.gif"
 FONT = Path(r"C:\Windows\Fonts\CascadiaMono.ttf")
 
 if not FONT.exists():
@@ -87,9 +87,13 @@ TOTAL_CHARS = sum(len(item[0]) for item in entries)
 
 
 def load_terminal_mask() -> Image.Image:
-    # Keep the original terminal mask independent of the GitHub profile photo.
-    # This checked-in crop preserves the historic mask's pixels and placement.
-    return Image.open(MASK_SOURCE).convert("RGBA")
+    with Image.open(MASK_SOURCE) as source:
+        mask = source.convert("RGB")
+    # Remove the baked-in background while retaining the original green highlights.
+    background = mask.getpixel((0, 0))
+    signal = ImageChops.subtract(mask, Image.new("RGB", mask.size, background))
+    signal = signal.point([0 if value <= 3 else value for value in range(256)] * 3)
+    return ImageChops.add(Image.new("RGB", mask.size, BG), signal)
 
 
 TERMINAL_MASK = load_terminal_mask()
@@ -121,7 +125,7 @@ def render(visible_chars: int, cursor_strength: float, scanline_y: int) -> Image
             break
 
     if avatar_visible:
-        image.paste(TERMINAL_MASK, (52, 318), TERMINAL_MASK)
+        image.paste(TERMINAL_MASK, (52, 318))
 
     cursor = (
         int(20 + 37 * cursor_strength),

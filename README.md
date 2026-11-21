@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/operator-terminal-brief.png" />
-  <img src="assets/operator-terminal-brief.gif" alt="Animated profile terminal with Eren Erdoğan’s command history, original green mask, and GitHub statistics." width="100%" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/operator-terminal-blended.png" />
+  <img src="assets/operator-terminal-blended.gif" alt="Animated profile terminal with Eren Erdoğan’s command history, original green mask, and GitHub statistics." width="100%" />
 </picture>
 
 <picture>
