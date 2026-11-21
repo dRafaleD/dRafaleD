@@ -123,15 +123,21 @@ Open a project to explore its source.
 
 ## Contact
 
-<img src="assets/cosmos-connect.svg?v=14" alt="Connect with Eren Erdoğan on LinkedIn, explore dRafaleD on GitHub, or visit the web portfolio." width="100%" />
+<a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><picture>
+  <source media="(max-width: 767px)" srcset="assets/contact-linkedin-mobile.svg" />
+  <img src="assets/contact-linkedin-wide.svg" width="100%" alt="LinkedIn — Connect with Eren Erdoğan" />
+</picture></a>
+
+<a href="https://github.com/dRafaleD?tab=repositories"><picture>
+  <source media="(max-width: 767px)" srcset="assets/contact-github-mobile.svg" />
+  <img src="assets/contact-github-wide.svg" width="100%" alt="GitHub — Explore my repositories" />
+</picture></a>
+
+<a href="https://drafaled.github.io/"><picture>
+  <source media="(max-width: 767px)" srcset="assets/contact-portfolio-mobile.svg" />
+  <img src="assets/contact-portfolio-wide.svg" width="100%" alt="Portfolio — Visit dRafaleD.github.io" />
+</picture></a>
 
 <p align="center">
-<a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><img src="assets/cosmos-link-linkedin.svg?v=14" alt="LinkedIn: connect with Eren Erdoğan" width="49%" /></a>
-<a href="https://github.com/dRafaleD?tab=repositories"><img src="assets/cosmos-link-github.svg?v=14" alt="GitHub: explore dRafaleD repositories" width="49%" /></a>
-</p>
-
-<p align="center">
-  <a href="https://drafaled.github.io"><img src="https://img.shields.io/badge/Portfolio-dRafaleD.github.io-82ed30?style=for-the-badge&labelColor=080b06" alt="Portfolio" /></a>
-  &nbsp;
-  <a href="https://hits.sh/github.com/dRafaleD/"><img src="https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=82ed30&labelColor=080b06&extraCount=1260" alt="Profile views" /></a>
+  <a href="https://hits.sh/github.com/dRafaleD/"><img src="https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=82ed30&labelColor=080b06&extraCount=1260" width="240" alt="Profile views" /></a>
 </p>

@@ -538,36 +538,25 @@ def ethics():
 
 
 def connect():
-    body = f'<rect width="1000" height="196" fill="url(#veil)"/>'
-    body += heading('07', './connect --links', 'Connect.', 'Find me on LinkedIn, browse my repositories on GitHub, or visit my portfolio.', 'LINKS')
-    body += text(34, 166, '> LINKS BELOW', 10.5, ACCENT, True)
-    save('cosmos-connect.svg', 196, 'Connect with Eren Erdoğan', 'LinkedIn: Eren Erdoğan. GitHub: dRafaleD. Portfolio: drafaled.github.io.', body)
-
     channels = [
-        ('linkedin', 'LinkedIn', 'Connect with Eren Erdoğan', 'linkedin.com/in/eren-erdoğan'),
-        ('github', 'GitHub', 'Explore dRafaleD repositories', 'github.com/dRafaleD'),
+        ('linkedin', 'LinkedIn', 'Connect with Eren Erdoğan', 'in'),
+        ('github', 'GitHub', 'Explore my repositories', '>_'),
+        ('portfolio', 'Portfolio', 'Visit dRafaleD.github.io', '//'),
     ]
-    for name, label, detail, sub in channels:
-        w, h = 490, 160
-        cbody = (
-            '<circle cx="26" cy="24" r="3.2" fill="#545963"/>'
-            '<circle cx="38" cy="24" r="3.2" fill="#263522"/>'
-            '<circle cx="50" cy="24" r="3.2" fill="#a8cf98" opacity=".65"/>'
-        )
-        cbody += text(64, 28, f'> open {name}', 11, ACCENT, True)
-        cbody += text(w - 22, 28, f'{label.upper()}', 10, DIM, True, 'text-anchor="end"')
-        cbody += text(24, 78, detail, 22, TEXT)
-        cbody += text(24, 106, sub, 12.5, MUTED, True)
-        cbody += text(24, 138, f'> OPEN {label.upper()}  →', 10.5, ACCENT, True)
-        cbody += f'<rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="12" fill="none" stroke="#2b2e31" stroke-width="1"/>'
-        csvg = (
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
-            f'role="img" aria-labelledby="title desc">'
-            f'<title id="title">{escape(label)}</title><desc id="desc">{escape(detail)}</desc>'
-            f'{DEFS}<style>{STYLE}</style>'
-            f'<rect width="{w}" height="{h}" rx="12" fill="{BG}"/>{cbody}</svg>'
-        )
-        (ASSETS / f'cosmos-link-{name}.svg').write_text(csvg, encoding='utf-8', newline='\n')
+    for name, title, action, icon in channels:
+        for mode, width in [('wide', 800), ('mobile', 400)]:
+            svg = (
+                f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} 96">'
+                f'<title>{title} — {action}</title>'
+                f'<rect x="1" y="1" width="{width-2}" height="94" rx="6" fill="#080c07" stroke="#374a2e"/>'
+                '<rect x="15" y="23" width="50" height="50" rx="3" fill="#192711"/>'
+                f'<text x="40" y="56" text-anchor="middle" fill="#82ed30" font-family="monospace" font-weight="bold" font-size="24">{escape(icon)}</text>'
+                f'<text x="82" y="43" font-family="monospace" font-weight="bold" font-size="30" fill="#edf1e9">{title}</text>'
+                f'<text x="82" y="72" font-family="Arial,sans-serif" font-size="21" fill="#c5d0bd">{action}</text>'
+                f'<path d="M{width-49} 58l19-19m-17 0h17v17" fill="none" stroke="#82ed30" stroke-width="4"/>'
+                '</svg>'
+            )
+            (ASSETS / f'contact-{name}-{mode}.svg').write_text(svg, encoding='utf8')
 
 
 def activity_header():
