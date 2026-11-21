@@ -110,8 +110,8 @@ def analysis_demos():
         label(d,(530,216),'Synthetic event trace',20,PHOSPHOR,False,True)
         label(d,(530,254),('PID 104  /  started','PID 104  /  read 64 B','PID 104  /  exited')[stage],20,LIME,True,True)
         frames.append(im)
-    frames[18].save(ASSETS/'malware-beetle.png')
-    frames[0].save(ASSETS/'malware-beetle.gif',save_all=True,append_images=frames[1:],duration=150,loop=0)
+    frames[18].save(ASSETS/'lab-beetle-pair.png')
+    frames[0].save(ASSETS/'lab-beetle-pair.gif',save_all=True,append_images=frames[1:],duration=150,loop=0)
 
 
 def hero():
