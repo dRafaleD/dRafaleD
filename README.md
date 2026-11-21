@@ -110,10 +110,10 @@
 ## Malware analysis lab
 
 <picture>
-  <source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/exe-mascot-stacked.png?v=unified-palette" />
-  <source media="(max-width: 767px)" srcset="assets/exe-mascot-stacked.gif?v=unified-palette" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/exe-mascot-wide.png?v=unified-palette" />
-  <img src="assets/exe-mascot-wide.gif?v=unified-palette" width="100%" alt="Two illustrated demos. Static analysis scans a pixel-art .EXE mascot bearing a bug emblem for a YARA marker. In the dynamic demo the mascot recoils, narrows its eyes and displays an exclamation mark on file read and its eyes dim on process exit." />
+  <source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/exe-bug-stacked.png?v=unified-palette" />
+  <source media="(max-width: 767px)" srcset="assets/exe-bug-stacked.gif?v=unified-palette" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/exe-bug-wide.png?v=unified-palette" />
+  <img src="assets/exe-bug-wide.gif?v=unified-palette" width="100%" alt="Two illustrated demos. Static analysis scans a pixel-art .EXE mascot bearing a bug emblem for a YARA marker. In the dynamic demo the mascot recoils, narrows its eyes and displays an exclamation mark on file read and its eyes dim on process exit." />
 </picture>
 
 <picture>
@@ -137,6 +137,6 @@
 
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/malware-hello-world.png" />
-  <img src="assets/malware-hello-world.gif" width="100%" alt="Pixel malware mascot transmits Hello World as decimal ASCII: 072 101 108 108 111 032 087 111 114 108 100." />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/malware-hello-eyes.png" />
+  <img src="assets/malware-hello-eyes.gif" width="100%" alt="Pixel malware mascot transmits Hello World as decimal ASCII: 072 101 108 108 111 032 087 111 114 108 100." />
 </picture>

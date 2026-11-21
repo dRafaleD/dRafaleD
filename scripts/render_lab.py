@@ -31,25 +31,33 @@ def specimen(reaction='idle'):
     d.line([(23,58),(23,7),(26,6),(58,6)],fill='#43563b')
     d.polygon([(60,4),(74,18),(60,18)],fill='#526843',outline=PHOSPHOR)
     d.line([(61,20),(72,20)],fill=INK)
-    # Short circuit-like legs keep the bug inside the file silhouette.
-    for sign in (-1,1):
-        for y,offset in ((24,-3),(31,0),(37,3)):
-            d.line([(47+sign*10,y),(47+sign*15,y),(47+sign*18,y+offset)],
-                   fill='#96ba7f',width=2)
-        d.line([(47+sign*5,20),(47+sign*9,15),(47+sign*11,15)],fill=LIME)
-    d.polygon([(36,22),(41,18),(53,18),(58,22),(58,36),(52,42),
-               (42,42),(36,36)],fill='#080e07',outline='#749d59')
-    d.line([(43,39),(47,40),(51,39)],fill='#4e7240')
-    glow = '#506246' if reaction=='offline' else '#82ed30'
-    for sign in (-1,1):
-        if reaction=='alert':
-            eye = [(2,31),(9,26),(9,30),(4,33),(2,33)]
-            d.line([(47+sign*2,28),(47+sign*9,23)],fill='#8cb072',width=2)
+    # Draw the shell and six sharp traces in mirrored pixel coordinates.
+    for side in (-1, 1):
+        for root, joint, tip in [
+            ((11,23),(16,23),(20,18)),
+            ((13,29),(18,28),(21,30)),
+            ((11,35),(16,35),(20,40)),
+        ]:
+            points = [(47+side*x,y) for x,y in (root,joint,tip)]
+            d.line(points,fill='#789969',width=2)
+            d.point(points[-1],fill=LIME)
+    d.polygon([(30,16),(38,20),(43,16),(51,16),(56,20),(64,16),
+               (62,31),(58,37),(47,43),(36,37),(32,31)],
+              fill='#283b24',outline='#87a678')
+    d.polygon([(34,22),(42,24),(47,22),(52,24),(60,22),(58,34),
+               (47,40),(36,34)],fill=INK)
+    d.line([(44,19),(47,17),(50,19)],fill='#a8cf98')
+    for side in (-1, 1):
+        if reaction == 'offline':
+            eye = [(4,30),(11,28),(10,30),(4,32)]
+            glow = '#46593d'
+        elif reaction == 'alert':
+            eye = [(3,32),(12,25),(11,30),(5,34)]
+            glow = '#c7ff9e'
         else:
-            eye = [(2,26),(8,25),(9,28),(8,32),(3,32),(2,31)]
-        d.polygon([(47+sign*x,y) for x,y in eye],fill=glow)
-        if reaction=='idle':
-            d.line([(47+sign*5,27),(47+sign*5,30)],fill=INK)
+            eye = [(3,28),(12,25),(11,31),(5,34),(3,32)]
+            glow = LIME
+        d.polygon([(47+side*x,y) for x,y in eye],fill=glow)
     d.polygon([(17,45),(65,45),(69,49),(69,60),(17,60)],fill=LIME)
     label(d,(24,47),'.EXE',14,INK,True,True)
     return sprite.resize((192,136),Image.Resampling.NEAREST)
@@ -105,7 +113,7 @@ def analysis_demos():
         stacked.paste(im.crop((right,0,1000,height)), (0,height+12))
         stacked_frames.append(stacked)
     for layout, sequence in [('wide', frames), ('stacked', stacked_frames)]:
-        base = ASSETS / f'exe-mascot-{layout}'
+        base = ASSETS / f'exe-bug-{layout}'
         sequence[18].save(base.with_suffix('.png'))
         sequence[0].save(base.with_suffix('.gif'), save_all=True,
                          append_images=sequence[1:], duration=150, loop=0)
@@ -276,8 +284,8 @@ def hello_world():
             draw.rectangle((69,425,84,448),fill=LIME)
         frames.append(frame)
         durations.append(2900 if count == len(message) else 210)
-    frames[-1].save(ASSETS/'malware-hello-world.png')
-    frames[0].save(ASSETS/'malware-hello-world.gif',save_all=True,
+    frames[-1].save(ASSETS/'malware-hello-eyes.png')
+    frames[0].save(ASSETS/'malware-hello-eyes.gif',save_all=True,
                    append_images=frames[1:],duration=durations,loop=0)
 
 
