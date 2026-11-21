@@ -12,7 +12,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'assets'
-BG, TEXT, MUTED, ACCENT = '#000000', '#f2f2f2', '#a3a3a3', '#a3e635'
+BG, TEXT, MUTED, ACCENT = '#000000', '#e4e6ea', '#adb2ba', '#a3e635'
 
 
 def text(x, y, value, size=18, color=TEXT, mono=False, extra=''):
@@ -32,7 +32,7 @@ def galaxy(*args, **kwargs):
 
 
 STYLE = '''
-.space-photo{animation:spaceDrift 18s ease-in-out infinite;transform-origin:75% 50%}@keyframes spaceDrift{0%,100%{transform:scale(1)}50%{transform:translate(-10px,-3px) scale(1.065)}}
+.space-photo{animation:spaceDrift 8s ease-in-out infinite;transform-origin:75% 50%}@keyframes spaceDrift{0%,100%{transform:scale(1)}50%{transform:translate(-24px,-8px) scale(1.13)}}
 .ui{font-family:'Segoe UI',Ubuntu,Arial,sans-serif}.mono{font-family:Consolas,'DejaVu Sans Mono',monospace;letter-spacing:.5px}
 .star{animation:twinkle 5s ease-in-out infinite}.s1{animation-delay:-1.8s;animation-duration:7s}.s2{animation-delay:-3.7s;animation-duration:9s}
 .galaxy-spin{animation:spin 95s linear infinite;transform-origin:0 0}
@@ -76,7 +76,7 @@ def save(name, height, title, description, body, output_dir=ASSETS):
         photo = base64.b64encode((ASSETS/asset).read_bytes()).decode()
         backdrop = f'<image class="space-photo" href="data:image/png;base64,{photo}" width="1000" height="{height}" preserveAspectRatio="xMidYMid slice" opacity="{strength}"/>'
     else:
-        backdrop = '<rect x=".5" y=".5" width="999" height="'+str(height-1)+'" rx="8" fill="#080808" stroke="#242424"/>'
+        backdrop = '<rect x=".5" y=".5" width="999" height="'+str(height-1)+'" rx="8" fill="#0e0f12" stroke="#272a30"/>'
     if name not in scenes:
         backdrop += '<path class="stream" d="M24 48H976" stroke="#a3e635" stroke-width=".6" opacity=".18"/>'
     clouds = ''
@@ -95,7 +95,7 @@ def heading(index, title, detail):
 
 
 def panel(x, y, width, height):
-    return (f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="9" fill="url(#panel)" stroke="#424242" stroke-opacity=".6" stroke-width=".8"/>'
+    return (f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="6" fill="#15171b" stroke="#3a3e46" stroke-opacity=".6" stroke-width=".8"/>'
             f'<path d="M{x+12} {y+.5}H{x+width-12}" stroke="url(#edge)" stroke-width=".8"/>')
 
 
@@ -151,26 +151,31 @@ def chips(x,y,width,names,highlights=()):
     start=x
     body=''
     for name in names:
-        w=len(name)*8.1+26
+        w=len(name)*8.1+34
         if x+w>start+width:
-            x=start;y+=40
+            x=start;y+=44
         active=name in highlights
-        body+=f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="29" rx="5" fill="{"#253015" if active else "#080808"}" stroke="{"#a3e635" if active else "#333333"}" stroke-width=".7"/>'
-        body+=text(round(x+13,1),y+20,name,13,ACCENT if active else '#b5b5b5',True)
+        body+=f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="32" rx="7" fill="{"#18220f" if active else "#111315"}" stroke="{"#647e35" if active else "#303436"}" stroke-width=".8"/>'
+        body+=f'<path d="M{x+8:.1f} {y+1}h{w-16:.1f}" stroke="{"#bef264" if active else "#535957"}" opacity=".35"/>'
+        body+=text(round(x+17,1),y+21,name,13,ACCENT if active else '#c7ceca',True)
         x+=w+8
-    return body,y+29
+    return body,y+32
 
 
 def arsenal():
-    rows=[('LANGUAGES',['Rust','YARA','YARA-X','Assembly','C','C++','Python','JavaScript']),('DATABASE',['PostgreSQL']),('PLATFORMS',['Kali Linux','Debian','Arch Linux'])]
-    body=heading('02','ls ~/stack','Languages, rule engines and Linux systems behind the exploration.')
-    body+=panel(34,143,932,170)
+    body=heading('02','Engineering console','Systems languages, detection engines and the platforms behind my work.')
+    for i,(name,detail) in enumerate([('Rust','SYSTEMS'),('YARA','DETECTION RULES'),('YARA-X','RULE ENGINE'),('C','LOW-LEVEL')]):
+        x=34+i*237
+        body+=panel(x,145,221,99)
+        body+=text(x+18,172,detail,10,MUTED,True)
+        body+=text(x+18,212,name,26,ACCENT,True)
+        body+=f'<circle class="breathe" cx="{x+199}" cy="168" r="2.5" fill="#a3e635"/>'
+    body+=panel(34,266,932,165)
+    rows=[('ALSO USING',['Assembly','C++','Python','JavaScript']),('DATABASE',['PostgreSQL']),('PLATFORMS',['Kali Linux','Debian','Arch Linux'])]
     for i,(label,names) in enumerate(rows):
-        y=162+i*47
-        body+=text(55,y+20,label,11,ACCENT,True)+chips(180,y,760,names,['Rust','YARA','YARA-X','C'])[0]
-    body+='<path d="M55 348C240 321 420 375 595 348S805 330 945 347" fill="none" stroke="#285e3e" opacity=".6"/><path class="link-flow" d="M55 348C240 321 420 375 595 348S805 330 945 347" fill="none" stroke="#83efac" opacity=".7"/>'
-    body+=flare(181,340,.5)+flare(595,348,.5)+flare(866,338,.5)
-    save('cosmos-arsenal.svg',377,'Languages, rule engines and platforms','; '.join(a+': '+', '.join(b) for a,b in rows),body)
+        y=284+i*46
+        body+=text(54,y+21,label,11,MUTED,True)+chips(185,y,745,names)[0]
+    save('cosmos-arsenal.svg',455,'Engineering console','Primary: Rust, YARA, YARA-X, C. Also using Assembly, C++, Python, JavaScript. PostgreSQL; Kali Linux, Debian, Arch Linux.',body)
 
 
 def toolkit():
@@ -184,13 +189,13 @@ def toolkit():
     old=ET.parse(ASSETS/'security-toolkit-v3.svg')
     highlights=[n.text for n in old.iter() if n.tag.endswith('text') and 'hot' in n.get('class','').split()]
     highlights.append('YARA-X')
-    body=heading('03','ls ~/security/toolkit','A working reference across the security spectrum. Green marks the tools I use most.')
+    body=heading('03','Security instrument panel','A working reference across the security spectrum. Green marks the tools I use most.')
     y=144
     for index,(label,names) in enumerate(categories):
-        labels,bottom=chips(61,y+51,878,names.split(','),highlights)
+        labels,bottom=chips(61,y+61,878,names.split(','),highlights)
         body+=panel(34,y,932,bottom-y+19)
-        body+=text(61,y+31,label,18,TEXT)+labels
-        body+=cluster(925,y+24,index+17)
+        body+=text(61,y+34,label,19,TEXT)+labels
+        body+=text(939,y+32,f'{index+1:02d} /',11,MUTED,True,'text-anchor="end"')
         y=bottom+35
     save('cosmos-toolkit.svg',y+10,'Security toolkit','; '.join(a+': '+b for a,b in categories),body)
 
