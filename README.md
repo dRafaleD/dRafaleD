@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/operator-terminal-blended.png?v=black-palette" />
-  <img src="assets/operator-terminal-blended.gif?v=black-palette" alt="Animated profile terminal with Eren Erdoğan’s command history, original green mask, and GitHub statistics." width="100%" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/operator-terminal-blended.png?v=unified-palette" />
+  <img src="assets/operator-terminal-blended.gif?v=unified-palette" alt="Animated profile terminal with Eren Erdoğan’s command history, original green mask, and GitHub statistics." width="100%" />
 </picture>
 
 <picture>
@@ -12,14 +12,14 @@
 
 ## Projects
 
-<a href="https://github.com/dRafaleD/Malware-analysis-AsphDex"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-asphdex-mobile.png?v=black-palette" /><source media="(max-width: 767px)" srcset="assets/trace-asphdex-mobile.gif?v=black-palette" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-asphdex.png?v=black-palette" /><img src="assets/trace-asphdex.gif?v=black-palette" alt="AsphDex — Inspect PE / ELF files with YARA." width="402" /></picture></a>
-<a href="https://github.com/dRafaleD/Banshee"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-banshee-mobile.png?v=black-palette" /><source media="(max-width: 767px)" srcset="assets/trace-banshee-mobile.gif?v=black-palette" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-banshee.png?v=black-palette" /><img src="assets/trace-banshee.gif?v=black-palette" alt="Banshee — Decode artifacts and bundle findings." width="402" /></picture></a>
+<a href="https://github.com/dRafaleD/Malware-analysis-AsphDex"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-asphdex-mobile.png?v=unified-palette" /><source media="(max-width: 767px)" srcset="assets/trace-asphdex-mobile.gif?v=unified-palette" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-asphdex.png?v=unified-palette" /><img src="assets/trace-asphdex.gif?v=unified-palette" alt="AsphDex — Inspect PE / ELF files with YARA." width="402" /></picture></a>
+<a href="https://github.com/dRafaleD/Banshee"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-banshee-mobile.png?v=unified-palette" /><source media="(max-width: 767px)" srcset="assets/trace-banshee-mobile.gif?v=unified-palette" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-banshee.png?v=unified-palette" /><img src="assets/trace-banshee.gif?v=unified-palette" alt="Banshee — Decode artifacts and bundle findings." width="402" /></picture></a>
 
-<a href="https://github.com/dRafaleD/flowscope"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-flowscope-mobile.png?v=black-palette" /><source media="(max-width: 767px)" srcset="assets/trace-flowscope-mobile.gif?v=black-palette" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-flowscope.png?v=black-palette" /><img src="assets/trace-flowscope.gif?v=black-palette" alt="flowscope — Follow traffic in offline captures." width="402" /></picture></a>
-<a href="https://github.com/dRafaleD/sentinel-security"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-sentinel-mobile.png?v=black-palette" /><source media="(max-width: 767px)" srcset="assets/trace-sentinel-mobile.gif?v=black-palette" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-sentinel.png?v=black-palette" /><img src="assets/trace-sentinel.gif?v=black-palette" alt="sentinel-security — Rebuild filesystem timelines." width="402" /></picture></a>
+<a href="https://github.com/dRafaleD/flowscope"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-flowscope-mobile.png?v=unified-palette" /><source media="(max-width: 767px)" srcset="assets/trace-flowscope-mobile.gif?v=unified-palette" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-flowscope.png?v=unified-palette" /><img src="assets/trace-flowscope.gif?v=unified-palette" alt="flowscope — Follow traffic in offline captures." width="402" /></picture></a>
+<a href="https://github.com/dRafaleD/sentinel-security"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-sentinel-mobile.png?v=unified-palette" /><source media="(max-width: 767px)" srcset="assets/trace-sentinel-mobile.gif?v=unified-palette" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-sentinel.png?v=unified-palette" /><img src="assets/trace-sentinel.gif?v=unified-palette" alt="sentinel-security — Rebuild filesystem timelines." width="402" /></picture></a>
 
-<a href="https://github.com/dRafaleD/FhniX"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-fhnix-mobile.png?v=black-palette" /><source media="(max-width: 767px)" srcset="assets/trace-fhnix-mobile.gif?v=black-palette" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-fhnix.png?v=black-palette" /><img src="assets/trace-fhnix.gif?v=black-palette" alt="FhniX — Inspect suspicious mail and its signals." width="402" /></picture></a>
-<a href="https://github.com/dRafaleD/The-Trackher"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-trackher-mobile.png?v=black-palette" /><source media="(max-width: 767px)" srcset="assets/trace-trackher-mobile.gif?v=black-palette" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-trackher.png?v=black-palette" /><img src="assets/trace-trackher.gif?v=black-palette" alt="The-Trackher — Review your own digital footprint." width="402" /></picture></a>
+<a href="https://github.com/dRafaleD/FhniX"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-fhnix-mobile.png?v=unified-palette" /><source media="(max-width: 767px)" srcset="assets/trace-fhnix-mobile.gif?v=unified-palette" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-fhnix.png?v=unified-palette" /><img src="assets/trace-fhnix.gif?v=unified-palette" alt="FhniX — Inspect suspicious mail and its signals." width="402" /></picture></a>
+<a href="https://github.com/dRafaleD/The-Trackher"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-trackher-mobile.png?v=unified-palette" /><source media="(max-width: 767px)" srcset="assets/trace-trackher-mobile.gif?v=unified-palette" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-trackher.png?v=unified-palette" /><img src="assets/trace-trackher.gif?v=unified-palette" alt="The-Trackher — Review your own digital footprint." width="402" /></picture></a>
 
 <details>
 <summary>More repositories & security labs</summary>
@@ -34,27 +34,27 @@
 ## Stack and tools
 
 <picture>
-  <source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/byte-scan-mobile.png?v=black-palette" />
-  <source media="(max-width: 767px)" srcset="assets/byte-scan-mobile.gif?v=black-palette" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/lab-byte-trace.png?v=black-palette" />
-  <img src="assets/lab-byte-trace.gif?v=black-palette" width="100%" alt="YARA illustration. A byte scan highlights 4C 41 42, the ASCII marker LAB." />
+  <source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/byte-scan-mobile.png?v=unified-palette" />
+  <source media="(max-width: 767px)" srcset="assets/byte-scan-mobile.gif?v=unified-palette" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/lab-byte-trace.png?v=unified-palette" />
+  <img src="assets/lab-byte-trace.gif?v=unified-palette" width="100%" alt="YARA illustration. A byte scan highlights 4C 41 42, the ASCII marker LAB." />
 </picture>
 
 <div align="center">
-  <picture><source media="(max-width: 767px)" srcset="assets/read-arsenal-mobile.svg?v=black-palette" /><img src="assets/cosmos-arsenal.svg?v=black-palette" alt="Languages and rule engines: Rust, YARA, YARA-X, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" /></picture>
+  <picture><source media="(max-width: 767px)" srcset="assets/read-arsenal-mobile.svg?v=unified-palette" /><img src="assets/cosmos-arsenal.svg?v=unified-palette" alt="Languages and rule engines: Rust, YARA, YARA-X, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" /></picture>
 </div>
 
 <div align="center">
-  <picture><source media="(max-width: 767px)" srcset="assets/read-toolkit-mobile.svg?v=black-palette" /><img src="assets/cosmos-toolkit.svg?v=black-palette" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" /></picture>
+  <picture><source media="(max-width: 767px)" srcset="assets/read-toolkit-mobile.svg?v=unified-palette" /><img src="assets/cosmos-toolkit.svg?v=unified-palette" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" /></picture>
 </div>
 
 <div align="center">
-  <picture><source media="(max-width: 767px)" srcset="assets/read-focus-mobile.svg?v=black-palette" /><img src="assets/cosmos-focus.svg?v=black-palette" alt="Focus and learning: current focus areas and topics currently being studied across web security, malware analysis, Linux hardening, and secure backend engineering." width="100%" /></picture>
+  <picture><source media="(max-width: 767px)" srcset="assets/read-focus-mobile.svg?v=unified-palette" /><img src="assets/cosmos-focus.svg?v=unified-palette" alt="Focus and learning: current focus areas and topics currently being studied across web security, malware analysis, Linux hardening, and secure backend engineering." width="100%" /></picture>
 </div>
 
 ## Training and community
 
-<picture><source media="(max-width: 767px)" srcset="assets/read-certifications-mobile.svg?v=black-palette" /><img src="assets/cosmos-certifications.svg?v=black-palette" alt="Certifications: Siber Vatan; Cisco Introduction to Cybersecurity, Network Defense, and Cyber Threat Management. Original badges and verification links follow." width="100%" /></picture>
+<picture><source media="(max-width: 767px)" srcset="assets/read-certifications-mobile.svg?v=unified-palette" /><img src="assets/cosmos-certifications.svg?v=unified-palette" alt="Certifications: Siber Vatan; Cisco Introduction to Cybersecurity, Network Defense, and Cyber Threat Management. Original badges and verification links follow." width="100%" /></picture>
 
 <details>
 <summary>Credential verification</summary>
@@ -82,7 +82,7 @@
 
 </details>
 
-<p><a href="https://hub.xerj.org/contributors/dRafaleD.html"><picture><source media="(max-width: 767px)" srcset="assets/read-community-mobile.svg?v=black-palette" /><img src="assets/cosmos-community.svg?v=black-palette" alt="XERJ Corpus Hub: community contributions by dRafaleD. Open the contributor record." width="100%" /></picture></a></p>
+<p><a href="https://hub.xerj.org/contributors/dRafaleD.html"><picture><source media="(max-width: 767px)" srcset="assets/read-community-mobile.svg?v=unified-palette" /><img src="assets/cosmos-community.svg?v=unified-palette" alt="XERJ Corpus Hub: community contributions by dRafaleD. Open the contributor record." width="100%" /></picture></a></p>
 
 <details>
 <summary>Live contributor badge</summary>
@@ -91,45 +91,45 @@
 
 </details>
 
-<picture><source media="(max-width: 767px)" srcset="assets/read-ethics-mobile.svg?v=black-palette" /><img src="assets/cosmos-ethics.svg?v=black-palette" alt="Ethics: white hat security and authorized research only. Test responsibly, report ethically, build securely." width="100%" /></picture>
+<picture><source media="(max-width: 767px)" srcset="assets/read-ethics-mobile.svg?v=unified-palette" /><img src="assets/cosmos-ethics.svg?v=unified-palette" alt="Ethics: white hat security and authorized research only. Test responsibly, report ethically, build securely." width="100%" /></picture>
 
 ## Activity
 
-<picture><source media="(max-width: 767px)" srcset="assets/read-activity-mobile.svg?v=black-palette" /><img src="assets/cosmos-activity.svg?v=black-palette" alt="GitHub activity: contribution streaks and recent commit activity." width="100%" /></picture>
+<picture><source media="(max-width: 767px)" srcset="assets/read-activity-mobile.svg?v=unified-palette" /><img src="assets/cosmos-activity.svg?v=unified-palette" alt="GitHub activity: contribution streaks and recent commit activity." width="100%" /></picture>
 
 <div align="center">
 
-<picture><source media="(max-width: 767px)" srcset="assets/read-streak-mobile.svg?v=black-palette" /><img src="assets/github-streak.svg?v=black-palette" alt="dRafaleD GitHub contribution streak" width="100%" /></picture>
+<picture><source media="(max-width: 767px)" srcset="assets/read-streak-mobile.svg?v=unified-palette" /><img src="assets/github-streak.svg?v=unified-palette" alt="dRafaleD GitHub contribution streak" width="100%" /></picture>
 
 <br />
 
-<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg?v=black-palette" alt="GitHub contribution snake animation" width="100%" />
+<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg?v=unified-palette" alt="GitHub contribution snake animation" width="100%" />
 
 </div>
 
 ## Malware analysis lab
 
 <picture>
-  <source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/exe-mascot-stacked.png?v=black-palette" />
-  <source media="(max-width: 767px)" srcset="assets/exe-mascot-stacked.gif?v=black-palette" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/exe-mascot-wide.png?v=black-palette" />
-  <img src="assets/exe-mascot-wide.gif?v=black-palette" width="100%" alt="Two illustrated demos. Static analysis scans a pixel-art .EXE mascot bearing a bug emblem for a YARA marker. In the dynamic demo the mascot recoils, narrows its eyes and displays an exclamation mark on file read and its eyes dim on process exit." />
+  <source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/exe-mascot-stacked.png?v=unified-palette" />
+  <source media="(max-width: 767px)" srcset="assets/exe-mascot-stacked.gif?v=unified-palette" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/exe-mascot-wide.png?v=unified-palette" />
+  <img src="assets/exe-mascot-wide.gif?v=unified-palette" width="100%" alt="Two illustrated demos. Static analysis scans a pixel-art .EXE mascot bearing a bug emblem for a YARA marker. In the dynamic demo the mascot recoils, narrows its eyes and displays an exclamation mark on file read and its eyes dim on process exit." />
 </picture>
 
 <picture>
-  <source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/register-mobile.png?v=black-palette" />
-  <source media="(max-width: 767px)" srcset="assets/register-mobile.gif?v=black-palette" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/instruction-trace.png?v=black-palette" />
-  <img src="assets/instruction-trace.gif?v=black-palette" width="100%" alt="Four x86 instructions illustrated with their bytes and the resulting EAX value." />
+  <source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/register-mobile.png?v=unified-palette" />
+  <source media="(max-width: 767px)" srcset="assets/register-mobile.gif?v=unified-palette" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/instruction-trace.png?v=unified-palette" />
+  <img src="assets/instruction-trace.gif?v=unified-palette" width="100%" alt="Four x86 instructions illustrated with their bytes and the resulting EAX value." />
 </picture>
 
 ## Contact
 
-<p><a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><picture><source media="(max-width: 767px)" srcset="assets/contact-linkedin-mobile.svg?v=black-palette" /><img src="assets/contact-linkedin-wide.svg?v=black-palette" width="100%" alt="LinkedIn — Connect with Eren Erdoğan" /></picture></a></p>
+<p><a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><picture><source media="(max-width: 767px)" srcset="assets/contact-linkedin-mobile.svg?v=unified-palette" /><img src="assets/contact-linkedin-wide.svg?v=unified-palette" width="100%" alt="LinkedIn — Connect with Eren Erdoğan" /></picture></a></p>
 
-<p><a href="https://github.com/dRafaleD?tab=repositories"><picture><source media="(max-width: 767px)" srcset="assets/contact-github-mobile.svg?v=black-palette" /><img src="assets/contact-github-wide.svg?v=black-palette" width="100%" alt="GitHub — Explore my repositories" /></picture></a></p>
+<p><a href="https://github.com/dRafaleD?tab=repositories"><picture><source media="(max-width: 767px)" srcset="assets/contact-github-mobile.svg?v=unified-palette" /><img src="assets/contact-github-wide.svg?v=unified-palette" width="100%" alt="GitHub — Explore my repositories" /></picture></a></p>
 
-<p><a href="https://drafaled.github.io/"><picture><source media="(max-width: 767px)" srcset="assets/contact-portfolio-mobile.svg?v=black-palette" /><img src="assets/contact-portfolio-wide.svg?v=black-palette" width="100%" alt="Portfolio — Visit dRafaleD.github.io" /></picture></a></p>
+<p><a href="https://drafaled.github.io/"><picture><source media="(max-width: 767px)" srcset="assets/contact-portfolio-mobile.svg?v=unified-palette" /><img src="assets/contact-portfolio-wide.svg?v=unified-palette" width="100%" alt="Portfolio — Visit dRafaleD.github.io" /></picture></a></p>
 
 <p align="center">
   <a href="https://hits.sh/github.com/dRafaleD/"><img src="https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=82ed30&labelColor=000000&extraCount=1260" width="240" alt="Profile views" /></a>

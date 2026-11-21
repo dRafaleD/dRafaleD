@@ -2,9 +2,10 @@
 from pathlib import Path
 import math
 from PIL import Image, ImageDraw, ImageFont
+from profile_palette import BACKGROUND as INK, BORDER as LINE, NEON as LIME, PHOSPHOR, FOREGROUND as WHITE, MUTED
+
 
 ASSETS = Path(__file__).resolve().parents[1] / 'assets'
-INK, LINE, LIME, PHOSPHOR, WHITE = '#000000', '#263522', '#82ed30', '#a8cf98', '#edf1e9'
 def font(size, bold=False, mono=False):
     names = ('consolab.ttf' if bold else 'consola.ttf', 'DejaVuSansMono.ttf') if mono else (
         'segoeuib.ttf' if bold else 'segoeui.ttf', 'DejaVuSans-Bold.ttf' if bold else 'DejaVuSans.ttf')
@@ -65,9 +66,9 @@ def analysis_demos():
         im = Image.new('RGB', (1000,height), INK)
         d = ImageDraw.Draw(im)
         for left, title in [(0,'Static analysis'),(508,'Dynamic analysis')]:
-            d.rounded_rectangle((left,0,left+491,height-1),radius=7,fill='#000000',outline=LINE)
+            d.rounded_rectangle((left,0,left+491,height-1),radius=7,fill=INK,outline=LINE)
             label(d,(left+22,18),title,31,WHITE,True)
-            label(d,(left+413,24),'DEMO',18,PHOSPHOR,True,True)
+            label(d,(left+413,24),'DEMO',18,LIME,True,True)
             d.line((left+1,61,left+490,61),fill=LINE)
         sample = specimen()
         im.paste(sample,(sprite_x,sprite_y),sample)
@@ -95,7 +96,7 @@ def analysis_demos():
             if j<2:
                 d.line((739,row+5,739,row+38),fill=LINE,width=2)
             d.ellipse((734,row-4,744,row+6),fill=LIME if j==stage else '#506246')
-            label(d,(754,row-7),event,23,WHITE if j<=stage else '#a7ada2',False,True)
+            label(d,(754,row-7),event,23,WHITE if j<=stage else MUTED,False,True)
         label(d,(530,225),'Synthetic event trace',23,PHOSPHOR,False,True)
         label(d,(530,273),('PID 104  /  started','PID 104  /  read 64 B','PID 104  /  exited')[stage],23,LIME,True,True)
         frames.append(im)
@@ -115,7 +116,7 @@ def hero():
     with Image.open(ASSETS / 'operator-avatar.png') as source:
         avatar = source.convert("RGB").resize((288, 288), Image.Resampling.LANCZOS)
     for i in range(48):
-        canvas = Image.new('RGB',(1000,360), '#000000')
+        canvas = Image.new('RGB',(1000,360), INK)
         canvas.paste(avatar,(655,41))
         d = ImageDraw.Draw(canvas)
         label(d,(42,35),'dRafaleD@lab  ~  $ whoami',18,LIME,True,True)
@@ -162,10 +163,10 @@ ICONS = {
 
 def cards():
     for slug,name,category,detail,mark,accent in PROJECTS:
-        im = Image.new('RGB', (560,145), '#000000')
+        im = Image.new('RGB', (560,145), INK)
         d = ImageDraw.Draw(im)
         d.rounded_rectangle((0,0,559,144),radius=6,outline=LINE)
-        label(d,(23,18),category,16,PHOSPHOR,True,True)
+        label(d,(23,18),category,16,LIME,True,True)
         label(d,(22,45),name,35,WHITE,True)
         label(d,(23,104),detail,19,'#edf1e9')
         for y,row in enumerate(ICONS[slug]):
@@ -191,10 +192,10 @@ def cards():
         import textwrap
         mobile_frames = []
         for frame in frames:
-            mobile = Image.new('RGB',(352,146),'#000000')
+            mobile = Image.new('RGB',(352,146),INK)
             pen = ImageDraw.Draw(mobile)
             pen.rectangle((0,0,351,145),outline=LINE)
-            label(pen,(12,12),category,16,PHOSPHOR,True,True)
+            label(pen,(12,12),category,16,LIME,True,True)
             label(pen,(12,39),name,27,WHITE,True)
             for line_no,line in enumerate(textwrap.wrap(detail,28)):
                 label(pen,(12,86+line_no*24),line,20,WHITE)

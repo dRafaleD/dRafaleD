@@ -11,18 +11,16 @@ import base64
 import math
 import random
 import xml.etree.ElementTree as ET
+from profile_palette import BACKGROUND as BG, FOREGROUND as TEXT, MUTED, NEON, BORDER
 
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'assets'
 
-BG = '#000000'
-SURFACE = '#000000'
-TEXT = '#edf1e9'
-MUTED = '#c5c8c0'
-DIM = '#a7ada2'
-ACCENT = '#a8cf98'
-LIME = '#82ed30'
+
+SURFACE = BG
+DIM = MUTED
+ACCENT = LIME = NEON
 
 _IMAGE_CACHE: dict[tuple[str, int, int], str] = {}
 
@@ -185,7 +183,7 @@ DEFS = '''<defs>
 
 
 def save(name, height, title, description, body, output_dir=ASSETS):
-    outer_border = f'<rect x=".5" y=".5" width="999" height="{height - 1}" rx="12" fill="none" stroke="#2b2e31" stroke-width="1"/>'
+    outer_border = f'<rect x=".5" y=".5" width="999" height="{height - 1}" rx="12" fill="none" stroke="{BORDER}" stroke-width="1"/>'
     svg = (
         f'<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="{height}" viewBox="0 0 1000 {height}" '
         f'role="img" aria-labelledby="title desc">'
@@ -320,7 +318,7 @@ def chips(x, y, width, names, highlights=()):
         active = name in highlights
         fill = '#121c0e' if active else '#000000'
         stroke = '#a8cf98' if active else '#263522'
-        color = LIME if active else '#edf1e9'
+        color = LIME if active else TEXT
         body += f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="29" rx="5" fill="{fill}" stroke="{stroke}" stroke-width=".8"/>'
         body += text(round(x + 13, 1), y + 20, name, 14.5, color, True)
         x += w + 8
@@ -613,8 +611,8 @@ def connect():
             svg = (
                 f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} 96">'
                 f'<title>{title} — {action}</title>'
-                f'<rect x="1" y="1" width="{width-2}" height="94" rx="6" fill="#000000" stroke="#374a2e"/>'
-                '<rect x="15" y="23" width="50" height="50" rx="3" fill="#192711"/>'
+                f'<rect x="1" y="1" width="{width-2}" height="94" rx="6" fill="#000000" stroke="#263522"/>'
+                '<rect x="15" y="23" width="50" height="50" rx="3" fill="#121c0e"/>'
                 f'<text x="40" y="56" text-anchor="middle" fill="#82ed30" font-family="monospace" font-weight="bold" font-size="24">{escape(icon)}</text>'
                 f'<text x="82" y="43" font-family="monospace" font-weight="bold" font-size="30" fill="#edf1e9">{title}</text>'
                 f'<text x="82" y="72" font-family="Arial,sans-serif" font-size="21" fill="#edf1e9">{action}</text>'

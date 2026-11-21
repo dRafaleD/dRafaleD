@@ -3,6 +3,8 @@ import os
 import urllib.request
 import json
 from PIL import Image, ImageChops, ImageDraw, ImageFont
+from profile_palette import BACKGROUND as BG, BORDER, FOREGROUND as TEXT, MUTED, NEON as GREEN
+
 
 ROOT = Path(__file__).resolve().parents[1]
 USERNAME = "dRafaleD"
@@ -46,13 +48,9 @@ STATS = fetch_stats()
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 
 W, H = 920, 900
-BG = "#000000"
-HEADER = "#000000"
-BORDER = "#263522"
-GREEN = "#82ed30"
-LIME = "#82ed30"
-TEXT = "#edf1e9"
-MUTED = "#9eb193"
+
+HEADER = BG
+LIME = GREEN
 
 prompt_font = ImageFont.truetype(str(FONT), 16)
 body_font = ImageFont.truetype(str(FONT), 15)
@@ -106,9 +104,9 @@ def render(visible_chars: int, cursor_strength: float, scanline_y: int) -> Image
     draw.rectangle((22, 22, 898, 64), fill=HEADER)
     draw.line((22, 64, 898, 64), fill=BORDER, width=2)
     draw.line((24, scanline_y, 896, scanline_y), fill="#11190e", width=1)
-    draw.ellipse((40, 36, 54, 50), fill="#35472a")
-    draw.ellipse((62, 36, 76, 50), fill="#557d39")
-    draw.ellipse((84, 36, 98, 50), fill="#82ed30")
+    draw.ellipse((40, 36, 54, 50), fill=BORDER)
+    draw.ellipse((62, 36, 76, 50), fill=MUTED)
+    draw.ellipse((84, 36, 98, 50), fill=GREEN)
     draw.text((115, 38), "dRafaleD@github: ~/profile", font=small_font, fill=MUTED)
 
     progress = visible_chars
