@@ -12,7 +12,6 @@ import math
 import random
 import xml.etree.ElementTree as ET
 
-from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'assets'
@@ -30,11 +29,13 @@ _IMAGE_CACHE: dict[tuple[str, int, int], str] = {}
 
 def cosmos_photo(image):
     """Grade photographic backdrops with the display theme's cold stellar colors."""
+    from PIL import ImageOps
     return ImageOps.colorize(image.convert('L'), '#050608', '#f2f5f9', mid='#627e9b')
 
 
 def encode_backdrop(asset_name: str, width: int, height: int, quality: int = 84) -> str:
     """Resize and JPEG-encode a space raster asset to keep SVGs crisp and lightweight."""
+    from PIL import Image
     key = (asset_name, width, height)
     if key in _IMAGE_CACHE:
         return _IMAGE_CACHE[key]
