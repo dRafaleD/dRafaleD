@@ -1,20 +1,22 @@
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/profile-observatory.png" />
-  <img src="assets/profile-observatory.gif" alt="Eren Erdoğan (dRafaleD), Eskişehir. I build tools for reading binaries and tracing evidence with Rust, YARA-X and C." width="100%" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/lab-console.png" />
+  <img src="assets/lab-console.gif" alt="Eren Erdoğan (dRafaleD). Pixel specimen in a simulated static-analysis console. I build tools for reading binaries and tracing evidence with Rust, YARA-X and C." width="100%" />
 </picture>
 
-[Portfolio](https://drafaled.github.io/) · [Security projects](#selected-projects) · [Technical stack](#technical-stack) · [LinkedIn](https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/)
+[Projects](#projects) · [Stack & tools](#stack-and-tools) · [Training](#training-and-community) · [Activity](#activity) · [Contact](#contact)
 
-## Selected projects
+## Projects
 
-| Project | What I use it for |
-| --- | --- |
-| [**AsphDex**](https://github.com/dRafaleD/Malware-analysis-AsphDex) | Inspect PE and ELF files offline using strings, entropy and YARA matches. |
-| [**Banshee**](https://github.com/dRafaleD/Banshee) | Decode artifacts and package findings into an evidence bundle. |
-| [**flowscope**](https://github.com/dRafaleD/flowscope) | Read packet captures and follow DNS, HTTP and TLS activity. |
-| [**sentinel-security**](https://github.com/dRafaleD/sentinel-security) | Reconstruct Linux filesystem timelines from file timestamps. |
-| [**FhniX**](https://github.com/dRafaleD/FhniX) | Triage suspicious email and inspect the reasons behind each finding. |
-| [**The-Trackher**](https://github.com/dRafaleD/The-Trackher) | Review my own accounts for exposed information. |
+Open a project to explore its source.
+
+<a href="https://github.com/dRafaleD/Malware-analysis-AsphDex"><img src="assets/lab-project-asphdex.png" alt="AsphDex — Inspect PE / ELF files with YARA." width="49%" /></a>
+<a href="https://github.com/dRafaleD/Banshee"><img src="assets/lab-project-banshee.png" alt="Banshee — Decode artifacts and bundle findings." width="49%" /></a>
+
+<a href="https://github.com/dRafaleD/flowscope"><img src="assets/lab-project-flowscope.png" alt="flowscope — Follow traffic in offline captures." width="49%" /></a>
+<a href="https://github.com/dRafaleD/sentinel-security"><img src="assets/lab-project-sentinel.png" alt="sentinel-security — Rebuild filesystem timelines." width="49%" /></a>
+
+<a href="https://github.com/dRafaleD/FhniX"><img src="assets/lab-project-fhnix.png" alt="FhniX — Inspect suspicious mail and its signals." width="49%" /></a>
+<a href="https://github.com/dRafaleD/The-Trackher"><img src="assets/lab-project-trackher.png" alt="The-Trackher — Review your own digital footprint." width="49%" /></a>
 
 <details>
 <summary>More repositories & security labs</summary>
@@ -26,7 +28,12 @@
 
 </details>
 
-## Technical stack
+## Stack and tools
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/lab-byte-trace.png" />
+  <img src="assets/lab-byte-trace.gif" width="100%" alt="YARA illustration. A byte scan highlights 4C 41 42, the ASCII marker LAB." />
+</picture>
 
 <div align="center">
   <img src="assets/cosmos-arsenal.svg?v=10" alt="Languages and rule engines: Rust, YARA, YARA-X, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
@@ -39,6 +46,8 @@
 <div align="center">
   <img src="assets/cosmos-focus.svg?v=10" alt="Focus and learning: current focus areas and topics currently being studied across web security, malware analysis, Linux hardening, and secure backend engineering." width="100%" />
 </div>
+
+## Training and community
 
 <img src="assets/cosmos-certifications.svg?v=10" alt="Certifications: Siber Vatan; Cisco Introduction to Cybersecurity, Network Defense, and Cyber Threat Management. Original badges and verification links follow." width="100%" />
 
@@ -79,18 +88,7 @@
 
 <img src="assets/cosmos-ethics.svg?v=10" alt="Ethics: white hat security and authorized research only. Test responsibly, report ethically, build securely." width="100%" />
 
-<img src="assets/cosmos-connect.svg?v=10" alt="Connect with Eren Erdoğan on LinkedIn, explore dRafaleD on GitHub, or visit the web portfolio." width="100%" />
-
-<p align="center">
-<a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><img src="assets/cosmos-link-linkedin.svg?v=10" alt="LinkedIn: connect with Eren Erdoğan" width="49%" /></a>
-<a href="https://github.com/dRafaleD?tab=repositories"><img src="assets/cosmos-link-github.svg?v=10" alt="GitHub: explore dRafaleD repositories" width="49%" /></a>
-</p>
-
-<p align="center">
-  <a href="https://drafaled.github.io"><img src="https://img.shields.io/badge/Portfolio-dRafaleD.github.io-39FF88?style=for-the-badge&labelColor=060b08" alt="Portfolio" /></a>
-  &nbsp;
-  <a href="https://hits.sh/github.com/dRafaleD/"><img src="https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=39ff88&labelColor=060b08&extraCount=1260" alt="Profile views" /></a>
-</p>
+## Activity
 
 <img src="assets/cosmos-activity.svg?v=10" alt="GitHub activity: contribution streaks and recent commit activity." width="100%" />
 
@@ -103,3 +101,18 @@
 <img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/output/github-contribution-grid-snake-dark.svg?v=6" alt="GitHub contribution snake animation" width="100%" />
 
 </div>
+
+## Contact
+
+<img src="assets/cosmos-connect.svg?v=10" alt="Connect with Eren Erdoğan on LinkedIn, explore dRafaleD on GitHub, or visit the web portfolio." width="100%" />
+
+<p align="center">
+<a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><img src="assets/cosmos-link-linkedin.svg?v=10" alt="LinkedIn: connect with Eren Erdoğan" width="49%" /></a>
+<a href="https://github.com/dRafaleD?tab=repositories"><img src="assets/cosmos-link-github.svg?v=10" alt="GitHub: explore dRafaleD repositories" width="49%" /></a>
+</p>
+
+<p align="center">
+  <a href="https://drafaled.github.io"><img src="https://img.shields.io/badge/Portfolio-dRafaleD.github.io-39FF88?style=for-the-badge&labelColor=060b08" alt="Portfolio" /></a>
+  &nbsp;
+  <a href="https://hits.sh/github.com/dRafaleD/"><img src="https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=39ff88&labelColor=060b08&extraCount=1260" alt="Profile views" /></a>
+</p>
