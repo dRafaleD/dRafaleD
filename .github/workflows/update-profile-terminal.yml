@@ -40,13 +40,13 @@ jobs:
       - name: Commit updated profile activity when it changed
         shell: bash
         run: |
-          if git diff --quiet -- assets/operator-terminal.gif assets/operator-terminal.png assets/github-streak.svg; then
+          if git diff --quiet -- assets/operator-terminal.gif assets/operator-terminal.png assets/github-streak.svg assets/read-streak-wide.svg assets/read-streak-mobile.svg; then
             echo "Profile activity assets are already up to date."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/operator-terminal.gif assets/operator-terminal.png assets/github-streak.svg
+          git add assets/operator-terminal.gif assets/operator-terminal.png assets/github-streak.svg assets/read-streak-wide.svg assets/read-streak-mobile.svg
           git commit -m "chore: refresh profile activity stats"
           git push

@@ -14,14 +14,14 @@
 
 Open a project to explore its source.
 
-<a href="https://github.com/dRafaleD/Malware-analysis-AsphDex"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-asphdex.png" /><img src="assets/trace-asphdex.gif" alt="AsphDex — Inspect PE / ELF files with YARA." width="49%" /></picture></a>
-<a href="https://github.com/dRafaleD/Banshee"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-banshee.png" /><img src="assets/trace-banshee.gif" alt="Banshee — Decode artifacts and bundle findings." width="49%" /></picture></a>
+<p><a href="https://github.com/dRafaleD/Malware-analysis-AsphDex"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-asphdex-mobile.png" /><source media="(max-width: 767px)" srcset="assets/trace-asphdex-mobile.gif" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-asphdex.png" /><img src="assets/trace-asphdex.gif" alt="AsphDex — Inspect PE / ELF files with YARA." width="100%" /></picture></a></p>
+<p><a href="https://github.com/dRafaleD/Banshee"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-banshee-mobile.png" /><source media="(max-width: 767px)" srcset="assets/trace-banshee-mobile.gif" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-banshee.png" /><img src="assets/trace-banshee.gif" alt="Banshee — Decode artifacts and bundle findings." width="100%" /></picture></a></p>
 
-<a href="https://github.com/dRafaleD/flowscope"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-flowscope.png" /><img src="assets/trace-flowscope.gif" alt="flowscope — Follow traffic in offline captures." width="49%" /></picture></a>
-<a href="https://github.com/dRafaleD/sentinel-security"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-sentinel.png" /><img src="assets/trace-sentinel.gif" alt="sentinel-security — Rebuild filesystem timelines." width="49%" /></picture></a>
+<p><a href="https://github.com/dRafaleD/flowscope"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-flowscope-mobile.png" /><source media="(max-width: 767px)" srcset="assets/trace-flowscope-mobile.gif" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-flowscope.png" /><img src="assets/trace-flowscope.gif" alt="flowscope — Follow traffic in offline captures." width="100%" /></picture></a></p>
+<p><a href="https://github.com/dRafaleD/sentinel-security"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-sentinel-mobile.png" /><source media="(max-width: 767px)" srcset="assets/trace-sentinel-mobile.gif" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-sentinel.png" /><img src="assets/trace-sentinel.gif" alt="sentinel-security — Rebuild filesystem timelines." width="100%" /></picture></a></p>
 
-<a href="https://github.com/dRafaleD/FhniX"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-fhnix.png" /><img src="assets/trace-fhnix.gif" alt="FhniX — Inspect suspicious mail and its signals." width="49%" /></picture></a>
-<a href="https://github.com/dRafaleD/The-Trackher"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-trackher.png" /><img src="assets/trace-trackher.gif" alt="The-Trackher — Review your own digital footprint." width="49%" /></picture></a>
+<p><a href="https://github.com/dRafaleD/FhniX"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-fhnix-mobile.png" /><source media="(max-width: 767px)" srcset="assets/trace-fhnix-mobile.gif" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-fhnix.png" /><img src="assets/trace-fhnix.gif" alt="FhniX — Inspect suspicious mail and its signals." width="100%" /></picture></a></p>
+<p><a href="https://github.com/dRafaleD/The-Trackher"><picture><source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/trace-trackher-mobile.png" /><source media="(max-width: 767px)" srcset="assets/trace-trackher-mobile.gif" /><source media="(prefers-reduced-motion: reduce)" srcset="assets/trace-trackher.png" /><img src="assets/trace-trackher.gif" alt="The-Trackher — Review your own digital footprint." width="100%" /></picture></a></p>
 
 <details>
 <summary>More repositories & security labs</summary>
@@ -36,25 +36,27 @@ Open a project to explore its source.
 ## Stack and tools
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/lab-byte-trace.png?v=14" />
-  <img src="assets/lab-byte-trace.gif?v=14" width="100%" alt="YARA illustration. A byte scan highlights 4C 41 42, the ASCII marker LAB." />
+  <source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/byte-scan-mobile.png" />
+  <source media="(max-width: 767px)" srcset="assets/byte-scan-mobile.gif" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/byte-scan-wide.png" />
+  <img src="assets/byte-scan-wide.gif" width="100%" alt="YARA illustration. A byte scan highlights 4C 41 42, the ASCII marker LAB." />
 </picture>
 
 <div align="center">
-  <img src="assets/cosmos-arsenal.svg?v=14" alt="Languages and rule engines: Rust, YARA, YARA-X, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" />
+  <picture><source media="(max-width: 767px)" srcset="assets/read-arsenal-mobile.svg" /><img src="assets/read-arsenal-wide.svg" alt="Languages and rule engines: Rust, YARA, YARA-X, Assembly, C, C++, Python, JavaScript. Databases: PostgreSQL. Platforms: Kali Linux, Debian, Arch Linux." width="100%" /></picture>
 </div>
 
 <div align="center">
-  <img src="assets/cosmos-toolkit.svg?v=15" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" />
+  <picture><source media="(max-width: 767px)" srcset="assets/read-toolkit-mobile.svg" /><img src="assets/read-toolkit-wide.svg" alt="Security toolkit across Recon and OSINT, Web Security, Offensive Security, Defensive Analysis, and Reverse Engineering." width="100%" /></picture>
 </div>
 
 <div align="center">
-  <img src="assets/cosmos-focus.svg?v=15" alt="Focus and learning: current focus areas and topics currently being studied across web security, malware analysis, Linux hardening, and secure backend engineering." width="100%" />
+  <picture><source media="(max-width: 767px)" srcset="assets/read-focus-mobile.svg" /><img src="assets/read-focus-wide.svg" alt="Focus and learning: current focus areas and topics currently being studied across web security, malware analysis, Linux hardening, and secure backend engineering." width="100%" /></picture>
 </div>
 
 ## Training and community
 
-<img src="assets/cosmos-certifications.svg?v=14" alt="Certifications: Siber Vatan; Cisco Introduction to Cybersecurity, Network Defense, and Cyber Threat Management. Original badges and verification links follow." width="100%" />
+<picture><source media="(max-width: 767px)" srcset="assets/read-certifications-mobile.svg" /><img src="assets/read-certifications-wide.svg" alt="Certifications: Siber Vatan; Cisco Introduction to Cybersecurity, Network Defense, and Cyber Threat Management. Original badges and verification links follow." width="100%" /></picture>
 
 <details>
 <summary>Original credential badges and verification links</summary>
@@ -82,7 +84,7 @@ Open a project to explore its source.
 
 </details>
 
-<a href="https://hub.xerj.org/contributors/dRafaleD.html"><img src="assets/cosmos-community.svg?v=14" alt="XERJ Corpus Hub: community contributions by dRafaleD. Open the contributor record." width="100%" /></a>
+<p><a href="https://hub.xerj.org/contributors/dRafaleD.html"><picture><source media="(max-width: 767px)" srcset="assets/read-community-mobile.svg" /><img src="assets/read-community-wide.svg" alt="XERJ Corpus Hub: community contributions by dRafaleD. Open the contributor record." width="100%" /></picture></a></p>
 
 <details>
 <summary>Live contributor badge</summary>
@@ -91,15 +93,15 @@ Open a project to explore its source.
 
 </details>
 
-<img src="assets/cosmos-ethics.svg?v=14" alt="Ethics: white hat security and authorized research only. Test responsibly, report ethically, build securely." width="100%" />
+<picture><source media="(max-width: 767px)" srcset="assets/read-ethics-mobile.svg" /><img src="assets/read-ethics-wide.svg" alt="Ethics: white hat security and authorized research only. Test responsibly, report ethically, build securely." width="100%" /></picture>
 
 ## Activity
 
-<img src="assets/cosmos-activity.svg?v=14" alt="GitHub activity: contribution streaks and recent commit activity." width="100%" />
+<picture><source media="(max-width: 767px)" srcset="assets/read-activity-mobile.svg" /><img src="assets/read-activity-wide.svg" alt="GitHub activity: contribution streaks and recent commit activity." width="100%" /></picture>
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/dRafaleD/dRafaleD/main/assets/github-streak.svg?v=14" alt="dRafaleD GitHub contribution streak" width="100%" />
+<picture><source media="(max-width: 767px)" srcset="assets/read-streak-mobile.svg" /><img src="assets/read-streak-wide.svg" alt="dRafaleD GitHub contribution streak" width="100%" /></picture>
 
 <br />
 
@@ -117,8 +119,10 @@ Open a project to explore its source.
 </picture>
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/instruction-trace.png" />
-  <img src="assets/instruction-trace.gif" width="100%" alt="Four x86 instructions illustrated with their bytes and the resulting EAX value." />
+  <source media="(max-width: 767px) and (prefers-reduced-motion: reduce)" srcset="assets/register-mobile.png" />
+  <source media="(max-width: 767px)" srcset="assets/register-mobile.gif" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/register-wide.png" />
+  <img src="assets/register-wide.gif" width="100%" alt="Four x86 instructions illustrated with their bytes and the resulting EAX value." />
 </picture>
 
 ## Contact

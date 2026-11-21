@@ -188,51 +188,64 @@ def cards():
             draw.line((475,scan,533,scan),fill='#a6ff59')
             label(draw,(480,88),signals[slug][i//6],13,LIME,True,True)
             frames.append(frame)
+        import textwrap
+        mobile_frames = []
+        for frame in frames:
+            mobile = Image.new('RGB',(352,146),'#0a0e09')
+            pen = ImageDraw.Draw(mobile)
+            pen.rectangle((0,0,351,145),outline=LINE)
+            label(pen,(12,12),category,16,PHOSPHOR,True,True)
+            label(pen,(12,39),name,27,WHITE,True)
+            for line_no,line in enumerate(textwrap.wrap(detail,28)):
+                label(pen,(12,86+line_no*24),line,20,WHITE)
+            mobile.paste(frame.crop((474,20,548,105)).resize((55,64)),(286,10))
+            mobile_frames.append(mobile)
+        save_trace(f'trace-{slug}-mobile',mobile_frames,6,160)
         frames[6].save(ASSETS/f'trace-{slug}.png')
         frames[0].save(ASSETS/f'trace-{slug}.gif', save_all=True,
                        append_images=frames[1:], duration=160, loop=0)
 
 
+def save_trace(name, frames, still, duration):
+    frames[still].save(ASSETS/f'{name}.png')
+    frames[0].save(ASSETS/f'{name}.gif', save_all=True, append_images=frames[1:], duration=duration, loop=0)
+
+
 def disassembly():
-    frames = []
     rows = [('0000','31 C0','xor eax, eax'),('0002','FF C0','inc eax'),
             ('0004','83 F8 01','cmp eax, 1'),('0007','C3','ret')]
-    for i in range(4):
-        frame = Image.new('RGB',(1000,235),INK)
-        draw = ImageDraw.Draw(frame)
-        label(draw,(28,18),'Disassembly',24,WHITE,True)
-        label(draw,(663,23),'REGISTER WATCH',16,LIME,True,True)
-        for j,(offset,raw,instruction) in enumerate(rows):
-            y = 70+j*37
-            if i == j:
-                draw.rectangle((20,y-9,610,y+24),fill='#16280d')
-                draw.rectangle((20,y-9,23,y+24),fill=LIME)
-            for x,value in [(39,offset),(151,raw),(346,instruction)]:
-                label(draw,(x,y),value,19,LIME if i==j else PHOSPHOR,False,True)
-        label(draw,(663,83),'EAX',17,PHOSPHOR,True,True)
-        label(draw,(663,116),'00000000' if i==0 else '00000001',31,WHITE,True,True)
-        label(draw,(663,182),('zero register','increment','compare','return')[i],17,LIME,False,True)
-        frames.append(frame)
-    frames[2].save(ASSETS/'instruction-trace.png')
-    frames[0].save(ASSETS/'instruction-trace.gif',save_all=True,append_images=frames[1:],duration=800,loop=0)
+    for mode,width in [('mobile',352),('wide',720)]:
+        frames = []
+        for i in range(4):
+            im = Image.new('RGB',(width,282),INK)
+            d = ImageDraw.Draw(im)
+            label(d,(16,18),'Disassembly',28,WHITE,True)
+            for j,(offset,raw,instruction) in enumerate(rows):
+                y = 68+j*38
+                if i == j:
+                    d.rectangle((8,y-7,width-8,y+26),fill='#16280d')
+                for x,value in [(16,offset),(85,raw),(178,instruction)]:
+                    label(d,(x,y),value,19,LIME if i==j else PHOSPHOR,False,True)
+            label(d,(16,238),'EAX  '+('00000000' if i==0 else '00000001'),23,LIME,True,True)
+            frames.append(im)
+        save_trace('register-'+mode,frames,2,800)
 
 
 def yara_trace():
-    frames = []
-    for i in range(32):
-        im = Image.new('RGB', (1000, 99), INK)
-        d = ImageDraw.Draw(im)
-        label(d, (25, 16), 'YARA / BYTE MATCH', 18, PHOSPHOR, True, True)
-        label(d, (25, 55), 'Sample marker: LAB', 20, WHITE)
-        for j, value in enumerate(['00','4D','5A','00','4C','41','42','00']):
-            x = 336 + j * 56
-            active = 4 <= j <= 6 if i >= 20 else j == i // 3
-            d.rounded_rectangle((x, 30, x+47, 69), radius=4, fill=(LIME if i >= 20 else PHOSPHOR) if active else '#20301a')
-            label(d, (x+10, 40), value, 20, INK if active else WHITE, True, True)
-        label(d, (816, 39), 'MATCH: LAB' if i >= 20 else 'SCANNING', 20, LIME, True, True)
-        frames.append(im)
-    frames[-1].save(ASSETS/'lab-byte-trace.png')
-    frames[0].save(ASSETS/'lab-byte-trace.gif',save_all=True,append_images=frames[1:],duration=160,loop=0)
+    for mode,width in [('mobile',352),('wide',720)]:
+        frames=[]
+        for i in range(32):
+            im=Image.new('RGB',(width,170),INK)
+            d=ImageDraw.Draw(im)
+            label(d,(14,13),'YARA / BYTE MATCH',23,WHITE,True,True)
+            for j,value in enumerate(('00','4D','5A','00','4C','41','42','00')):
+                x=13+j*((width-24)//8)
+                active=4<=j<=6 if i>=20 else j==i//3
+                d.rectangle((x,58,x+(width-24)//8-5,97),fill=LIME if active else '#20301a')
+                label(d,(x+5,67),value,20,INK if active else WHITE,True,True)
+            label(d,(14,120),'MATCH: LAB' if i>=20 else 'Scanning for LAB',22,LIME,True,True)
+            frames.append(im)
+        save_trace('byte-scan-'+mode,frames,-1,160)
 
 
 if __name__ == '__main__':
