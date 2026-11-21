@@ -602,22 +602,26 @@ def ethics():
 
 def connect():
     channels = [
-        ('linkedin', 'LinkedIn', 'Connect with Eren Erdoğan', 'in'),
-        ('github', 'GitHub', 'Explore my repositories', '>_'),
-        ('portfolio', 'Portfolio', 'Visit dRafaleD.github.io', '//'),
+        ('linkedin', 'LinkedIn', 'Connect with Eren Erdoğan',
+         '10000000 00000000 10011100 10100010 10100010 10100010 10100010 00000000'),
+        ('github', 'GitHub', 'Explore my repositories',
+         '00000000 01000000 00100000 00010000 00100000 01001110 00000000 00000000'),
+        ('portfolio', 'Portfolio', 'dRafaleD.github.io',
+         '11111111 10000001 11111111 10000001 10111001 10101001 10111001 11111111'),
     ]
     for name, title, action, icon in channels:
         for mode, width in [('wide', 800), ('mobile', 400)]:
             svg = (
-                f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} 96">'
-                f'<title>{title} — {action}</title>'
-                f'<rect x="1" y="1" width="{width-2}" height="94" rx="6" fill="#000000" stroke="#263522"/>'
-                '<rect x="15" y="23" width="50" height="50" rx="3" fill="#121c0e"/>'
-                f'<text x="40" y="56" text-anchor="middle" fill="#82ed30" font-family="monospace" font-weight="bold" font-size="24">{escape(icon)}</text>'
-                f'<text x="82" y="43" font-family="monospace" font-weight="bold" font-size="30" fill="#edf1e9">{title}</text>'
-                f'<text x="82" y="72" font-family="Arial,sans-serif" font-size="21" fill="#edf1e9">{action}</text>'
-                f'<path d="M{width-49} 58l19-19m-17 0h17v17" fill="none" stroke="#82ed30" stroke-width="4"/>'
-                '</svg>'
+                f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} 108">'
+                f'<title>{title} — {action}</title>{DEFS}<style>{STYLE}</style>'
+                f'<rect x="1" y="1" width="{width-2}" height="106" rx="8" fill="{BG}" stroke="{BORDER}"/>'
+                f'<path d="M2 25V9Q2 2 9 2H25M{width-25} 106h16q7 0 7-7V83" fill="none" stroke="{NEON}" stroke-width="2"/>'
+                '<rect x="17" y="27" width="54" height="54" rx="4" fill="#121c0e"/>'
+                + pixel_icon(32, 42, icon.split(), NEON)
+                + text(89, 50, title, 30, TEXT, True)
+                + text(90, 78, action, 20, MUTED)
+                + f'<path d="M{width-45} 63l18-18m-17 0h17v17" fill="none" stroke="{NEON}" stroke-width="3"/>'
+                + '</svg>'
             )
             (ASSETS / f'contact-{name}-{mode}.svg').write_text(svg, encoding='utf8')
 

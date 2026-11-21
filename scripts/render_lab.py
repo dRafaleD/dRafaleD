@@ -249,9 +249,42 @@ def yara_trace():
         save_trace('byte-scan-'+mode,frames,-1,160)
 
 
+def hello_world():
+    message = "Hello World"
+    frames = []
+    durations = []
+    mascot = specimen().resize((336, 238), Image.Resampling.NEAREST)
+    talking = specimen('alert').resize(mascot.size, Image.Resampling.NEAREST)
+    for count in range(len(message)+1):
+        frame = Image.new('RGB', (720, 465), INK)
+        draw = ImageDraw.Draw(frame)
+        draw.rounded_rectangle((1,1,718,463), radius=9, outline=LINE, width=2)
+        label(draw,(26,24),'malware@lab ~ $',29,LIME,True,True)
+        label(draw,(489,26),'ASCII / DEC',25,MUTED,True,True)
+        draw.line((26,64,694,64),fill=LINE,width=2)
+        sprite = talking if count % 2 else mascot
+        frame.paste(sprite,(192,72-count % 2*4),sprite)
+        for index, char in enumerate(message):
+            row,col = divmod(index,6)
+            x,y = 69+col*100, 316+row*54
+            if index < count:
+                draw.rounded_rectangle((x,y,x+82,y+45),radius=4,fill='#121c0e',outline=LINE)
+                label(draw,(x+9,y+6),f'{ord(char):03d}',30,LIME,True,True)
+        if count == len(message):
+            label(draw,(69,425),message,28,WHITE,True,True)
+        else:
+            draw.rectangle((69,425,84,448),fill=LIME)
+        frames.append(frame)
+        durations.append(2900 if count == len(message) else 210)
+    frames[-1].save(ASSETS/'malware-hello-world.png')
+    frames[0].save(ASSETS/'malware-hello-world.gif',save_all=True,
+                   append_images=frames[1:],duration=durations,loop=0)
+
+
 if __name__ == '__main__':
     hero()
     analysis_demos()
     disassembly()
     cards()
     yara_trace()
+    hello_world()

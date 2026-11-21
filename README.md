@@ -125,12 +125,18 @@
 
 ## Contact
 
-<p><a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><picture><source media="(max-width: 767px)" srcset="assets/contact-linkedin-mobile.svg?v=unified-palette" /><img src="assets/contact-linkedin-wide.svg?v=unified-palette" width="100%" alt="LinkedIn — Connect with Eren Erdoğan" /></picture></a></p>
+<p><a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><picture><source media="(max-width: 767px)" srcset="assets/contact-linkedin-mobile.svg?v=pixel-contact" /><img src="assets/contact-linkedin-wide.svg?v=pixel-contact" width="100%" alt="LinkedIn — Connect with Eren Erdoğan" /></picture></a></p>
 
-<p><a href="https://github.com/dRafaleD?tab=repositories"><picture><source media="(max-width: 767px)" srcset="assets/contact-github-mobile.svg?v=unified-palette" /><img src="assets/contact-github-wide.svg?v=unified-palette" width="100%" alt="GitHub — Explore my repositories" /></picture></a></p>
+<p><a href="https://github.com/dRafaleD?tab=repositories"><picture><source media="(max-width: 767px)" srcset="assets/contact-github-mobile.svg?v=pixel-contact" /><img src="assets/contact-github-wide.svg?v=pixel-contact" width="100%" alt="GitHub — Explore my repositories" /></picture></a></p>
 
-<p><a href="https://drafaled.github.io/"><picture><source media="(max-width: 767px)" srcset="assets/contact-portfolio-mobile.svg?v=unified-palette" /><img src="assets/contact-portfolio-wide.svg?v=unified-palette" width="100%" alt="Portfolio — Visit dRafaleD.github.io" /></picture></a></p>
+<p><a href="https://drafaled.github.io/"><picture><source media="(max-width: 767px)" srcset="assets/contact-portfolio-mobile.svg?v=pixel-contact" /><img src="assets/contact-portfolio-wide.svg?v=pixel-contact" width="100%" alt="Portfolio — Visit dRafaleD.github.io" /></picture></a></p>
 
 <p align="center">
   <a href="https://hits.sh/github.com/dRafaleD/"><img src="https://hits.sh/github.com/dRafaleD.svg?style=for-the-badge&label=profile%20views&color=82ed30&labelColor=000000&extraCount=1260" width="240" alt="Profile views" /></a>
 </p>
+
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/malware-hello-world.png" />
+  <img src="assets/malware-hello-world.gif" width="100%" alt="Pixel malware mascot transmits Hello World as decimal ASCII: 072 101 108 108 111 032 087 111 114 108 100." />
+</picture>

@@ -1,1 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 96"><title>GitHub — Explore my repositories</title><rect x="1" y="1" width="798" height="94" rx="6" fill="#000000" stroke="#263522"/><rect x="15" y="23" width="50" height="50" rx="3" fill="#121c0e"/><text x="40" y="56" text-anchor="middle" fill="#82ed30" font-family="monospace" font-weight="bold" font-size="24">&gt;_</text><text x="82" y="43" font-family="monospace" font-weight="bold" font-size="30" fill="#edf1e9">GitHub</text><text x="82" y="72" font-family="Arial,sans-serif" font-size="21" fill="#edf1e9">Explore my repositories</text><path d="M751 58l19-19m-17 0h17v17" fill="none" stroke="#82ed30" stroke-width="4"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 108"><title>GitHub — Explore my repositories</title><defs>
+<radialGradient id="nebula"><stop stop-color="#a8cf98" stop-opacity=".22"/><stop offset=".45" stop-color="#4a7fa8" stop-opacity=".14"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
+<radialGradient id="nebulaLime"><stop stop-color="#82ed30" stop-opacity=".16"/><stop offset=".48" stop-color="#333d4c" stop-opacity=".12"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
+<radialGradient id="core"><stop stop-color="#efffda" stop-opacity=".95"/><stop offset=".15" stop-color="#c6f5c5" stop-opacity=".7"/><stop offset=".45" stop-color="#a8cf98" stop-opacity=".18"/><stop offset="1" stop-color="#a8cf98" stop-opacity="0"/></radialGradient>
+<radialGradient id="starGlow"><stop stop-color="#dfffea" stop-opacity=".85"/><stop offset=".18" stop-color="#a8cf98" stop-opacity=".45"/><stop offset="1" stop-color="#a8cf98" stop-opacity="0"/></radialGradient>
+<linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#000000"/><stop offset=".6" stop-color="#000000"/><stop offset="1" stop-color="#000000"/></linearGradient>
+<linearGradient id="panel" x2="1" y2="1"><stop stop-color="#1b1e23" stop-opacity=".92"/><stop offset="1" stop-color="#000000" stop-opacity=".84"/></linearGradient>
+<linearGradient id="edge"><stop stop-color="#a8cf98" stop-opacity=".6"/><stop offset=".55" stop-color="#82ed30" stop-opacity=".28"/><stop offset="1" stop-color="#a8cf98" stop-opacity="0"/></linearGradient>
+<linearGradient id="veil"><stop stop-color="#000000"/><stop offset=".46" stop-color="#000000" stop-opacity=".88"/><stop offset=".78" stop-color="#000000" stop-opacity=".24"/><stop offset="1" stop-color="#000000" stop-opacity=".08"/></linearGradient>
+<linearGradient id="veilStrong"><stop stop-color="#000000" stop-opacity=".95"/><stop offset=".55" stop-color="#000000" stop-opacity=".82"/><stop offset="1" stop-color="#000000" stop-opacity=".5"/></linearGradient>
+<linearGradient id="meteor"><stop stop-color="#a8cf98" stop-opacity="0"/><stop offset="1" stop-color="#e4ffec" stop-opacity=".92"/></linearGradient>
+<radialGradient id="planet" cx="26%" cy="18%" r="86%"><stop stop-color="#5d8a6a"/><stop offset=".26" stop-color="#173d2b"/><stop offset=".64" stop-color="#071a11"/><stop offset="1" stop-color="#010503"/></radialGradient>
+</defs><style>
+.space-photo{animation:spaceDrift 22s ease-in-out infinite;transform-origin:75% 50%}
+@keyframes spaceDrift{0%,100%{transform:scale(1)}50%{transform:translate(-8px,-3px) scale(1.045)}}
+.ui{font-family:'Segoe UI',Ubuntu,Arial,sans-serif}
+.mono{font-family:Consolas,'DejaVu Sans Mono',monospace;letter-spacing:.4px}
+.star{animation:twinkle 5.5s ease-in-out infinite}
+.s1{animation-delay:-1.9s;animation-duration:7.2s}
+.s2{animation-delay:-3.8s;animation-duration:9.4s}
+.galaxy-spin{animation:spin 100s linear infinite;transform-origin:0 0}
+.breathe{animation:breathe 8s ease-in-out infinite}
+.nebula-drift{animation:nebulaDrift 26s ease-in-out infinite}
+.stream{stroke-dasharray:3 16;animation:stream 14s linear infinite}
+.link-flow{stroke-dasharray:2 84;animation:stream 7.5s linear infinite}
+.cursor{animation:blink 1.15s steps(2,start) infinite}
+.scan{animation:scan 9s linear infinite;opacity:.75}
+.meteor{animation:meteor 14s linear infinite}
+.meteor.second{animation-delay:-7.5s;animation-duration:21s}
+@keyframes twinkle{0%,100%{opacity:.16}50%{opacity:.86}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes breathe{0%,100%{opacity:.52}50%{opacity:1}}
+@keyframes nebulaDrift{0%,100%{transform:translate(0,0)}50%{transform:translate(-14px,6px)}}
+@keyframes stream{to{stroke-dashoffset:-328}}
+@keyframes blink{0%,49%{opacity:.95}50%,100%{opacity:0}}
+@keyframes scan{0%{transform:translateX(0);opacity:0}10%{opacity:.85}90%{opacity:.85}100%{transform:translateX(var(--end,360px));opacity:0}}
+@keyframes meteor{0%,72%{opacity:0;transform:translate(-100px,-30px)}74%{opacity:.85}86%,100%{opacity:0;transform:translate(1160px,240px)}}
+@media(prefers-reduced-motion:reduce){.space-photo,.star,.galaxy-spin,.breathe,.nebula-drift,.stream,.link-flow,.cursor,.scan,.meteor{animation:none}.meteor{opacity:0}}
+</style><rect x="1" y="1" width="798" height="106" rx="8" fill="#000000" stroke="#263522"/><path d="M2 25V9Q2 2 9 2H25M775 106h16q7 0 7-7V83" fill="none" stroke="#82ed30" stroke-width="2"/><rect x="17" y="27" width="54" height="54" rx="4" fill="#121c0e"/><path transform="translate(32 42) scale(3)" fill="#82ed30" shape-rendering="crispEdges" d="M1 1h1v1h-1zM2 2h1v1h-1zM3 3h1v1h-1zM2 4h1v1h-1zM1 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1z"/><text x="89" y="50" font-size="30" fill="#edf1e9" class="mono" >GitHub</text><text x="90" y="78" font-size="20" fill="#c5c8c0" class="ui" >Explore my repositories</text><path d="M755 63l18-18m-17 0h17v17" fill="none" stroke="#82ed30" stroke-width="3"/></svg>
