@@ -123,6 +123,11 @@
   <img src="assets/instruction-trace.gif?v=unified-palette" width="100%" alt="Four x86 instructions illustrated with their bytes and the resulting EAX value." />
 </picture>
 
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/yara-x-operator-demo.png" />
+  <img src="assets/yara-x-operator-demo.gif" width="100%" alt="Pixel operator pokes the EXE mascot three times. Each touch triggers an illustrated YARA-X match and a burst of green bytes." />
+</picture>
+
 ## Contact
 
 <p><a href="https://www.linkedin.com/in/eren-erdo%C4%9Fan-655084399/"><picture><source media="(max-width: 767px)" srcset="assets/contact-linkedin-mobile.svg?v=pixel-contact" /><img src="assets/contact-linkedin-wide.svg?v=pixel-contact" width="100%" alt="LinkedIn — Connect with Eren Erdoğan" /></picture></a></p>
